@@ -1,0 +1,26 @@
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\bin\Debug\Kinect Demo.exe
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\bin\Debug\Kinect Demo.pdb
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\MainWindow.baml
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\MainWindow.g.cs
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\App.g.cs
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\Kinect Demo_MarkupCompile.cache
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\Kinect Demo.g.resources
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\Kinect_Demo.Properties.Resources.resources
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\Kinect Demo.exe
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo\Kinect Demo\obj\x86\Debug\Kinect Demo.pdb
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\MainWindow.baml
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\MainWindow.g.cs
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\App.g.cs
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\Kinect_Demo.Properties.Resources.resources
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\bin\Debug\Kinect Demo.exe
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\bin\Debug\Kinect Demo.pdb
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\Kinect Demo_MarkupCompile.cache
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\Kinect Demo.g.resources
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\Kinect Demo.exe
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Color,Depth)\Kinect Demo (Color,Depth)\obj\x86\Debug\Kinect Demo.pdb

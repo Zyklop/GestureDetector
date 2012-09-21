@@ -1,0 +1,20 @@
+﻿<Window x:Class="Kinect_Demo__Bild_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kinect Demo (Bild)" Height="960" Width="1280" WindowStartupLocation="CenterScreen">
+    <Viewbox Name="ViewBoxMain" Stretch="Fill">
+        <Grid Name="GridMain" Height="960"  Width="1280">
+            <Image Name="imageColorView" Height="960" Width="1280" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" />
+            <Canvas x:Name="CanvasLogo">
+                <Image Height="156"  Width="230" Name="ImageMFLogo" Source="Resources\MF_Logo.jpg">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="LogoScale"/>
+                            <RotateTransform x:Name="LogoRotate"/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</Window>

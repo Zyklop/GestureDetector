@@ -1,0 +1,8 @@
+﻿<Window x:Class="Kinect_Demo__Skeleton_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kinect Demo (Skeleton)" Height="640" Width="1024">
+    <Grid Name="LayoutRoot">
+        
+    </Grid>
+</Window>

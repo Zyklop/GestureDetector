@@ -1,0 +1,13 @@
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\bin\Debug\Kinect Demo (Hand).exe
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\bin\Debug\Kinect Demo (Hand).pdb
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\MainWindow.baml
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\MainWindow.g.cs
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\App.g.cs
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\Kinect Demo (Hand)_MarkupCompile.cache
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\Kinect Demo (Hand).g.resources
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\Kinect_Demo__Hand_.Properties.Resources.resources
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\Kinect Demo (Hand).exe
+C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Debug\Kinect Demo (Hand).pdb
