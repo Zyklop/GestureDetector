@@ -11,3 +11,15 @@ C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (H
 C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\GenerateResource.write.1.tlog
 C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\Kinect Demo (Hand).exe
 C:\Daten\Projekt\SW Entwicklung\Kinect\C#\Test\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\Kinect Demo (Hand).pdb
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\Kinect Demo (Hand).exe
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\Kinect Demo (Hand).pdb
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\Kinect Demo (Hand).csprojResolveAssemblyReference.cache
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\MainWindow.baml
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\MainWindow.g.cs
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\App.g.cs
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\Kinect Demo (Hand)_MarkupCompile.cache
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\Kinect Demo (Hand).g.resources
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\Kinect_Demo__Hand_.Properties.Resources.resources
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\obj\x86\Release\Kinect Demo (Hand).csproj.GenerateResource.Cache
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\bin\Release\Kinect Demo (Hand).exe
+C:\Users\bor\Documents\Git\SA\Demos\Kinect Demo (Hand)\Kinect Demo (Hand)\bin\Release\Kinect Demo (Hand).pdb
