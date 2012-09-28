@@ -1,4 +1,4 @@
-
+﻿
 - gute Bewegungen für Grundfunktionen
 - Demoimplementation: PowerPoint, PDFViewer, etwas eigenes
 - keine Präsentation
@@ -28,4 +28,6 @@ Reihenfolge:
 
 Ziel-Environment:
 - Bildschirm in Fabrikhalle in 3m Höhe aus 4m Entfernung bedienbar.
+
+Kinect Gesture Data SET
 - 
