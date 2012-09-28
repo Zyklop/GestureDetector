@@ -1,0 +1,31 @@
+
+- gute Bewegungen für Grundfunktionen
+- Demoimplementation: PowerPoint, PDFViewer, etwas eigenes
+- keine Präsentation
+
+Technik: Kinect
+Bedienung: Minimalanforderungen - Blättern, Scrollen, Pointer (ev. Zoom)
+Schnittstelle: Erweiterbarkeit
+Ergebnis: Wie gut ist die industrielle Einsatzfähigkeit (Bediennbarkeit, Technische Evaluation)
+
+- Kalibrierung des Bildschirms: 3D, 2D, Audio
+- Geste findet statt
+
+- Minimal-Ziel:
+Beantwortung der Frage: Ist die Kinect für Industrielösungen einsetzbar? Evaluation von Gesten/Bedienkonzepten, Minimalimplementationen erarbeiten & Demonstrieren, Analyse der Stabilität
+
+Phasen:
+- Evaluation
+- Entwicklung
+- Stabilisierung
+
+Reihenfolge:
+- Anforderungen an Applikation anschauen auf Bezug zu anderen Lösungen.
+- Bedienungen evaluieren, bestehender Projekte, Anforderungen der Industrieapplikation
+  Kriterien für Vergleiche Technisch: Distanz 4m, Viele Personen
+                           Bedienung: Viele Personen
+  BigBrother Problem
+
+Ziel-Environment:
+- Bildschirm in Fabrikhalle in 3m Höhe aus 4m Entfernung bedienbar.
+- 
