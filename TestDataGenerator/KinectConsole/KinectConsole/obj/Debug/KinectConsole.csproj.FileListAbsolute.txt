@@ -1,0 +1,8 @@
+c:\users\bor\documents\visual studio 2012\Projects\KinectConsole\KinectConsole\bin\Debug\KinectConsole.exe.config
+c:\users\bor\documents\visual studio 2012\Projects\KinectConsole\KinectConsole\obj\Debug\KinectConsole.csprojResolveAssemblyReference.cache
+c:\users\bor\documents\visual studio 2012\Projects\KinectConsole\KinectConsole\obj\Debug\Interop.KinectManagement.dll
+c:\users\bor\documents\visual studio 2012\Projects\KinectConsole\KinectConsole\obj\Debug\KinectConsole.csproj.ResolveComReference.cache
+c:\users\bor\documents\visual studio 2012\Projects\KinectConsole\KinectConsole\bin\Debug\KinectConsole.exe
+c:\users\bor\documents\visual studio 2012\Projects\KinectConsole\KinectConsole\bin\Debug\KinectConsole.pdb
+c:\users\bor\documents\visual studio 2012\Projects\KinectConsole\KinectConsole\obj\Debug\KinectConsole.exe
+c:\users\bor\documents\visual studio 2012\Projects\KinectConsole\KinectConsole\obj\Debug\KinectConsole.pdb
