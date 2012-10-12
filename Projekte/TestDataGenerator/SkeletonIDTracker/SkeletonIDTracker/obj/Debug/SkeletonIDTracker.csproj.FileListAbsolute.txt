@@ -1,0 +1,8 @@
+C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\bin\Debug\SkeletonIDTracker.exe.config
+C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.csprojResolveAssemblyReference.cache
+C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\bin\Debug\SkeletonIDTracker.exe
+C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\bin\Debug\SkeletonIDTracker.pdb
+C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\Interop.KinectManagement.dll
+C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.csproj.ResolveComReference.cache
+C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.exe
+C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.pdb

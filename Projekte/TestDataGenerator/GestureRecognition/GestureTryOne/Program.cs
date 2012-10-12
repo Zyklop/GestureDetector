@@ -40,7 +40,7 @@ namespace GestureTryOne
             Skeleton[] skeletons = new Skeleton[6];
             while (true)
             {
-                SkeletonFrame f = Dev.SkeletonStream.OpenNextFrame(200);
+                SkeletonFrame f = Dev.SkeletonStream.OpenNextFrame(50);
                 if (f != null)
                 {
                     f.CopySkeletonDataTo(skeletons);
