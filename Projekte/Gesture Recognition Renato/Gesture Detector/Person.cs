@@ -35,5 +35,7 @@ namespace DataSources
         }
 
         public bool Active { get; set; }
+
+        public event EventHandler NewSkeleton;
     }
 }
