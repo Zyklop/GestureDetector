@@ -1,5 +1,0 @@
-C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\GestureRecognition\GestureTryOne\bin\Debug\GestureTryOne.exe.config
-C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\GestureRecognition\GestureTryOne\bin\Debug\GestureTryOne.exe
-C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\GestureRecognition\GestureTryOne\bin\Debug\GestureTryOne.pdb
-C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\GestureRecognition\GestureTryOne\obj\Debug\GestureTryOne.exe
-C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\GestureRecognition\GestureTryOne\obj\Debug\GestureTryOne.pdb

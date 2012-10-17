@@ -6,3 +6,7 @@ C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\Skele
 C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.csproj.ResolveComReference.cache
 C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.exe
 C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.pdb
+\\c101.hsr.ch\j1schmid\Desktop\SA\kinect_sa\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\bin\Debug\SkeletonIDTracker.exe.config
+\\c101.hsr.ch\j1schmid\Desktop\SA\kinect_sa\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.csproj.ResolveComReference.cache
+\\c101.hsr.ch\j1schmid\Desktop\SA\kinect_sa\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.exe
+\\c101.hsr.ch\j1schmid\Desktop\SA\kinect_sa\Projekte\TestDataGenerator\SkeletonIDTracker\SkeletonIDTracker\obj\Debug\SkeletonIDTracker.pdb

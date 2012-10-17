@@ -1,3 +1,0 @@
-C:\Users\bor\Documents\Git\SA\Projekte\Gesture Detector\Gesture Detector\bin\Debug\Gesture Detector.exe.config
-C:\Users\bor\Documents\Git\SA\Projekte\Gesture Detector\Gesture Detector\obj\Debug\Gesture Detector.csprojResolveAssemblyReference.cache
-C:\Renato\programming\git\SA\Projekte\Gesture Detector\Gesture Detector\bin\Debug\Gesture Detector.exe.config
