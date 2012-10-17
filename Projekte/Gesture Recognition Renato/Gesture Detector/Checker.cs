@@ -8,6 +8,11 @@ using Microsoft.Kinect;
 
 namespace Conditions
 {
+    public enum Direction
+    {
+       forward, upward, downward, left, right, backward, none
+   }
+
     class Checker
     {
         private Person person;
@@ -31,5 +36,17 @@ namespace Conditions
         {
             return 0;
         }
+
+        public List<Direction> getAbsoluteMovement(JointType type)
+        {
+            return null;
+        }
+
+        public List<Direction> getRelativeMovement(JointType steady, JointType moving)
+        {
+            return null;
+        }
+
+
     }
 }
