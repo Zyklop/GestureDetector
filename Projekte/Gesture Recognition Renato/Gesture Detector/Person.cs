@@ -11,7 +11,7 @@ namespace DataSources
 
         public Person()
         {
-
+            // init Gesten
         }
 
         public StaticSmothendSkeleton getStaticSkeleton()
