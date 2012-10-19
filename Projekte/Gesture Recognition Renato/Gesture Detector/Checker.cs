@@ -15,6 +15,8 @@ namespace Conditions
 
     class Checker
     {
+        public const double TOLERANCE= 0.1;
+
         private Person person;
 
         public Checker(ref Person p)
@@ -22,31 +24,81 @@ namespace Conditions
             person = p;
         }
 
-        public int getAbsoluteVelocity(JointType type)
+        public double GetAbsoluteVelocity(JointType type)
         {
-            return 0;
+            return DistanceBetweenPoints(person.GetSkeleton.GetPosition(type),person.GetLastSkeleton(1).GetPosition(type)) / (person.MillisBetweenFrames(1,0)/1000);
         }
 
-        public int getRelativeVelocity(JointType t1, JointType t2)
+        public double GetRelativeVelocity(JointType t1, JointType t2)
         {
-            return 0;
+            double d1 = DistanceBetweenPoints(person.GetSkeleton.GetPosition(t1), person.GetSkeleton.GetPosition(t2));
+            double d2 = DistanceBetweenPoints(person.GetLastSkeleton(1).GetPosition(t1), person.GetLastSkeleton(1).GetPosition(t2));
+            return Math.Abs(d1 - d2) / (person.MillisBetweenFrames(1, 0) / 1000);
         }
 
-        public int getDistance(JointType t1, JointType t2)
+        public double GetDistance(JointType t1, JointType t2)
         {
-            return 0;
+            return DistanceBetweenPoints(person.GetSkeleton.GetPosition(t1), person.GetSkeleton.GetPosition(t2));
         }
 
-        public List<Direction> getAbsoluteMovement(JointType type)
+        public List<Direction> GetAbsoluteMovement(JointType type)
         {
-            return null;
+            return DirectionTo(person.GetSkeleton.GetPosition(type), person.GetLastSkeleton(1).GetPosition(type));
         }
 
-        public List<Direction> getRelativeMovement(JointType steady, JointType moving)
+        public List<Direction> GetRelativeMovement(JointType steady, JointType moving)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
+        public List<Direction> GetRelativePosition(JointType from, JointType to)
+        {
+            return DirectionTo(person.GetSkeleton.GetPosition(from), person.GetSkeleton.GetPosition(to));
+        }
 
+        private double DistanceBetweenPoints(SkeletonPoint p1, SkeletonPoint p2)
+        {
+            double dx = Math.Abs(p2.X - p1.X);
+            double dy = Math.Abs(p2.Y - p1.Y);
+            double dz = Math.Abs(p2.Z - p1.Z);
+            return Math.Sqrt(dx * dx + dy * dy + dz * dz);
+        }
+
+        private List<Direction> DirectionTo(SkeletonPoint from, SkeletonPoint to)
+        {
+            List<Direction> res = new List<Direction>();
+            double dx = from.X - to.X;
+            double dy = from.Y - to.Y;
+            double dz = from.Z - to.Z;
+            if (dx > TOLERANCE)
+            {
+                res.Add(Direction.downward);
+            }
+            else if (dx < -TOLERANCE)
+            {
+                res.Add(Direction.upward);
+            }
+            if (dy > TOLERANCE)
+            {
+                res.Add(Direction.left);
+            }
+            else if (dy < -TOLERANCE)
+            {
+                res.Add(Direction.right);
+            }
+            if (dz > TOLERANCE)
+            {
+                res.Add(Direction.backward);
+            }
+            else if (dz < -TOLERANCE)
+            {
+                res.Add(Direction.forward);
+            }
+            if (res.Count == 0)
+            {
+                res.Add(Direction.none);
+            }
+            return res;
+        }
     }
 }

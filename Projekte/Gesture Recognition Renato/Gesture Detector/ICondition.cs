@@ -7,15 +7,24 @@ using DataSources;
 
 namespace Conditions
 {
-    abstract class ICondition
+    class ICondition
     {
         protected Person person;
 
         public ICondition(Person p) { person = p; }
-        public abstract bool check();
 
         public event EventHandler Succeded;
 
+        protected virtual void fireSucceded(object src, EventArgs e)
+        {
+            Succeded(src, e);
+        }
+
         public event EventHandler Failed;
+
+        protected virtual void fireFailed(object src, EventArgs e)
+        {
+            Failed(src, e);
+        }
     }
 }

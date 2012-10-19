@@ -4,19 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataSources;
+using Microsoft.Kinect;
 
 namespace Conditions
 {
-    class HandOverHeadCondition:ICondition
+    class RightHandOverHeadCondition:ICondition
     {
-        public HandOverHeadCondition(ref Person p)
+        Checker c;
+
+        public RightHandOverHeadCondition(ref Person p)
             : base(p)
         {
+            c = new Checker(ref p);
+            p.NewSkeleton += check;
         }
 
-        public override bool check()
+        void check(Object src, EventArgs e)
         {
-            return false;
+            if (c.GetRelativePosition(JointType.Head, JointType.HandRight).Contains(Direction.upward))
+            {
+                fireSucceded(this, new EventArgs());
+            }
+            else
+            {
+                fireFailed(this, new EventArgs());
+            }
         }
     }
 }
