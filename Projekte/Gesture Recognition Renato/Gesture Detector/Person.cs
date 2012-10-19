@@ -66,6 +66,8 @@ namespace DataSources
             get { return skeletons[index]; }
         }
 
+        public bool SendEventsWhenPassive { get; set; }
+
         public SmothendSkeleton GetLastSkeleton(int i)
         {
             return skeletons[(index - i + 10) % 10];

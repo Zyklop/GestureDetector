@@ -14,9 +14,8 @@ namespace Conditions
         {
         }
 
-        public override bool check()
+        void check()
         {
-            return false;
         }
          
     }
