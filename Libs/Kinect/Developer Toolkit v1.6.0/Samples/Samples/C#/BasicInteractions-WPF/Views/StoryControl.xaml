@@ -1,0 +1,130 @@
+﻿<UserControl x:Class="Microsoft.Samples.Kinect.BasicInteractions.StoryControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="root"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Microsoft.Samples.Kinect.BasicInteractions">
+    <UserControl.RenderTransform>
+        <ScaleTransform ScaleX="1" ScaleY="1" />
+    </UserControl.RenderTransform>
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Transparent" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <local:HoverDwellButton x:Name="BackButton" HoverClick="BackButtonHoverClick" Magnetic="True" Grid.Column="1" Grid.Row="1"
+                                HorizontalAlignment="Left" SoundOnEnter="slot_roll_on.wav" SoundOnClick="snd_buttonselect.wav">
+                <Grid>
+                    <Ellipse Width="100" Height="100">
+                        <Ellipse.Style>
+                            <Style>
+                                <Setter Property="Ellipse.Fill" Value="{StaticResource DefaultColorBrush}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsSelected, ElementName=BackButton}" Value="true">
+                                        <Setter Property="Ellipse.Fill" Value="{StaticResource SelectedColorBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Ellipse.Style>
+                    </Ellipse>
+                    <Image Source="/BasicInteractions-WPF;component/Resources/Images/back.png" HorizontalAlignment="Center"
+                           VerticalAlignment="Center" Stretch="None" Margin="0" />
+                </Grid>
+            </local:HoverDwellButton>
+            <local:HoverDwellButton x:Name="HomeButton" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,125,0"
+                                HoverClick="HomeButtonHoverClick" Magnetic="True" SoundOnEnter="slot_roll_on.wav" SoundOnClick="snd_buttonselect.wav">
+                <Grid>
+                    <Ellipse Width="100" Height="100">
+                        <Ellipse.Style>
+                            <Style>
+                                <Setter Property="Ellipse.Fill" Value="{StaticResource DefaultColorBrush}" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsSelected, ElementName=HomeButton}" Value="true">
+                                        <Setter Property="Ellipse.Fill" Value="{StaticResource SelectedColorBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Ellipse.Style>
+                    </Ellipse>
+                    <Image Source="/BasicInteractions-WPF;component/Resources/Images/home.png" HorizontalAlignment="Center"
+                           VerticalAlignment="Center" Stretch="None" />
+                </Grid>
+
+            </local:HoverDwellButton>
+        </Grid>
+
+        <Grid Background="White" Grid.Row="1" Margin="0,0,385,0">
+
+            <ScrollViewer x:Name="ContentScrollViewer" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" Style="{StaticResource VerticalScrollViewerStyle}"
+                          DataContext="{Binding Story, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:StoryControl}}}"
+                          Padding="130,0,35,0">
+                <StackPanel VerticalAlignment="Center" Margin="50,20">
+                    <TextBlock Foreground="Black" 
+                                   VerticalAlignment="Top" FontFamily="Segoe UI" FontWeight="Light" FontSize="70" Text="{Binding Title}" Margin="0"
+                                   HorizontalAlignment="Left" TextWrapping="Wrap">
+                    </TextBlock>
+                    <Grid Margin="0,35,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".5*" />
+                            <ColumnDefinition Width=".5*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image x:Name="StoryImage" Source="{Binding ContentImage}" HorizontalAlignment="Left"
+                               VerticalAlignment="Bottom" Grid.Column="0" RenderOptions.BitmapScalingMode="HighQuality"
+                               Visibility="{Binding ContentImage, Converter={StaticResource VisibilityConverter}}" />
+
+                        <local:VideoPlayer Source="{Binding ContentVideo}" Grid.Column="1" HorizontalAlignment="Right" Margin="35,0,0,0" 
+                                           Visibility="{Binding ContentVideo, Converter={StaticResource VisibilityConverter}}" />
+                    </Grid>
+
+                    <TextBlock Foreground="Black" FontFamily="Segoe UI" FontWeight="Light"
+                               FontSize="32" TextWrapping="Wrap" Text="{Binding Content}" Margin="0,20" HorizontalAlignment="Left" />
+
+                    <StackPanel Orientation="Horizontal" Height="100" VerticalAlignment="Bottom" Margin="5,10,5,100">
+                        <local:HoverDwellButton HoverClick="ThumbUpClick" Margin="20,0,0,0" Magnetic="True"
+                                            SoundOnEnter="slot_roll_on.wav" SoundOnClick="snd_buttonselect.wav">
+                            <Image Source="/BasicInteractions-WPF;component/Resources/Images/thumbs_up_purple.png" Height="100" />
+                        </local:HoverDwellButton>
+                        <TextBlock Foreground="{StaticResource StoryTextBrush}" FontSize="30"
+                                   Text="{Binding Path=Rating.Likes}" Margin="20,0,150,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                        <local:HoverDwellButton HoverClick="ThumbDownClick" Magnetic="True" SoundOnEnter="slot_roll_on.wav"
+                                            SoundOnClick="snd_buttonselect.wav">
+                            <Image Source="/BasicInteractions-WPF;component/Resources/Images/thumbs_down_purple.png" Height="100"/>
+                        </local:HoverDwellButton>
+                        <TextBlock Foreground="{StaticResource StoryTextBrush}" FontSize="30"
+                                   Text="{Binding Path=Rating.Dislikes}" Margin="20,0,50,0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid x:Name="UpScrollRegion" Background="{StaticResource InactiveScrollRegionBrush}" Grid.Row="1" Width="350" Height="412" Margin="0,0,0,0"
+              HorizontalAlignment="Right" VerticalAlignment="Top"
+              Visibility="{Binding Path=ScrollUpVisibility, ElementName=root}">
+            <Image Source="/BasicInteractions-WPF;component/Resources/Images/arrow_icon.png" Stretch="None" IsHitTestVisible="False"
+                   VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image.LayoutTransform>
+                    <RotateTransform Angle="270" />
+                </Image.LayoutTransform>
+            </Image>
+        </Grid>
+        <Grid x:Name="DownScrollRegion" Background="{StaticResource InactiveScrollRegionBrush}" Grid.Row="1" Width="350" Height="412" Margin="0,0,0,0"
+              HorizontalAlignment="Right" VerticalAlignment="Bottom"
+              Visibility="{Binding Path=ScrollDownVisibility, ElementName=root}">
+            <Image Source="/BasicInteractions-WPF;component/Resources/Images/arrow_icon.png" Stretch="None" IsHitTestVisible="False"
+                   VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image.LayoutTransform>
+                    <RotateTransform Angle="90" />
+                </Image.LayoutTransform>
+            </Image>
+        </Grid>
+    </Grid>
+</UserControl>

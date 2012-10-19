@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="Microsoft.Samples.Kinect.BasicInteractions.VoiceInstructionControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Microsoft.Samples.Kinect.BasicInteractions"
+             Loaded="OnLoad">
+    <UserControl.Resources>
+        <Storyboard x:Key="EnableMic">
+            <ThicknessAnimation Duration="0:0:1" From="0,-90,0,0" To="0" Storyboard.TargetProperty="Margin"
+                                Storyboard.TargetName="MicGrid" />
+        </Storyboard>
+        <Storyboard x:Key="HideMic">
+            <ThicknessAnimation Duration="0:0:1" From="0" To="0,-90,0,0" Storyboard.TargetProperty="Margin"
+                                Storyboard.TargetName="MicGrid" />
+        </Storyboard>
+        <Storyboard x:Key="DisableMic">
+        </Storyboard>
+        <Storyboard x:Key="SelectMic">
+        </Storyboard>
+        <Storyboard x:Key="SpeechReco">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MicBarsOpactiyStop"
+                                           Storyboard.TargetProperty="Offset" FillBehavior="Stop">
+                <DoubleKeyFrameCollection>
+                    <LinearDoubleKeyFrame Value="1.0" KeyTime="0:0:0" />
+                    <LinearDoubleKeyFrame Value="0.6" KeyTime="0:0:0.2" />
+                    <LinearDoubleKeyFrame Value="0.2" KeyTime="0:0:0.4" />
+                    <LinearDoubleKeyFrame Value="-0.2" KeyTime="0:0:0.6" />
+                    <LinearDoubleKeyFrame Value="-0.6" KeyTime="0:0:0.8" />
+                    <LinearDoubleKeyFrame Value="-1.0" KeyTime="0:0:1.0" />
+                </DoubleKeyFrameCollection>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid x:Name="MicGrid" VerticalAlignment="Top" HorizontalAlignment="Center"  Height="90"  >
+            <Grid.Background>
+                <SolidColorBrush x:Name="MicGridBackground" Color="Transparent" />
+            </Grid.Background>
+
+            <Border x:Name="VuiBorder" BorderBrush="#A7A9AC" BorderThickness="1" Margin="90,0,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
+                <Grid x:Name="MicIconGrid">
+                    <Image Source="/BasicInteractions-WPF;component/Resources/Images/Mic_bars_5.png">
+                        <Image.OpacityMask>
+                            <LinearGradientBrush StartPoint="1,0">
+                                <GradientStop x:Name="MicBarsOpactiyStop" Color="Transparent" Offset="1" />
+                                <GradientStop Color="Black" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Image.OpacityMask>
+                    </Image>
+                    <Image Source="/BasicInteractions-WPF;component/Resources/Images/Mic.png" />
+                </Grid>
+                <TextBlock x:Name="InstructionText" FontFamily="Segoe" FontSize="40" Width="0" 
+                           Foreground="{StaticResource DefaultColorBrush}" TextAlignment="Center" VerticalAlignment="Center" />
+            </StackPanel>
+            </Border>
+    </Grid>
+</UserControl>

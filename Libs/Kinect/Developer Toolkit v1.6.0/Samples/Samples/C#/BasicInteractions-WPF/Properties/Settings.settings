@@ -1,0 +1,81 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Microsoft.Samples.Kinect.BasicInteractions.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SubcategoryAll" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">All</Value>
+    </Setting>
+    <Setting Name="SpeechSelectWord" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select</Value>
+    </Setting>
+    <Setting Name="SpeechBackWord" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Back</Value>
+    </Setting>
+    <Setting Name="SpeechHomeWord" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Home</Value>
+    </Setting>
+    <Setting Name="SpeechLikeWord" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Like</Value>
+    </Setting>
+    <Setting Name="SpeechDislikeWord" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Dislike</Value>
+    </Setting>
+    <Setting Name="SpeechPlayWord" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Play</Value>
+    </Setting>
+    <Setting Name="SpeechPauseWord" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Pause</Value>
+    </Setting>
+    <Setting Name="SpeechMinimumConfidence" Type="System.Single" Scope="Application">
+      <Value Profile="(Default)">0.75</Value>
+    </Setting>
+    <Setting Name="SelectCategoryVui" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Say a category</Value>
+    </Setting>
+    <Setting Name="SelectionTime" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">1500</Value>
+    </Setting>
+    <Setting Name="ShowSilhouetteTime" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="MagneticField" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">125</Value>
+    </Setting>
+    <Setting Name="ScrollbarMagneticField" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">250</Value>
+    </Setting>
+    <Setting Name="ScrollSpeed" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="ShowScrollRegions" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="VuiTextTimeout" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="VuiDisplayDelay" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="ShowIntro" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IntroSpeechText" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Say "start" or</Value>
+    </Setting>
+    <Setting Name="SpeechStartWord" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Start</Value>
+    </Setting>
+    <Setting Name="StartVui" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Say start</Value>
+    </Setting>
+    <Setting Name="SelectStoryVui" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Say a number, "back" or "home"</Value>
+    </Setting>
+    <Setting Name="ReadStoryVui" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Say "like", "dislike", "back" or "home"</Value>
+    </Setting>
+    <Setting Name="IntroButtonText" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Hold your hand over the start button</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

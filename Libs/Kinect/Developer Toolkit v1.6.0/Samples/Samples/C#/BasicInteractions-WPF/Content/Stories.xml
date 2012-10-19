@@ -1,0 +1,1537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stories>
+<story>
+<title>Astoria</title>
+<category>Top Stories</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>Astoria.jpg</image>
+</story>
+<story>
+<title>Beach Sunset</title>
+<category>Top Stories</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>beachsunset.jpg</image>
+</story>
+<story>
+<title>Dramatic Clouds</title>
+<category>Top Stories</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>clouds.jpg</image>
+</story>
+<story>
+<title>Daffodil Field</title>
+<category>Top Stories</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>Daffodils.jpg</image>
+</story>
+<story>
+<title>Darling Harbour</title>
+<category>Top Stories</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>DarlingHarbour.jpg</image>
+</story>
+<story>
+<title>Washington D.C.</title>
+<category>Top Stories</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>DC.jpg</image>
+</story>
+<story>
+<title>Dried Foods Store</title>
+<category>Top Stories</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>driedfoods.jpg</image>
+</story>
+<story>
+<title>Kirkland Waterfront</title>
+<category>Top Stories</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>DT Kirkland.jpg</image>
+</story>
+<story>
+<title>Purple Flower</title>
+<category>United States</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>flower.jpg</image>
+</story>
+<story>
+<title>Great Hall</title>
+<category>United States</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>greathall.jpg</image>
+</story>
+<story>
+<title>Seattle Gum Wall</title>
+<category>United States</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>gumwall.jpg</image>
+</story>
+<story>
+<title>Iris</title>
+<category>United States</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>Iris.jpg</image>
+</story>
+<story>
+<title>Italian Street</title>
+<category>United States</category>
+<subcategory>Trending</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>italy.jpg</image>
+</story>
+<story>
+<title>Lake Tye</title>
+<category>United States</category>
+<subcategory>Trending</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>LakeTye.jpg</image>
+</story>
+<story>
+<title>Lights in the Night</title>
+<category>United States</category>
+<subcategory>Trending</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>Lights.jpg</image>
+</story>
+<story>
+<title>Long Beach</title>
+<category>United States</category>
+<subcategory>Trending</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>longbeach.jpg</image>
+</story>
+<story>
+<title>Sydney Opera House</title>
+<category>United States</category>
+<subcategory>Trending</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>OperaHouse.jpg</image>
+</story>
+<story>
+<title>Posy Island</title>
+<category>United States</category>
+<subcategory>Trending</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>posyisland.jpg</image>
+</story>
+<story>
+<title>A Misty River</title>
+<category>Business</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>river.jpg</image>
+</story>
+<story>
+<title>Roses on a Wall</title>
+<category>Business</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>roses.jpg</image>
+</story>
+<story>
+<title>Seattle Fireworks</title>
+<category>Business</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>SeattleFireworks.jpg</image>
+</story>
+<story>
+<title>Snohomish Valley</title>
+<category>Business</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>SnohomishValley.jpg</image>
+</story>
+<story>
+<title>Sydney at Night</title>
+<category>Business</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>Sydney.jpg</image>
+</story>
+<story>
+<title>Queen's Hamlet</title>
+<category>Business</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>QueensHamlet.jpg</image>
+</story>
+<story>
+<title>Wind Farms</title>
+<category>Business</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>windfarm.jpg</image>
+</story>
+<story>
+<title>Eiffel Tower</title>
+<category>Business</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>EiffelTower.jpg</image>
+</story>
+<story>
+<title>Astoria</title>
+<category>Sports</category>
+<subcategory>Football</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>Astoria.jpg</image>
+</story>
+<story>
+<title>Beach Sunset</title>
+<category>Sports</category>
+<subcategory>Football</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>beachsunset.jpg</image>
+</story>
+<story>
+<title>Dramatic Clouds</title>
+<category>Sports</category>
+<subcategory>Football</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>clouds.jpg</image>
+</story>
+<story>
+<title>Daffodil Field</title>
+<category>Sports</category>
+<subcategory>Football</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>Daffodils.jpg</image>
+</story>
+<story>
+<title>Darling Harbour</title>
+<category>Sports</category>
+<subcategory>Tennis</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>DarlingHarbour.jpg</image>
+</story>
+<story>
+<title>Washington D.C.</title>
+<category>Sports</category>
+<subcategory>Tennis</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>DC.jpg</image>
+</story>
+<story>
+<title>Dried Foods Store</title>
+<category>Sports</category>
+<subcategory>Tennis</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>driedfoods.jpg</image>
+</story>
+<story>
+<title>Kirkland Waterfront</title>
+<category>Sports</category>
+<subcategory>Tennis</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>DT Kirkland.jpg</image>
+</story>
+<story>
+<title>Purple Flower</title>
+<category>Sports</category>
+<subcategory>Cricket</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>flower.jpg</image>
+</story>
+<story>
+<title>Great Hall</title>
+<category>Sports</category>
+<subcategory>Cricket</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>greathall.jpg</image>
+</story>
+<story>
+<title>Seattle Gum Wall</title>
+<category>Sports</category>
+<subcategory>Cricket</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>gumwall.jpg</image>
+</story>
+<story>
+<title>Iris</title>
+<category>Sports</category>
+<subcategory>Cricket</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>Iris.jpg</image>
+</story>
+<story>
+<title>Italian Street</title>
+<category>Sports</category>
+<subcategory>Darts</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>italy.jpg</image>
+</story>
+<story>
+<title>Lake Tye</title>
+<category>Sports</category>
+<subcategory>Darts</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>LakeTye.jpg</image>
+</story>
+<story>
+<title>Lights in the Night</title>
+<category>Sports</category>
+<subcategory>Darts</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>Lights.jpg</image>
+</story>
+<story>
+<title>Long Beach</title>
+<category>Sports</category>
+<subcategory>Darts</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>longbeach.jpg</image>
+</story>
+<story>
+<title>Sydney Opera House</title>
+<category>World</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>OperaHouse.jpg</image>
+</story>
+<story>
+<title>Posy Island</title>
+<category>World</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>posyisland.jpg</image>
+</story>
+<story>
+<title>A Misty River</title>
+<category>World</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>river.jpg</image>
+</story>
+<story>
+<title>Roses on a Wall</title>
+<category>World</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>roses.jpg</image>
+</story>
+<story>
+<title>Seattle Fireworks</title>
+<category>World</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>SeattleFireworks.jpg</image>
+</story>
+<story>
+<title>Snohomish Valley</title>
+<category>World</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>SnohomishValley.jpg</image>
+</story>
+<story>
+<title>Sydney at Night</title>
+<category>World</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>Sydney.jpg</image>
+</story>
+<story>
+<title>Queen's Hamlet</title>
+<category>World</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>QueensHamlet.jpg</image>
+</story>
+<story>
+<title>Wind Farms</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>windfarm.jpg</image>
+</story>
+<story>
+<title>Eiffel Tower</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>EiffelTower.jpg</image>
+</story>
+<story>
+<title>Astoria</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>Astoria.jpg</image>
+</story>
+<story>
+<title>Beach Sunset</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>beachsunset.jpg</image>
+</story>
+<story>
+<title>Dramatic Clouds</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>clouds.jpg</image>
+</story>
+<story>
+<title>Daffodil Field</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>Daffodils.jpg</image>
+</story>
+<story>
+<title>Darling Harbour</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>DarlingHarbour.jpg</image>
+</story>
+<story>
+<title>Washington D.C.</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>DC.jpg</image>
+</story>
+<story>
+<title>Dried Foods Store</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>driedfoods.jpg</image>
+</story>
+<story>
+<title>Kirkland Waterfront</title>
+<category>Local</category>
+<subcategory>Breaking News</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>DT Kirkland.jpg</image>
+</story>
+<story>
+<title>Purple Flower</title>
+<category>Auto</category>
+<subcategory>Parts</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>flower.jpg</image>
+</story>
+<story>
+<title>Great Hall</title>
+<category>Auto</category>
+<subcategory>Parts</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>greathall.jpg</image>
+</story>
+<story>
+<title>Seattle Gum Wall</title>
+<category>Auto</category>
+<subcategory>Parts</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>gumwall.jpg</image>
+</story>
+<story>
+<title>Iris</title>
+<category>Auto</category>
+<subcategory>Parts</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>Iris.jpg</image>
+</story>
+<story>
+<title>Italian Street</title>
+<category>Auto</category>
+<subcategory>Speed</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>italy.jpg</image>
+</story>
+<story>
+<title>Lake Tye</title>
+<category>Auto</category>
+<subcategory>Speed</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>LakeTye.jpg</image>
+</story>
+<story>
+<title>Lights in the Night</title>
+<category>Auto</category>
+<subcategory>Speed</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>Lights.jpg</image>
+</story>
+<story>
+<title>Long Beach</title>
+<category>Auto</category>
+<subcategory>Speed</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>longbeach.jpg</image>
+</story>
+<story>
+<title>Sydney Opera House</title>
+<category>Auto</category>
+<subcategory>Speed</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>OperaHouse.jpg</image>
+</story>
+<story>
+<title>Posy Island</title>
+<category>Auto</category>
+<subcategory>Speed</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>posyisland.jpg</image>
+</story>
+<story>
+<title>A Misty River</title>
+<category>Weather</category>
+<subcategory>NW</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>river.jpg</image>
+</story>
+<story>
+<title>Roses on a Wall</title>
+<category>Weather</category>
+<subcategory>NW</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>roses.jpg</image>
+</story>
+<story>
+<title>Seattle Fireworks</title>
+<category>Weather</category>
+<subcategory>NW</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>SeattleFireworks.jpg</image>
+</story>
+<story>
+<title>Snohomish Valley</title>
+<category>Weather</category>
+<subcategory>NW</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>SnohomishValley.jpg</image>
+</story>
+<story>
+<title>Sydney at Night</title>
+<category>Weather</category>
+<subcategory>National</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>Sydney.jpg</image>
+</story>
+<story>
+<title>Queen's Hamlet</title>
+<category>Weather</category>
+<subcategory>National</subcategory>
+<content>
+The best user experiences are context aware:
+The interface should adapt as the distance between the user and the Kinect changes
+The interface should respond to the number and engagement of users
+The placement of controls should be designed based on expected user movements or actions
+
+Each input method is best at something and worst at something:
+Users will choose the input which requires the least overall effort for a given scenario
+Users tend to stick to a single input when not given a reason to change
+Inputs should be reliable, consistent, and convenient, otherwise users will look for alternative options
+Switching inputs should happen naturally, or at natural transition points in the scenario
+
+Confident users are happy users:
+It is important to keep interactions simple and easy to learn and master
+Avoid misinterpreting user intent. To increase confidence, use input combinations such as voice and gesture together.
+Give constant feedback so users always know what’s happening and what to expect.
+
+The strongest designs come after user testing:
+Kinect enables a lot of new interactions, but also new challenges
+It is especially hard to guess what will work and what will not ahead of time
+Sometimes minor adjustments can make a huge difference
+User test often and early, and plan time into your schedule for multiple adjustments to your design
+</content>
+<image>QueensHamlet.jpg</image>
+</story>
+<story>
+<title>Wind Farms</title>
+<category>Weather</category>
+<subcategory>National</subcategory>
+<content>
+How you setup the environment where your Kinect application is used can make a huge difference in perceived reliability and usability. Controlling as many of the following factors as possible will help make your user experience shine and reduce the likelihood of disrupted interactions. Whenever possible, test your application early and often in the environment in which you plan to use it.
+
+People and Crowds: If the environment you are designing for will have many people moving around the sensor, make sure you use the right tracking mode and design your space so that other people won’t walk between the active user and the Kinect.
+
+Ambient Noise: If you are relying on voice as an input method, keep in mind that the environment should be very quiet for it to be reliable. If you cannot control the noise level of the environment, try having the user interact closer to the sensor. If it is too noisy, voice may not be the right input method.
+
+Screen Size and Resolution: Choose an appropriate display for the distance at which you expect users to interact. Remember that the size of your interface will depend on how far back your users are and what they can comfortably see.
+
+Lighting: Avoid environments that have large amounts of natural light as it will make skeletal tracking less reliable. The depth camera won’t work in direct sunlight or any full spectrum lighting. Dim lighting is fine for depth but will degrade the RGB image quality.
+
+Extra Objects or Clothing: Items that drastically change the shape of a human wearing or holding them may confuse skeletal tracking. Also, items or clothing material that is reflective will interfere with the IR reflection and make skeletal tracking less reliable.
+
+Sensor Placement: When placing the sensor, it is helpful if the camera is directly facing the subjects it expected to track. It is helpful if the sensor can see the floor so it can better orient itself. Avoid extreme tilt angles.
+</content>
+<image>windfarm.jpg</image>
+</story>
+<story>
+<title>Eiffel Tower</title>
+<category>Weather</category>
+<subcategory>National</subcategory>
+<content>
+Interactions and interfaces built with Kinect can enable magical experiences for your users. The magic and delight of Kinect comes when the user knows how to use the interface and feels natural doing it. Your development of touch free, natural UI with Kinect is the beginning of a revolution that will shape the way we experience and interact with software applications. Someday you will not simply remember how the Kinect revolution started, but how your application helped shape it.
+</content>
+<image>EiffelTower.jpg</image>
+</story>
+</stories>

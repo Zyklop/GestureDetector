@@ -1,0 +1,18 @@
+﻿<Application x:Class="Microsoft.Samples.Kinect.BasicInteractions.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Microsoft.Samples.Kinect.BasicInteractions"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Colors.xaml" />
+                <ResourceDictionary Source="Controls/ControlStyles.xaml" />
+                <ResourceDictionary>
+                    <local:VisibilityConverter x:Key="VisibilityConverter" />
+                    <local:EqualToConverter x:Key="EqualToConverter" />
+                    <local:MillisecondsToKeyTimeConverter x:Key="MillisecondsToKeyTimeConverter" />
+                    <local:MillisecondsToDurationConverter x:Key="MillisecondsToDurationConverter" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

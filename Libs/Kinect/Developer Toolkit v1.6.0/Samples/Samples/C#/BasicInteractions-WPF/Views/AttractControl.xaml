@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Microsoft.Samples.Kinect.BasicInteractions.AttractControl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Microsoft.Samples.Kinect.BasicInteractions"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
+    <UserControl.RenderTransform>
+        <ScaleTransform x:Name="Scale" CenterX="500" CenterY="500" />
+    </UserControl.RenderTransform>
+    <Grid Background="White">
+        <local:AutoScrollCarousel
+            ItemsSource="{Binding ItemsSource, RelativeSource={RelativeSource AncestorType={x:Type local:AttractControl},Mode=FindAncestor}}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type local:AttractControl},Mode=FindAncestor}}"
+            IsLooping="True"
+            Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type local:AttractControl},Mode=FindAncestor}}"
+            Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0"
+            ClipToBounds="True">
+            <local:AutoScrollCarousel.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </local:AutoScrollCarousel.ItemsPanel>
+            <local:AutoScrollCarousel.ItemTemplate>
+                <DataTemplate>
+                    <Border x:Name="Border" VerticalAlignment="Center"
+                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type UserControl},Mode=FindAncestor}}">
+                        <Grid Background="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="130" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="130" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="40" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ContentImage}" Grid.Row="1" Grid.Column="1" Stretch="UniformToFill"
+                                   HorizontalAlignment="Center" />
+
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Title}" Foreground="Black"
+                                       FontFamily="Segoe UI" FontWeight="Light" HorizontalAlignment="Left" FontSize="75" Margin="0" VerticalAlignment="Center" />
+
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding ContentHeadline}" Foreground="Black"
+                                       FontFamily="Segoe UI" FontWeight="Light" HorizontalAlignment="Left" FontSize="50" VerticalAlignment="Center"
+                                       TextWrapping="Wrap">
+                            </TextBlock>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </local:AutoScrollCarousel.ItemTemplate>
+        </local:AutoScrollCarousel>
+    </Grid>
+</UserControl>
