@@ -7,7 +7,7 @@ using GestureEvents;
 
 namespace DataSources
 {
-    class Person
+    public class Person
     {
         private bool active;
         private SmothendSkeleton[] skeletons;
@@ -89,6 +89,8 @@ namespace DataSources
             return id == ((Person)obj).ID;
         }
 
-        public event EventHandler NewSkeleton;
+        public event EventHandler OnWave;
+        //public event EventHandler blablub;
+        //public event EventHandler etc;
     }
 }

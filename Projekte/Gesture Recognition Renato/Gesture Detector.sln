@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gesture Detector", "Gesture Detector\Gesture Detector.csproj", "{BEDA35EE-4D9B-41EE-B8EE-3E3E56555BCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gesture Detection Api", "Gesture Detection Api\Gesture Detection Api.csproj", "{26249822-35C6-409E-AECD-3A81E6A77DD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{BEDA35EE-4D9B-41EE-B8EE-3E3E56555BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEDA35EE-4D9B-41EE-B8EE-3E3E56555BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEDA35EE-4D9B-41EE-B8EE-3E3E56555BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26249822-35C6-409E-AECD-3A81E6A77DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26249822-35C6-409E-AECD-3A81E6A77DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26249822-35C6-409E-AECD-3A81E6A77DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26249822-35C6-409E-AECD-3A81E6A77DD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

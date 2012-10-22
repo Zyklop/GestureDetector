@@ -9,7 +9,7 @@ using Gesture_Detector;
 
 namespace DataSources
 {
-    class Device
+    public class Device
     {
         private static KinectSensor Dev;
         private Vector4 lastAcc;
@@ -67,6 +67,7 @@ namespace DataSources
             return null;
         }
 
+        // @TODO wie wärs mit einem griffigeren Namen?
         void NewSkeletons(object source, SkeletonFrameReadyEventArgs e)
         {
             double diff=0;
@@ -106,7 +107,7 @@ namespace DataSources
                     matches.Remove(matches.Max());
                 }
                 NewSkeleton(this, new SkeletonsReadyEventArg(matches));
-                GestureChecker wave;
+                // GestureChecker wave; // eher bei Person
             }
             lastAcc = Dev.AccelerometerGetCurrentReading();
         }
