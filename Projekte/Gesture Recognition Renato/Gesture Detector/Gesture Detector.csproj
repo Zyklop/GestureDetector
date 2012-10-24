@@ -51,6 +51,7 @@
     <Compile Include="GestureChecker.cs" />
     <Compile Include="MovingSmothendSkeleton.cs" />
     <Compile Include="NewPersonEventArgs.cs" />
+    <Compile Include="NewSkeletonEventArg.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="SkeletonsReadyEventArg.cs" />
     <Compile Include="SmothendSkeleton.cs" />
