@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using DataSources;
 using GestureEvents;
+using Gesture_Detector;
 
 namespace DataSources
 {
@@ -59,6 +60,7 @@ namespace DataSources
             }
             skeletons[index]=e.GetSkeleton(this);
             time[index] = DateTime.Now.Millisecond;
+            NewSkeleton(this, new NewSkeletonEventArg(e.GetSkeleton(this)));
         }
 
         public SmothendSkeleton GetSkeleton
@@ -88,6 +90,11 @@ namespace DataSources
         {
             return id == ((Person)obj).ID;
         }
+
+        public event EventHandler<NewSkeletonEventArg> NewSkeleton;
+        public event EventHandler<PersonPassiveEventArgs> PersonPassive;
+        public event EventHandler<ActivePersonEventArgs> PersonActive;
+        public event EventHandler<PersonDisposedEventArgs> PersonDisposed;
 
         public event EventHandler OnWave;
         //public event EventHandler blablub;
