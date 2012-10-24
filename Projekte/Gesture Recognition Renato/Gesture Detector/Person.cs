@@ -92,6 +92,10 @@ namespace DataSources
         }
 
         public event EventHandler<NewSkeletonEventArg> NewSkeleton;
+        public event EventHandler<PersonPassiveEventArgs> PersonPassive;
+        public event EventHandler<ActivePersonEventArgs> PersonActive;
+        public event EventHandler<PersonDisposedEventArgs> PersonDisposed;
+
         public event EventHandler OnWave;
         //public event EventHandler blablub;
         //public event EventHandler etc;
