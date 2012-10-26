@@ -14,6 +14,7 @@ namespace DataSources
         private static KinectSensor Dev;
         private Vector4 lastAcc;
         private List<Person> persons;
+        private double[,] matches = new double[7,7];
 
         public Device()
         {
@@ -70,7 +71,7 @@ namespace DataSources
             return persons;
         }
 
-        // @TODO wie wärs mit einem griffigeren Namen?
+        // TODO wie wärs mit einem griffigeren Namen?
         void NewSkeletons(object source, SkeletonFrameReadyEventArgs e)
         {
             double diff=0;
@@ -96,6 +97,14 @@ namespace DataSources
                         skelList.Add(new SmothendSkeleton(ske));
                     }
                 }
+
+                for (int i = 0; i < matches.GetLength(0); i++ )
+                {
+                    for(int j = 0; j < matches.GetLength(1); i++) {
+                        persons[i].CompareTo(skeletons[j]);
+                    }
+                }
+
                 //if (active > persons.Count)
                 //{
                 //    Person p = new Person(this);

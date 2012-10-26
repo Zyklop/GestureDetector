@@ -6,10 +6,11 @@ using DataSources;
 using GestureEvents;
 using Gesture_Detector;
 using System.Diagnostics;
+using Microsoft.Kinect;
 
 namespace DataSources
 {
-    public class Person
+    public class Person: IComparable
     {
         private bool active;
         private SortedDictionary<int, SmothendSkeleton> skeletons;
@@ -95,6 +96,21 @@ namespace DataSources
         public override int GetHashCode()
         {
             return ID;
+        }
+
+        public int CompareTo(object obj)
+        {
+            // TODO mit delta oder so
+            if (obj is SmothendSkeleton) {
+                //return this.CurrentSkeleton.GetPosition(JointType.HipCenter) == ((SmothendSkeleton)c).GetPosition(JointType.HipCenter);
+                return 5;
+            }
+            if (obj is Person)
+            {
+                //return this.CurrentSkeleton.GetPosition(JointType.HipCenter) == ((Person)c).CurrentSkeleton.GetPosition(JointType.HipCenter);
+                return 2;
+            }
+            throw new ArgumentException("Neighter Person nor SmothendSkeleton given as argument!");
         }
 
         public event EventHandler<NewSkeletonEventArg> NewSkeleton;
