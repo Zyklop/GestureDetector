@@ -49,6 +49,7 @@
     <Compile Include="ICondition.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="GestureChecker.cs" />
+    <Compile Include="Tester.cs" />
     <Compile Include="WaveRightCondition.cs" />
     <Compile Include="MovingSmothendSkeleton.cs" />
     <Compile Include="NewPersonEventArgs.cs" />

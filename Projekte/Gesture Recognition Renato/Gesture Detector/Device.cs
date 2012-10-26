@@ -18,6 +18,7 @@ namespace DataSources
         public Device()
         {
             Dev = KinectSensor.KinectSensors.FirstOrDefault(x => x.Status == KinectStatus.Connected);
+            Dev.SkeletonStream.Enable();
             Dev.SkeletonFrameReady += NewSkeletons;
         }
 
@@ -64,7 +65,7 @@ namespace DataSources
 
         public List<Person> GetAll()
         {
-            return null;
+            return persons;
         }
 
         // @TODO wie wärs mit einem griffigeren Namen?
