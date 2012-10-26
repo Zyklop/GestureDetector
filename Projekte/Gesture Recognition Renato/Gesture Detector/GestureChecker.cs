@@ -96,7 +96,7 @@ namespace Gesture_Detector
         {
             if (!onceRes.Contains(false) && index == Consequtive.Count-1)
             {
-                Succesfull(this, new EventArgs());
+                Successful(this, new EventArgs());
             }
         }
 
@@ -114,7 +114,7 @@ namespace Gesture_Detector
             index = 0;
         }
 
-        public event EventHandler<EventArgs> Succesfull;
+        public event EventHandler<EventArgs> Successful;
 
         public event EventHandler<EventArgs> Failed;
     }
