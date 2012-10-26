@@ -10,7 +10,6 @@ namespace Conditions
 {
     abstract class DynamicCondition: Condition
     {
-        protected Person person;
         protected double startTime;
 
         public DynamicCondition(Person p): base(p)
