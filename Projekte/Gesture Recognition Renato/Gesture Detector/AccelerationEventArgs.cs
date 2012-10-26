@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestureEvents
 {
-    class AccelerationEventArgs:EventArgs
+    public class AccelerationEventArgs:EventArgs
     {
         private double amount;
 

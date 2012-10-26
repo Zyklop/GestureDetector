@@ -120,9 +120,9 @@ namespace DataSources
             for (int i = 0; i < persons.Count; i++)
             {
                 diffs[i] = 0;
-                diffs[i] += s.GetPosition(JointType.HipCenter).X - persons[i].GetSkeleton.GetPosition(JointType.HipCenter).X;
-                diffs[i] += s.GetPosition(JointType.HipCenter).Y - persons[i].GetSkeleton.GetPosition(JointType.HipCenter).Y;
-                diffs[i] += s.GetPosition(JointType.HipCenter).Z - persons[i].GetSkeleton.GetPosition(JointType.HipCenter).Z;
+                diffs[i] += s.GetPosition(JointType.HipCenter).X - persons[i].CurrentSkeleton.GetPosition(JointType.HipCenter).X;
+                diffs[i] += s.GetPosition(JointType.HipCenter).Y - persons[i].CurrentSkeleton.GetPosition(JointType.HipCenter).Y;
+                diffs[i] += s.GetPosition(JointType.HipCenter).Z - persons[i].CurrentSkeleton.GetPosition(JointType.HipCenter).Z;
                 if (diffs[i] < min)
                 {
                     min = diffs[i];
@@ -143,7 +143,7 @@ namespace DataSources
         public event EventHandler<AccelerationEventArgs> Accelerated;
     }
 
-    class Match : IComparable
+    public class Match : IComparable
     {
         private SmothendSkeleton skel;
         private Person pers;

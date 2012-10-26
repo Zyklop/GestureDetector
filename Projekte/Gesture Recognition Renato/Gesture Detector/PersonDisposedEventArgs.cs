@@ -6,7 +6,7 @@ using DataSources;
 
 namespace Gesture_Detector
 {
-    class PersonDisposedEventArgs:EventArgs
+    public class PersonDisposedEventArgs:EventArgs
     {
         private Person p;
 

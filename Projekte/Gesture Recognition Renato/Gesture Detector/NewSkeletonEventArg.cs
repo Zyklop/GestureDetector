@@ -6,7 +6,7 @@ using DataSources;
 
 namespace GestureEvents
 {
-    class NewSkeletonEventArg:EventArgs
+    public class NewSkeletonEventArg:EventArgs
     {
         SmothendSkeleton ske;
 

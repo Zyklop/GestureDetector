@@ -6,7 +6,7 @@ using Microsoft.Kinect;
 
 namespace DataSources
 {
-    class SmothendSkeleton
+    public class SmothendSkeleton
     {
         private Dictionary<JointType, Joint> joints;
 

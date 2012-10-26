@@ -18,14 +18,14 @@ namespace Conditions
             person.NewSkeleton += check;
         }
 
-        public event EventHandler Succeded;
+        public event EventHandler<EventArgs> Triggered;
 
         //protected virtual void fireSucceded(object src, EventArgs e)
         //{
         //    Succeded(src, e);
         //}
 
-        public event EventHandler Failed;
+        public event EventHandler<EventArgs> Recogniced;
 
         //protected virtual void fireFailed(object src, EventArgs e)
         //{

@@ -12,14 +12,14 @@ namespace Gesture_Detector
 {
     class GestureChecker
     {
-        private List<ICondition> Always;
+        private List<StaticCondition> Always;
         private List<ICondition> Consequtive;
         private List<ICondition> Once;
         private int index=0;
         private List<bool> onceRes;
         private Timer tim;
 
-        public GestureChecker (List<ICondition> always, List<ICondition> consequtive, List<ICondition> once, int time)
+        public GestureChecker (List<StaticCondition> always, List<ICondition> consequtive, List<ICondition> once, int time)
         {
             Always = always;
             Consequtive = consequtive;
@@ -30,7 +30,7 @@ namespace Gesture_Detector
             onceRes = new List<bool>();
             if (Always == null)
             {
-                Always = new List<ICondition>();
+                Always = new List<StaticCondition>();
             }
             if (Consequtive == null)
             {
@@ -40,18 +40,32 @@ namespace Gesture_Detector
             {
                 Once = new List<ICondition>();
             }
-            foreach (ICondition cond in Always)
+            foreach (StaticCondition cond in Always)
             {
                 cond.Failed += awFailed;
             }
             foreach (ICondition cond in Once)
             {
-                cond.Succeded += onceOk;
+                if (cond is StaticCondition)
+                {
+                    ((StaticCondition)cond).Succeded += onceOk;
+                }
+                else
+                {
+                    ((DynamicCondition)cond).Triggered += onceOk;
+                }
                 onceRes.Add(false);
             }
             foreach (ICondition cond in Consequtive)
             {
-                cond.Succeded += conseqOk;
+                if (cond is StaticCondition)
+                {
+                    ((StaticCondition)cond).Succeded += conseqOk;
+                }
+                else
+                {
+                    ((DynamicCondition)cond).Triggered += conseqOk;
+                }
             }
         }
 
@@ -100,8 +114,8 @@ namespace Gesture_Detector
             index = 0;
         }
 
-        public event EventHandler Succesfull;
+        public event EventHandler<EventArgs> Succesfull;
 
-        public event EventHandler Failed;
+        public event EventHandler<EventArgs> Failed;
     }
 }
