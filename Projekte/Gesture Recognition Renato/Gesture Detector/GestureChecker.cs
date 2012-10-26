@@ -7,115 +7,62 @@ using Microsoft.Kinect;
 using Conditions;
 using DataSources;
 using System.Timers;
+using System.Collections;
 
 namespace Gesture_Detector
 {
     class GestureChecker
     {
-        private List<Condition> Always;
-        private List<Condition> Consequtive;
-        private List<Condition> Once;
-        private int index=0;
-        private List<bool> onceRes;
-        private Timer tim;
+        private List<Condition> conditions;
+        private IEnumerator index;
+        private Timer timer;
 
-        public GestureChecker (List<Condition> always, List<Condition> consequtive, List<Condition> once, int time)
+        // timeout in ms
+        public GestureChecker(List<Condition> gestureConditions, int timeout)
         {
-            Always = always;
-            Consequtive = consequtive;
-            Once = once;
-            tim = new Timer(time);
-            tim.Start();
-            tim.Elapsed += timeout;
-            onceRes = new List<bool>();
-            if (Always == null)
-            {
-                Always = new List<Condition>();
-            }
-            if (Consequtive == null)
-            {
-                Consequtive = new List<Condition>();
-            }
-            if (Once==null)
-            {
-                Once = new List<Condition>();
-            }
-            foreach (Condition cond in Always)
-            {
-                cond.Failed += awFailed;
-            }
-            foreach (Condition cond in Once)
-            {
-                if (cond is Condition)
-                {
-                    cond.Succeeded += onceOk;
-                }
-                else
-                {
-                    ((DynamicCondition)cond).Triggered += onceOk;
-                }
-                onceRes.Add(false);
-            }
-            foreach (Condition cond in Consequtive)
-            {
-                if (cond is Condition)
-                {
-                    cond.Succeeded += conseqOk;
-                }
-                else
-                {
-                    ((DynamicCondition)cond).Triggered += conseqOk;
-                }
-            }
+            conditions = gestureConditions;
+            conditions.ForEach(delegate(Condition c) { 
+                c.Succeeded += ConditionComplete;
+            });
+
+            index = conditions.GetEnumerator();
+            index.MoveNext();
+
+            timer = new Timer(timeout);
+            timer.Start();
+            timer.Elapsed += Timeout;
         }
 
-        void awFailed(Object src, EventArgs e)
-        {
-            Failed(this, new EventArgs());
-            tim.Stop();
-            tim.Start();
-            resetOnce();
-            index = 0;
-        }
-
-        private void resetOnce()
-        {
-            onceRes.ConvertAll(n => false);
-        }
-
-        void conseqOk(Object src, EventArgs e)
-        {
-            if (Consequtive.IndexOf((Condition)src) == index)
-            {
-                index++;
-                checkComplete();
-            }
-        }
-
-        private void checkComplete()
-        {
-            if (!onceRes.Contains(false) && index == Consequtive.Count-1)
-            {
-                Successful(this, new EventArgs());
-            }
-        }
-
-        void onceOk(Object src, EventArgs e)
-        {
-            onceRes[Once.IndexOf((Condition)src)] = true;
-        }
-
-        void timeout(Object src, EventArgs e)
-        {
-            Failed(this, new EventArgs());
-            tim.Stop();
-            tim.Start();
-            resetOnce();
-            index = 0;
-        }
+        #region Events
 
         public event EventHandler<EventArgs> Successful;
-
         public event EventHandler<EventArgs> Failed;
+
+        private void ConditionFailed(Object src, EventArgs e)
+        {
+            timer.Stop();
+            Failed(this, new EventArgs());
+            index.Reset();
+            timer.Start();
+        }
+
+        private void ConditionComplete(Object src, EventArgs e)
+        {
+            if (!index.MoveNext())
+            {
+                Successful(this, new EventArgs());
+                index.Reset();
+            }
+        }
+
+        private void Timeout(Object src, EventArgs e)
+        {
+            timer.Stop();
+            Failed(this, new EventArgs());
+            index.Reset();
+            timer.Start();
+        }
+
+        #endregion
     }
 }

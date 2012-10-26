@@ -3,10 +3,10 @@ using GestureEvents;
 using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Diagnostics;
 
 namespace Conditions.Login
 {
@@ -17,7 +17,8 @@ namespace Conditions.Login
         private Checker checker;
         List<Direction> rightHandDirections, handToHeadDirections;
 
-        public WaveLeftCondition(Person p): base(p)
+        public WaveLeftCondition(Person p)
+            : base(p)
         {
             checker = new Checker(p);
         }
@@ -45,5 +46,5 @@ namespace Conditions.Login
             }
         }
     }
-    }
 }
+
