@@ -20,18 +20,7 @@ namespace Conditions
         }
 
         public event EventHandler Triggered;
-
-        //protected virtual void fireSucceded(object src, EventArgs e)
-        //{
-        //    Succeded(src, e);
-        //}
-
         public event EventHandler Recogniced;
-
-        //protected virtual void fireFailed(object src, EventArgs e)
-        //{
-        //    Failed(src, e);
-        //}
 
         protected abstract void check(object src, NewSkeletonEventArg e)
         {
