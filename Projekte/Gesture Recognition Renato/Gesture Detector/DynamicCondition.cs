@@ -20,7 +20,8 @@ namespace Conditions
 
         protected abstract void check(object src, NewSkeletonEventArg e);
 
-        public event EventHandler Succeded;
+        public event EventHandler<EventArgs> Succeded;
+
         public event EventHandler Failed;
     }
 }

@@ -21,7 +21,8 @@ namespace Conditions
 
         protected abstract void check(object src, NewSkeletonEventArg e);
 
-        public event EventHandler Triggered;
-        public event EventHandler Recogniced;
+        public event EventHandler<EventArgs> Triggered;
+
+        public event EventHandler<EventArgs> Recogniced;
     }
 }
