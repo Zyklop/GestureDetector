@@ -45,6 +45,7 @@
     <Compile Include="AccelerationEventArgs.cs" />
     <Compile Include="ActivePersonEventArgs.cs" />
     <Compile Include="Checker.cs" />
+    <Compile Include="DynamicCondition.cs" />
     <Compile Include="HandOverHeadCondition.cs" />
     <Compile Include="ICondition.cs" />
     <Compile Include="Device.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="PersonPassiveEventArgs.cs" />
     <Compile Include="SkeletonsReadyEventArg.cs" />
     <Compile Include="SmothendSkeleton.cs" />
+    <Compile Include="StaticCondition.cs" />
     <Compile Include="StaticSmothendSkeleton.cs" />
     <Compile Include="WaveLeftCondition.cs" />
   </ItemGroup>
