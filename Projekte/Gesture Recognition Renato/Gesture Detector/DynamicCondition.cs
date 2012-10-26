@@ -18,9 +18,9 @@ namespace Conditions
             person.NewSkeleton += check;
         }
 
+        protected abstract void check(object src, NewSkeletonEventArg e);
+
         public event EventHandler Succeded;
         public event EventHandler Failed;
-
-        protected abstract void check(object src, NewSkeletonEventArg e);
     }
 }

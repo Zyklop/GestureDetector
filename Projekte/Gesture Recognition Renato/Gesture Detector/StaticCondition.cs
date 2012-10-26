@@ -19,12 +19,9 @@ namespace Conditions
             person.NewSkeleton += check;
         }
 
+        protected abstract void check(object src, NewSkeletonEventArg e);
+
         public event EventHandler Triggered;
         public event EventHandler Recogniced;
-
-        protected abstract void check(object src, NewSkeletonEventArg e)
-        {
-            // check
-        }
     }
 }
