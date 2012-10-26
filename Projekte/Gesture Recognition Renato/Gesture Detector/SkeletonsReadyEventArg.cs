@@ -7,7 +7,7 @@ using DataSources;
 
 namespace GestureEvents
 {
-    class SkeletonsReadyEventArg:EventArgs
+    public class SkeletonsReadyEventArg:EventArgs
     {
         private List<Match> matches;
 

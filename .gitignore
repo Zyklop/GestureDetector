@@ -3,3 +3,4 @@ obj/
 *.bak
 *.Ink
 thumbs.db
+*.suo

@@ -7,7 +7,7 @@ using DataSources;
 
 namespace GestureEvents
 {
-    class ActivePersonEventArgs:EventArgs
+    public class ActivePersonEventArgs:EventArgs
     {
         private Person pers;
 

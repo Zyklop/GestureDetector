@@ -5,24 +5,21 @@ using System.Text;
 using DataSources;
 using GestureEvents;
 using Gesture_Detector;
+using System.Diagnostics;
 
 namespace DataSources
 {
     public class Person
     {
         private bool active;
-        private SmothendSkeleton[] skeletons;
-        private int[] time;
-        private int index;
+        private SortedDictionary<int, SmothendSkeleton> skeletons;
         private Device dev;
         private int id;
 
         public Person(Device d)
         {
             Random r = new Random();
-            skeletons = new SmothendSkeleton[10];
-            time = new int[10];
-            index = 0;
+            skeletons = new SortedDictionary<int, SmothendSkeleton>(new DescendingTimeComparer<int>());
             dev = d;
             id = r.Next();
             dev.NewSkeleton += PickUpSkeleton;
@@ -50,34 +47,29 @@ namespace DataSources
 
         void PickUpSkeleton(object src, SkeletonsReadyEventArg e)
         {
-            if (index == 9)
+            skeletons.Add(DateTime.Now.Millisecond,e.GetSkeleton(this));
+            if (skeletons.Count > 10)
             {
-                index = 0;
+                skeletons.Remove(skeletons.Min().Key);
             }
-            else
-            {
-                index++;
-            }
-            skeletons[index]=e.GetSkeleton(this);
-            time[index] = DateTime.Now.Millisecond;
             NewSkeleton(this, new NewSkeletonEventArg(e.GetSkeleton(this)));
         }
 
-        public SmothendSkeleton GetSkeleton
+        public SmothendSkeleton CurrentSkeleton
         {
-            get { return skeletons[index]; }
+            get { return skeletons.First().Value; }
         }
-
-        public bool SendEventsWhenPassive { get; set; }
 
         public SmothendSkeleton GetLastSkeleton(int i)
         {
-            return skeletons[(index - i + 10) % 10];
+            return skeletons.ElementAt(i).Value;
         }
 
         public int MillisBetweenFrames(int first, int second)
         {
-            return time[(index - second + 10) % 10] - time[(index - first + 10) % 10];
+            int diff = skeletons.ElementAt(second).Key - skeletons.ElementAt(first).Key;
+            Debug.WriteLineIf(diff < 0, "Time Difference negative in MillisBetweenFrame");
+            return diff;
         }
 
         public bool Active { get; set; }
@@ -99,5 +91,25 @@ namespace DataSources
         public event EventHandler OnWave;
         //public event EventHandler blablub;
         //public event EventHandler etc;
+
+        private class DescendingTimeComparer<T> : IComparer<T> where T : IComparable<T>
+        {
+            public int Compare(T first, T second)
+            {
+                if (((int)((object)first)) < 1000 &&  ((int)((object)second)) > (Int32.MaxValue - 1000))
+                {
+                    return 1;
+                }
+                if (((int)((object)first)) < ((int)((object)second)))
+                {
+                    return 1;
+                }
+                if (((int)((object)first)) > ((int)((object)second)))
+                {
+                    return -1;
+                }
+                return 0;
+            }
+        }
     }
 }

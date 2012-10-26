@@ -26,24 +26,24 @@ namespace Conditions
 
         public double GetAbsoluteVelocity(JointType type)
         {
-            return DistanceBetweenPoints(person.GetSkeleton.GetPosition(type),person.GetLastSkeleton(1).GetPosition(type)) / (person.MillisBetweenFrames(1,0)/1000);
+            return DistanceBetweenPoints(person.CurrentSkeleton.GetPosition(type),person.GetLastSkeleton(1).GetPosition(type)) / (person.MillisBetweenFrames(1,0)/1000);
         }
 
         public double GetRelativeVelocity(JointType t1, JointType t2)
         {
-            double d1 = DistanceBetweenPoints(person.GetSkeleton.GetPosition(t1), person.GetSkeleton.GetPosition(t2));
+            double d1 = DistanceBetweenPoints(person.CurrentSkeleton.GetPosition(t1), person.CurrentSkeleton.GetPosition(t2));
             double d2 = DistanceBetweenPoints(person.GetLastSkeleton(1).GetPosition(t1), person.GetLastSkeleton(1).GetPosition(t2));
             return Math.Abs(d1 - d2) / (person.MillisBetweenFrames(1, 0) / 1000);
         }
 
         public double GetDistance(JointType t1, JointType t2)
         {
-            return DistanceBetweenPoints(person.GetSkeleton.GetPosition(t1), person.GetSkeleton.GetPosition(t2));
+            return DistanceBetweenPoints(person.CurrentSkeleton.GetPosition(t1), person.CurrentSkeleton.GetPosition(t2));
         }
 
         public List<Direction> GetAbsoluteMovement(JointType type)
         {
-            return DirectionTo(person.GetSkeleton.GetPosition(type), person.GetLastSkeleton(1).GetPosition(type));
+            return DirectionTo(person.CurrentSkeleton.GetPosition(type), person.GetLastSkeleton(1).GetPosition(type));
         }
 
         public List<Direction> GetRelativeMovement(JointType steady, JointType moving)
@@ -53,7 +53,7 @@ namespace Conditions
 
         public List<Direction> GetRelativePosition(JointType from, JointType to)
         {
-            return DirectionTo(person.GetSkeleton.GetPosition(from), person.GetSkeleton.GetPosition(to));
+            return DirectionTo(person.CurrentSkeleton.GetPosition(from), person.CurrentSkeleton.GetPosition(to));
         }
 
         private double DistanceBetweenPoints(SkeletonPoint p1, SkeletonPoint p2)
