@@ -46,10 +46,10 @@
     <Compile Include="ActivePersonEventArgs.cs" />
     <Compile Include="Checker.cs" />
     <Compile Include="DynamicCondition.cs" />
-    <Compile Include="HandOverHeadCondition.cs" />
     <Compile Include="ICondition.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="GestureChecker.cs" />
+    <Compile Include="WaveRightCondition.cs" />
     <Compile Include="MovingSmothendSkeleton.cs" />
     <Compile Include="NewPersonEventArgs.cs" />
     <Compile Include="NewSkeletonEventArg.cs" />
