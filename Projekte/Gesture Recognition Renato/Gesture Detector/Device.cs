@@ -18,6 +18,8 @@ namespace DataSources
         public Device()
         {
             Dev = KinectSensor.KinectSensors.FirstOrDefault(x => x.Status == KinectStatus.Connected);
+            lastAcc = new Vector4();
+            persons = new List<Person>();
             Dev.SkeletonStream.Enable();
             Dev.SkeletonFrameReady += NewSkeletons;
         }
@@ -72,11 +74,11 @@ namespace DataSources
         void NewSkeletons(object source, SkeletonFrameReadyEventArgs e)
         {
             double diff=0;
-			diff += (Dev.AccelerometerGetCurrentReading().W-lastAcc.W);
+			diff += (Dev.AccelerometerGetCurrentReading().W - lastAcc.W);
             diff += (Dev.AccelerometerGetCurrentReading().X - lastAcc.X);
             diff += (Dev.AccelerometerGetCurrentReading().Y - lastAcc.Y);
             diff += (Dev.AccelerometerGetCurrentReading().Z - lastAcc.Z);
-            if (diff > 0.1 || diff < -0.1)
+            if ((diff > 0.1 || diff < -0.1) && Accelerated != null)
             {
                 Accelerated(this, new AccelerationEventArgs(diff));
             }
@@ -85,55 +87,70 @@ namespace DataSources
                 SkeletonFrame skeFrm = e.OpenSkeletonFrame();
                 Skeleton[] skeletons = new Skeleton[skeFrm.SkeletonArrayLength];
                 skeFrm.CopySkeletonDataTo(skeletons);
-                int active = 0;
-                List<Match> matches = new List<Match>();
+                List<SmothendSkeleton> skelList = new List<SmothendSkeleton>();
+                //List<Match> matches = new List<Match>();
                 foreach (Skeleton ske in skeletons)
                 {
-                    if (ske != null)
+                    if (ske.TrackingState == SkeletonTrackingState.Tracked)
                     {
-                        active++;
-                        SmothendSkeleton smooth = new SmothendSkeleton(ske);
-                        matches.Add(FindBestMatch(smooth));
+                        skelList.Add(new SmothendSkeleton(ske));
                     }
                 }
-                if (active > persons.Count)
-                {
-                    Person p=new Person(this);
-                    persons.Add(p);
-                    matches.Add(new Match(matches.Min().Skeleton, p, 0.0));
-                    NewPerson(this,new NewPersonEventArgs(p));
-                }
-                else if (active < persons.Count)
-                {
-                    matches.Remove(matches.Max());
-                }
-                NewSkeleton(this, new SkeletonsReadyEventArg(matches));
+                //if (active > persons.Count)
+                //{
+                //    Person p = new Person(this);
+                //    persons.Add(p);
+                //    //matches.Add(new Match(matches.Min().Skeleton, p, 0.0));
+                //    NewPerson(this,new NewPersonEventArgs(p));
+                //}
+                List<Person> ptemp = new List<Person>();
+                ptemp.AddRange(persons);
+                //for (int i = 0; i < skelList.Count;i++)
+                //{
+                //    Person p=FindBestMatch(skelList[i], ptemp);
+                //    p.AddSkeleton(skelList[i]);
+                //    skelList[i] = null;
+                    
+                //}
+                //else if (active < persons.Count)
+                //{
+                //    persons.Remove(matches.Max().Person);
+                //}
+                //foreach (Skeleton ske in skeletons)
+                //{
+                //    if (ske.TrackingState == SkeletonTrackingState.Tracked)
+                //    {
+                //        SmothendSkeleton smooth = new SmothendSkeleton(ske);
+                //        matches.Add(FindBestMatch(smooth));
+                //    }
+                //}
                 // GestureChecker wave; // eher bei Person
             }
             lastAcc = Dev.AccelerometerGetCurrentReading();
         }
 
-        private Match FindBestMatch(SmothendSkeleton s)
+        private Person FindBestMatch(SmothendSkeleton s, List<Person> plist)
         {
-            double[] diffs = new double[persons.Count];
+            double[] diffs = new double[plist.Count];
             double min = Double.MaxValue;
             int minpos = 0;
-            for (int i = 0; i < persons.Count; i++)
+            for (int i = 0; i < plist.Count; i++)
             {
-                diffs[i] = 0;
-                diffs[i] += s.GetPosition(JointType.HipCenter).X - persons[i].CurrentSkeleton.GetPosition(JointType.HipCenter).X;
-                diffs[i] += s.GetPosition(JointType.HipCenter).Y - persons[i].CurrentSkeleton.GetPosition(JointType.HipCenter).Y;
-                diffs[i] += s.GetPosition(JointType.HipCenter).Z - persons[i].CurrentSkeleton.GetPosition(JointType.HipCenter).Z;
-                if (diffs[i] < min)
+                if (plist[i] == null)
                 {
-                    min = diffs[i];
-                    minpos = i;
+                    diffs[i] = 0;
+                    diffs[i] += s.GetPosition(JointType.HipCenter).X - plist[i].CurrentSkeleton.GetPosition(JointType.HipCenter).X;
+                    diffs[i] += s.GetPosition(JointType.HipCenter).Y - plist[i].CurrentSkeleton.GetPosition(JointType.HipCenter).Y;
+                    diffs[i] += s.GetPosition(JointType.HipCenter).Z - plist[i].CurrentSkeleton.GetPosition(JointType.HipCenter).Z;
+                    if (diffs[i] < min)
+                    {
+                        min = diffs[i];
+                        minpos = i;
+                    }
                 }
             }
-            return new Match(s, persons[minpos], min);
+            return plist[minpos];
         }
-
-        public event EventHandler<SkeletonsReadyEventArg> NewSkeleton;
 
         public event EventHandler<ActivePersonEventArgs> PersonActive;
         //public delegate void ActivePersonHandler<TEventArgs> (object source, TEventArgs e) where TEventArgs:EventArgs;

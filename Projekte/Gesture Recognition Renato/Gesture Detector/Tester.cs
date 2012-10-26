@@ -14,7 +14,8 @@ namespace Gesture_Detector
         {
             Device d = new Device();
             d.NewPerson += NewPerson;
-            System.Threading.Thread.Sleep(10000);
+            d.Start();
+            System.Threading.Thread.Sleep(100000);
         }
 
         static void NewPerson(object src, NewPersonEventArgs e)
