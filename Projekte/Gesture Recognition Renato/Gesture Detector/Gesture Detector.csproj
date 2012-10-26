@@ -46,7 +46,7 @@
     <Compile Include="ActivePersonEventArgs.cs" />
     <Compile Include="Checker.cs" />
     <Compile Include="DynamicCondition.cs" />
-    <Compile Include="ICondition.cs" />
+    <Compile Include="Condition.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="GestureChecker.cs" />
     <Compile Include="Tester.cs" />
@@ -59,7 +59,6 @@
     <Compile Include="PersonPassiveEventArgs.cs" />
     <Compile Include="SkeletonsReadyEventArg.cs" />
     <Compile Include="SmothendSkeleton.cs" />
-    <Compile Include="StaticCondition.cs" />
     <Compile Include="StaticSmothendSkeleton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

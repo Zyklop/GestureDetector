@@ -12,14 +12,14 @@ namespace Gesture_Detector
 {
     class GestureChecker
     {
-        private List<StaticCondition> Always;
-        private List<ICondition> Consequtive;
-        private List<ICondition> Once;
+        private List<Condition> Always;
+        private List<Condition> Consequtive;
+        private List<Condition> Once;
         private int index=0;
         private List<bool> onceRes;
         private Timer tim;
 
-        public GestureChecker (List<StaticCondition> always, List<ICondition> consequtive, List<ICondition> once, int time)
+        public GestureChecker (List<Condition> always, List<Condition> consequtive, List<Condition> once, int time)
         {
             Always = always;
             Consequtive = consequtive;
@@ -30,25 +30,25 @@ namespace Gesture_Detector
             onceRes = new List<bool>();
             if (Always == null)
             {
-                Always = new List<StaticCondition>();
+                Always = new List<Condition>();
             }
             if (Consequtive == null)
             {
-                Consequtive = new List<ICondition>();
+                Consequtive = new List<Condition>();
             }
             if (Once==null)
             {
-                Once = new List<ICondition>();
+                Once = new List<Condition>();
             }
-            foreach (StaticCondition cond in Always)
+            foreach (Condition cond in Always)
             {
                 cond.Failed += awFailed;
             }
-            foreach (ICondition cond in Once)
+            foreach (Condition cond in Once)
             {
-                if (cond is StaticCondition)
+                if (cond is Condition)
                 {
-                    ((StaticCondition)cond).Succeded += onceOk;
+                    cond.Succeeded += onceOk;
                 }
                 else
                 {
@@ -56,11 +56,11 @@ namespace Gesture_Detector
                 }
                 onceRes.Add(false);
             }
-            foreach (ICondition cond in Consequtive)
+            foreach (Condition cond in Consequtive)
             {
-                if (cond is StaticCondition)
+                if (cond is Condition)
                 {
-                    ((StaticCondition)cond).Succeded += conseqOk;
+                    cond.Succeeded += conseqOk;
                 }
                 else
                 {
@@ -85,7 +85,7 @@ namespace Gesture_Detector
 
         void conseqOk(Object src, EventArgs e)
         {
-            if (Consequtive.IndexOf((ICondition)src) == index)
+            if (Consequtive.IndexOf((Condition)src) == index)
             {
                 index++;
                 checkComplete();
@@ -96,13 +96,13 @@ namespace Gesture_Detector
         {
             if (!onceRes.Contains(false) && index == Consequtive.Count-1)
             {
-                Succesfull(this, new EventArgs());
+                Successful(this, new EventArgs());
             }
         }
 
         void onceOk(Object src, EventArgs e)
         {
-            onceRes[Once.IndexOf((ICondition)src)] = true;
+            onceRes[Once.IndexOf((Condition)src)] = true;
         }
 
         void timeout(Object src, EventArgs e)
@@ -114,7 +114,7 @@ namespace Gesture_Detector
             index = 0;
         }
 
-        public event EventHandler<EventArgs> Succesfull;
+        public event EventHandler<EventArgs> Successful;
 
         public event EventHandler<EventArgs> Failed;
     }

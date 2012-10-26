@@ -8,20 +8,35 @@ using GestureEvents;
 
 namespace Conditions
 {
-    abstract class DynamicCondition: ICondition
+    abstract class DynamicCondition: Condition
     {
-        protected Person person;
+        protected double startTime;
 
-        public DynamicCondition(Person p) 
+        public DynamicCondition(Person p): base(p)
         { 
-            person = p;
-            person.NewSkeleton += check;
         }
 
-        protected abstract void check(object src, NewSkeletonEventArg e);
+        #region Events
 
-        public event EventHandler<EventArgs> Succeded;
+        /**
+         * Bewegte Gesten werden erst nach einer gewissen Zeit mit Success quittiert.
+         * Davor werden sie dem Checker mit Triggered bekanntgemacht
+         * 
+         * Gestenablauf:
+         * 
+         * -------|----------|----------|-----|------|--------|----->
+         *        T          T          T     S      T        T
+         * 
+         * T = fireTriggered
+         * S = fireSuccess
+         */
+        public event EventHandler<EventArgs> Triggered;
 
-        public event EventHandler Failed;
+        protected void fireTriggered(object sender, EventArgs e)
+        {
+            Triggered(sender, e);
+        }
+
+        #endregion
     }
 }

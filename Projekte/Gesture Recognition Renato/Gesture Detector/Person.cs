@@ -78,9 +78,14 @@ namespace DataSources
 
         public bool SendEventsWhenPassive { get; set; }
 
-        public override bool Equals(object obj)
+        public override bool Equals(Person p)
         {
-            return id == ((Person)obj).ID;
+            return GetHashCode().Equals(p.GetHashCode());
+        }
+
+        public override int GetHashCode()
+        {
+            return ID;
         }
 
         public event EventHandler<NewSkeletonEventArg> NewSkeleton;
