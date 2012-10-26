@@ -78,9 +78,9 @@ namespace DataSources
 
         public bool SendEventsWhenPassive { get; set; }
 
-        public override bool Equals(Person p)
+        public override bool Equals(object p)
         {
-            return GetHashCode().Equals(p.GetHashCode());
+            return GetHashCode().Equals(((Person)p).GetHashCode());
         }
 
         public override int GetHashCode()
