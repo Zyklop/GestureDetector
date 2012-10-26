@@ -19,7 +19,7 @@ namespace Conditions
 
         private Person person;
 
-        public Checker(ref Person p)
+        public Checker(Person p)
         {
             person = p;
         }
