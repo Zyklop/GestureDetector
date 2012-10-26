@@ -22,7 +22,6 @@ namespace DataSources
             skeletons = new SortedDictionary<int, SmothendSkeleton>(new DescendingTimeComparer<int>());
             dev = d;
             id = r.Next();
-            dev.NewSkeleton += PickUpSkeleton;
         }
 
         //public StaticSmothendSkeleton getStaticSkeleton()
@@ -45,19 +44,29 @@ namespace DataSources
         //    return null;
         //}
 
-        void PickUpSkeleton(object src, SkeletonsReadyEventArg e)
+        public void AddSkeleton(SmothendSkeleton ss)
         {
-            skeletons.Add(DateTime.Now.Millisecond,e.GetSkeleton(this));
+            skeletons.Add(DateTime.Now.Millisecond,ss);
             if (skeletons.Count > 10)
             {
-                skeletons.Remove(skeletons.Min().Key);
+                skeletons.Remove(skeletons.ElementAt(9).Key);
             }
-            NewSkeleton(this, new NewSkeletonEventArg(e.GetSkeleton(this)));
+            if (NewSkeleton != null)
+            {
+                NewSkeleton(this, new NewSkeletonEventArg(ss));
+            }
         }
 
         public SmothendSkeleton CurrentSkeleton
         {
-            get { return skeletons.First().Value; }
+            get 
+            {
+                if (skeletons.Count  == 0)
+                {
+                    return new SmothendSkeleton(new Microsoft.Kinect.Skeleton());
+                }
+                return skeletons.First().Value; 
+            }
         }
 
         public SmothendSkeleton GetLastSkeleton(int i)
