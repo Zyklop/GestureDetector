@@ -8,7 +8,7 @@ using GestureEvents;
 
 namespace Conditions
 {
-    class StaticCondition:ICondition
+    abstract class StaticCondition: ICondition
     {
         protected Person person;
         private int StartTime;
@@ -33,7 +33,7 @@ namespace Conditions
         //    Failed(src, e);
         //}
 
-        virtual void check(object src, NewSkeletonEventArg e)
+        protected abstract void check(object src, NewSkeletonEventArg e)
         {
             // check
         }

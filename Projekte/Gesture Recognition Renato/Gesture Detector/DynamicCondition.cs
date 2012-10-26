@@ -8,7 +8,7 @@ using GestureEvents;
 
 namespace Conditions
 {
-    class DynamicCondition:ICondition
+    abstract class DynamicCondition: ICondition
     {
         protected Person person;
 
@@ -32,9 +32,6 @@ namespace Conditions
         //    Failed(src, e);
         //}
 
-        virtual void check(object src, NewSkeletonEventArg e)
-        {
-            // check
-        }
+        protected abstract void check(object src, NewSkeletonEventArg e);
     }
 }
