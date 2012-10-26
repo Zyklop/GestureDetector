@@ -19,7 +19,7 @@ namespace Conditions.Login
             checker = new Checker(p);
         }
 
-        private void check(object src, NewSkeletonEventArg e)
+        protected override void check(object src, NewSkeletonEventArg e)
         {
             List<Direction> rightHandDirections = checker.GetAbsoluteMovement(JointType.HandRight);
             List<Direction> handToHeadDirections = checker.GetRelativePosition(JointType.Head, JointType.HandRight);
@@ -29,12 +29,9 @@ namespace Conditions.Login
             // Prüfe ob Handbewegung nach links abläuft und ob sich die Hand über dem Kopf befindet
             if (rightHandDirections.Contains(Direction.right) && handToHeadDirections.Contains(Direction.upward))
             {
+                fireTriggered(this, null);
                 Debug.WriteLine("WaveLeft recognized.");
-                Succeded(this);
-            }
-            else
-            {
-                Failed(this);
+                //fireRecognized(this, null);
             }
         }
     }
