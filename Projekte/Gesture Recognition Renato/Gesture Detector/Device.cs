@@ -161,6 +161,8 @@ namespace DataSources
             return plist[minpos];
         }
 
+        #region Events
+
         public event EventHandler<ActivePersonEventArgs> PersonActive;
         //public delegate void ActivePersonHandler<TEventArgs> (object source, TEventArgs e) where TEventArgs:EventArgs;
 
@@ -168,29 +170,7 @@ namespace DataSources
         //public delegate void PersonHandler<TEventArgs>(object source, TEventArgs e) where TEventArgs : EventArgs;
 
         public event EventHandler<AccelerationEventArgs> Accelerated;
-    }
 
-    public class Match : IComparable
-    {
-        private SmothendSkeleton skel;
-        private Person pers;
-        private double delta;
-
-
-        public Match(SmothendSkeleton ske, Person p, double diff)
-        {
-            skel = ske;
-            pers = p;
-            delta = diff;
-        }
-
-        public SmothendSkeleton Skeleton { get { return skel; } }
-        public Person Person { get { return pers; } }
-        public double Delta { get { return delta; } }
-
-        public int CompareTo(object obj)
-        {
-            return Delta.CompareTo(((Match)obj).Delta);
-        }
+        #endregion
     }
 }

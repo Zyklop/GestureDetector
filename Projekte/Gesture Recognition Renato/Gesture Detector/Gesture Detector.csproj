@@ -50,6 +50,7 @@
     <Compile Include="Device.cs" />
     <Compile Include="GestureChecker.cs" />
     <Compile Include="Tester.cs" />
+    <Compile Include="SkeletonMath.cs" />
     <Compile Include="WaveLeftCondition.cs" />
     <Compile Include="WaveGestureChecker.cs" />
     <Compile Include="WaveRightCondition.cs" />
@@ -59,7 +60,6 @@
     <Compile Include="Person.cs" />
     <Compile Include="PersonDisposedEventArgs.cs" />
     <Compile Include="PersonPassiveEventArgs.cs" />
-    <Compile Include="SkeletonsReadyEventArg.cs" />
     <Compile Include="SmothendSkeleton.cs" />
     <Compile Include="StaticSmothendSkeleton.cs" />
   </ItemGroup>
