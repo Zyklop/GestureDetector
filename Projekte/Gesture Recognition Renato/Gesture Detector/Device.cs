@@ -14,7 +14,6 @@ namespace DataSources
         private static KinectSensor Dev;
         private Vector4 lastAcc;
         private List<Person> persons;
-        private double[,] matches = new double[7,7];
 
         public Device()
         {
@@ -88,77 +87,120 @@ namespace DataSources
                 SkeletonFrame skeFrm = e.OpenSkeletonFrame();
                 Skeleton[] skeletons = new Skeleton[skeFrm.SkeletonArrayLength];
                 skeFrm.CopySkeletonDataTo(skeletons);
-                List<SmothendSkeleton> skelList = new List<SmothendSkeleton>();
-                //List<Match> matches = new List<Match>();
+
+                // Berücksichtige nur getrackte Skelette
+                List<SmothendSkeleton> skeletonList = new List<SmothendSkeleton>();
                 foreach (Skeleton ske in skeletons)
                 {
                     if (ske.TrackingState == SkeletonTrackingState.Tracked)
                     {
-                        skelList.Add(new SmothendSkeleton(ske));
+                        skeletonList.Add(new SmothendSkeleton(ske));
                     }
                 }
 
-                for (int i = 0; i < matches.GetLength(0); i++ )
+                /**
+                 * Matchmatrix - 7 Skelette werden mit je 7 Personen gematcht
+                 * 
+                 *      | P1 | P2 | P3 | ..
+                 *   S1 |  1 | 12 |  2 | ..
+                 *   S2 |  5 | 15 |  7 | ..
+                 *    : |  : |  : |  : | ..
+                 *
+                 * Ein tiefes Matching bedeutet dass ein neues Skelett und ein 
+                 * bestehendes einer Person näher zusammenliegen als bei einem
+                 * hohen
+                 */
+                int[,] matches = new int[7,7]; // da 4-fach verkettete Listen blöd sind, nehmen wir einen Array
+                for (int i = 0; i < persons.Count; i++) // für alle Personen
                 {
-                    for(int j = 0; j < matches.GetLength(1); i++) {
-                        persons[i].CompareTo(skeletons[j]);
+                    for (int j = 0; j < skeletonList.Count; j++) // für alle Skelette
+                    {
+                        matches[i,j] = persons[i].CompareTo(skeletonList[j]);
                     }
                 }
 
-                //if (active > persons.Count)
-                //{
-                //    Person p = new Person(this);
-                //    persons.Add(p);
-                //    //matches.Add(new Match(matches.Min().Skeleton, p, 0.0));
-                //    NewPerson(this,new NewPersonEventArgs(p));
-                //}
-                List<Person> ptemp = new List<Person>();
-                ptemp.AddRange(persons);
-                //for (int i = 0; i < skelList.Count;i++)
-                //{
-                //    Person p=FindBestMatch(skelList[i], ptemp);
-                //    p.AddSkeleton(skelList[i]);
-                //    skelList[i] = null;
-                    
-                //}
-                //else if (active < persons.Count)
-                //{
-                //    persons.Remove(matches.Max().Person);
-                //}
-                //foreach (Skeleton ske in skeletons)
-                //{
-                //    if (ske.TrackingState == SkeletonTrackingState.Tracked)
-                //    {
-                //        SmothendSkeleton smooth = new SmothendSkeleton(ske);
-                //        matches.Add(FindBestMatch(smooth));
-                //    }
-                //}
-                // GestureChecker wave; // eher bei Person
+                /**
+                 * Es gibt 3 verschiedene Möglichkeiten den aktuellen Status zu beschreiben:
+                 * - Alle Personen hatten schon ein Skelett. Die Zuweisung muss neu erfolgen
+                 * - Es gibt weniger Skelette als Personen. übrige Person muss gelöscht werden
+                 * - Es gibt mehr Skelette als Personen. Eine neue Person muss erstellt werden
+                 */
+                Dictionary<Person, SmothendSkeleton> bestMatches = new Dictionary<Person, SmothendSkeleton>();
+                if (skeletonList.Count == persons.Count) // jede Person bekommt ein neues Skelett
+                {
+                    foreach (Person p in persons)
+                    {
+                        Tuple<int, int> indexes = iterateMatches(ref matches);
+                        bestMatches.Add(persons[indexes.Item1], skeletonList[indexes.Item2]);
+                    }
+                }
+                else if(skeletonList.Count < persons.Count) // eine Person ging aus dem Bild
+                {
+                    foreach (SmothendSkeleton s in skeletonList)
+                    {
+                        Tuple<int, int> indexes = iterateMatches(ref matches);
+                        bestMatches.Add(persons[indexes.Item1], skeletonList[indexes.Item2]);
+                    }
+                    // TODO Person löschen, die nicht in der bestMatches Liste ist
+                } 
+                else // eine Person kam ins Bild
+                {
+                    foreach (Person p in persons)
+                    {
+                        Tuple<int, int> indexes = iterateMatches(ref matches);
+                        bestMatches.Add(persons[indexes.Item1], skeletonList[indexes.Item2]);
+                    }
+                    // TODO Person aus übriggebliebenem Skelett erstellen
+                }
             }
             lastAcc = Dev.AccelerometerGetCurrentReading();
         }
 
-        private Person FindBestMatch(SmothendSkeleton s, List<Person> plist)
+        /**
+         * Es wird das Minimum in einem Array gesucht. Die ganze Zeile und die 
+         * ganze Spalte des Fundortes wird gelöscht (bzw. auf unendlich gesetzt).
+         * 
+         *      | P1 | P2 | P3 | ..
+         *   S1 |  8 |  ∞ | 12 | ..
+         *   S2 | 15 |  ∞ |  7 | ..
+         *   S3 |  ∞ |  ∞ |  ∞ | ..
+         *   S4 | 75 |  ∞ | 47 | ..
+         *    : |  : |  : |  : | ..
+         * 
+         * Bsp: Es wurde [P2, S3] als Minimum gefunden
+         */
+        private Tuple<int, int> iterateMatches(ref int[,] matches)
         {
-            double[] diffs = new double[plist.Count];
-            double min = Double.MaxValue;
-            int minpos = 0;
-            for (int i = 0; i < plist.Count; i++)
+            // finde Minimum
+            int matchI = -1;
+            int matchJ = -1;
+            int minMatch = int.MaxValue;
+            for (int i = 0; i < matches.GetLength(0); i++) // für alle Personen
             {
-                if (plist[i] == null)
+                for (int j = 0; j < matches.GetLength(1); j++) // für alle Skelette
                 {
-                    diffs[i] = 0;
-                    diffs[i] += s.GetPosition(JointType.HipCenter).X - plist[i].CurrentSkeleton.GetPosition(JointType.HipCenter).X;
-                    diffs[i] += s.GetPosition(JointType.HipCenter).Y - plist[i].CurrentSkeleton.GetPosition(JointType.HipCenter).Y;
-                    diffs[i] += s.GetPosition(JointType.HipCenter).Z - plist[i].CurrentSkeleton.GetPosition(JointType.HipCenter).Z;
-                    if (diffs[i] < min)
+                    if (matches[i, j] < minMatch)
                     {
-                        min = diffs[i];
-                        minpos = i;
+                        matchI = i;
+                        matchJ = j;
                     }
                 }
             }
-            return plist[minpos];
+
+            // speichere Minimum
+            Tuple<int, int> found = new Tuple<int, int>(matchI, matchJ);
+
+            // überschreibe Zeile und Spalte des Fundortes
+            for (int i = 0; i < matches.GetLength(0); i++) // überschreibe Zeile des gefundenen Minimums
+            {
+                matches[i, matchJ] = int.MaxValue;
+            }
+            for (int j = 0; j < matches.GetLength(1); j++) // überschreibe Spalte des gefundenen Minimums
+            {
+                matches[matchI, j] = int.MaxValue;
+            }
+
+            return found;
         }
 
         #region Events
