@@ -7,6 +7,7 @@ using GestureEvents;
 using Gesture_Detector;
 using System.Diagnostics;
 using Microsoft.Kinect;
+using Conditions;
 
 namespace DataSources
 {
@@ -98,19 +99,26 @@ namespace DataSources
             return ID;
         }
 
-        public int CompareTo(object obj)
+        public int CompareTo(object other)
         {
-            // TODO mit delta oder so
-            if (obj is SmothendSkeleton) {
-                //return this.CurrentSkeleton.GetPosition(JointType.HipCenter) == ((SmothendSkeleton)c).GetPosition(JointType.HipCenter);
-                return 5;
-            }
-            if (obj is Person)
+            SkeletonPoint currentRoot = this.CurrentSkeleton.GetPosition(JointType.HipCenter);
+            SkeletonPoint otherRoot;
+
+            if (other is SmothendSkeleton) 
             {
-                //return this.CurrentSkeleton.GetPosition(JointType.HipCenter) == ((Person)c).CurrentSkeleton.GetPosition(JointType.HipCenter);
-                return 2;
+                otherRoot = ((SmothendSkeleton)other).GetPosition(JointType.HipCenter);
             }
-            throw new ArgumentException("Neighter Person nor SmothendSkeleton given as argument!");
+            else if (other is Person)
+            {
+                otherRoot = ((Person)other).CurrentSkeleton.GetPosition(JointType.HipCenter);
+            }
+            else
+            {
+                throw new ArgumentException("Neighter Person nor SmothendSkeleton given as argument!");
+            }
+
+            double COMPARING_SCOPE = 0.1; // Alle mit weniger als 10cm Abstand wird als gleich wahrgenommen (return 0)
+            return Math.Abs((int)(SkeletonMath.DistanceBetweenPoints(currentRoot, otherRoot) / COMPARING_SCOPE));
         }
 
         public event EventHandler<NewSkeletonEventArg> NewSkeleton;
