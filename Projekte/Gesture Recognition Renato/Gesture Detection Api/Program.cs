@@ -18,7 +18,7 @@ namespace Gesture_Detection_Api
         {
             Device d = new Device();
             Person p1 = new Person(d);
-            p1.OnWave += new EventHandler(p1_WaveSucceeded);
+            //p1.OnWave += new EventHandler(p1_WaveSucceeded);
         }
     }
 }
