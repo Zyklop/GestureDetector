@@ -42,7 +42,7 @@ namespace Gesture_Detector
 
         private void ConditionFailed(Object src, EventArgs e)
         {
-            Debug.WriteLine("Condition Failed.");
+            Debug.WriteLine(index.Current.GetType().Name + " failed.");
             timer.Stop();
             if (Failed != null) 
             {
@@ -58,12 +58,12 @@ namespace Gesture_Detector
          */
         private void ConditionComplete(Object src, EventArgs e)
         {
-            Debug.WriteLine("Condition Complete.");
+            Debug.WriteLine(index.Current.GetType().Name + " complete.");
             index.Current.disable(); // checke vollendeten Gestenteil nicht mehr
             Boolean hasNext = index.MoveNext();
             if (!hasNext) // keine weiteren Gestenteile vorhanden -> Erfolg
             {
-                Console.WriteLine("Login Suceeded");
+                Debug.WriteLine("Success!");
                 if (Successful != null)
                 {
                     Successful(this, new EventArgs());
@@ -76,7 +76,7 @@ namespace Gesture_Detector
 
         private void Timeout(Object src, EventArgs e)
         {
-            Debug.WriteLine("Timeout.");
+            Debug.WriteLine("timed out.");
             timer.Stop();
             Failed(this, new EventArgs());
             timer.Start();
