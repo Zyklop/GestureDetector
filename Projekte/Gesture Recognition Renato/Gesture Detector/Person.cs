@@ -69,7 +69,7 @@ namespace DataSources
 
             if (NewSkeleton != null)
             {
-                NewSkeleton(this, new NewSkeletonEventArg(ss));
+                NewSkeleton(this, new NewSkeletonEventArgs(ss));
             }
         }
 
@@ -124,7 +124,7 @@ namespace DataSources
             return SkeletonMath.DistanceBetweenPoints(currentRoot, otherRoot);
         }
 
-        public event EventHandler<NewSkeletonEventArg> NewSkeleton;
+        public event EventHandler<NewSkeletonEventArgs> NewSkeleton;
         public event EventHandler<PersonPassiveEventArgs> PersonPassive;
         public event EventHandler<ActivePersonEventArgs> PersonActive;
         public event EventHandler<PersonDisposedEventArgs> PersonDisposed;

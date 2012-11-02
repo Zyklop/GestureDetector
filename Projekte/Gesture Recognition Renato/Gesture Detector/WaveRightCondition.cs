@@ -23,7 +23,7 @@ namespace Conditions.Login
             checker = new Checker(p);
         }
 
-        protected override void check(object sender, NewSkeletonEventArg e)
+        protected override void check(object sender, NewSkeletonEventArgs e)
         {
             rightHandDirections = checker.GetAbsoluteMovement(JointType.HandRight);
             handToHeadDirections = checker.GetRelativePosition(JointType.Head, JointType.HandRight);

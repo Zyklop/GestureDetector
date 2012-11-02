@@ -27,7 +27,7 @@ namespace Conditions
             person.NewSkeleton -= check;
         }
 
-        protected abstract void check(object src, NewSkeletonEventArg e);
+        protected abstract void check(object src, NewSkeletonEventArgs e);
 
         #region Events
 
