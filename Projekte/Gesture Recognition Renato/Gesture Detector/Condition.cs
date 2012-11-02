@@ -37,12 +37,18 @@ namespace Conditions
 
         protected void fireSucceeded(object sender, EventArgs e)
         {
-            Succeeded(sender, e);
+            if (Succeeded != null)
+            {
+                Succeeded(sender, e);
+            }
         }
 
         protected void fireFailed(object sender, EventArgs e)
         {
-            Failed(sender, e);
+            if (Failed != null)
+            {
+                Failed(sender, e);
+            }
         }
 
         #endregion
