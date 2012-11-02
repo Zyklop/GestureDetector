@@ -48,7 +48,7 @@ namespace Conditions
             {
                 return new List<Direction>() { Direction.none };
             }
-            return SkeletonMath.DirectionTo(person.CurrentSkeleton.GetPosition(type), person.GetLastSkeleton(1).GetPosition(type));
+            return SkeletonMath.DirectionTo(person.GetLastSkeleton(1).GetPosition(type), person.CurrentSkeleton.GetPosition(type));
         }
 
         public List<Direction> GetRelativeMovement(JointType steady, JointType moving)

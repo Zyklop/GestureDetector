@@ -35,27 +35,27 @@ namespace Conditions
             double dz = to.Z - from.Z;
             if (dx > TOLERANCE)
             {
-                res.Add(Direction.left);
+                res.Add(Direction.right);
             }
             else if (dx < -TOLERANCE)
             {
-                res.Add(Direction.right);
+                res.Add(Direction.left);
             }
             if (dy > TOLERANCE)
             {
-                res.Add(Direction.downward);
+                res.Add(Direction.upward);
             }
             else if (dy < -TOLERANCE)
             {
-                res.Add(Direction.upward);
+                res.Add(Direction.downward);
             }
             if (dz > TOLERANCE)
             {
-                res.Add(Direction.forward);
+                res.Add(Direction.backward);
             }
             else if (dz < -TOLERANCE)
             {
-                res.Add(Direction.backward);
+                res.Add(Direction.forward);
             }
             if (res.Count == 0)
             {

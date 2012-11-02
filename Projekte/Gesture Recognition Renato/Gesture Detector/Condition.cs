@@ -15,7 +15,16 @@ namespace Conditions
         public Condition(Person p) 
         { 
             person = p;
+        }
+
+        public void enable()
+        {
             person.NewSkeleton += check;
+        }
+
+        public void disable()
+        {
+            person.NewSkeleton -= check;
         }
 
         protected abstract void check(object src, NewSkeletonEventArg e);
