@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Kinect;
 using GestureEvents;
 using Gesture_Detector;
+using System.Diagnostics;
 
 namespace DataSources
 {
@@ -97,7 +98,7 @@ namespace DataSources
                         skeletonList.Add(new SmothendSkeleton(ske));
                     }
                 }
-
+                Debug.WriteLine(persons.Count + " Personen " + skeletonList.Count + " skeletons");
                 /**
                  * Matchmatrix - 7 Skelette werden mit je 7 Personen gematcht
                  * 
@@ -176,9 +177,12 @@ namespace DataSources
                     }
                     for (int i = 0; i < persused.Length; i++)
                     {
-                        if (persused[i])
+                        if (!persused[i])
                         {
-                            persons.RemoveAt(i);
+                            if (i < persons.Count)
+                            {
+                                persons.RemoveAt(i);
+                            }
                         }
                     }
                 }
@@ -203,10 +207,17 @@ namespace DataSources
                             skeletonList[matchindex] = null;
                         }
                     }
-                    Person newPers = new Person(this);
-                    newPers.AddSkeleton(skeletonList.Find(x => x != null));
-                    persons.Add(newPers);
-                    NewPerson(this, new NewPersonEventArgs(newPers));
+                    foreach (SmothendSkeleton ss in skeletonList)
+                    {
+                        if (ss != null)
+                        {
+                            Person newPers = new Person(this);
+                            newPers.AddSkeleton(ss);
+                            //newPers.AddSkeleton(skeletonList.Find(x => x != null));
+                            persons.Add(newPers);
+                            NewPerson(this, new NewPersonEventArgs(newPers));
+                        }
+                    }
                 }
                 skeFrm.Dispose();
             }
