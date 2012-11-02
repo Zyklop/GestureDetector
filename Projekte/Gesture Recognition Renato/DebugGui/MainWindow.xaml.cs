@@ -38,7 +38,7 @@ namespace DebugGui
 
         private void Initialize()
         {
-            console = new OwnConsole(ConsoleOutput);
+            console = new OwnConsole(ConsoleOutput, sv);
         }
 
         private void enableOutputBtn_Checked_1(object sender, RoutedEventArgs e)
@@ -51,7 +51,6 @@ namespace DebugGui
             Device d = new Device();
             d.NewPerson += NewPerson;
             d.Start();
-            int pers = 0;
             //while (true)
             //{
             //    if (pers != d.GetAll().Count)
@@ -67,6 +66,7 @@ namespace DebugGui
             console.WriteLine(e.Person.ID);
             e.Person.OnWave += delegate(object o, EventArgs ev) { console.WriteLine("gewinkt"); };
             WaveLeftCondition wlc = new WaveLeftCondition(e.Person);
+            wlc.enable();
             wlc.Triggered += delegate(object o, EventArgs ev)
             {
                 WLTrigg.Visibility = System.Windows.Visibility.Visible;
@@ -79,11 +79,13 @@ namespace DebugGui
             };
             wlc.Failed += delegate(object o, EventArgs ev)
             {
+                console.WriteLine("failed");
                 WLTrigg.Visibility = System.Windows.Visibility.Hidden;
                 WLSucc.Visibility = System.Windows.Visibility.Hidden;
                 WLFail.Visibility = System.Windows.Visibility.Visible;
             };
             WaveRightCondition wrc = new WaveRightCondition(e.Person);
+            wlc.enable();
             wrc.Triggered += delegate(object o, EventArgs ev)
             {
                 WRTrigg.Visibility = System.Windows.Visibility.Visible;
@@ -105,10 +107,12 @@ namespace DebugGui
         private class OwnConsole
         {
             private TextBlock output;
+            private ScrollViewer sv;
 
-            public OwnConsole(TextBlock tb)
+            public OwnConsole(TextBlock tb, ScrollViewer scrV)
             {
                 output=tb;
+                sv = scrV;
             }
 
             public void WriteLine(int s)
@@ -119,10 +123,22 @@ namespace DebugGui
                 //sb.Append("/n");
                 //output.Text = sb.ToString();
                 output.Text += s.ToString();
-                output.Text += "/n";
+                output.Text += "\n";
             }
 
-            public void WriteLine(object s)
+            public void WriteLine(string s)
+            {
+                //StringBuilder sb = new StringBuilder();
+                //sb.Append(output.Text);
+                //sb.Append(s);
+                //sb.Append("/n");
+                //output.Text = sb.ToString();
+                output.Text += s;
+                output.Text += "\n";
+                sv.ScrollToEnd();
+            }
+
+            public void Write(object s)
             {
                 output.Text += s.ToString();
                 //StringBuilder sb = new StringBuilder();
