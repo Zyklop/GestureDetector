@@ -11,7 +11,7 @@ using Conditions;
 
 namespace DataSources
 {
-    public class Person: IComparable
+    public class Person
     {
         private bool active;
         private SortedDictionary<int, SmothendSkeleton> skeletons;
@@ -99,26 +99,11 @@ namespace DataSources
             return ID;
         }
 
-        public int CompareTo(object other)
+        public double Match(SmothendSkeleton skeleton)
         {
             SkeletonPoint currentRoot = this.CurrentSkeleton.GetPosition(JointType.HipCenter);
-            SkeletonPoint otherRoot;
-
-            if (other is SmothendSkeleton) 
-            {
-                otherRoot = ((SmothendSkeleton)other).GetPosition(JointType.HipCenter);
-            }
-            else if (other is Person)
-            {
-                otherRoot = ((Person)other).CurrentSkeleton.GetPosition(JointType.HipCenter);
-            }
-            else
-            {
-                throw new ArgumentException("Neighter Person nor SmothendSkeleton given as argument!");
-            }
-
-            double COMPARING_SCOPE = 0.1; // Alle mit weniger als 10cm Abstand wird als gleich wahrgenommen (return 0)
-            return Math.Abs((int)(SkeletonMath.DistanceBetweenPoints(currentRoot, otherRoot) / COMPARING_SCOPE));
+            SkeletonPoint otherRoot = skeleton.GetPosition(JointType.HipCenter);
+            return SkeletonMath.DistanceBetweenPoints(currentRoot, otherRoot);
         }
 
         public event EventHandler<NewSkeletonEventArg> NewSkeleton;

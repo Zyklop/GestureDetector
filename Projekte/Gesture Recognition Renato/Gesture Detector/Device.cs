@@ -110,12 +110,12 @@ namespace DataSources
                  * bestehendes einer Person näher zusammenliegen als bei einem
                  * hohen
                  */
-                int[,] matches = new int[7,7]; // da 4-fach verkettete Listen blöd sind, nehmen wir einen Array
+                double[,] matches = new double[7,7]; // da 4-fach verkettete Listen blöd sind, nehmen wir einen Array
                 for (int i = 0; i < persons.Count; i++) // für alle Personen
                 {
                     for (int j = 0; j < skeletonList.Count; j++) // für alle Skelette
                     {
-                        matches[i,j] = persons[i].CompareTo(skeletonList[j]);
+                        matches[i,j] = persons[i].Match(skeletonList[j]);
                     }
                 }
 
@@ -169,7 +169,7 @@ namespace DataSources
          * 
          * Bsp: Es wurde [P2, S3] als Minimum gefunden
          */
-        private Tuple<int, int> iterateMatches(ref int[,] matches)
+        private Tuple<int, int> iterateMatches(ref double[,] matches)
         {
             // finde Minimum
             int matchI = -1;
