@@ -8,7 +8,7 @@ using GestureEvents;
 
 namespace Conditions
 {
-    abstract class Condition
+    public abstract class Condition
     {
         protected Person person;
 

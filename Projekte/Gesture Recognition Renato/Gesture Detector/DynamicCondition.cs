@@ -8,7 +8,7 @@ using GestureEvents;
 
 namespace Conditions
 {
-    abstract class DynamicCondition: Condition
+    public abstract class DynamicCondition: Condition
     {
         protected double startTime;
 

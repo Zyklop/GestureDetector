@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Conditions.Login
 {
-    class WaveLeftCondition: DynamicCondition
+    public class WaveLeftCondition: DynamicCondition
     {
         private const int LOWER_BOUND_FOR_SUCCESS = 3;
         private int index = 0;
