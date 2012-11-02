@@ -8,6 +8,7 @@ using Gesture_Detector;
 using System.Diagnostics;
 using Microsoft.Kinect;
 using Conditions;
+using Conditions.Zoom;
 
 namespace DataSources
 {
@@ -24,10 +25,14 @@ namespace DataSources
             skeletons = new SortedDictionary<long, SmothendSkeleton>(new DescendingTimeComparer<long>());
             dev = d;
             id = r.Next();
-
+            /*
             WaveGestureChecker wave = new WaveGestureChecker(this);
             wave.Successful += OnWave;
             wave.Failed += delegate(object o, EventArgs e) { Console.WriteLine("fail"); };
+            */
+            ZoomGestureChecker zoom = new ZoomGestureChecker(this);
+            zoom.Successful += OnZoom;
+            zoom.Failed += delegate(object o, EventArgs e) { Console.WriteLine("fail"); };
         }
 
         //public StaticSmothendSkeleton getStaticSkeleton()
@@ -130,6 +135,7 @@ namespace DataSources
         public event EventHandler<PersonDisposedEventArgs> PersonDisposed;
 
         public event EventHandler<EventArgs> OnWave;
+        public event EventHandler<EventArgs> OnZoom;
         //public event EventHandler blablub;
         //public event EventHandler etc;
 

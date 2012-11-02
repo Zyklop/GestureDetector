@@ -49,6 +49,7 @@
     <Compile Include="Condition.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="GestureChecker.cs" />
+    <Compile Include="ZoomGestureChecker.cs" />
     <Compile Include="Tester.cs" />
     <Compile Include="SkeletonMath.cs" />
     <Compile Include="WaveLeftCondition.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="PersonPassiveEventArgs.cs" />
     <Compile Include="SmothendSkeleton.cs" />
     <Compile Include="StaticSmothendSkeleton.cs" />
+    <Compile Include="ZoomCondition.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
