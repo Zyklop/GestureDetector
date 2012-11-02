@@ -8,13 +8,14 @@ using Conditions;
 using DataSources;
 using System.Timers;
 using System.Collections;
+using System.Diagnostics;
 
 namespace Gesture_Detector
 {
     class GestureChecker
     {
         private List<Condition> conditions;
-        private IEnumerator index;
+        private IEnumerator<Condition> index;
         private Timer timer;
 
         // timeout in ms
@@ -27,6 +28,7 @@ namespace Gesture_Detector
 
             index = conditions.GetEnumerator();
             index.MoveNext();
+            index.Current.enable(); // beginne ersten Gestenteil zu checken
 
             timer = new Timer(timeout);
             timer.Start();
@@ -40,32 +42,43 @@ namespace Gesture_Detector
 
         private void ConditionFailed(Object src, EventArgs e)
         {
+            Debug.WriteLine("Condition Failed.");
             timer.Stop();
             if (Failed != null) 
             {
                 Failed(this, new EventArgs());
             }
             index.Reset();
+            index.MoveNext();
             timer.Start();
         }
 
+        /**
+         * Gestenteil ist komplett. Fahre mit dem nächsten weiter.
+         */
         private void ConditionComplete(Object src, EventArgs e)
         {
-            if (!index.MoveNext())
+            Debug.WriteLine("Condition Complete.");
+            index.Current.disable(); // checke vollendeten Gestenteil nicht mehr
+            Boolean hasNext = index.MoveNext();
+            if (!hasNext) // keine weiteren Gestenteile vorhanden -> Erfolg
             {
-                Console.WriteLine("GACHGACH - PSSST RENATO!");
-                if (Successful != null) {
+                Console.WriteLine("Login Suceeded");
+                if (Successful != null)
+                {
                     Successful(this, new EventArgs());
                 }
                 index.Reset();
+                index.MoveNext();
             }
+            index.Current.enable(); // checke den nächsten Gestenteil
         }
 
         private void Timeout(Object src, EventArgs e)
         {
+            Debug.WriteLine("Timeout.");
             timer.Stop();
             Failed(this, new EventArgs());
-            index.Reset();
             timer.Start();
         }
 
