@@ -1,0 +1,33 @@
+﻿<Window x:Class="DebugGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="Black"
+        Title="DebugWindow" Height="900" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="WaveLeft" Foreground="White" Grid.Row="0"/>
+        <TextBlock Text="WaveRight" Foreground="White" Grid.Row="1"/>
+        <TextBlock Name="WLSucc"  Text="Success" Foreground="Green" Grid.Row="0" Grid.Column="1" Visibility="Hidden"/>
+        <TextBlock Name="WLTrigg"  Text="Triggered" Foreground="Blue" Grid.Row="0" Grid.Column="2" Visibility="Hidden"/>
+        <TextBlock Name="WLFail"  Text="Success" Foreground="Red" Grid.Row="0" Grid.Column="3" Visibility="Hidden"/>
+        <TextBlock Name="WRSucc"  Text="Success" Foreground="Green" Grid.Row="1" Grid.Column="1" Visibility="Hidden"/>
+        <TextBlock Name="WRTrigg"  Text="Triggered" Foreground="Blue" Grid.Row="1" Grid.Column="2" Visibility="Hidden"/>
+        <TextBlock Name="WRFail"  Text="Success" Foreground="Red" Grid.Row="1" Grid.Column="3" Visibility="Hidden"/>
+        <ScrollViewer Name="sv" Height="300" Grid.Column="4" Grid.RowSpan="4">
+            <TextBlock Name="ConsoleOutput" Foreground="White" xml:space="preserve"/>
+        </ScrollViewer>
+        <ToggleButton Name="enableOutputBtn" Checked="enableOutputBtn_Checked_1" Content="Stop" Foreground="Yellow" Grid.Row="4"/>
+    </Grid>
+</Window>
