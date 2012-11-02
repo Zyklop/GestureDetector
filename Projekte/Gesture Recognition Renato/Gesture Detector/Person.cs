@@ -87,7 +87,7 @@ namespace DataSources
 
         public SmothendSkeleton GetLastSkeleton(int i)
         {
-            if (i > skeletons.Count - 1)
+            if (i > skeletons.Count-1)
             {
                 return null;
             }
@@ -137,7 +137,7 @@ namespace DataSources
         {
             public int Compare(T first, T second)
             {
-                if (((long)((object)first)) < 1000 && ((long)((object)second)) > (long.MaxValue - 1000))
+                if (((long)((object)first)) < 1000 &&  ((long)((object)second)) > (long.MaxValue - 1000))
                 {
                     return 1;
                 }

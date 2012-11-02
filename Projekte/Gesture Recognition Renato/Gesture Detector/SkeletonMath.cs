@@ -14,7 +14,7 @@ namespace Conditions
 
     class SkeletonMath
     {
-        public const double TOLERANCE = 0.1;
+        public const double TOLERANCE = 0.07;
 
         /**
          * Distanz in Metern 
@@ -30,32 +30,32 @@ namespace Conditions
         public static List<Direction> DirectionTo(SkeletonPoint from, SkeletonPoint to)
         {
             List<Direction> res = new List<Direction>();
-            double dx = from.X - to.X;
-            double dy = from.Y - to.Y;
-            double dz = from.Z - to.Z;
+            double dx = to.X - from.X;
+            double dy = to.Y - from.Y;
+            double dz = to.Z - from.Z;
             if (dx > TOLERANCE)
-            {
-                res.Add(Direction.downward);
-            }
-            else if (dx < -TOLERANCE)
-            {
-                res.Add(Direction.upward);
-            }
-            if (dy > TOLERANCE)
             {
                 res.Add(Direction.left);
             }
-            else if (dy < -TOLERANCE)
+            else if (dx < -TOLERANCE)
             {
                 res.Add(Direction.right);
             }
+            if (dy > TOLERANCE)
+            {
+                res.Add(Direction.downward);
+            }
+            else if (dy < -TOLERANCE)
+            {
+                res.Add(Direction.upward);
+            }
             if (dz > TOLERANCE)
             {
-                res.Add(Direction.backward);
+                res.Add(Direction.forward);
             }
             else if (dz < -TOLERANCE)
             {
-                res.Add(Direction.forward);
+                res.Add(Direction.backward);
             }
             if (res.Count == 0)
             {

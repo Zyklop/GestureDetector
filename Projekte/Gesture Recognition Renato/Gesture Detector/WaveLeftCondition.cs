@@ -29,19 +29,24 @@ namespace Conditions.Login
             handToHeadDirections = checker.GetRelativePosition(JointType.Head, JointType.HandRight);
 
             // TODO Debugoutput entfernen
-            rightHandDirections.ForEach(delegate(Direction x) { Debug.Write(x.ToString()); });
+            rightHandDirections.ForEach(delegate(Direction x) {
+                if (x != Direction.none)
+                {
+                    Debug.WriteLine("right hand moves " + x.ToString() + ".");
+                }
+            });
 
             // Prüfe ob Handbewegung nach links abläuft und ob sich die Hand über dem Kopf befindet
-            if (rightHandDirections.Contains(Direction.left) && handToHeadDirections.Contains(Direction.upward))
+            if (rightHandDirections.Contains(Direction.left) && handToHeadDirections.Contains(Direction.downward))
             {
                 fireTriggered(this, null);
-                Debug.Write("T");
+                Debug.WriteLine("left wave triggered.");
 
                 index++;
                 if (index >= LOWER_BOUND_FOR_SUCCESS)
                 {
                     fireSucceeded(this, null);
-                    Debug.Write("S");
+                    Debug.WriteLine("left wave suceeded.");
                 }
             }
         }

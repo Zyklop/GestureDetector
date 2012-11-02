@@ -17,7 +17,7 @@ namespace Gesture_Detector
             : base(new List<Condition> {
 
                 new WaveLeftCondition(p), 
-                new WaveRightCondition(p)
+                //new WaveRightCondition(p)
 
             }, CONDITION_TIMEOUT) { }
     }

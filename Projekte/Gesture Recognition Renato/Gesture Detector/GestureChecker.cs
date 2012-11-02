@@ -41,7 +41,10 @@ namespace Gesture_Detector
         private void ConditionFailed(Object src, EventArgs e)
         {
             timer.Stop();
-            Failed(this, new EventArgs());
+            if (Failed != null) 
+            {
+                Failed(this, new EventArgs());
+            }
             index.Reset();
             timer.Start();
         }
@@ -50,7 +53,10 @@ namespace Gesture_Detector
         {
             if (!index.MoveNext())
             {
-                Successful(this, new EventArgs());
+                Console.WriteLine("GACHGACH - PSSST RENATO!");
+                if (Successful != null) {
+                    Successful(this, new EventArgs());
+                }
                 index.Reset();
             }
         }

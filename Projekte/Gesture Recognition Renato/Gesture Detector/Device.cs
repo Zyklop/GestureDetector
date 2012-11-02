@@ -134,7 +134,7 @@ namespace DataSources
                     {
                         bestMatch.Value = double.MaxValue;
                         double v;
-                        foreach (Person p in personList)
+                        foreach (Person p in personList) 
                         {
                             v = p.Match(s);
                             if (v < bestMatch.Value)
@@ -148,11 +148,11 @@ namespace DataSources
                         personList.Remove(bestMatch.Person);
                     }
                     // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
-                    foreach (Person p in personList)
+                    foreach (Person p in personList) 
                     {
                         persons.Remove(p);
                     }
-                }
+                } 
                 else // eine Person kam ins Bild
                 {
                     List<Person> personList = new List<Person>(); // Kopiere Personen für Matchingverfahren
@@ -193,9 +193,9 @@ namespace DataSources
 
         private class Match
         {
-            public double Value { get; set; }
-            public Person Person { get; set; }
-            public SmothendSkeleton Skeleton { get; set; }
+            public double Value {get; set; }
+            public Person Person {get; set; }
+            public SmothendSkeleton Skeleton {get; set; }
         };
 
         #region Events

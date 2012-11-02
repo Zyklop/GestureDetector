@@ -34,7 +34,10 @@ namespace Conditions
 
         protected void fireTriggered(object sender, EventArgs e)
         {
-            Triggered(sender, e);
+            if (Triggered != null)
+            {
+                Triggered(sender, e);
+            }
         }
 
         #endregion
