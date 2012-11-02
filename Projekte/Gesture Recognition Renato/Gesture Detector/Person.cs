@@ -48,14 +48,18 @@ namespace DataSources
 
         public void AddSkeleton(SmothendSkeleton ss)
         {
-            skeletons.Add(DateTime.Now.Millisecond,ss);
-            if (skeletons.Count > 10)
+            int millitime = DateTime.Now.Millisecond;
+            if (!skeletons.ContainsKey(millitime))
             {
-                skeletons.Remove(skeletons.ElementAt(9).Key);
-            }
-            if (NewSkeleton != null)
-            {
-                NewSkeleton(this, new NewSkeletonEventArg(ss));
+                skeletons.Add(millitime, ss);
+                if (skeletons.Count > 10)
+                {
+                    skeletons.Remove(skeletons.ElementAt(9).Key);
+                }
+                if (NewSkeleton != null)
+                {
+                    NewSkeleton(this, new NewSkeletonEventArg(ss));
+                }
             }
         }
 

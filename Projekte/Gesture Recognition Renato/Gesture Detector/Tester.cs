@@ -15,7 +15,15 @@ namespace Gesture_Detector
             Device d = new Device();
             d.NewPerson += NewPerson;
             d.Start();
-            System.Threading.Thread.Sleep(100000);
+            int persons = 0;
+            while (true)
+            {
+                if (persons != d.GetAll().Count)
+                {
+                    persons = d.GetAll().Count;
+                    Console.WriteLine("new person count: " + persons);
+                }
+            }
         }
 
         static void NewPerson(object src, NewPersonEventArgs e)

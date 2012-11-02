@@ -206,7 +206,9 @@ namespace DataSources
                     Person newPers = new Person(this);
                     newPers.AddSkeleton(skeletonList.Find(x => x != null));
                     persons.Add(newPers);
+                    NewPerson(this, new NewPersonEventArgs(newPers));
                 }
+                skeFrm.Dispose();
             }
             lastAcc = Dev.AccelerometerGetCurrentReading();
         }
