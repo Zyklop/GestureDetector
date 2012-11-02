@@ -75,13 +75,13 @@ namespace DataSources
 
         public SmothendSkeleton CurrentSkeleton
         {
-            get 
+            get
             {
-                if (skeletons.Count  == 0)
+                if (skeletons.Count == 0)
                 {
                     return new SmothendSkeleton(new Microsoft.Kinect.Skeleton());
                 }
-                return skeletons.First().Value; 
+                return skeletons.First().Value;
             }
         }
 

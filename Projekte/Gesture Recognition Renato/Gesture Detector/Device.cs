@@ -42,7 +42,7 @@ namespace DataSources
         {
             if (!Dev.IsRunning)
             {
-             Dev.Start();
+                Dev.Start();
             }
             return Dev.IsRunning;
         }
@@ -74,8 +74,8 @@ namespace DataSources
         // TODO wie wärs mit einem griffigeren Namen?
         void NewSkeletons(object source, SkeletonFrameReadyEventArgs e)
         {
-            double diff=0;
-			diff += (Dev.AccelerometerGetCurrentReading().W - lastAcc.W);
+            double diff = 0;
+            diff += (Dev.AccelerometerGetCurrentReading().W - lastAcc.W);
             diff += (Dev.AccelerometerGetCurrentReading().X - lastAcc.X);
             diff += (Dev.AccelerometerGetCurrentReading().Y - lastAcc.Y);
             diff += (Dev.AccelerometerGetCurrentReading().Z - lastAcc.Z);
@@ -126,7 +126,7 @@ namespace DataSources
                         bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
                     }
                 }
-                else if(skeletonList.Count < persons.Count) // eine Person ging aus dem Bild
+                else if (skeletonList.Count < persons.Count) // eine Person ging aus dem Bild
                 {
                     List<Person> personList = new List<Person>(); // Kopiere Personen für Matchingverfahren
                     personList.AddRange(persons);
