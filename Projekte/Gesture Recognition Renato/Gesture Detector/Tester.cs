@@ -15,20 +15,23 @@ namespace Gesture_Detector
             Device d = new Device();
             d.NewPerson += NewPerson;
             d.Start();
-            int persons = 0;
+            int pers = 0;
             while (true)
             {
-                if (persons != d.GetAll().Count)
+                if (pers != d.GetAll().Count)
                 {
-                    persons = d.GetAll().Count;
-                    Console.WriteLine("new person count: " + persons);
+                    Console.WriteLine(d.GetAll().Count);
+                    pers = d.GetAll().Count;
                 }
             }
+
         }
 
         static void NewPerson(object src, NewPersonEventArgs e)
         {
             Console.WriteLine(e.Person.ID);
+            e.Person.OnWave += delegate(object o, EventArgs ev) { Console.WriteLine("gewinkt"); };
         }
+
     }
 }

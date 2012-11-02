@@ -14,16 +14,20 @@ namespace DataSources
     public class Person
     {
         private bool active;
-        private SortedDictionary<int, SmothendSkeleton> skeletons;
+        private SortedDictionary<long, SmothendSkeleton> skeletons;
         private Device dev;
         private int id;
 
         public Person(Device d)
         {
             Random r = new Random();
-            skeletons = new SortedDictionary<int, SmothendSkeleton>(new DescendingTimeComparer<int>());
+            skeletons = new SortedDictionary<long, SmothendSkeleton>(new DescendingTimeComparer<long>());
             dev = d;
             id = r.Next();
+
+            WaveGestureChecker wave = new WaveGestureChecker(this);
+            wave.Successful += OnWave;
+            wave.Failed += delegate(object o, EventArgs e) { Console.WriteLine("fail"); };
         }
 
         //public StaticSmothendSkeleton getStaticSkeleton()
@@ -48,41 +52,51 @@ namespace DataSources
 
         public void AddSkeleton(SmothendSkeleton ss)
         {
-            int millitime = DateTime.Now.Millisecond;
-            if (!skeletons.ContainsKey(millitime))
+            long t = System.DateTime.Now.Ticks;
+            if (!skeletons.ContainsKey(t))
             {
-                skeletons.Add(millitime, ss);
-                if (skeletons.Count > 10)
-                {
-                    skeletons.Remove(skeletons.ElementAt(9).Key);
-                }
-                if (NewSkeleton != null)
-                {
-                    NewSkeleton(this, new NewSkeletonEventArg(ss));
-                }
+                skeletons.Add(t, ss);
+            }
+            else
+            {
+                skeletons[t] = ss;
+            }
+
+            if (skeletons.Count > 10)
+            {
+                skeletons.Remove(skeletons.ElementAt(9).Key);
+            }
+
+            if (NewSkeleton != null)
+            {
+                NewSkeleton(this, new NewSkeletonEventArg(ss));
             }
         }
 
         public SmothendSkeleton CurrentSkeleton
         {
-            get 
+            get
             {
-                if (skeletons.Count  == 0)
+                if (skeletons.Count == 0)
                 {
                     return new SmothendSkeleton(new Microsoft.Kinect.Skeleton());
                 }
-                return skeletons.First().Value; 
+                return skeletons.First().Value;
             }
         }
 
         public SmothendSkeleton GetLastSkeleton(int i)
         {
+            if (i > skeletons.Count - 1)
+            {
+                return null;
+            }
             return skeletons.ElementAt(i).Value;
         }
 
-        public int MillisBetweenFrames(int first, int second)
+        public long MillisBetweenFrames(int first, int second)
         {
-            int diff = skeletons.ElementAt(second).Key - skeletons.ElementAt(first).Key;
+            long diff = (skeletons.ElementAt(second).Key - skeletons.ElementAt(first).Key) / 10;
             Debug.WriteLineIf(diff < 0, "Time Difference negative in MillisBetweenFrame");
             return diff;
         }
@@ -115,7 +129,7 @@ namespace DataSources
         public event EventHandler<ActivePersonEventArgs> PersonActive;
         public event EventHandler<PersonDisposedEventArgs> PersonDisposed;
 
-        public event EventHandler OnWave;
+        public event EventHandler<EventArgs> OnWave;
         //public event EventHandler blablub;
         //public event EventHandler etc;
 
@@ -123,15 +137,15 @@ namespace DataSources
         {
             public int Compare(T first, T second)
             {
-                if (((int)((object)first)) < 1000 &&  ((int)((object)second)) > (Int32.MaxValue - 1000))
+                if (((long)((object)first)) < 1000 && ((long)((object)second)) > (long.MaxValue - 1000))
                 {
                     return 1;
                 }
-                if (((int)((object)first)) < ((int)((object)second)))
+                if (((long)((object)first)) < ((long)((object)second)))
                 {
                     return 1;
                 }
-                if (((int)((object)first)) > ((int)((object)second)))
+                if (((long)((object)first)) > ((long)((object)second)))
                 {
                     return -1;
                 }
