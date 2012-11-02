@@ -12,7 +12,7 @@ namespace Conditions.Login
 {
     class WaveLeftCondition: DynamicCondition
     {
-        private const int LOWER_BOUND_FOR_SUCCESS = 5;
+        private const int LOWER_BOUND_FOR_SUCCESS = 3;
         private int index = 0;
         private Checker checker;
         List<Direction> rightHandDirections, handToHeadDirections;

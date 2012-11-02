@@ -11,13 +11,13 @@ namespace Gesture_Detector
 {
     class WaveGestureChecker: GestureChecker
     {
-        protected const int CONDITION_TIMEOUT = 1000;
+        protected const int CONDITION_TIMEOUT = 2500;
 
         public WaveGestureChecker(Person p)
             : base(new List<Condition> {
 
-                new WaveLeftCondition(p), 
-                //new WaveRightCondition(p)
+                new WaveLeftCondition(p),
+                new WaveRightCondition(p)
 
             }, CONDITION_TIMEOUT) { }
     }

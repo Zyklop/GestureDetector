@@ -14,7 +14,7 @@ namespace Conditions
 
     class SkeletonMath
     {
-        public const double TOLERANCE = 0.07;
+        public const double TOLERANCE = 0.06;
 
         /**
          * Distanz in Metern 
