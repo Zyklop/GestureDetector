@@ -73,8 +73,8 @@ namespace DataSources
         // TODO wie wärs mit einem griffigeren Namen?
         void NewSkeletons(object source, SkeletonFrameReadyEventArgs e)
         {
-            double diff=0;
-			diff += (Dev.AccelerometerGetCurrentReading().W - lastAcc.W);
+            double diff = 0;
+            diff += (Dev.AccelerometerGetCurrentReading().W - lastAcc.W);
             diff += (Dev.AccelerometerGetCurrentReading().X - lastAcc.X);
             diff += (Dev.AccelerometerGetCurrentReading().Y - lastAcc.Y);
             diff += (Dev.AccelerometerGetCurrentReading().Z - lastAcc.Z);
@@ -110,14 +110,14 @@ namespace DataSources
                  * bestehendes einer Person näher zusammenliegen als bei einem
                  * hohen
                  */
-                double[,] matches = new double[7,7]; // da 4-fach verkettete Listen blöd sind, nehmen wir einen Array
-                for (int i = 0; i < persons.Count; i++) // für alle Personen
-                {
-                    for (int j = 0; j < skeletonList.Count; j++) // für alle Skelette
-                    {
-                        matches[i,j] = persons[i].Match(skeletonList[j]);
-                    }
-                }
+                //double[,] matches = new double[7,7]; // da 4-fach verkettete Listen blöd sind, nehmen wir einen Array
+                //for (int i = 0; i < persons.Count; i++) // für alle Personen
+                //{
+                //    for (int j = 0; j < skeletonList.Count; j++) // für alle Skelette
+                //    {
+                //        matches[i,j] = persons[i].Match(skeletonList[j]);
+                //    }
+                //}
 
                 /**
                  * Es gibt 3 verschiedene Möglichkeiten den aktuellen Status zu beschreiben:
@@ -125,32 +125,87 @@ namespace DataSources
                  * - Es gibt weniger Skelette als Personen. übrige Person muss gelöscht werden
                  * - Es gibt mehr Skelette als Personen. Eine neue Person muss erstellt werden
                  */
-                Dictionary<Person, SmothendSkeleton> bestMatches = new Dictionary<Person, SmothendSkeleton>();
+                //Dictionary<Person, SmothendSkeleton> bestMatches = new Dictionary<Person, SmothendSkeleton>();
                 if (skeletonList.Count == persons.Count) // jede Person bekommt ein neues Skelett
                 {
-                    foreach (Person p in persons)
+                    foreach (Person pers in persons)
                     {
-                        Tuple<int, int> indexes = iterateMatches(ref matches);
-                        bestMatches.Add(persons[indexes.Item1], skeletonList[indexes.Item2]);
+                        double min = Double.MaxValue;
+                        int matchindex = 0;
+                        for (int i = 0; i < skeletonList.Count; i++)
+                        {
+                            if (skeletonList[i] != null)
+                            {
+                                double match = pers.Match(skeletonList[i]);
+                                if (match < min)
+                                {
+                                    matchindex = i;
+                                    min = match;
+                                }
+                            }
+                        pers.AddSkeleton(skeletonList[matchindex]);
+                        skeletonList[matchindex] = null;
+                        }
                     }
                 }
-                else if(skeletonList.Count < persons.Count) // eine Person ging aus dem Bild
+                else if (skeletonList.Count < persons.Count) // eine Person ging aus dem Bild (persons > skeletons)
                 {
-                    foreach (SmothendSkeleton s in skeletonList)
+                    bool[] persused = new bool[persons.Count];
+                    for (int i = 0; i < persused.Length; i++)
                     {
-                        Tuple<int, int> indexes = iterateMatches(ref matches);
-                        bestMatches.Add(persons[indexes.Item1], skeletonList[indexes.Item2]);
+                        persused[i] = false;
                     }
-                    // TODO Person löschen, die nicht in der bestMatches Liste ist
-                } 
-                else // eine Person kam ins Bild
+                    foreach (SmothendSkeleton skel in skeletonList)
+                    {
+                        double min = Double.MaxValue;
+                        int matchindex = 0;
+                        for (int i = 0; i < persons.Count; i++)
+                        {
+                            if (persused[i] == false)
+                            {
+                                double match = persons[i].Match(skel);
+                                if (match < min)
+                                {
+                                    matchindex = i;
+                                    min = match;
+                                }
+                            }
+                            persons[matchindex].AddSkeleton(skel);
+                            persused[matchindex] = false;
+                        }
+                    }
+                    for (int i = 0; i < persused.Length; i++)
+                    {
+                        if (persused[i])
+                        {
+                            persons.RemoveAt(i);
+                        }
+                    }
+                }
+                else // eine Person kam ins Bild (skeletons > persons)
                 {
-                    foreach (Person p in persons)
+                    foreach (Person pers in persons)
                     {
-                        Tuple<int, int> indexes = iterateMatches(ref matches);
-                        bestMatches.Add(persons[indexes.Item1], skeletonList[indexes.Item2]);
+                        double min = Double.MaxValue;
+                        int matchindex = 0;
+                        for (int i = 0; i < skeletonList.Count; i++)
+                        {
+                            if (skeletonList[i] != null)
+                            {
+                                double match = pers.Match(skeletonList[i]);
+                                if (match < min)
+                                {
+                                    matchindex = i;
+                                    min = match;
+                                }
+                            }
+                            pers.AddSkeleton(skeletonList[matchindex]);
+                            skeletonList[matchindex] = null;
+                        }
                     }
-                    // TODO Person aus übriggebliebenem Skelett erstellen
+                    Person newPers = new Person(this);
+                    newPers.AddSkeleton(skeletonList.Find(x => x != null));
+                    persons.Add(newPers);
                 }
             }
             lastAcc = Dev.AccelerometerGetCurrentReading();
@@ -169,39 +224,39 @@ namespace DataSources
          * 
          * Bsp: Es wurde [P2, S3] als Minimum gefunden
          */
-        private Tuple<int, int> iterateMatches(ref double[,] matches)
-        {
-            // finde Minimum
-            int matchI = -1;
-            int matchJ = -1;
-            int minMatch = int.MaxValue;
-            for (int i = 0; i < matches.GetLength(0); i++) // für alle Personen
-            {
-                for (int j = 0; j < matches.GetLength(1); j++) // für alle Skelette
-                {
-                    if (matches[i, j] < minMatch)
-                    {
-                        matchI = i;
-                        matchJ = j;
-                    }
-                }
-            }
+        //private Tuple<int, int> iterateMatches(ref double[,] matches)
+        //{
+        //    // finde Minimum
+        //    int matchI = -1;
+        //    int matchJ = -1;
+        //    int minMatch = int.MaxValue;
+        //    for (int i = 0; i < matches.GetLength(0); i++) // für alle Personen
+        //    {
+        //        for (int j = 0; j < matches.GetLength(1); j++) // für alle Skelette
+        //        {
+        //            if (matches[i, j] < minMatch)
+        //            {
+        //                matchI = i;
+        //                matchJ = j;
+        //            }
+        //        }
+        //    }
 
-            // speichere Minimum
-            Tuple<int, int> found = new Tuple<int, int>(matchI, matchJ);
+        //    // speichere Minimum
+        //    Tuple<int, int> found = new Tuple<int, int>(matchI, matchJ);
 
-            // überschreibe Zeile und Spalte des Fundortes
-            for (int i = 0; i < matches.GetLength(0); i++) // überschreibe Zeile des gefundenen Minimums
-            {
-                matches[i, matchJ] = int.MaxValue;
-            }
-            for (int j = 0; j < matches.GetLength(1); j++) // überschreibe Spalte des gefundenen Minimums
-            {
-                matches[matchI, j] = int.MaxValue;
-            }
+        //    // überschreibe Zeile und Spalte des Fundortes
+        //    for (int i = 0; i < matches.GetLength(0); i++) // überschreibe Zeile des gefundenen Minimums
+        //    {
+        //        matches[i, matchJ] = int.MaxValue;
+        //    }
+        //    for (int j = 0; j < matches.GetLength(1); j++) // überschreibe Spalte des gefundenen Minimums
+        //    {
+        //        matches[matchI, j] = int.MaxValue;
+        //    }
 
-            return found;
-        }
+        //    return found;
+        //}
 
         #region Events
 
