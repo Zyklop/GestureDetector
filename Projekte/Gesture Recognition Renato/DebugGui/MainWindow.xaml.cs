@@ -55,7 +55,7 @@ namespace DebugGui
         private void NewPerson(object src, NewPersonEventArgs e)
         {
             console.WriteLine(e.Person.ID);
-            e.Person.OnWave += delegate(object o, EventArgs ev) { console.WriteLine("gewinkt"); };
+            e.Person.OnWave += delegate(object o, GestureEventArgs ev) { console.WriteLine("gewinkt"); };
             WaveLeftCondition wlc = new WaveLeftCondition(e.Person);
             wlc.enable();
             wlc.Triggered += delegate(object o, EventArgs ev)

@@ -229,6 +229,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                         Person p = new Person(this);
                         p.AddSkeleton(s);
                         persons.Add(p);
+                        registerWave(p);
                         if (NewPerson != null)
                         {
                             NewPerson(this, new NewPersonEventArgs(p));
@@ -246,7 +247,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         }
 
-        private void personWaved(object sender, EventArgs e)
+        private void personWaved(object sender, GestureEventArgs e)
         {
             Person p = ((Person)sender);
             if (!p.Active)
