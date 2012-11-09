@@ -49,6 +49,7 @@
     <Compile Include="Condition.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="GestureChecker.cs" />
+    <Compile Include="GestureEventArgs.cs" />
     <Compile Include="ZoomGestureChecker.cs" />
     <Compile Include="Tester.cs" />
     <Compile Include="SkeletonMath.cs" />

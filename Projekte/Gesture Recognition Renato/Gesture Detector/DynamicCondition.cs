@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataSources;
-using GestureEvents;
+using MF.Engineering.MF8910.GestureDetector.DataSources;
 
-namespace Conditions
+namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
     public abstract class DynamicCondition: Condition
     {

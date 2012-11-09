@@ -1,5 +1,4 @@
-﻿using DataSources;
-using GestureEvents;
+﻿using MF.Engineering.MF8910.GestureDetector.DataSources;
 using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
@@ -7,8 +6,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MF.Engineering.MF8910.GestureDetector.Tools;
+using MF.Engineering.MF8910.GestureDetector.Events;
 
-namespace Conditions.Zoom
+namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
 {
     class ZoomCondition: Condition
     {

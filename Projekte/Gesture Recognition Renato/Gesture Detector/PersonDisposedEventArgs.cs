@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataSources;
+using MF.Engineering.MF8910.GestureDetector.DataSources;
 
-namespace Gesture_Detector
+namespace MF.Engineering.MF8910.GestureDetector.Events
 {
     public class PersonDisposedEventArgs:EventArgs
     {

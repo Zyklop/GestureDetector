@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Kinect;
-using Conditions;
-using DataSources;
 using System.Timers;
 using System.Collections;
 using System.Diagnostics;
+using MF.Engineering.MF8910.GestureDetector.DataSources;
 
-namespace Gesture_Detector
+namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
     class GestureChecker
     {

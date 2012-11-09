@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Kinect;
-using GestureEvents;
-using Gesture_Detector;
 using System.Diagnostics;
+using MF.Engineering.MF8910.GestureDetector.Events;
 
-namespace DataSources
+namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
     public class Device
     {

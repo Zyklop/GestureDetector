@@ -12,10 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DataSources;
-using GestureEvents;
-using Conditions;
-using Conditions.Login;
+using MF.Engineering.MF8910.GestureDetector.DataSources;
+using MF.Engineering.MF8910.GestureDetector.Events;
+using MF.Engineering.MF8910.GestureDetector.Gestures.Login;
 
 
 namespace DebugGui

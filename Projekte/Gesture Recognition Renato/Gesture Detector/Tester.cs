@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataSources;
-using GestureEvents;
+using MF.Engineering.MF8910.GestureDetector.DataSources;
+using MF.Engineering.MF8910.GestureDetector.Events;
 
-namespace Gesture_Detector
+namespace MF.Engineering.MF8910.GestureDetector
 {
     class Tester
     {

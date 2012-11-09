@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataSources;
+using MF.Engineering.MF8910.GestureDetector.DataSources;
 
-namespace GestureEvents
+namespace MF.Engineering.MF8910.GestureDetector.Events
 {
     public class NewPersonEventArgs:EventArgs
     {

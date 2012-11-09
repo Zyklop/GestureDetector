@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestureEvents
+namespace MF.Engineering.MF8910.GestureDetector.Events
 {
     public class AccelerationEventArgs:EventArgs
     {

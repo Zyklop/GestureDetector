@@ -1,5 +1,4 @@
-﻿using DataSources;
-using GestureEvents;
+﻿using MF.Engineering.MF8910.GestureDetector.DataSources;
 using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
@@ -7,8 +6,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Conditions.Login
+using MF.Engineering.MF8910.GestureDetector.Tools;
+using MF.Engineering.MF8910.GestureDetector.Events;
+namespace MF.Engineering.MF8910.GestureDetector.Gestures.Login
 {
     public class WaveLeftCondition: DynamicCondition
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Kinect;
 
-namespace DataSources
+namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
     class StaticSmothendSkeleton:SmothendSkeleton
     {

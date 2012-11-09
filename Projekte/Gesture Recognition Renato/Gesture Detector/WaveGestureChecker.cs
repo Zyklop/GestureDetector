@@ -1,13 +1,12 @@
-﻿using Conditions;
-using Conditions.Login;
-using DataSources;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MF.Engineering.MF8910.GestureDetector.DataSources;
 
-namespace Gesture_Detector
+
+namespace MF.Engineering.MF8910.GestureDetector.Gestures.Login
 {
     class WaveGestureChecker: GestureChecker
     {

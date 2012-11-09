@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataSources;
-using GestureEvents;
-using Gesture_Detector;
 using System.Diagnostics;
 using Microsoft.Kinect;
-using Conditions;
-using Conditions.Zoom;
+using MF.Engineering.MF8910.GestureDetector.Events;
+using MF.Engineering.MF8910.GestureDetector.Tools;
+using MF.Engineering.MF8910.GestureDetector.Gestures.Zoom;
 
-namespace DataSources
+namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
     public class Person
     {

@@ -1,14 +1,11 @@
-﻿using Conditions;
-using Conditions.Login;
-using DataSources;
-using Gesture_Detector;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MF.Engineering.MF8910.GestureDetector.DataSources;
 
-namespace Conditions.Zoom
+namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
 {
     class ZoomGestureChecker: GestureChecker
     {

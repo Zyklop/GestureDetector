@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Conditions
+namespace MF.Engineering.MF8910.GestureDetector.Tools
 {
     public enum Direction
     {
