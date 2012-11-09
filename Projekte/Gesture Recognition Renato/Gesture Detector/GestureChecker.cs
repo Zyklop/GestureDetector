@@ -58,7 +58,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
          */
         private void ConditionComplete(Object src, GestureEventArgs e)
         {
-            Debug.WriteLine(index.Current.GetType().Name + " complete.");
+            Debug.WriteLine(index.Current.GetType().Name + "(" + conditions.IndexOf(index.Current) + ") complete.");
             index.Current.disable(); // checke vollendeten Gestenteil nicht mehr
             Boolean hasNext = index.MoveNext();
             if (!hasNext) // keine weiteren Gestenteile vorhanden -> Erfolg
@@ -78,7 +78,9 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         {
             Debug.WriteLine("timed out.");
             timer.Stop();
-            Failed(this, new FailedGestureEventArgs());
+            Failed(this, new FailedGestureEventArgs() { 
+                Condition = index.Current
+            });
             timer.Start();
         }
 

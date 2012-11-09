@@ -29,10 +29,13 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             wave.Failed += delegate(object o, EventArgs e) { Console.WriteLine("fail"); };
             */
             ZoomGestureChecker zoom = new ZoomGestureChecker(this);
-            zoom.Successful += OnZoom;
+            zoom.Successful += delegate(object o, GestureEventArgs ev)
+            {
+                this.OnZoom(this, ev);
+            };
             zoom.Failed += delegate(object o, GestureEventArgs e) 
             { 
-                Console.WriteLine("fail"); 
+                Console.WriteLine("zoom fail"); 
             };
         }
 
