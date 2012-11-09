@@ -15,6 +15,8 @@ namespace Conditions.Zoom
         private const double UPPER_BOUND_FOR_VELOCITY = 0.003;
         private const int LOWER_BOUND_TO_BEGIN = 70;
         private int index = 0;
+        // TODO set Distance, positive = zoomOut, neg = zoomIn
+        private int zoomDistance = 0;
         private Checker checker;
         List<Direction> rightHandOrientation, leftHandOrientation, rightHandMovement, leftHandMovement;
         double rightHandVelocity, leftHandVelocity;

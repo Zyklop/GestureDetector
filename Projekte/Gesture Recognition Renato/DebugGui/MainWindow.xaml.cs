@@ -25,9 +25,9 @@ namespace DebugGui
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region initializing
         private bool stopped = false;
         private OwnConsole console;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -45,20 +45,12 @@ namespace DebugGui
         {
             enableOutputBtn.IsChecked = stopped;
         }
-
+        #endregion
         private void pseudoMain()
         {
             Device d = new Device();
             d.NewPerson += NewPerson;
             d.Start();
-            //while (true)
-            //{
-            //    if (pers != d.GetAll().Count)
-            //    {
-            //        console.WriteLine(d.GetAll().Count);
-            //        pers = d.GetAll().Count;
-            //    }
-            //}
         }
 
         private void NewPerson(object src, NewPersonEventArgs e)
@@ -79,7 +71,6 @@ namespace DebugGui
             };
             wlc.Failed += delegate(object o, EventArgs ev)
             {
-                console.WriteLine("failed");
                 WLTrigg.Visibility = System.Windows.Visibility.Hidden;
                 WLSucc.Visibility = System.Windows.Visibility.Hidden;
                 WLFail.Visibility = System.Windows.Visibility.Visible;
@@ -103,7 +94,7 @@ namespace DebugGui
                 WRFail.Visibility = System.Windows.Visibility.Visible;
             };
         }
-
+        #region OwnConsole
         private class OwnConsole
         {
             private TextBlock output;
@@ -114,38 +105,69 @@ namespace DebugGui
                 output=tb;
                 sv = scrV;
             }
-
+            #region WriteLine
             public void WriteLine(int s)
             {
-                //StringBuilder sb = new StringBuilder();
-                //sb.Append(output.Text);
-                //sb.Append(s);
-                //sb.Append("/n");
-                //output.Text = sb.ToString();
                 output.Text += s.ToString();
                 output.Text += "\n";
+                sv.ScrollToEnd();
+            }
+
+            public void WriteLine(double d)
+            {
+                output.Text += d.ToString();
+                output.Text += "\n";
+                sv.ScrollToEnd();
+            }
+
+            public void WriteLine(bool b)
+            {
+                output.Text += b.ToString();
+                output.Text += "\n";
+                sv.ScrollToEnd();
             }
 
             public void WriteLine(string s)
             {
-                //StringBuilder sb = new StringBuilder();
-                //sb.Append(output.Text);
-                //sb.Append(s);
-                //sb.Append("/n");
-                //output.Text = sb.ToString();
                 output.Text += s;
                 output.Text += "\n";
                 sv.ScrollToEnd();
+            }
+            #endregion
+            #region Write
+            public void WriteLine(object s)
+            {
+                output.Text += s.ToString();
+                output.Text += "\n";
+                sv.ScrollToEnd();
+            }
+
+            public void Write(int s)
+            {
+                output.Text += s.ToString();
+            }
+
+            public void Write(double d)
+            {
+                output.Text += d.ToString();
+            }
+
+            public void Write(bool b)
+            {
+                output.Text += b.ToString();
+            }
+
+            public void Write(string s)
+            {
+                output.Text += s;
             }
 
             public void Write(object s)
             {
                 output.Text += s.ToString();
-                //StringBuilder sb = new StringBuilder();
-                //sb.Append(output.Text);
-                //sb.Append(s);
-                //output.Text = sb.ToString();
             }
+            #endregion
         }
+        #endregion
     }
 }
