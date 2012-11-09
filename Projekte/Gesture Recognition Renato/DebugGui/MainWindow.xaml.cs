@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
-using MF.Engineering.MF8910.GestureDetector.Gestures.Login;
+using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
 
 
 namespace DebugGui
