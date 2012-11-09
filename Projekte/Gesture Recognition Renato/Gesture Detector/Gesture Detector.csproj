@@ -65,6 +65,7 @@
     <Compile Include="SmothendSkeleton.cs" />
     <Compile Include="StaticSmothendSkeleton.cs" />
     <Compile Include="ZoomCondition.cs" />
+    <Compile Include="ZoomGestureEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
