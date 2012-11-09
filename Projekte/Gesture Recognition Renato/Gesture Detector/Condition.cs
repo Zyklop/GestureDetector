@@ -31,11 +31,11 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
         #region Events
 
-        public event EventHandler<EventArgs> Succeeded;
+        public event EventHandler<GestureEventArgs> Succeeded;
 
-        public event EventHandler<EventArgs> Failed;
+        public event EventHandler<GestureEventArgs> Failed;
 
-        protected void fireSucceeded(object sender, EventArgs e)
+        protected void fireSucceeded(object sender, GestureEventArgs e)
         {
             if (Succeeded != null)
             {
@@ -43,7 +43,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             }
         }
 
-        protected void fireFailed(object sender, EventArgs e)
+        protected void fireFailed(object sender, GestureEventArgs e)
         {
             if (Failed != null)
             {

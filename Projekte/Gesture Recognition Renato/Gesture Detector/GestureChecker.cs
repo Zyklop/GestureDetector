@@ -8,6 +8,7 @@ using System.Timers;
 using System.Collections;
 using System.Diagnostics;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
+using MF.Engineering.MF8910.GestureDetector.Events;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
@@ -36,16 +37,16 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
         #region Events
 
-        public event EventHandler<EventArgs> Successful;
-        public event EventHandler<EventArgs> Failed;
+        public event EventHandler<GestureEventArgs> Successful;
+        public event EventHandler<GestureEventArgs> Failed;
 
-        private void ConditionFailed(Object src, EventArgs e)
+        private void ConditionFailed(Object src, GestureEventArgs e)
         {
             Debug.WriteLine(index.Current.GetType().Name + " failed.");
             timer.Stop();
             if (Failed != null) 
             {
-                Failed(this, new EventArgs());
+                Failed(this, e);
             }
             index.Reset();
             index.MoveNext();
@@ -55,7 +56,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /**
          * Gestenteil ist komplett. Fahre mit dem nächsten weiter.
          */
-        private void ConditionComplete(Object src, EventArgs e)
+        private void ConditionComplete(Object src, GestureEventArgs e)
         {
             Debug.WriteLine(index.Current.GetType().Name + " complete.");
             index.Current.disable(); // checke vollendeten Gestenteil nicht mehr
@@ -65,7 +66,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
                 Debug.WriteLine("Success!");
                 if (Successful != null)
                 {
-                    Successful(this, new EventArgs());
+                    Successful(this, e);
                 }
                 index.Reset();
                 index.MoveNext();
@@ -77,7 +78,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         {
             Debug.WriteLine("timed out.");
             timer.Stop();
-            Failed(this, new EventArgs());
+            Failed(this, new FailedGestureEventArgs());
             timer.Start();
         }
 

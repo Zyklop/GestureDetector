@@ -55,20 +55,20 @@ namespace DebugGui
         private void NewPerson(object src, NewPersonEventArgs e)
         {
             console.WriteLine(e.Person.ID);
-            e.Person.OnWave += delegate(object o, EventArgs ev) { console.WriteLine("gewinkt"); };
+            e.Person.OnWave += delegate(object o, GestureEventArgs ev) { console.WriteLine("gewinkt"); };
             WaveLeftCondition wlc = new WaveLeftCondition(e.Person);
             wlc.enable();
-            wlc.Triggered += delegate(object o, EventArgs ev)
+            wlc.Triggered += delegate(object o, GestureEventArgs ev)
             {
                 WLTrigg.Visibility = System.Windows.Visibility.Visible;
                 WLFail.Visibility = System.Windows.Visibility.Hidden;
             };
-            wlc.Succeeded += delegate(object o, EventArgs ev)
+            wlc.Succeeded += delegate(object o, GestureEventArgs ev)
             {
                 WLSucc.Visibility = System.Windows.Visibility.Visible;
                 WLFail.Visibility = System.Windows.Visibility.Hidden;
             };
-            wlc.Failed += delegate(object o, EventArgs ev)
+            wlc.Failed += delegate(object o, GestureEventArgs ev)
             {
                 WLTrigg.Visibility = System.Windows.Visibility.Hidden;
                 WLSucc.Visibility = System.Windows.Visibility.Hidden;
@@ -76,17 +76,17 @@ namespace DebugGui
             };
             WaveRightCondition wrc = new WaveRightCondition(e.Person);
             wlc.enable();
-            wrc.Triggered += delegate(object o, EventArgs ev)
+            wrc.Triggered += delegate(object o, GestureEventArgs ev)
             {
                 WRTrigg.Visibility = System.Windows.Visibility.Visible;
                 WRFail.Visibility = System.Windows.Visibility.Hidden;
             };
-            wrc.Succeeded += delegate(object o, EventArgs ev)
+            wrc.Succeeded += delegate(object o, GestureEventArgs ev)
             {
                 WRSucc.Visibility = System.Windows.Visibility.Visible;
                 WRFail.Visibility = System.Windows.Visibility.Hidden;
             };
-            wrc.Failed += delegate(object o, EventArgs ev)
+            wrc.Failed += delegate(object o, GestureEventArgs ev)
             {
                 WRTrigg.Visibility = System.Windows.Visibility.Hidden;
                 WRSucc.Visibility = System.Windows.Visibility.Hidden;

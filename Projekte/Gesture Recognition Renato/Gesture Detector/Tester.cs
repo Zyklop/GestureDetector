@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
+using MF.Engineering.MF8910.GestureDetector.Gestures.Zoom;
 
 namespace MF.Engineering.MF8910.GestureDetector
 {
@@ -30,7 +31,11 @@ namespace MF.Engineering.MF8910.GestureDetector
         static void NewPerson(object src, NewPersonEventArgs e)
         {
             Console.WriteLine(e.Person.ID);
-            e.Person.OnWave += delegate(object o, EventArgs ev) { Console.WriteLine("gewinkt"); };
+            e.Person.OnZoom += delegate(object o, GestureEventArgs ev) 
+            {
+                double gauge = ((ZoomGestureEventArgs)ev).Gauge;
+                Console.WriteLine("ZOOM: "+gauge); 
+            };
         }
 
     }

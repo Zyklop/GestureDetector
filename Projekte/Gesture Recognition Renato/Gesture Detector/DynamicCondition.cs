@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
+using MF.Engineering.MF8910.GestureDetector.Events;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
@@ -29,9 +30,9 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
          * T = fireTriggered
          * S = fireSuccess
          */
-        public event EventHandler<EventArgs> Triggered;
+        public event EventHandler<GestureEventArgs> Triggered;
 
-        protected void fireTriggered(object sender, EventArgs e)
+        protected void fireTriggered(object sender, GestureEventArgs e)
         {
             if (Triggered != null)
             {

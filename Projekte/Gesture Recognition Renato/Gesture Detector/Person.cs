@@ -30,7 +30,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             */
             ZoomGestureChecker zoom = new ZoomGestureChecker(this);
             zoom.Successful += OnZoom;
-            zoom.Failed += delegate(object o, EventArgs e) { Console.WriteLine("fail"); };
+            zoom.Failed += delegate(object o, GestureEventArgs e) 
+            { 
+                Console.WriteLine("fail"); 
+            };
         }
 
         //public StaticSmothendSkeleton getStaticSkeleton()
@@ -132,8 +135,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public event EventHandler<ActivePersonEventArgs> PersonActive;
         public event EventHandler<PersonDisposedEventArgs> PersonDisposed;
 
-        public event EventHandler<EventArgs> OnWave;
-        public event EventHandler<EventArgs> OnZoom;
+        public event EventHandler<GestureEventArgs> OnWave;
+        public event EventHandler<GestureEventArgs> OnZoom;
         //public event EventHandler blablub;
         //public event EventHandler etc;
 

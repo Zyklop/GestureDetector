@@ -45,13 +45,15 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
                     && (rightHandVelocity <= UPPER_BOUND_FOR_VELOCITY)
                     && (leftHandVelocity <= UPPER_BOUND_FOR_VELOCITY))
                 {
-                    fireSucceeded(this, new EventArgs());
+                    fireSucceeded(this, new ZoomGestureEventArgs() { 
+                        Gauge = checker.GetDistance(JointType.HandRight, JointType.HandLeft) 
+                    });
                     Console.WriteLine("Success! Velocity: right " + rightHandVelocity + ", left " + leftHandVelocity);
                 }
                 else
                 {
                     index = 0;
-                    fireFailed(this, new EventArgs());
+                    fireFailed(this, new ZoomGestureEventArgs());
                     Console.WriteLine("Failed during Gesture.");
                 }
             }
@@ -69,7 +71,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
                 else
                 {
                     index = 0;
-                    fireFailed(this, new EventArgs());
+                    fireFailed(this, new ZoomGestureEventArgs());
                     Console.WriteLine("Failed to Begin.");
                 }
             }
