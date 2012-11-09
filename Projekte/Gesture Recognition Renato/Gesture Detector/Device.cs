@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Kinect;
 using System.Diagnostics;
 using MF.Engineering.MF8910.GestureDetector.Events;
+using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
 
 namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
@@ -109,6 +110,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                         rem = l;
                     }
                 }
+                // remove Listeners on Person
+                cache[rem].prepareToDie();
+                // kill person
                 cache.Remove(rem);
 
                 /**
@@ -208,6 +212,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                         if (bestMatch.Value < 0.5) // übereinstimmung gültig
                         {
                             persons.Add(bestMatch.Person);
+                            registerWave(bestMatch.Person);
                             bestMatch.Person.AddSkeleton(bestMatch.Skeleton);
                             cache.Remove(bestMatch.Key);
                             skeletonsToRemove.Add(bestMatch.Skeleton);
@@ -233,6 +238,23 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 skeFrm.Dispose();
             }
             lastAcc = Dev.AccelerometerGetCurrentReading();
+        }
+
+        private void registerWave(Person person)
+        {
+            person.OnWave += personWaved;
+
+        }
+
+        private void personWaved(object sender, EventArgs e)
+        {
+            Person p = ((Person)sender);
+            if (!p.Active)
+            {
+                p.Active = true;
+                PersonActive(this,new ActivePersonEventArgs(p));
+                p.OnWave -= personWaved;
+            }
         }
 
         private class Match

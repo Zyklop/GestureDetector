@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 
 
-namespace MF.Engineering.MF8910.GestureDetector.Gestures.Login
+namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
 {
     class WaveGestureChecker: GestureChecker
     {

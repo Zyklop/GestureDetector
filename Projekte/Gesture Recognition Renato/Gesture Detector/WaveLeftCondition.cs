@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MF.Engineering.MF8910.GestureDetector.Tools;
 using MF.Engineering.MF8910.GestureDetector.Events;
-namespace MF.Engineering.MF8910.GestureDetector.Gestures.Login
+namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
 {
     public class WaveLeftCondition: DynamicCondition
     {

@@ -134,6 +134,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         public event EventHandler<EventArgs> OnWave;
         public event EventHandler<EventArgs> OnZoom;
+        public event EventHandler<PersonDisposedEventArgs> OnDispose;
         //public event EventHandler blablub;
         //public event EventHandler etc;
 
@@ -155,6 +156,13 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 }
                 return 0;
             }
+        }
+
+        internal void prepareToDie()
+        {
+            OnWave = null;
+            OnZoom = null;
+            OnDispose(this, new PersonDisposedEventArgs(this));
         }
     }
 }
