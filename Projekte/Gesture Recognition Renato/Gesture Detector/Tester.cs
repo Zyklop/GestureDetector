@@ -35,7 +35,7 @@ namespace MF.Engineering.MF8910.GestureDetector
             e.Person.OnZoom += delegate(object o, GestureEventArgs ev)
             {
                 Debug.WriteLine("-------------------");
-                double gauge = ((ZoomGestureEventArgs)ev).Gauge;
+                double gauge = ((ZoomGestureEventArgs)ev).ZoomFactorFromBegin;
                 Debug.WriteLine("ZOOM2: " + gauge);
                 Debug.WriteLine("-------------------");
             };

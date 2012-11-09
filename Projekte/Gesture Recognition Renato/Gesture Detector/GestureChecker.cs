@@ -24,6 +24,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             conditions = gestureConditions;
             conditions.ForEach(delegate(Condition c) { 
                 c.Succeeded += ConditionComplete;
+                c.Failed += ConditionFailed;
             });
 
             index = conditions.GetEnumerator();
@@ -37,20 +38,25 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
         #region Events
 
-        public event EventHandler<GestureEventArgs> Successful;
-        public event EventHandler<GestureEventArgs> Failed;
+        public virtual event EventHandler<GestureEventArgs> Successful;
+        public virtual event EventHandler<FailedGestureEventArgs> Failed;
 
-        private void ConditionFailed(Object src, GestureEventArgs e)
+        private void ConditionFailed(Object src, FailedGestureEventArgs e)
         {
             Debug.WriteLine(index.Current.GetType().Name + " failed.");
             timer.Stop();
             if (Failed != null) 
             {
-                Failed(this, e);
+                fireFailed(this, e);
             }
             index.Reset();
             index.MoveNext();
             timer.Start();
+        }
+
+        protected virtual void fireFailed(Object sender, FailedGestureEventArgs e)
+        {
+            Failed(this, e);
         }
 
         /**
@@ -63,11 +69,8 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             Boolean hasNext = index.MoveNext();
             if (!hasNext) // keine weiteren Gestenteile vorhanden -> Erfolg
             {
-                Debug.WriteLine("Success!");
-                if (Successful != null)
-                {
-                    Successful(this, e);
-                }
+                //Debug.WriteLine("Success!");
+                    fireSucessful(this, e);
                 index.Reset();
                 index.MoveNext();
             }
@@ -76,12 +79,24 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
         private void Timeout(Object src, EventArgs e)
         {
-            Debug.WriteLine("timed out.");
+            //Debug.WriteLine("timed out.");
             timer.Stop();
-            Failed(this, new FailedGestureEventArgs() { 
-                Condition = index.Current
-            });
+            if (Failed != null)
+            {
+                Failed(this, new FailedGestureEventArgs()
+                {
+                    Condition = index.Current
+                });
+            }
             timer.Start();
+        }
+
+        protected virtual void fireSucessful(Object sender, GestureEventArgs e)
+        {
+            if (Successful != null)
+            {
+                Successful(this, e);
+            }
         }
 
         #endregion

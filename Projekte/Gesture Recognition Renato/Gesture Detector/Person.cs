@@ -33,7 +33,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             {
                 this.OnZoom(this, ev);
             };
-            zoom.Failed += delegate(object o, GestureEventArgs e) 
+            zoom.Failed += delegate(object o, FailedGestureEventArgs e) 
             { 
                 Console.WriteLine("zoom fail"); 
             };

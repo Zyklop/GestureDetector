@@ -110,10 +110,14 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                         rem = l;
                     }
                 }
-                // remove Listeners on Person
-                cache[rem].prepareToDie();
-                // kill person
-                cache.Remove(rem);
+                if (rem != -1)
+                {
+                    // remove Listeners on Person
+                    cache[rem].prepareToDie();
+                    // kill person
+                    cache.Remove(rem);
+                }
+                
 
                 /**
                  * Es gibt 3 verschiedene Möglichkeiten den aktuellen Status zu beschreiben:

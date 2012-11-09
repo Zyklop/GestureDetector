@@ -33,7 +33,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
         public event EventHandler<GestureEventArgs> Succeeded;
 
-        public event EventHandler<GestureEventArgs> Failed;
+        public event EventHandler<FailedGestureEventArgs> Failed;
 
         protected void fireSucceeded(object sender, GestureEventArgs e)
         {
@@ -43,7 +43,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             }
         }
 
-        protected void fireFailed(object sender, GestureEventArgs e)
+        protected void fireFailed(object sender, FailedGestureEventArgs e)
         {
             if (Failed != null)
             {
