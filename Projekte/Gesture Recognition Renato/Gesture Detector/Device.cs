@@ -15,12 +15,14 @@ namespace DataSources
         private static KinectSensor Dev;
         private Vector4 lastAcc;
         private List<Person> persons;
+        private Dictionary<long, Person> cache; 
 
         public Device()
         {
             Dev = KinectSensor.KinectSensors.FirstOrDefault(x => x.Status == KinectStatus.Connected);
             lastAcc = new Vector4();
             persons = new List<Person>();
+            cache = new Dictionary<long, Person>();
             Dev.SkeletonStream.Enable();
             Dev.SkeletonFrameReady += NewSkeletons;
         }
@@ -99,6 +101,17 @@ namespace DataSources
                     }
                 }
 
+                //Cache leeren
+                long rem = -1;
+                foreach (long l in cache.Keys)
+                {
+                    if (l < DateTime.Now.Ticks - 50000)
+                    {
+                        rem = l;
+                    }
+                }
+                cache.Remove(rem);
+
                 /**
                  * Es gibt 3 verschiedene Möglichkeiten den aktuellen Status zu beschreiben:
                  * - Alle Personen hatten schon ein Skelett. Die Zuweisung muss neu erfolgen
@@ -146,6 +159,7 @@ namespace DataSources
                         }
                         bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
                         personList.Remove(bestMatch.Person);
+                        cache.Add(System.DateTime.Now.Ticks, bestMatch.Person);
                     }
                     // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
                     foreach (Person p in personList) 
@@ -174,6 +188,37 @@ namespace DataSources
                         bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
                         skeletonList.Remove(bestMatch.Skeleton);
                     }
+                    //Match to Cache
+                    List<SmothendSkeleton> skeletonsToRemove = new List<SmothendSkeleton>();
+                    foreach (SmothendSkeleton s in skeletonList)
+                    {
+                        bestMatch.Value = double.MaxValue;
+                        double v;
+                        foreach (long l in cache.Keys)
+                        {
+                            Person p = cache[l];
+                            v = p.Match(s);
+                            if (v < bestMatch.Value)
+                            {
+                                bestMatch.Value = v;
+                                bestMatch.Person = p;
+                                bestMatch.Skeleton = s;
+                                bestMatch.Key = l;
+                            }
+                        }
+                        if (bestMatch.Value < 0.5) // übereinstimmung gültig
+                        {
+                            persons.Add(bestMatch.Person);
+                            bestMatch.Person.AddSkeleton(bestMatch.Skeleton);
+                            cache.Remove(bestMatch.Key);
+                            skeletonsToRemove.Add(bestMatch.Skeleton);
+                        }
+                    }
+                    foreach (SmothendSkeleton ske in skeletonsToRemove)
+                    {
+                        skeletonList.Remove(ske);
+                    }
+                    skeletonsToRemove.Clear();
                     // erstelle für übrige Skelette jeweils Personen
                     foreach (SmothendSkeleton s in skeletonList)
                     {
@@ -196,6 +241,7 @@ namespace DataSources
             public double Value {get; set; }
             public Person Person {get; set; }
             public SmothendSkeleton Skeleton {get; set; }
+            public long Key { get; set; }
         };
 
         #region Events
