@@ -6,7 +6,9 @@ using System.Diagnostics;
 using Microsoft.Kinect;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using MF.Engineering.MF8910.GestureDetector.Tools;
+using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Zoom;
+using MF.Engineering.MF8910.GestureDetector.Gestures.Swipe;
 
 namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
@@ -28,14 +30,23 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             wave.Successful += OnWave;
             wave.Failed += delegate(object o, EventArgs e) { Console.WriteLine("fail"); };
             */
-            ZoomGestureChecker zoom = new ZoomGestureChecker(this);
-            zoom.Successful += delegate(object o, GestureEventArgs ev)
+            //ZoomGestureChecker zoom = new ZoomGestureChecker(this);
+            //zoom.Successful += delegate(object o, GestureEventArgs ev)
+            //{
+            //    this.OnZoom(this, ev);
+            //};
+            //zoom.Failed += delegate(object o, GestureEventArgs e) 
+            //{ 
+            //    Console.WriteLine("zoom fail"); 
+            //};
+            SwipeGestureChecker swipe = new SwipeGestureChecker(this);
+            swipe.Successful += delegate(object o, GestureEventArgs e)
             {
-                this.OnZoom(this, ev);
+                Console.WriteLine("SWIPED: " + ((SwipeGestureEventArgs)e).Direction.ToString());
             };
-            zoom.Failed += delegate(object o, GestureEventArgs e) 
-            { 
-                Console.WriteLine("zoom fail"); 
+            swipe.Failed += delegate(object o, GestureEventArgs e)
+            {
+                Console.WriteLine("FAIL: " + ((FailedGestureEventArgs)e).Condition.GetType().Name);
             };
         }
 

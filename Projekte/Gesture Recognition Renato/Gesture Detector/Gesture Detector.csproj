@@ -50,6 +50,9 @@
     <Compile Include="Device.cs" />
     <Compile Include="GestureChecker.cs" />
     <Compile Include="GestureEventArgs.cs" />
+    <Compile Include="SwipeGestureChecker.cs" />
+    <Compile Include="SwipeCondition.cs" />
+    <Compile Include="SwipeGestureEventArgs.cs" />
     <Compile Include="ZoomGestureChecker.cs" />
     <Compile Include="Tester.cs" />
     <Compile Include="SkeletonMath.cs" />
