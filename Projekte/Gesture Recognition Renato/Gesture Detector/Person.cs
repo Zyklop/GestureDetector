@@ -25,16 +25,16 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             skeletons = new SortedDictionary<long, SmothendSkeleton>(new DescendingTimeComparer<long>());
             dev = d;
             id = r.Next();
-            /*
             WaveGestureChecker wave = new WaveGestureChecker(this);
-            wave.Successful += OnWave;
+            wave.Successful += Waving;
+            /*
             wave.Failed += delegate(object o, EventArgs e) { Console.WriteLine("fail"); };
             */
-            //ZoomGestureChecker zoom = new ZoomGestureChecker(this);
-            //zoom.Successful += delegate(object o, GestureEventArgs ev)
-            //{
-            //    this.OnZoom(this, ev);
-            //};
+            ZoomGestureChecker zoom = new ZoomGestureChecker(this);
+            zoom.Successful += delegate(object o, GestureEventArgs ev)
+            {
+                this.OnZoom(this, ev);
+            };
             //zoom.Failed += delegate(object o, GestureEventArgs e) 
             //{ 
             //    Console.WriteLine("zoom fail"); 
@@ -42,12 +42,19 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             SwipeGestureChecker swipe = new SwipeGestureChecker(this);
             swipe.Successful += delegate(object o, GestureEventArgs e)
             {
+                OnSwipe(this, e);
                 Console.WriteLine("SWIPED: " + ((SwipeGestureEventArgs)e).Direction.ToString());
             };
-            swipe.Failed += delegate(object o, GestureEventArgs e)
+            swipe.Failed += delegate(object o, FailedGestureEventArgs e)
             {
                 Console.WriteLine("FAIL: " + ((FailedGestureEventArgs)e).Condition.GetType().Name);
             };
+        }
+
+        private void Waving(object sender, GestureEventArgs e)
+        {
+            Debug.WriteLine("waved");
+            OnWave(this, e);
         }
 
         //public StaticSmothendSkeleton getStaticSkeleton()
@@ -152,7 +159,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public event EventHandler<GestureEventArgs> OnWave;
         public event EventHandler<GestureEventArgs> OnZoom;
         public event EventHandler<PersonDisposedEventArgs> OnDispose;
-        //public event EventHandler blablub;
+        public event EventHandler<GestureEventArgs> OnSwipe;
         //public event EventHandler etc;
 
         private class DescendingTimeComparer<T> : IComparer<T> where T : IComparable<T>

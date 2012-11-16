@@ -8,7 +8,7 @@ using MF.Engineering.MF8910.GestureDetector.Tools;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
 {
-    class SwipeGestureEventArgs: GestureEventArgs
+    public class SwipeGestureEventArgs: GestureEventArgs
     {
         public Direction Direction { get; set; }
     }

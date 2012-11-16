@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
+using MF.Engineering.MF8910.GestureDetector.Gestures.Zoom;
+using MF.Engineering.MF8910.GestureDetector.Gestures.Swipe;
+using System.Threading;
 
 
 namespace DebugGui
@@ -27,6 +30,10 @@ namespace DebugGui
         #region initializing
         private bool stopped = false;
         private OwnConsole console;
+        private List<int> IDs = new List<int>();
+        private Dictionary<Person, Image> persons = new Dictionary<Person, Image>();
+        private Person active;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,57 +49,111 @@ namespace DebugGui
 
         private void enableOutputBtn_Checked_1(object sender, RoutedEventArgs e)
         {
-            enableOutputBtn.IsChecked = stopped;
+            stopped = !stopped;
         }
+
         #endregion
         private void pseudoMain()
         {
             Device d = new Device();
-            //d.NewPerson += NewPerson;
+            d.NewPerson += NewPerson;
+            d.PersonActive += ActivePerson;
             d.Start();
         }
 
-        //private void NewPerson(object src, NewPersonEventArgs e)
-        //{
-        //    console.WriteLine(e.Person.ID);
-        //    e.Person.OnWave += delegate(object o, GestureEventArgs ev) { console.WriteLine("gewinkt"); };
-        //    WaveLeftCondition wlc = new WaveLeftCondition(e.Person);
-        //    wlc.enable();
-        //    wlc.Triggered += delegate(object o, GestureEventArgs ev)
-        //    {
-        //        WLTrigg.Visibility = System.Windows.Visibility.Visible;
-        //        WLFail.Visibility = System.Windows.Visibility.Hidden;
-        //    };
-        //    wlc.Succeeded += delegate(object o, GestureEventArgs ev)
-        //    {
-        //        WLSucc.Visibility = System.Windows.Visibility.Visible;
-        //        WLFail.Visibility = System.Windows.Visibility.Hidden;
-        //    };
-        //    wlc.Failed += delegate(object o, FailedGestureEventArgs ev)
-        //    {
-        //        WLTrigg.Visibility = System.Windows.Visibility.Hidden;
-        //        WLSucc.Visibility = System.Windows.Visibility.Hidden;
-        //        WLFail.Visibility = System.Windows.Visibility.Visible;
-        //    };
-        //    WaveRightCondition wrc = new WaveRightCondition(e.Person);
-        //    wlc.enable();
-        //    wrc.Triggered += delegate(object o, GestureEventArgs ev)
-        //    {
-        //        WRTrigg.Visibility = System.Windows.Visibility.Visible;
-        //        WRFail.Visibility = System.Windows.Visibility.Hidden;
-        //    };
-        //    wrc.Succeeded += delegate(object o, GestureEventArgs ev)
-        //    {
-        //        WRSucc.Visibility = System.Windows.Visibility.Visible;
-        //        WRFail.Visibility = System.Windows.Visibility.Hidden;
-        //    };
-        //    wrc.Failed += delegate(object o, FailedGestureEventArgs ev)
-        //    {
-        //        WRTrigg.Visibility = System.Windows.Visibility.Hidden;
-        //        WRSucc.Visibility = System.Windows.Visibility.Hidden;
-        //        WRFail.Visibility = System.Windows.Visibility.Visible;
-        //    };
-        //}
+        private void ActivePerson(object sender, ActivePersonEventArgs e)
+        {
+            active = e.Person;
+            active.OnZoom += Zoomed;
+            active.OnSwipe += Swiped;
+            ActPersonTxt.Text = e.Person.ID.ToString();
+        }
+
+        private async void Swiped(object sender, GestureEventArgs e)
+        {
+            SwipeGestureEventArgs args = (SwipeGestureEventArgs)e;
+            SwipeActiveOk.Visibility = System.Windows.Visibility.Visible;
+            SwipeDirection.Text = (args.Direction.ToString());
+            await timer(5000);
+            SwipeActiveOk.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private async void Zoomed(object sender, GestureEventArgs e)
+        {
+            ZoomGestureEventArgs args = (ZoomGestureEventArgs)e;
+            ZoomActiveOk.Visibility = System.Windows.Visibility.Visible;
+            ActZoomFactor.Text = (args.ZoomFactorFromLast.ToString());
+            StaticZoomFactor.Text = args.ZoomFactorFromBegin.ToString();
+            await timer(5000);
+            ZoomActiveOk.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void NewPerson(object src, NewPersonEventArgs e)
+        {
+            if (IDs.Contains(e.Person.ID))
+            {
+                console.WriteLine(e.Person.ID + " back");
+            }
+            else
+            {
+                console.WriteLine(e.Person.ID + " new");
+                IDs.Add(e.Person.ID);
+            }
+            Image i = new Image();
+            i.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/OK.png",
+                                       UriKind.RelativeOrAbsolute));
+            i.Visibility = System.Windows.Visibility.Hidden;
+            persons.Add(e.Person, i);
+            TextBlock tb = new TextBlock();
+            tb.Height = 50;
+            tb.Text = e.Person.ID.ToString();
+            PersonList.Children.Add(tb);
+            WavePanel.Children.Add(i);
+            e.Person.OnWave += waved;
+            e.Person.PersonDisposed += Dispose;
+        }
+
+        private void Dispose(object sender, PersonDisposedEventArgs e)
+        {
+            e.Person.OnWave -= waved;
+            if (e.Person == active)
+            {
+                RemoveActive();
+            }
+            WavePanel.Children.Remove(persons[e.Person]);
+            TextBlock tb = null;
+            foreach (TextBlock item in PersonList.Children)
+            {
+                if (Convert.ToInt32(item.Text) == e.Person.ID)
+                {
+                    tb = item;
+                }
+            }
+            PersonList.Children.Remove(tb);
+            persons.Remove(e.Person);
+
+        }
+
+        private void RemoveActive()
+        {
+            active = null;
+            ActPersonTxt.Text = "";
+            active.OnSwipe -= Swiped;
+            active.OnZoom -= Zoomed;
+        }
+
+        private async void waved(object sender, GestureEventArgs e)
+        {
+            console.WriteLine(((Person)sender).ID + "waved");
+            persons[(Person)sender].Visibility = System.Windows.Visibility.Visible;
+            await timer(5000);
+            persons[(Person)sender].Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private async Task timer(int i)
+        {
+            Thread.Sleep(i);
+        }
         #region OwnConsole
         private class OwnConsole
         {
