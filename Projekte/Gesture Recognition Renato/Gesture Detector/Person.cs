@@ -33,7 +33,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             ZoomGestureChecker zoom = new ZoomGestureChecker(this);
             zoom.Successful += delegate(object o, GestureEventArgs ev)
             {
-                this.OnZoom(this, ev);
+                if (OnZoom != null)
+                {
+                    this.OnZoom(this, ev);
+                }
             };
             //zoom.Failed += delegate(object o, GestureEventArgs e) 
             //{ 
@@ -42,7 +45,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             SwipeGestureChecker swipe = new SwipeGestureChecker(this);
             swipe.Successful += delegate(object o, GestureEventArgs e)
             {
-                OnSwipe(this, e);
+                if (OnSwipe != null)
+                {
+                    OnSwipe(this, e);
+                }
                 Console.WriteLine("SWIPED: " + ((SwipeGestureEventArgs)e).Direction.ToString());
             };
             swipe.Failed += delegate(object o, FailedGestureEventArgs e)

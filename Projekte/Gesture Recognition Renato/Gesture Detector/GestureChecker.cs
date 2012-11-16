@@ -56,7 +56,10 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
         protected virtual void fireFailed(Object sender, FailedGestureEventArgs e)
         {
-            Failed(this, e);
+            if (Failed != null)
+            {
+                Failed(this, e);
+            }
         }
 
         /**
@@ -79,8 +82,12 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
         private void Timeout(Object src, EventArgs e)
         {
-            //Debug.WriteLine("timed out.");
+            //TODO Debug
+
+            Debug.WriteLine("timed out.");
             timer.Stop();
+            index.Reset();
+            index.MoveNext();
             if (Failed != null)
             {
                 Failed(this, new FailedGestureEventArgs()

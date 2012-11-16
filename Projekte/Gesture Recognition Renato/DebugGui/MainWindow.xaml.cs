@@ -66,25 +66,39 @@ namespace DebugGui
             active = e.Person;
             active.OnZoom += Zoomed;
             active.OnSwipe += Swiped;
+            active.OnWave += actWaved;
             ActPersonTxt.Text = e.Person.ID.ToString();
+        }
+
+        private async void actWaved(object sender, GestureEventArgs e)
+        {
+            console.WriteLine(((Person)sender).ID + "waved");
+            WaveActiveOk.Visibility = System.Windows.Visibility.Visible;
+            Task tim = Task.Factory.StartNew(() => timer(2500));
+            await tim;
+            WaveActiveOk.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private async void Swiped(object sender, GestureEventArgs e)
         {
+            console.WriteLine("swiped");
             SwipeGestureEventArgs args = (SwipeGestureEventArgs)e;
             SwipeActiveOk.Visibility = System.Windows.Visibility.Visible;
             SwipeDirection.Text = (args.Direction.ToString());
-            await timer(5000);
+            Task tim = Task.Factory.StartNew(() => timer(2500));
+            await tim;
             SwipeActiveOk.Visibility = System.Windows.Visibility.Hidden;
         }
 
         private async void Zoomed(object sender, GestureEventArgs e)
         {
+            console.WriteLine("zoomed");
             ZoomGestureEventArgs args = (ZoomGestureEventArgs)e;
             ZoomActiveOk.Visibility = System.Windows.Visibility.Visible;
             ActZoomFactor.Text = (args.ZoomFactorFromLast.ToString());
             StaticZoomFactor.Text = args.ZoomFactorFromBegin.ToString();
-            await timer(5000);
+            Task tim = Task.Factory.StartNew(() => timer(2500));
+            await tim;
             ZoomActiveOk.Visibility = System.Windows.Visibility.Hidden;
         }
 
@@ -146,7 +160,8 @@ namespace DebugGui
         {
             console.WriteLine(((Person)sender).ID + "waved");
             persons[(Person)sender].Visibility = System.Windows.Visibility.Visible;
-            await timer(5000);
+            Task tim = Task.Factory.StartNew(() => timer(2500));
+            await tim;
             persons[(Person)sender].Visibility = System.Windows.Visibility.Hidden;
         }
 

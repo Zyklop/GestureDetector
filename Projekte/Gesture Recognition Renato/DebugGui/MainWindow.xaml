@@ -22,11 +22,12 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="90"/>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
@@ -43,7 +44,7 @@
         <TextBlock Text="Swipe" Grid.Column="3" Grid.Row="1"/>
         <Image Name="WaveActiveOk" Source="Images/OK.png" Grid.Column="1" Grid.Row="2" Visibility="Hidden"/>
         <StackPanel Grid.Column="2" Grid.Row="2">
-            <Image Name="ZoomActiveOk" Source="Images/OK.png" Visibility="Hidden"/>
+            <Image Name="ZoomActiveOk" Source="Images/OK.png" Visibility="Hidden" Height="50" Width="50"/>
             <TextBlock Name="ActZoomFactor"/>
             <TextBlock Name="StaticZoomFactor"/>
         </StackPanel>
@@ -51,10 +52,10 @@
             <Image Name="SwipeActiveOk" Source="Images/OK.png" Visibility="Hidden"/>
             <TextBlock Name="SwipeDirection"/>
         </StackPanel>
-        <ScrollViewer Name="sv" VerticalAlignment="Stretch" Grid.Column="4" Grid.RowSpan="4">
+        <ScrollViewer Name="sv" VerticalAlignment="Top" Grid.Column="4" Grid.RowSpan="5" Height="500">
             <TextBlock Name="ConsoleOutput" xml:space="preserve"/>
         </ScrollViewer>
-        <Button Name="enableOutputBtn" Click="enableOutputBtn_Checked_1" Content="Stop" Grid.Row="4" VerticalAlignment="Bottom"/>
+        <Button Name="enableOutputBtn" Click="enableOutputBtn_Checked_1" Content="Stop" Grid.Row="3" VerticalAlignment="Bottom"/>
         
     </Grid>
 </Window>
