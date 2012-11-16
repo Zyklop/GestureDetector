@@ -124,7 +124,7 @@ namespace DebugGui
             PersonList.Children.Add(tb);
             WavePanel.Children.Add(i);
             e.Person.OnWave += waved;
-            e.Person.PersonDisposed += Dispose;
+            e.Person.OnDispose += Dispose;
         }
 
         private void Dispose(object sender, PersonDisposedEventArgs e)

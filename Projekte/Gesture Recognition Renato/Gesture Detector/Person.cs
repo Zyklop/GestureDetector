@@ -22,7 +22,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public Person(Device d)
         {
             Random r = new Random();
-            skeletons = new SortedDictionary<long, SmothendSkeleton>(new DescendingTimeComparer<long>());
+            skeletons = new SortedDictionary<long, SmothendSkeleton>(new DescendingTimeComparer<long>()); // newest skeletons are first
             dev = d;
             id = r.Next();
             WaveGestureChecker wave = new WaveGestureChecker(this);
@@ -63,46 +63,18 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             OnWave(this, e);
         }
 
-        //public StaticSmothendSkeleton getStaticSkeleton()
-        //{
-        //    return null;
-        //}
-
-        //public MovingSmothendSkeleton getMovingSkeleton()
-        //{
-        //    return null;
-        //}
-
-        //public StaticSmothendSkeleton getLastStaticSkeleton(int frames)
-        //{
-        //    return null;
-        //}
-
-        //public MovingSmothendSkeleton getLastMovingSkeleton(int frames)
-        //{
-        //    return null;
-        //}
-
         public void AddSkeleton(SmothendSkeleton ss)
         {
-            long t = System.DateTime.Now.Ticks;
-            if (!skeletons.ContainsKey(t))
-            {
-                skeletons.Add(t, ss);
-            }
-            else
-            {
-                skeletons[t] = ss;
-            }
-
+            long t = System.DateTime.Now.Ticks; // time of the skeleton
+            skeletons.Add(t, ss);// add to dictionary
             if (skeletons.Count > 10)
             {
-                skeletons.Remove(skeletons.ElementAt(9).Key);
+                skeletons.Remove(skeletons.ElementAt(9).Key); // remove old unneded
             }
 
             if (NewSkeleton != null)
             {
-                NewSkeleton(this, new NewSkeletonEventArgs(ss));
+                NewSkeleton(this, new NewSkeletonEventArgs(ss)); // Event for conditions
             }
         }
 
@@ -110,31 +82,47 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         {
             get
             {
-                if (skeletons.Count == 0)
+                if (skeletons.Count == 0) // no skeleton avaliable yet
                 {
-                    return new SmothendSkeleton(new Microsoft.Kinect.Skeleton());
+                    return null;
                 }
                 return skeletons.First().Value;
             }
         }
 
-        public SmothendSkeleton GetLastSkeleton(int i)
+        public SmothendSkeleton GetLastSkeleton(int i) //get a previous skeleton
         {
-            if (i > skeletons.Count-1)
+            if (i > skeletons.Count-1 || i > 9)
             {
                 return null;
             }
             return skeletons.ElementAt(i).Value;
         }
 
-        public long MillisBetweenFrames(int first, int second)
+        public long MillisBetweenFrames(int first, int second) //get timedifference in millisconds between skeletons
         {
             long diff = (skeletons.ElementAt(second).Key - skeletons.ElementAt(first).Key) / 10;
             Debug.WriteLineIf(diff < 0, "Time Difference negative in MillisBetweenFrame");
             return diff;
         }
 
-        public bool Active { get; set; }
+        public bool Active {
+            get
+            {
+                return active;
+            }
+            set
+            {
+                active = value;
+                if (PersonActive != null && active == true)
+                {
+                    PersonActive(this, new ActivePersonEventArgs(this));
+                }
+                else if (PersonPassive != null)
+                {
+                    PersonPassive(this, new PersonPassiveEventArgs(this));
+                }
+            }}
 
         public int ID { get { return id; } }
 
@@ -150,7 +138,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             return ID;
         }
 
-        public double Match(SmothendSkeleton skeleton)
+        public double Match(SmothendSkeleton skeleton) // distance to other person
         {
             SkeletonPoint currentRoot = this.CurrentSkeleton.GetPosition(JointType.HipCenter);
             SkeletonPoint otherRoot = skeleton.GetPosition(JointType.HipCenter);
@@ -160,13 +148,20 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public event EventHandler<NewSkeletonEventArgs> NewSkeleton;
         public event EventHandler<PersonPassiveEventArgs> PersonPassive;
         public event EventHandler<ActivePersonEventArgs> PersonActive;
-        public event EventHandler<PersonDisposedEventArgs> PersonDisposed;
 
         public event EventHandler<GestureEventArgs> OnWave;
         public event EventHandler<GestureEventArgs> OnZoom;
         public event EventHandler<PersonDisposedEventArgs> OnDispose;
         public event EventHandler<GestureEventArgs> OnSwipe;
         //public event EventHandler etc;
+        
+        internal void prepareToDie()
+        {
+            OnWave = null;
+            OnZoom = null;
+            OnDispose(this, new PersonDisposedEventArgs(this));
+        }
+
 
         private class DescendingTimeComparer<T> : IComparer<T> where T : IComparable<T>
         {
@@ -188,11 +183,6 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             }
         }
 
-        internal void prepareToDie()
-        {
-            OnWave = null;
-            OnZoom = null;
-            OnDispose(this, new PersonDisposedEventArgs(this));
-        }
+        
     }
 }
