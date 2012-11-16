@@ -32,7 +32,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
             if (rightHandDirections.Contains(Direction.left) && handToHeadDirections.Contains(Direction.upward))
             {
                 fireTriggered(this, null);
-                Debug.WriteLine("triggered");
+                //Debug.WriteLine("triggered");
                 index++;
                 if (index >= LOWER_BOUND_FOR_SUCCESS)
                 {

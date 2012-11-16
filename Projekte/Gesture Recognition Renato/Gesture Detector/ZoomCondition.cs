@@ -48,7 +48,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
                     fireSucceeded(this, new InternalZoomGestureEventArgs() { 
                         Gauge = checker.GetDistance(JointType.HandRight, JointType.HandLeft) 
                     });
-                    Console.WriteLine("Success! Velocity: right " + rightHandVelocity + ", left " + leftHandVelocity);
+                    //Console.WriteLine("Success! Velocity: right " + rightHandVelocity + ", left " + leftHandVelocity);
                 }
                 else
                 {
@@ -57,7 +57,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
                         {
                             Condition = this
                         });
-                    Console.WriteLine("Failed during Gesture.");
+                    //Console.WriteLine("Failed during Gesture.");
                 }
             }
             else // Steady-Position muss gehalten werden um den Zoom zu beginnen
@@ -69,7 +69,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
                     && leftHandMovement.Contains(Direction.none))
                 {
                     index++;
-                    Console.WriteLine("Index++");
+                    //Console.WriteLine("Index++");
                 }
                 else
                 {
@@ -78,7 +78,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
                     {
                         Condition = this
                     });
-                    Console.WriteLine("Failed to Begin.");
+                    //Console.WriteLine("Failed to Begin.");
                 }
             }
 

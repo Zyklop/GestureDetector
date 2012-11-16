@@ -36,14 +36,14 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
 
             if (handVelocity > LOWER_BOUND_FOR_VELOCITY)
             {
-                Console.WriteLine("V: "+handVelocity);
+                //Console.WriteLine("V: "+handVelocity);
             }
 
             if (handOrientation.Contains(Direction.forward)
                 && handMovement.Contains(direction)
                 && handVelocity >= LOWER_BOUND_FOR_VELOCITY)
             {
-                Console.WriteLine("++");
+                //Console.WriteLine("++");
                 if (index >= LOWER_BOUND_FOR_SUCCESS)
                 {
                     index = 0;

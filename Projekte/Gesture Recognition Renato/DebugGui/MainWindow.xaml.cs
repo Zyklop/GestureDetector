@@ -129,6 +129,7 @@ namespace DebugGui
 
         private void Dispose(object sender, PersonDisposedEventArgs e)
         {
+            console.WriteLine("disposing: " + e.Person.ID);
             e.Person.OnWave -= waved;
             if (e.Person == active)
             {
@@ -138,11 +139,19 @@ namespace DebugGui
             TextBlock tb = null;
             foreach (TextBlock item in PersonList.Children)
             {
-                if (Convert.ToInt32(item.Text) == e.Person.ID)
+                try
                 {
-                    tb = item;
+                    int i = Convert.ToInt32(item.Text);
+                    if (i == e.Person.ID)
+                    {
+                        tb = item;
+                    }
+                }
+                catch (System.Exception ex)
+                {
                 }
             }
+            console.WriteLine("disposing: " + tb.Text);
             PersonList.Children.Remove(tb);
             persons.Remove(e.Person);
 

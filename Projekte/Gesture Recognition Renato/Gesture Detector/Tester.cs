@@ -22,7 +22,7 @@ namespace MF.Engineering.MF8910.GestureDetector
             {
                 if (pers != d.GetAll().Count)
                 {
-                    Console.WriteLine(d.GetAll().Count);
+                    //Console.WriteLine(d.GetAll().Count);
                     pers = d.GetAll().Count;
                 }
             }
@@ -31,7 +31,7 @@ namespace MF.Engineering.MF8910.GestureDetector
 
         static void NewPerson(object src, NewPersonEventArgs e)
         {
-            Console.WriteLine(e.Person.ID);
+            //Console.WriteLine(e.Person.ID);
         }
     }
 }

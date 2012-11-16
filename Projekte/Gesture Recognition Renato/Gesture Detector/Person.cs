@@ -49,24 +49,27 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 {
                     OnSwipe(this, e);
                 }
-                Console.WriteLine("SWIPED: " + ((SwipeGestureEventArgs)e).Direction.ToString());
+                //Console.WriteLine("SWIPED: " + ((SwipeGestureEventArgs)e).Direction.ToString());
             };
             swipe.Failed += delegate(object o, FailedGestureEventArgs e)
             {
-                Console.WriteLine("FAIL: " + ((FailedGestureEventArgs)e).Condition.GetType().Name);
+                //Console.WriteLine("FAIL: " + ((FailedGestureEventArgs)e).Condition.GetType().Name);
             };
         }
 
         private void Waving(object sender, GestureEventArgs e)
         {
-            Debug.WriteLine("waved");
+            //Debug.WriteLine("waved");
             OnWave(this, e);
         }
 
         public void AddSkeleton(SmothendSkeleton ss)
         {
             long t = System.DateTime.Now.Ticks; // time of the skeleton
-            skeletons.Add(t, ss);// add to dictionary
+            if (!skeletons.ContainsKey(t))
+            {
+                skeletons.Add(t, ss);// add to dictionary
+            }
             if (skeletons.Count > 10)
             {
                 skeletons.Remove(skeletons.ElementAt(9).Key); // remove old unneded
@@ -102,7 +105,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public long MillisBetweenFrames(int first, int second) //get timedifference in millisconds between skeletons
         {
             long diff = (skeletons.ElementAt(second).Key - skeletons.ElementAt(first).Key) / 10;
-            Debug.WriteLineIf(diff < 0, "Time Difference negative in MillisBetweenFrame");
+            //Debug.WriteLineIf(diff < 0, "Time Difference negative in MillisBetweenFrame");
             return diff;
         }
 
