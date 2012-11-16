@@ -44,7 +44,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             {
                 Console.WriteLine("SWIPED: " + ((SwipeGestureEventArgs)e).Direction.ToString());
             };
-            swipe.Failed += delegate(object o, GestureEventArgs e)
+            swipe.Failed += delegate(object o, FailedGestureEventArgs e)
             {
                 Console.WriteLine("FAIL: " + ((FailedGestureEventArgs)e).Condition.GetType().Name);
             };
