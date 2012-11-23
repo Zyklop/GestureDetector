@@ -7,12 +7,13 @@ using Microsoft.Kinect;
 using System.Diagnostics;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
+using MF.Engineering.MF8910.GestureDetector.Mocking;
 
 namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
     public class Device
     {
-        private static KinectSensor Dev;
+        private static MockKinectSensor Dev;
         private Vector4 lastAcceleration; // last accelerometer readings
         private List<Person> persons; //active persons
         private Dictionary<long, Person> cache; //Persons from the last 5 seconds
@@ -20,7 +21,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public Device()
         {
             // get a Kinect
-            Dev = KinectSensor.KinectSensors.FirstOrDefault(x => x.Status == KinectStatus.Connected);
+            Dev = new MockKinectSensor();
             initialize();
         }
 
@@ -29,21 +30,21 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             lastAcceleration = new Vector4();
             persons = new List<Person>();
             cache = new Dictionary<long, Person>();
-            Dev.SkeletonStream.Enable(); // to get skeletons
+            //Dev.SkeletonStream.Enable(); // to get skeletons
             Dev.SkeletonFrameReady += OnNewSkeletons; // register on new skeletons
         }
 
-        public Device(string uniqueId) // get a spacified Kinect by its ID
-        {
-            foreach (KinectSensor ks in KinectSensor.KinectSensors)
-            {
-                if (ks.UniqueKinectId == uniqueId)
-                {
-                    Dev = ks;
-                    initialize();
-                }
-            }
-        }
+        //public Device(string uniqueId) // get a spacified Kinect by its ID
+        //{
+        //    foreach (KinectSensor ks in KinectSensor.KinectSensors)
+        //    {
+        //        if (ks.UniqueKinectId == uniqueId)
+        //        {
+        //            Dev = ks;
+        //            initialize();
+        //        }
+        //    }
+        //}
 
         public KinectStatus Status { get { return Dev.Status; } }
 
@@ -80,28 +81,34 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             return persons;
         }
 
-        protected void OnNewSkeletons(object source, SkeletonFrameReadyEventArgs e)
+        protected void OnNewSkeletons(object source, MockSkeletonFrameReadyEventArgs e)
         {
-            double diff = getAccelerationDiff();
-            if ((diff > 0.1 || diff < -0.1) && Accelerated != null) 
-            {
-                //Device not stable
-                Accelerated(this, new AccelerationEventArgs(diff));
-            }
-            else
-            {
-                SkeletonFrame skeletonFrame = e.OpenSkeletonFrame();
-                //TODO Remove this to increase Performante
-                if (skeletonFrame != null)
-                {
-                    // TODO ev Performance Problem because of reinstantiating Array
-                    Skeleton[] skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
-                    skeletonFrame.CopySkeletonDataTo(skeletons);
-                    skeletonFrame.Dispose();
-                    handleNewSkeletons(skeletons);
-                }
-            }
+            Debug.WriteLine(e.getSkeletons().Length + ":"+persons.Count);
+            handleNewSkeletons(e.getSkeletons());
         }
+
+        //protected void OnNewSkeletons(object source, SkeletonFrameReadyEventArgs e)
+        //{
+        //    double diff = getAccelerationDiff();
+        //    if ((diff > 0.1 || diff < -0.1) && Accelerated != null) 
+        //    {
+        //        //Device not stable
+        //        Accelerated(this, new AccelerationEventArgs(diff));
+        //    }
+        //    else
+        //    {
+        //        SkeletonFrame skeletonFrame = e.OpenSkeletonFrame();
+        //        //TODO Remove this to increase Performante
+        //        if (skeletonFrame != null)
+        //        {
+        //            // TODO ev Performance Problem because of reinstantiating Array
+        //            Skeleton[] skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
+        //            skeletonFrame.CopySkeletonDataTo(skeletons);
+        //            skeletonFrame.Dispose();
+        //            handleNewSkeletons(skeletons);
+        //        }
+        //    }
+        //}
 
         protected void handleNewSkeletons(Skeleton[] skeletons)
         {
@@ -180,7 +187,12 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     }
                     bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
                     personList.Remove(bestMatch.Person);
-                    cache.Add(System.DateTime.Now.Ticks, bestMatch.Person);//add person to cache
+                    long d = System.DateTime.Now.Ticks;
+                    while (cache.ContainsKey(d)) 
+                    {
+                        d++;
+                    }
+                    cache.Add(d, bestMatch.Person);//add person to cache
                 }
                 // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
                 foreach (Person p in personList)
@@ -266,17 +278,21 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         }
 
-
         private double getAccelerationDiff()
         {
-            double diff = 0; // Difference between last accelerometer readings and actual readings
-            diff += (Dev.AccelerometerGetCurrentReading().W - lastAcceleration.W);
-            diff += (Dev.AccelerometerGetCurrentReading().X - lastAcceleration.X);
-            diff += (Dev.AccelerometerGetCurrentReading().Y - lastAcceleration.Y);
-            diff += (Dev.AccelerometerGetCurrentReading().Z - lastAcceleration.Z);
-            lastAcceleration = Dev.AccelerometerGetCurrentReading();
-            return diff;
+            return 0;
         }
+
+        //private double getAccelerationDiff()
+        //{
+        //    double diff = 0; // Difference between last accelerometer readings and actual readings
+        //    diff += (Dev.AccelerometerGetCurrentReading().W - lastAcceleration.W);
+        //    diff += (Dev.AccelerometerGetCurrentReading().X - lastAcceleration.X);
+        //    diff += (Dev.AccelerometerGetCurrentReading().Y - lastAcceleration.Y);
+        //    diff += (Dev.AccelerometerGetCurrentReading().Z - lastAcceleration.Z);
+        //    lastAcceleration = Dev.AccelerometerGetCurrentReading();
+        //    return diff;
+        //}
 
         private void personWaved(object sender, GestureEventArgs e)
         {

@@ -162,7 +162,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         {
             OnWave = null;
             OnZoom = null;
-            OnDispose(this, new PersonDisposedEventArgs(this));
+            if (OnDispose != null)
+            {
+                OnDispose(this, new PersonDisposedEventArgs(this));
+            }
         }
 
 
