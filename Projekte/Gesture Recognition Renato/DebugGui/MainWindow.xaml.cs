@@ -159,10 +159,10 @@ namespace DebugGui
 
         private void RemoveActive()
         {
-            active = null;
             ActPersonTxt.Text = "";
             active.OnSwipe -= Swiped;
             active.OnZoom -= Zoomed;
+            active = null;
         }
 
         private async void waved(object sender, GestureEventArgs e)
