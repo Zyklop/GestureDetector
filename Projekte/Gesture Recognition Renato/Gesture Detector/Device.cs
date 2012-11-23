@@ -81,7 +81,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         }
 
         // TODO wie wärs mit einem griffigeren Namen?
-        void NewSkeletons(object source, SkeletonFrameReadyEventArgs e)
+        protected void NewSkeletons(object source, SkeletonFrameReadyEventArgs e)
         {
             double diff = getAccelerationDiff();
             if ((diff > 0.1 || diff < -0.1) && Accelerated != null) 
