@@ -30,7 +30,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             persons = new List<Person>();
             cache = new Dictionary<long, Person>();
             Dev.SkeletonStream.Enable(); // to get skeletons
-            Dev.SkeletonFrameReady += NewSkeletons; // register on new skeletons
+            Dev.SkeletonFrameReady += OnNewSkeletons; // register on new skeletons
         }
 
         public Device(string uniqueId) // get a spacified Kinect by its ID
@@ -80,8 +80,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             return persons;
         }
 
-        // TODO wie wärs mit einem griffigeren Namen?
-        protected void NewSkeletons(object source, SkeletonFrameReadyEventArgs e)
+        protected void OnNewSkeletons(object source, SkeletonFrameReadyEventArgs e)
         {
             double diff = getAccelerationDiff();
             if ((diff > 0.1 || diff < -0.1) && Accelerated != null) 
@@ -91,171 +90,171 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             }
             else
             {
-                handleNewSkeletons(e.OpenSkeletonFrame());
+                SkeletonFrame skeletonFrame = e.OpenSkeletonFrame();
+                //TODO Remove this to increase Performante
+                if (skeletonFrame != null)
+                {
+                    // TODO ev Performance Problem because of reinstantiating Array
+                    Skeleton[] skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
+                    skeletonFrame.CopySkeletonDataTo(skeletons);
+                    skeletonFrame.Dispose();
+                    handleNewSkeletons(skeletons);
+                }
             }
         }
 
-        private void handleNewSkeletons(SkeletonFrame skeFrm)
+        protected void handleNewSkeletons(Skeleton[] skeletons)
         {
-            //TODO increase Performante to remove this
-            if (skeFrm != null)
+            // Copy actually tracked skeletons to a list which is easier to work with.
+            List<SmothendSkeleton> skeletonList = new List<SmothendSkeleton>();
+            foreach (Skeleton ske in skeletons)
             {
-                //get skeletons
-                Skeleton[] skeletons = new Skeleton[skeFrm.SkeletonArrayLength];
-                skeFrm.CopySkeletonDataTo(skeletons);
-                // use only active skeletons
-                List<SmothendSkeleton> skeletonList = new List<SmothendSkeleton>();
-                //findall not possible
-                foreach (Skeleton ske in skeletons)
+                if (ske.TrackingState == SkeletonTrackingState.Tracked)
                 {
-                    if (ske.TrackingState == SkeletonTrackingState.Tracked)
-                    {
-                        skeletonList.Add(new SmothendSkeleton(ske));
-                    }
+                    skeletonList.Add(new SmothendSkeleton(ske));
                 }
+            }
 
-                //remove old person from cache
-                long rem = -1;
-                foreach (long l in cache.Keys)
+            //remove old person from cache
+            long rem = -1;
+            foreach (long l in cache.Keys)
+            {
+                if (l < DateTime.Now.Ticks - 50000)
                 {
-                    if (l < DateTime.Now.Ticks - 50000)
-                    {
-                        rem = l;
-                    }
+                    rem = l;
                 }
-                if (rem != -1)
+            }
+            if (rem != -1)
+            {
+                // remove Listeners on Person
+                cache[rem].prepareToDie();
+                // kill person
+                cache.Remove(rem);
+            }
+
+
+            /**
+                * Es gibt 3 verschiedene Möglichkeiten den aktuellen Status zu beschreiben:
+                * - Alle Personen hatten schon ein Skelett. Die Zuweisung muss neu erfolgen
+                * - Es gibt weniger Skelette als Personen. übrige Person muss gelöscht werden
+                * - Es gibt mehr Skelette als Personen. Eine neue Person muss erstellt werden
+                */
+            Match bestMatch = new Match();
+
+            if (skeletonList.Count == persons.Count) // jede Person bekommt ein neues Skelett
+            {
+                foreach (Person p in persons) // für jede Person wird der beste Match gesucht
                 {
-                    // remove Listeners on Person
-                    cache[rem].prepareToDie();
-                    // kill person
-                    cache.Remove(rem);
-                }
-
-
-                /**
-                    * Es gibt 3 verschiedene Möglichkeiten den aktuellen Status zu beschreiben:
-                    * - Alle Personen hatten schon ein Skelett. Die Zuweisung muss neu erfolgen
-                    * - Es gibt weniger Skelette als Personen. übrige Person muss gelöscht werden
-                    * - Es gibt mehr Skelette als Personen. Eine neue Person muss erstellt werden
-                    */
-                Match bestMatch = new Match();
-
-                if (skeletonList.Count == persons.Count) // jede Person bekommt ein neues Skelett
-                {
-                    foreach (Person p in persons) // für jede Person wird der beste Match gesucht
+                    bestMatch.Value = double.MaxValue;
+                    double v;
+                    foreach (SmothendSkeleton s in skeletonList)
                     {
-                        bestMatch.Value = double.MaxValue;
-                        double v;
-                        foreach (SmothendSkeleton s in skeletonList)
+                        v = p.Match(s);
+                        if (v < bestMatch.Value)
                         {
-                            v = p.Match(s);
-                            if (v < bestMatch.Value)
-                            {
-                                bestMatch.Value = v;
-                                bestMatch.Person = p;
-                                bestMatch.Skeleton = s;
-                            }
+                            bestMatch.Value = v;
+                            bestMatch.Person = p;
+                            bestMatch.Skeleton = s;
                         }
-                        bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
                     }
+                    bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
                 }
-                else if (skeletonList.Count < persons.Count) // eine Person ging aus dem Bild
+            }
+            else if (skeletonList.Count < persons.Count) // eine Person ging aus dem Bild
+            {
+                List<Person> personList = new List<Person>(); // Kopiere Personen für Matchingverfahren
+                personList.AddRange(persons);
+                foreach (SmothendSkeleton s in skeletonList) // für jedes Skelett wird der beste Match gesucht
                 {
-                    List<Person> personList = new List<Person>(); // Kopiere Personen für Matchingverfahren
-                    personList.AddRange(persons);
-                    foreach (SmothendSkeleton s in skeletonList) // für jedes Skelett wird der beste Match gesucht
-                    {
-                        bestMatch.Value = double.MaxValue;
-                        double v;
-                        foreach (Person p in personList)
-                        {
-                            v = p.Match(s);
-                            if (v < bestMatch.Value)
-                            {
-                                bestMatch.Value = v;
-                                bestMatch.Person = p;
-                                bestMatch.Skeleton = s;
-                            }
-                        }
-                        bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
-                        personList.Remove(bestMatch.Person);
-                        cache.Add(System.DateTime.Now.Ticks, bestMatch.Person);//add person to cache
-                    }
-                    // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
+                    bestMatch.Value = double.MaxValue;
+                    double v;
                     foreach (Person p in personList)
                     {
-                        persons.Remove(p);
+                        v = p.Match(s);
+                        if (v < bestMatch.Value)
+                        {
+                            bestMatch.Value = v;
+                            bestMatch.Person = p;
+                            bestMatch.Skeleton = s;
+                        }
                     }
+                    bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
+                    personList.Remove(bestMatch.Person);
+                    cache.Add(System.DateTime.Now.Ticks, bestMatch.Person);//add person to cache
                 }
-                else // eine Person kam ins Bild
+                // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
+                foreach (Person p in personList)
                 {
-                    List<Person> personList = new List<Person>(); // Kopiere Personen für Matchingverfahren
-                    personList.AddRange(persons);
-                    foreach (Person p in personList) // für jede Person wird der beste Match gesucht
-                    {
-                        bestMatch.Value = double.MaxValue;
-                        double v;
-                        foreach (SmothendSkeleton s in skeletonList)
-                        {
-                            v = p.Match(s);
-                            if (v < bestMatch.Value)
-                            {
-                                bestMatch.Value = v;
-                                bestMatch.Person = p;
-                                bestMatch.Skeleton = s;
-                            }
-                        }
-                        bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
-                        skeletonList.Remove(bestMatch.Skeleton);
-                    }
-                    //Match to Cache
-                    List<SmothendSkeleton> skeletonsToRemove = new List<SmothendSkeleton>();
+                    persons.Remove(p);
+                }
+            }
+            else // eine Person kam ins Bild
+            {
+                List<Person> personList = new List<Person>(); // Kopiere Personen für Matchingverfahren
+                personList.AddRange(persons);
+                foreach (Person p in personList) // für jede Person wird der beste Match gesucht
+                {
+                    bestMatch.Value = double.MaxValue;
+                    double v;
                     foreach (SmothendSkeleton s in skeletonList)
                     {
-                        bestMatch.Value = double.MaxValue;
-                        double v;
-                        foreach (long l in cache.Keys)
+                        v = p.Match(s);
+                        if (v < bestMatch.Value)
                         {
-                            Person p = cache[l];
-                            v = p.Match(s);
-                            if (v < bestMatch.Value)
-                            {
-                                bestMatch.Value = v;
-                                bestMatch.Person = p;
-                                bestMatch.Skeleton = s;
-                                bestMatch.Key = l;
-                            }
-                        }
-                        if (bestMatch.Value < 0.5) // match valid
-                        {
-                            //set person active again
-                            persons.Add(bestMatch.Person);
-                            registerWave(bestMatch.Person);
-                            bestMatch.Person.AddSkeleton(bestMatch.Skeleton);//give the new Skeleton
-                            cache.Remove(bestMatch.Key);
-                            skeletonsToRemove.Add(bestMatch.Skeleton);
+                            bestMatch.Value = v;
+                            bestMatch.Person = p;
+                            bestMatch.Skeleton = s;
                         }
                     }
-                    foreach (SmothendSkeleton ske in skeletonsToRemove)
+                    bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
+                    skeletonList.Remove(bestMatch.Skeleton);
+                }
+                //Match to Cache
+                List<SmothendSkeleton> skeletonsToRemove = new List<SmothendSkeleton>();
+                foreach (SmothendSkeleton s in skeletonList)
+                {
+                    bestMatch.Value = double.MaxValue;
+                    double v;
+                    foreach (long l in cache.Keys)
                     {
-                        skeletonList.Remove(ske);
-                    }
-                    //new person for unmatched skeletons
-                    skeletonsToRemove.Clear();
-                    // erstelle für übrige Skelette jeweils Personen
-                    foreach (SmothendSkeleton s in skeletonList)
-                    {
-                        Person p = new Person(this);
-                        p.AddSkeleton(s);
-                        persons.Add(p);
-                        registerWave(p);
-                        if (NewPerson != null)
+                        Person p = cache[l];
+                        v = p.Match(s);
+                        if (v < bestMatch.Value)
                         {
-                            NewPerson(this, new NewPersonEventArgs(p));
+                            bestMatch.Value = v;
+                            bestMatch.Person = p;
+                            bestMatch.Skeleton = s;
+                            bestMatch.Key = l;
                         }
+                    }
+                    if (bestMatch.Value < 0.5) // match valid
+                    {
+                        //set person active again
+                        persons.Add(bestMatch.Person);
+                        registerWave(bestMatch.Person);
+                        bestMatch.Person.AddSkeleton(bestMatch.Skeleton);//give the new Skeleton
+                        cache.Remove(bestMatch.Key);
+                        skeletonsToRemove.Add(bestMatch.Skeleton);
                     }
                 }
-                skeFrm.Dispose();
+                foreach (SmothendSkeleton ske in skeletonsToRemove)
+                {
+                    skeletonList.Remove(ske);
+                }
+                //new person for unmatched skeletons
+                skeletonsToRemove.Clear();
+                // erstelle für übrige Skelette jeweils Personen
+                foreach (SmothendSkeleton s in skeletonList)
+                {
+                    Person p = new Person(this);
+                    p.AddSkeleton(s);
+                    persons.Add(p);
+                    registerWave(p);
+                    if (NewPerson != null)
+                    {
+                        NewPerson(this, new NewPersonEventArgs(p));
+                    }
+                }
             }
         }
 
