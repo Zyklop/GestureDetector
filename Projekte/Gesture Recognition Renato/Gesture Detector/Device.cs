@@ -13,7 +13,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
     public class Device
     {
         private static KinectSensor Dev;
-        private Vector4 lastAcc; // last accelerometer readings
+        private Vector4 lastAcceleration; // last accelerometer readings
         private List<Person> persons; //active persons
         private Dictionary<long, Person> cache; //Persons from the last 5 seconds
 
@@ -26,7 +26,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         private void initialize()
         {
-            lastAcc = new Vector4();
+            lastAcceleration = new Vector4();
             persons = new List<Person>();
             cache = new Dictionary<long, Person>();
             Dev.SkeletonStream.Enable(); // to get skeletons
@@ -83,11 +83,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         // TODO wie wärs mit einem griffigeren Namen?
         void NewSkeletons(object source, SkeletonFrameReadyEventArgs e)
         {
-            double diff = 0; // Difference between last accelerometer readings and actual readings
-            diff += (Dev.AccelerometerGetCurrentReading().W - lastAcc.W);
-            diff += (Dev.AccelerometerGetCurrentReading().X - lastAcc.X);
-            diff += (Dev.AccelerometerGetCurrentReading().Y - lastAcc.Y);
-            diff += (Dev.AccelerometerGetCurrentReading().Z - lastAcc.Z);
+            double diff = getAccelerationDiff();
             if ((diff > 0.1 || diff < -0.1) && Accelerated != null) 
             {
                 //Device not stable
@@ -258,13 +254,24 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     skeFrm.Dispose();
                 }
             }
-            lastAcc = Dev.AccelerometerGetCurrentReading();
         }
         // set person active after waving
         private void registerWave(Person person)
         {
             person.OnWave += personWaved;
 
+        }
+
+
+        private double getAccelerationDiff()
+        {
+            double diff = 0; // Difference between last accelerometer readings and actual readings
+            diff += (Dev.AccelerometerGetCurrentReading().W - lastAcceleration.W);
+            diff += (Dev.AccelerometerGetCurrentReading().X - lastAcceleration.X);
+            diff += (Dev.AccelerometerGetCurrentReading().Y - lastAcceleration.Y);
+            diff += (Dev.AccelerometerGetCurrentReading().Z - lastAcceleration.Z);
+            lastAcceleration = Dev.AccelerometerGetCurrentReading();
+            return diff;
         }
 
         private void personWaved(object sender, GestureEventArgs e)
