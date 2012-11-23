@@ -164,8 +164,10 @@ namespace DebugGui
 
         private void RemoveActive()
         {
-            active = null;
             sv.Visibility = System.Windows.Visibility.Hidden;
+            active.OnSwipe -= Swiped;
+            active.OnZoom -= Zoomed;
+            active = null;
         }
 
         private void waved(object sender, GestureEventArgs e)
