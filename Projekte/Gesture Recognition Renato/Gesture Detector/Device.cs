@@ -275,7 +275,6 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             {
                 p.Active = true;
                 PersonActive(this,new ActivePersonEventArgs(p));
-                p.OnWave -= personWaved;
             }
         }
 

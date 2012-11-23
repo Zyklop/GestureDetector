@@ -1,61 +1,58 @@
 ﻿<Window x:Class="DebugGui.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Background="Black"
-        Title="DebugWindow" Height="900" Width="1200">
+        Title="KinectDemo" Height="700" Width="1000">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
         </Style>
-            <Style TargetType="Button">
-                <Setter Property="BorderThickness" Value="2" />
-                <Setter Property="Foreground" Value="White" />
-                <Setter Property="BorderBrush" Value="White"/>
+        <Style TargetType="Button">
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="White"/>
             <Setter Property="Background" Value="Black"/>
         </Style>
+        <Storyboard x:Key="ImageLeftOut" x:Name="ImageLeftOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="sv">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-900"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ImageRightOut" x:Name="ImageRightOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="sv">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="900"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ImageLeftIn" x:Name="ImageLeftIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="sv">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-900"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ImageRightIn" x:Name="ImageRightIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="sv">
+                <EasingDoubleKeyFrame KeyTime="0" Value="900"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="90"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="400"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Name="PersonList">
-            <TextBlock Text="IDs of visible Persons:" />
+    <Grid Background="Black">
+        <StackPanel>
+            <TextBlock Text="Persons Visible:" FontSize="20"/>
+            <TextBlock Name="NrPersons" FontSize="20"/>
         </StackPanel>
-        <TextBlock Text="Active Person:" Grid.Row="1"/>
-        <TextBlock Name="ActPersonTxt" Grid.Row="2" Foreground="Yellow"/>
-        <StackPanel Grid.Column="1" Name="WavePanel">
-            <TextBlock Text="Wave" Grid.Column="1"/>
-        </StackPanel>
-        <TextBlock Text="Wave" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock Text="Zoom" Grid.Column="2" Grid.Row="1"/>
-        <TextBlock Text="Swipe" Grid.Column="3" Grid.Row="1"/>
-        <Image Name="WaveActiveOk" Source="Images/OK.png" Grid.Column="1" Grid.Row="2" Visibility="Hidden"/>
-        <StackPanel Grid.Column="2" Grid.Row="2">
-            <Image Name="ZoomActiveOk" Source="Images/OK.png" Visibility="Hidden" Height="50" Width="50"/>
-            <TextBlock Name="ActZoomFactor"/>
-            <TextBlock Name="StaticZoomFactor"/>
-        </StackPanel>
-        <StackPanel Grid.Column="3" Grid.Row="2">
-            <Image Name="SwipeActiveOk" Source="Images/OK.png" Visibility="Hidden"/>
-            <TextBlock Name="SwipeDirection"/>
-        </StackPanel>
-        <ScrollViewer Name="sv" VerticalAlignment="Top" Grid.Column="4" Grid.RowSpan="5" Height="500">
-            <TextBlock Name="ConsoleOutput" xml:space="preserve"/>
+        <TextBlock Text="Wave to Login" Name="LoginText" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="100" Visibility="Hidden"/>
+        <ScrollViewer Name="sv" VerticalAlignment="Center" HorizontalAlignment="Center" Height="600" Width="800" BorderBrush="White" BorderThickness="5" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled"  RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Image Name="Img" Source="{Binding Path=Uri, Mode=OneWay}" Width="800" Height="600"/><!---->
+            <ScrollViewer.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ScrollViewer.RenderTransform>
         </ScrollViewer>
-        <Button Name="enableOutputBtn" Click="enableOutputBtn_Checked_1" Content="Stop" Grid.Row="3" VerticalAlignment="Bottom"/>
-        
     </Grid>
 </Window>

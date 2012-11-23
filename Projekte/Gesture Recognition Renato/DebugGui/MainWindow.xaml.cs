@@ -18,6 +18,8 @@ using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Zoom;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Swipe;
 using System.Threading;
+using System.Windows.Media.Animation;
+using System.Diagnostics;
 
 
 namespace DebugGui
@@ -28,38 +30,36 @@ namespace DebugGui
     public partial class MainWindow : Window
     {
         #region initializing
-        private bool stopped = false;
-        private OwnConsole console;
-        private List<int> IDs = new List<int>();
-        private Dictionary<Person, Image> persons = new Dictionary<Person, Image>();
+        private List<Person> persons = new List<Person>();
         private Person active;
+        private ImgIterator itr;
 
         public MainWindow()
         {
+            try
+            {
+                itr = new ImgIterator(@"C:\Users\bor\Documents\Git\SA\Projekte\Gesture Recognition Renato\DebugGui\Images", UriKind.Relative);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            DataContext = itr;
             InitializeComponent();
             Initialize();
             this.Show();
-            pseudoMain();
         }
 
         private void Initialize()
-        {
-            console = new OwnConsole(ConsoleOutput, sv);
-        }
-
-        private void enableOutputBtn_Checked_1(object sender, RoutedEventArgs e)
-        {
-            stopped = !stopped;
-        }
-
-        #endregion
-        private void pseudoMain()
         {
             Device d = new Device();
             d.NewPerson += NewPerson;
             d.PersonActive += ActivePerson;
             d.Start();
+            NrPersons.Text = "0";
         }
+
+        #endregion
 
         private void ActivePerson(object sender, ActivePersonEventArgs e)
         {
@@ -67,191 +67,110 @@ namespace DebugGui
             active.OnZoom += Zoomed;
             active.OnSwipe += Swiped;
             active.OnWave += actWaved;
-            ActPersonTxt.Text = e.Person.ID.ToString();
+            LoginText.Visibility = System.Windows.Visibility.Hidden;
+            sv.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private async void actWaved(object sender, GestureEventArgs e)
+        private void actWaved(object sender, GestureEventArgs e)
         {
-            console.WriteLine(((Person)sender).ID + "waved");
-            WaveActiveOk.Visibility = System.Windows.Visibility.Visible;
-            Task tim = Task.Factory.StartNew(() => timer(2500));
-            await tim;
-            WaveActiveOk.Visibility = System.Windows.Visibility.Hidden;
+            sv.Visibility = System.Windows.Visibility.Hidden;
+            LoginText.Visibility = System.Windows.Visibility.Visible;
+            active.OnWave += waved;
+            active.OnWave -= actWaved;
+            active.OnZoom -= Zoomed;
+            active.OnSwipe -= Swiped;
+            active.Active = false;
+            active = null;
         }
 
         private async void Swiped(object sender, GestureEventArgs e)
         {
-            console.WriteLine("swiped");
             SwipeGestureEventArgs args = (SwipeGestureEventArgs)e;
-            SwipeActiveOk.Visibility = System.Windows.Visibility.Visible;
-            SwipeDirection.Text = (args.Direction.ToString());
-            Task tim = Task.Factory.StartNew(() => timer(2500));
-            await tim;
-            SwipeActiveOk.Visibility = System.Windows.Visibility.Hidden;
+            switch (args.Direction)
+            {
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.forward:
+                    break;
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.upward:
+                    break;
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.downward:
+                    break;
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.left:
+                    Storyboard sbl = this.FindResource("ImageLeftOut") as Storyboard;
+                    sbl.Begin();
+                    await Task.Delay(1000);
+                    itr.Previous();
+                    Img.Width = 800;
+                    Img.Height = 600;
+                    sbl = this.FindResource("ImageRightIn") as Storyboard;
+                    sbl.Begin();
+                    break;
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.right:
+                    Storyboard sbr = this.FindResource("ImageRightOut") as Storyboard;
+                    sbr.Begin();
+                    await Task.Delay(1000);
+                    itr.Next();
+                    Img.Width = 800;
+                    Img.Height = 600;
+                    sbr = this.FindResource("ImageLeftOut") as Storyboard;
+                    sbr.Begin();
+                    break;
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.backward:
+                    break;
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.none:
+                    break;
+                default:
+                    break;
+            }
+            //Image i = new Image();
+            //i.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/OK.png",
+            //                           UriKind.RelativeOrAbsolute));
         }
 
-        private async void Zoomed(object sender, GestureEventArgs e)
+        private void Zoomed(object sender, GestureEventArgs e)
         {
-            console.WriteLine("zoomed");
             ZoomGestureEventArgs args = (ZoomGestureEventArgs)e;
-            ZoomActiveOk.Visibility = System.Windows.Visibility.Visible;
-            ActZoomFactor.Text = (args.ZoomFactorFromLast.ToString());
-            StaticZoomFactor.Text = args.ZoomFactorFromBegin.ToString();
-            Task tim = Task.Factory.StartNew(() => timer(2500));
-            await tim;
-            ZoomActiveOk.Visibility = System.Windows.Visibility.Hidden;
+            Img.Width *= args.ZoomFactorFromLast;
+            Img.Height *= args.ZoomFactorFromLast;
         }
 
         private void NewPerson(object src, NewPersonEventArgs e)
         {
-            if (IDs.Contains(e.Person.ID))
-            {
-                console.WriteLine(e.Person.ID + " back");
-            }
-            else
-            {
-                console.WriteLine(e.Person.ID + " new");
-                IDs.Add(e.Person.ID);
-            }
-            Image i = new Image();
-            i.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/OK.png",
-                                       UriKind.RelativeOrAbsolute));
-            i.Visibility = System.Windows.Visibility.Hidden;
-            persons.Add(e.Person, i);
-            TextBlock tb = new TextBlock();
-            tb.Height = 50;
-            tb.Text = e.Person.ID.ToString();
-            PersonList.Children.Add(tb);
-            WavePanel.Children.Add(i);
+            if(active == null)
+                LoginText.Visibility = System.Windows.Visibility.Visible;
+            persons.Add(e.Person);
+            UpdatePersonsCount();
             e.Person.OnWave += waved;
             e.Person.OnDispose += Dispose;
         }
 
+        private void UpdatePersonsCount()
+        {
+            NrPersons.Text = persons.Count.ToString();
+        }
+
         private void Dispose(object sender, PersonDisposedEventArgs e)
         {
-            console.WriteLine("disposing: " + e.Person.ID);
-            e.Person.OnWave -= waved;
             if (e.Person == active)
             {
                 RemoveActive();
             }
-            WavePanel.Children.Remove(persons[e.Person]);
-            TextBlock tb = null;
-            foreach (TextBlock item in PersonList.Children)
-            {
-                try
-                {
-                    int i = Convert.ToInt32(item.Text);
-                    if (i == e.Person.ID)
-                    {
-                        tb = item;
-                    }
-                }
-                catch (System.Exception ex)
-                {
-                }
-            }
-            console.WriteLine("disposing: " + tb.Text);
-            PersonList.Children.Remove(tb);
             persons.Remove(e.Person);
-
+            UpdatePersonsCount();
+            if (persons.Count == 0)
+            {
+                LoginText.Visibility = System.Windows.Visibility.Hidden;
+            }
         }
 
         private void RemoveActive()
         {
             active = null;
-            ActPersonTxt.Text = "";
-            active.OnSwipe -= Swiped;
-            active.OnZoom -= Zoomed;
+            sv.Visibility = System.Windows.Visibility.Hidden;
         }
 
-        private async void waved(object sender, GestureEventArgs e)
+        private void waved(object sender, GestureEventArgs e)
         {
-            console.WriteLine(((Person)sender).ID + "waved");
-            persons[(Person)sender].Visibility = System.Windows.Visibility.Visible;
-            Task tim = Task.Factory.StartNew(() => timer(2500));
-            await tim;
-            persons[(Person)sender].Visibility = System.Windows.Visibility.Hidden;
         }
-
-        private async Task timer(int i)
-        {
-            Thread.Sleep(i);
-        }
-        #region OwnConsole
-        private class OwnConsole
-        {
-            private TextBlock output;
-            private ScrollViewer sv;
-
-            public OwnConsole(TextBlock tb, ScrollViewer scrV)
-            {
-                output=tb;
-                sv = scrV;
-            }
-            #region WriteLine
-            public void WriteLine(int s)
-            {
-                output.Text += s.ToString();
-                output.Text += "\n";
-                sv.ScrollToEnd();
-            }
-
-            public void WriteLine(double d)
-            {
-                output.Text += d.ToString();
-                output.Text += "\n";
-                sv.ScrollToEnd();
-            }
-
-            public void WriteLine(bool b)
-            {
-                output.Text += b.ToString();
-                output.Text += "\n";
-                sv.ScrollToEnd();
-            }
-
-            public void WriteLine(string s)
-            {
-                output.Text += s;
-                output.Text += "\n";
-                sv.ScrollToEnd();
-            }
-            #endregion
-            #region Write
-            public void WriteLine(object s)
-            {
-                output.Text += s.ToString();
-                output.Text += "\n";
-                sv.ScrollToEnd();
-            }
-
-            public void Write(int s)
-            {
-                output.Text += s.ToString();
-            }
-
-            public void Write(double d)
-            {
-                output.Text += d.ToString();
-            }
-
-            public void Write(bool b)
-            {
-                output.Text += b.ToString();
-            }
-
-            public void Write(string s)
-            {
-                output.Text += s;
-            }
-
-            public void Write(object s)
-            {
-                output.Text += s.ToString();
-            }
-            #endregion
-        }
-        #endregion
+        
     }
 }

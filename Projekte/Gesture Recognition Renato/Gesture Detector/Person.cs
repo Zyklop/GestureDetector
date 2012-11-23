@@ -17,6 +17,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         private bool active;
         private SortedDictionary<long, SmothendSkeleton> skeletons;
         private Device dev;
+        private WaveGestureChecker wave;
+        private ZoomGestureChecker zoom;
+        private SwipeGestureChecker swipe;
         private int id;
 
         public Person(Device d)
@@ -25,12 +28,12 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             skeletons = new SortedDictionary<long, SmothendSkeleton>(new DescendingTimeComparer<long>()); // newest skeletons are first
             dev = d;
             id = r.Next();
-            WaveGestureChecker wave = new WaveGestureChecker(this);
+            wave = new WaveGestureChecker(this);
             wave.Successful += Waving;
             /*
             wave.Failed += delegate(object o, EventArgs e) { Console.WriteLine("fail"); };
             */
-            ZoomGestureChecker zoom = new ZoomGestureChecker(this);
+            zoom = new ZoomGestureChecker(this);
             zoom.Successful += delegate(object o, GestureEventArgs ev)
             {
                 if (OnZoom != null)
@@ -42,7 +45,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             //{ 
             //    Console.WriteLine("zoom fail"); 
             //};
-            SwipeGestureChecker swipe = new SwipeGestureChecker(this);
+            swipe = new SwipeGestureChecker(this);
             swipe.Successful += delegate(object o, GestureEventArgs e)
             {
                 if (OnSwipe != null)
@@ -60,7 +63,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         private void Waving(object sender, GestureEventArgs e)
         {
             //Debug.WriteLine("waved");
-            OnWave(this, e);
+            if (OnWave != null)
+            {
+                OnWave(this, e);
+            }
         }
 
         public void AddSkeleton(SmothendSkeleton ss)
@@ -160,9 +166,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         
         internal void prepareToDie()
         {
+            OnDispose(this, new PersonDisposedEventArgs(this));
             OnWave = null;
             OnZoom = null;
-            OnDispose(this, new PersonDisposedEventArgs(this));
+            OnSwipe = null;
         }
 
 
