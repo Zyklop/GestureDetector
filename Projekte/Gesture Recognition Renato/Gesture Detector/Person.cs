@@ -71,11 +71,11 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         public void AddSkeleton(SmothendSkeleton ss)
         {
-            long t = System.DateTime.Now.Ticks; // time of the skeleton
-            if (!skeletons.ContainsKey(t))
-            {
-                skeletons.Add(t, ss);// add to dictionary
-            }
+            long t = CurrentMillis.Millis; // time of the skeleton
+            //if (!skeletons.ContainsKey(t))
+            //{
+            skeletons.Add(t, ss);// add to dictionary
+            //}
             if (skeletons.Count > 10)
             {
                 skeletons.Remove(skeletons.ElementAt(9).Key); // remove old unneded
@@ -110,7 +110,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         public long MillisBetweenFrames(int first, int second) //get timedifference in millisconds between skeletons
         {
-            long diff = (skeletons.ElementAt(second).Key - skeletons.ElementAt(first).Key) / 10;
+            long diff = (skeletons.ElementAt(second).Key - skeletons.ElementAt(first).Key);
             //Debug.WriteLineIf(diff < 0, "Time Difference negative in MillisBetweenFrame");
             return diff;
         }
@@ -166,7 +166,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         
         internal void prepareToDie()
         {
-            OnDispose(this, new PersonDisposedEventArgs(this));
+            if (OnDispose != null)
+            {
+                OnDispose(this, new PersonDisposedEventArgs(this));
+            }
             OnWave = null;
             OnZoom = null;
             OnSwipe = null;

@@ -119,7 +119,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             long rem = -1;
             foreach (long l in cache.Keys)
             {
-                if (l < DateTime.Now.Ticks - 50000)
+                if (l < DateTime.Now.Ticks - 5000)
                 {
                     rem = l;
                 }
@@ -180,7 +180,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     }
                     bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
                     personList.Remove(bestMatch.Person);
-                    cache.Add(System.DateTime.Now.Ticks, bestMatch.Person);//add person to cache
+                    cache.Add(CurrentMillis.Millis, bestMatch.Person);//add person to cache
                 }
                 // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
                 foreach (Person p in personList)
