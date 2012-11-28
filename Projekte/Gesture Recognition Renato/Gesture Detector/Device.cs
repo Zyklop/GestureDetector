@@ -12,7 +12,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
     public class Device
     {
-        private static KinectSensor Dev;
+        private KinectSensor Dev;
         private Vector4 lastAcceleration; // last accelerometer readings
         private List<Person> persons; //active persons
         private Dictionary<long, Person> cache; //Persons from the last 5 seconds
