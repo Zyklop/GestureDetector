@@ -13,7 +13,11 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
     public class Device
     {
         private KinectSensor Dev;
-        private Vector4 lastAcceleration;       // Last accelerometer readings
+
+        /**
+         * We keep track of the sensors movement. If its moving, there wont be any gesture recognition.
+         */
+        private Vector4 lastAcceleration;
 
         /**
          * List of persons which are currently tracked
@@ -26,9 +30,13 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
          */
         private Dictionary<long, Person> explorationCandidates;
 
+        /**
+         * Instatiation of the kinect wrapper. It handles frame events, creates new
+         * persons and decides who's currently active.
+         */
         public Device()
         {
-            // get a Kinect
+            // Receive KinectSensor instance from physical device
             Dev = KinectSensor.KinectSensors.FirstOrDefault(x => x.Status == KinectStatus.Connected);
             initialize();
         }
@@ -38,11 +46,11 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             lastAcceleration = new Vector4();
             persons = new List<Person>();
             explorationCandidates = new Dictionary<long, Person>();
-            Dev.SkeletonStream.Enable(); // to get skeletons
-            Dev.SkeletonFrameReady += OnNewSkeletons; // register on new skeletons
+            Dev.SkeletonStream.Enable(); // Begin to capture skeletons
+            Dev.SkeletonFrameReady += OnNewSkeletons; // Register on any new skeletons
         }
 
-        public Device(string uniqueId) // get a spacified Kinect by its ID
+        public Device(string uniqueId) // get a specified Kinect by its ID
         {
             foreach (KinectSensor ks in KinectSensor.KinectSensors)
             {
@@ -97,7 +105,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             double diff = getAccelerationDiff();
             if ((diff > 0.1 || diff < -0.1) && Accelerated != null) 
             {
-                //Device not stable
+                // Fire event for indicating unstable device
                 Accelerated(this, new AccelerationEventArgs(diff));
             }
             else
@@ -129,7 +137,14 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
             // Remove persons older than 5 seconds from dictionary
             long allowedAge = DateTime.Now.Ticks - 5000;
-            explorationCandidates = explorationCandidates.Where(x => x.Key > allowedAge).ToDictionary(x => x.Key, x => x.Value);
+            IEnumerator<long> iter = explorationCandidates.Keys.GetEnumerator();
+            while(iter.MoveNext()) {
+                if (iter.Current > allowedAge) {
+                    Person p = explorationCandidates[iter.Current];
+                    p.OnWave -= personWaved;
+                    explorationCandidates.Remove(iter.Current);
+                }
+            }
 
             /**
                 * Es gibt 3 verschiedene Möglichkeiten den aktuellen Status zu beschreiben:
@@ -257,14 +272,17 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         }
 
 
-        // set person active after waving
+        /**
+         * Begin detecting if a person has waved
+         */
         private void registerWave(Person person)
         {
             person.OnWave += personWaved;
-
         }
 
-
+        /**
+         * Returns the current acceleration of the physical device.
+         */
         private double getAccelerationDiff()
         {
             double diff = 0; // Difference between last accelerometer readings and actual readings
@@ -280,10 +298,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         {
             Person p = ((Person)sender);
             // set active if ther isn't another active person
-            if (!p.Active && persons.Find(x => x.Active==true)==null)
+            if (!p.Active && persons.Find(x => x.Active==true) == null)
             {
                 p.Active = true;
-                PersonActive(this,new ActivePersonEventArgs(p));
+                PersonActive(this ,new ActivePersonEventArgs(p));
             }
         }
 
