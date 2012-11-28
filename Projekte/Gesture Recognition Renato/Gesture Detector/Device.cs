@@ -13,9 +13,18 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
     public class Device
     {
         private KinectSensor Dev;
-        private Vector4 lastAcceleration; // last accelerometer readings
-        private List<Person> persons; //active persons
-        private Dictionary<long, Person> cache; //Persons from the last 5 seconds
+        private Vector4 lastAcceleration;       // Last accelerometer readings
+
+        /**
+         * List of persons which are currently tracked
+         */
+        private List<Person> persons;
+
+        /**
+         * Expoloration Candidates - All persons which currently dont have a skeleton
+         * We keep them for 5 seconds to prevent glitches in gesture recognition.
+         */
+        private Dictionary<long, Person> explorationCandidates;
 
         public Device()
         {
@@ -28,7 +37,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         {
             lastAcceleration = new Vector4();
             persons = new List<Person>();
-            cache = new Dictionary<long, Person>();
+            explorationCandidates = new Dictionary<long, Person>();
             Dev.SkeletonStream.Enable(); // to get skeletons
             Dev.SkeletonFrameReady += OnNewSkeletons; // register on new skeletons
         }
@@ -117,7 +126,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
             //remove old person from cache
             long rem = -1;
-            foreach (long l in cache.Keys)
+            foreach (long l in explorationCandidates.Keys)
             {
                 if (l < DateTime.Now.Ticks - 5000)
                 {
@@ -127,9 +136,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             if (rem != -1)
             {
                 // remove Listeners on Person
-                cache[rem].prepareToDie();
+                explorationCandidates[rem].prepareToDie();
                 // kill person
-                cache.Remove(rem);
+                explorationCandidates.Remove(rem);
             }
 
 
@@ -180,7 +189,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     }
                     bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
                     personList.Remove(bestMatch.Person);
-                    cache.Add(CurrentMillis.Millis, bestMatch.Person);//add person to cache
+                    explorationCandidates.Add(CurrentMillis.Millis, bestMatch.Person);//add person to cache
                 }
                 // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
                 foreach (Person p in personList)
@@ -215,9 +224,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 {
                     bestMatch.Value = double.MaxValue;
                     double v;
-                    foreach (long l in cache.Keys)
+                    foreach (long l in explorationCandidates.Keys)
                     {
-                        Person p = cache[l];
+                        Person p = explorationCandidates[l];
                         v = p.Match(s);
                         if (v < bestMatch.Value)
                         {
@@ -233,7 +242,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                         persons.Add(bestMatch.Person);
                         registerWave(bestMatch.Person);
                         bestMatch.Person.AddSkeleton(bestMatch.Skeleton);//give the new Skeleton
-                        cache.Remove(bestMatch.Key);
+                        explorationCandidates.Remove(bestMatch.Key);
                         skeletonsToRemove.Add(bestMatch.Skeleton);
                     }
                 }
