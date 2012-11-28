@@ -79,7 +79,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             Dev.Dispose();
         }
 
-        public Person GetActive() // get all
+        /**
+         * Returns the currently active person. If no person is active, null is returned.
+         */
+        public Person GetActivePerson()
         {
             return persons.Find(x => x.Active == true);
         }
