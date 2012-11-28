@@ -162,19 +162,6 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public event EventHandler<GestureEventArgs> OnZoom;
         public event EventHandler<PersonDisposedEventArgs> OnDispose;
         public event EventHandler<GestureEventArgs> OnSwipe;
-        //public event EventHandler etc;
-        
-        internal void prepareToDie()
-        {
-            if (OnDispose != null)
-            {
-                OnDispose(this, new PersonDisposedEventArgs(this));
-            }
-            OnWave = null;
-            OnZoom = null;
-            OnSwipe = null;
-        }
-
 
         private class DescendingTimeComparer<T> : IComparer<T> where T : IComparable<T>
         {

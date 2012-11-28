@@ -106,7 +106,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 //TODO Remove this to increase Performante
                 if (skeletonFrame != null)
                 {
-                    // TODO ev Performance Problem because of reinstantiating Array
+                    // TODO ev Performance Problem because of reinstantiating Array (see profiling)
                     Skeleton[] skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletonFrame.CopySkeletonDataTo(skeletons);
                     skeletonFrame.Dispose();
@@ -127,23 +127,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 }
             }
 
-            //remove old person from cache
-            long rem = -1;
-            foreach (long l in explorationCandidates.Keys)
-            {
-                if (l < DateTime.Now.Ticks - 5000)
-                {
-                    rem = l;
-                }
-            }
-            if (rem != -1)
-            {
-                // remove Listeners on Person
-                explorationCandidates[rem].prepareToDie();
-                // kill person
-                explorationCandidates.Remove(rem);
-            }
-
+            // Remove persons older than 5 seconds from dictionary
+            long allowedAge = DateTime.Now.Ticks - 5000;
+            explorationCandidates = explorationCandidates.Where(x => x.Key > allowedAge).ToDictionary(x => x.Key, x => x.Value);
 
             /**
                 * Es gibt 3 verschiedene Möglichkeiten den aktuellen Status zu beschreiben:
