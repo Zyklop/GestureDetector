@@ -12,7 +12,7 @@ using MF.Engineering.MF8910.GestureDetector.Events;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
-    class GestureChecker
+    class GestureChecker: IDisposable
     {
         private List<Condition> conditions;
         private IEnumerator<Condition> index;
@@ -34,6 +34,11 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             timer = new Timer(timeout);
             timer.Start();
             timer.Elapsed += Timeout;
+        }
+
+        public void Dispose()
+        {
+            timer.Dispose();
         }
 
         #region Events

@@ -154,26 +154,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 */
             Match bestMatch = new Match();
 
-            if (skeletonList.Count == persons.Count) // jede Person bekommt ein neues Skelett
-            {
-                foreach (Person p in persons) // für jede Person wird der beste Match gesucht
-                {
-                    bestMatch.Value = double.MaxValue;
-                    double v;
-                    foreach (SmothendSkeleton s in skeletonList)
-                    {
-                        v = p.Match(s);
-                        if (v < bestMatch.Value)
-                        {
-                            bestMatch.Value = v;
-                            bestMatch.Person = p;
-                            bestMatch.Skeleton = s;
-                        }
-                    }
-                    bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
-                }
-            }
-            else if (skeletonList.Count < persons.Count) // eine Person ging aus dem Bild
+            if (skeletonList.Count < persons.Count) // eine Person ging aus dem Bild
             {
                 List<Person> personList = new List<Person>(); // Kopiere Personen für Matchingverfahren
                 personList.AddRange(persons);
