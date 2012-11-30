@@ -133,9 +133,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             }
             if (rem != -1)
             {
-                // remove Listeners on Person
-                cache[rem].prepareToDie();
                 // kill person
+                cache[rem].OnWave -= personWaved;
                 cache.Remove(rem);
             }
 
@@ -197,6 +196,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
                 foreach (Person p in personList)
                 {
+                    //p.OnWave -= personWaved;
                     persons.Remove(p);
                 }
             }
@@ -301,7 +301,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             if (!p.Active && persons.Find(x => x.Active==true)==null)
             {
                 p.Active = true;
-                PersonActive(this,new ActivePersonEventArgs(p));
+               // PersonActive(this,new ActivePersonEventArgs(p));
                 p.OnWave -= personWaved;
             }
         }

@@ -45,6 +45,7 @@
     <Compile Include="AccelerationEventArgs.cs" />
     <Compile Include="ActivePersonEventArgs.cs" />
     <Compile Include="Checker.cs" />
+    <Compile Include="CurrentMillis.cs" />
     <Compile Include="DynamicCondition.cs" />
     <Compile Include="Condition.cs" />
     <Compile Include="Device.cs" />

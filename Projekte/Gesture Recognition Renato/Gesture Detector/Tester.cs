@@ -27,36 +27,6 @@ namespace MF.Engineering.MF8910.GestureDetector
         static void NewPerson(object src, NewPersonEventArgs e)
         {
             Console.WriteLine(++personCount);
-            e.Person.OnSwipe += delegate
-            {
-                Random random = new Random();
-                byte[] list = new byte[10000000];
-                for (int i = 0; i < list.Length; i++ )
-                {
-                    list[i] = (byte)random.Next(100);
-                }
-                Console.WriteLine(list[50000]);
-            };
-            e.Person.OnWave += delegate
-            {
-                Random random = new Random();
-                byte[] list = new byte[10000000];
-                for (int i = 0; i < list.Length; i++)
-                {
-                    list[i] = (byte)random.Next(100);
-                }
-                Console.WriteLine(list[50000]);
-            };
-            e.Person.OnZoom += delegate
-            {
-                Random random = new Random();
-                byte[] list = new byte[10000000];
-                for (int i = 0; i < list.Length; i++)
-                {
-                    list[i] = (byte)random.Next(100);
-                }
-                Console.WriteLine(list[50000]);
-            };
         }
     }
 }
