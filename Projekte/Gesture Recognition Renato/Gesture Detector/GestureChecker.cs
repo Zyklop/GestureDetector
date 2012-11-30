@@ -18,7 +18,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         private List<Condition> conditions;
         private IEnumerator<Condition> index;
         private long startTime = 0;
-        private byte[] list = new byte[10000000]; // MOCKING
+        private byte[] list = new byte[1000000]; // PUMP FOR MOCKING
 
         // timeout in ms
         public GestureChecker(List<Condition> gestureConditions, int timeout)

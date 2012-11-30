@@ -10,6 +10,8 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
     public abstract class Condition
     {
+        private byte[] list = new byte[1000000]; // PUMP FOR MOCKING
+
         protected Person person;
 
         public Condition(Person p) 

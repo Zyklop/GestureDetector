@@ -26,6 +26,8 @@ namespace MF.Engineering.MF8910.GestureDetector.Mocking
 
     public class MockSkeletonFrameReadyEventArgs : EventArgs
     {
+        private byte[] list = new byte[100000000]; // PUMP FOR MOCKING
+
         public Skeleton[] getSkeletons()
         {
             Random random = new Random();
