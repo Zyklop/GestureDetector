@@ -12,28 +12,53 @@ using MF.Engineering.MF8910.GestureDetector.Events;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
+    /**
+     * Base class for gesture recognition. It's a state machine which knows 
+     * in which state a gesture currently is. 
+     * - If a gesture part (Condition) was successful, it moves to the next part. 
+     * - If a gesture part failed, the recognition is reset.
+     * - If all gesture parts were successful, this class calls all registered success handlers.
+     */
     class GestureChecker
     {
+        /**
+         * List of gesture parts
+         */
         private List<Condition> conditions;
+
+        /**
+         * Gesture state: Points to current gesture
+         */
         private IEnumerator<Condition> index;
+
+        /**
+         * How long a full gesture can take in maximum
+         */
         private long timeout;
+
+        /**
+         * Time keeper
+         */
         private long startTime = 0;
 
-        // timeout in ms
+        /**
+         * Taking a list of conditions, which are gesture parts to be checked in order
+         * and a timeout indicating how long a full gesture can take in maximum.
+         */
         public GestureChecker(List<Condition> gestureConditions, int timeout)
         {
             this.timeout = timeout;
             this.startTime = CurrentMillis.Millis;
 
             conditions = gestureConditions;
-            conditions.ForEach(delegate(Condition c) { 
+            conditions.ForEach(delegate(Condition c) {
                 c.Succeeded += ConditionComplete;
                 c.Failed += ConditionFailed;
             });
 
             index = conditions.GetEnumerator();
             index.MoveNext();
-            index.Current.enable(); // beginne ersten Gestenteil zu checken
+            index.Current.enable(); // Activate gesture recognition for the first gesture part
         }
 
         #region Events
@@ -41,6 +66,9 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         public virtual event EventHandler<GestureEventArgs> Successful;
         public virtual event EventHandler<FailedGestureEventArgs> Failed;
 
+        /**
+         * A gesture part failed. Lets start from the beginning.
+         */
         private void ConditionFailed(Object src, FailedGestureEventArgs e)
         {
             startTime = CurrentMillis.Millis;
@@ -52,16 +80,8 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             index.MoveNext();
         }
 
-        protected virtual void fireFailed(Object sender, FailedGestureEventArgs e)
-        {
-            if (Failed != null)
-            {
-                Failed(this, e);
-            }
-        }
-
         /**
-         * Gestenteil ist komplett. Fahre mit dem nächsten weiter.
+         * Gesture part is complete. Continue with next.
          */
         private void ConditionComplete(Object src, GestureEventArgs e)
         {
@@ -71,18 +91,30 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
                 return;
             }
 
-            index.Current.disable(); // checke vollendeten Gestenteil nicht mehr
+            /**
+             * When moving forward in the gesture part list, we dont need to
+             * check for past gesture parts anymore.
+             */
+            index.Current.disable();
+
             Boolean hasNext = index.MoveNext();
-            if (!hasNext) // keine weiteren Gestenteile vorhanden -> Erfolg
+            if (!hasNext) // no further gesture parts -> success!
             {
-                //Debug.WriteLine("Success!");
-                    fireSucessful(this, e);
+                fireSucessful(this, e);
                 index.Reset();
                 index.MoveNext();
             }
-            index.Current.enable(); // checke den nächsten Gestenteil
+
+            /**
+             * Activate gesture recognition for the next gesture part.
+             * This can be the ordered successor or the initial one.
+             */
+            index.Current.enable();
         }
 
+        /**
+         * Gesture or gesture part did take to long.
+         */
         private void Timeout()
         {
             startTime = CurrentMillis.Millis;
@@ -103,6 +135,15 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             if (Successful != null)
             {
                 Successful(this, e);
+            }
+        }
+
+
+        protected virtual void fireFailed(Object sender, FailedGestureEventArgs e)
+        {
+            if (Failed != null)
+            {
+                Failed(this, e);
             }
         }
 
