@@ -30,9 +30,9 @@ namespace DebugGui
     public partial class MainWindow : Window
     {
         #region initializing
-        private List<Person> persons = new List<Person>();
         private Person active;
         private ImgIterator itr;
+        private Device d;
 
         public MainWindow()
         {
@@ -52,9 +52,10 @@ namespace DebugGui
 
         private void Initialize()
         {
-            Device d = new Device();
+            d = new Device();
             d.NewPerson += NewPerson;
             d.PersonActive += ActivePerson;
+            d.PersonLost += Dispose;
             d.Start();
             NrPersons.Text = "0";
         }
@@ -99,8 +100,7 @@ namespace DebugGui
                     sbl.Begin();
                     await Task.Delay(1000);
                     itr.Previous();
-                    Img.Width = 800;
-                    Img.Height = 600;
+                    Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
                     sbl = this.FindResource("ImageRightIn") as Storyboard;
                     sbl.Begin();
                     break;
@@ -109,8 +109,7 @@ namespace DebugGui
                     sbr.Begin();
                     await Task.Delay(1000);
                     itr.Next();
-                    Img.Width = 800;
-                    Img.Height = 600;
+                    Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
                     sbr = this.FindResource("ImageLeftOut") as Storyboard;
                     sbr.Begin();
                     break;
@@ -137,14 +136,13 @@ namespace DebugGui
         {
             if(active == null)
                 LoginText.Visibility = System.Windows.Visibility.Visible;
-            persons.Add(e.Person);
             UpdatePersonsCount();
             e.Person.OnWave += waved;
         }
 
         private void UpdatePersonsCount()
         {
-            NrPersons.Text = persons.Count.ToString();
+            NrPersons.Text = d.GetAll().Count.ToString();
         }
 
         private void Dispose(object sender, PersonDisposedEventArgs e)
@@ -153,9 +151,8 @@ namespace DebugGui
             {
                 RemoveActive();
             }
-            persons.Remove(e.Person);
             UpdatePersonsCount();
-            if (persons.Count == 0)
+            if (d.GetAll().Count == 0)
             {
                 LoginText.Visibility = System.Windows.Visibility.Hidden;
             }
@@ -171,6 +168,24 @@ namespace DebugGui
 
         private void waved(object sender, GestureEventArgs e)
         {
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int i;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Grid_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Application.Current.Shutdown();
+            }
         }
         
     }
