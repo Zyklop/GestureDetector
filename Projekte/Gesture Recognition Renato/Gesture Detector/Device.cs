@@ -148,13 +148,12 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
             // Remove persons older than 5 seconds from dictionary
             long allowedAge = CurrentMillis.Millis - 5000;
-            IEnumerator<long> iter = explorationCandidates.Keys.GetEnumerator();
-            while(iter.MoveNext()) {
-                if (iter.Current > allowedAge) {
-                    Person p = explorationCandidates[iter.Current];
-                    p.OnWave -= personWaved;
-                    explorationCandidates.Remove(iter.Current);
-                }
+            List<KeyValuePair<long, Person>> tempList = new List<KeyValuePair<long,Person>>();
+            tempList.AddRange(explorationCandidates.Where(x => x.Key > allowedAge).ToList());
+            foreach (KeyValuePair<long, Person> item in tempList)
+            {
+                item.Value.OnWave -= personWaved;
+                explorationCandidates.Remove(item.Key);
             }
 
             /**
@@ -185,12 +184,13 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     }
                     bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
                     personList.Remove(bestMatch.Person);
-                    explorationCandidates.Add(CurrentMillis.Millis, bestMatch.Person);//add person to cache
                 }
                 // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
                 foreach (Person p in personList)
                 {
                     persons.Remove(p);
+                    explorationCandidates.Add(CurrentMillis.Millis, p);//add person to cache
+                    PersonLost(this, new PersonDisposedEventArgs(p));
                 }
             }
             else // eine Person kam ins Bild
@@ -261,6 +261,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     }
                 }
             }
+            Debug.WriteLine("");
         }
 
 
@@ -314,6 +315,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         //public delegate void PersonHandler<TEventArgs>(object source, TEventArgs e) where TEventArgs : EventArgs;
 
         public event EventHandler<AccelerationEventArgs> Accelerated;
+
+        public event EventHandler<PersonDisposedEventArgs> PersonLost;
 
         #endregion
     }

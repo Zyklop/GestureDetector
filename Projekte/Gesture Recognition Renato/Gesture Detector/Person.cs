@@ -72,11 +72,12 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public void AddSkeleton(SmothendSkeleton ss)
         {
             long t = CurrentMillis.Millis; // time of the skeleton
+            Debug.Write(ss.GetHashCode()+"("+t+"), ");
             //if (!skeletons.ContainsKey(t))
             //{
             skeletons.Add(t, ss);// add to dictionary
             //}
-            if (skeletons.Count > 10)
+            if (skeletons.Count >= 10)
             {
                 skeletons.Remove(skeletons.ElementAt(9).Key); // remove old unneded
             }
