@@ -16,7 +16,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
         public SwipeGestureChecker(Person p)
             : base(new List<Condition> {
 
-                new SwipeCondition(p, JointType.HandRight, Direction.left)
+                new SwipeCondition(p, JointType.HandRight)
 
             }, CONDITION_TIMEOUT) { }
     }

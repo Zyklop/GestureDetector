@@ -17,53 +17,82 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
 
         private Checker checker;
         private const int LOWER_BOUND_FOR_SUCCESS = 2;
-        private const double LOWER_BOUND_FOR_VELOCITY = 0.005;
+        private const double LOWER_BOUND_FOR_VELOCITY = 3;
         private int index = 0;
 
-        public SwipeCondition(Person p, JointType leftOrRightHand, Direction d)
+        public SwipeCondition(Person p, JointType leftOrRightHand)
             : base(p)
         {
             hand = leftOrRightHand;
-            direction = d;
             checker = new Checker(p);
         }
 
         protected override void check(object sender, NewSkeletonEventArgs e)
         {
-            List<Direction> handOrientation = checker.GetRelativePosition(JointType.HipCenter, hand);
+            List<Direction> handToHipOrientation = checker.GetRelativePosition(JointType.HipCenter, hand);
+            List<Direction> handToShoulderOrientation = checker.GetRelativePosition(JointType.ShoulderCenter, hand);
             List<Direction> handMovement = checker.GetAbsoluteMovement(hand);
             double handVelocity = checker.GetAbsoluteVelocity(hand);
-
-            if (handVelocity > LOWER_BOUND_FOR_VELOCITY)
+            //min speed is maintained
+            if (handVelocity < LOWER_BOUND_FOR_VELOCITY)
             {
-                //Console.WriteLine("V: "+handVelocity);
+                Reset();
             }
-
-            if (handOrientation.Contains(Direction.forward)
-                && handMovement.Contains(direction)
-                && handVelocity >= LOWER_BOUND_FOR_VELOCITY)
+                // hand is in front of the body and between hip and shoulders
+            else if (handToHipOrientation.Contains(Direction.forward)
+                && handToHipOrientation.Contains(Direction.upward)
+                && handToShoulderOrientation.Contains(Direction.downward))
             {
-                //Console.WriteLine("++");
-                if (index >= LOWER_BOUND_FOR_SUCCESS)
+                // movement did not start yet, initializing
+                if (direction == Direction.none)
                 {
-                    index = 0;
-                    fireSucceeded(this, new SwipeGestureEventArgs()
+                    // left or right movement is prefered
+                    if (handMovement.Contains(Direction.left))
                     {
-                        Direction = direction
-                    });
+                        direction = Direction.left;
+                    }
+                    else if (handMovement.Contains(Direction.right))
+                    {
+                        direction = Direction.right;
+                    }
+                    else
+                    {
+                        // take other direction
+                        direction = handMovement.FirstOrDefault();
+                    }
+                }
+                else if (!handMovement.Contains(direction))
+                {
+                    // direction changed
+                    Reset();
                 }
                 else
                 {
-                    index++;
+                    if (index >= LOWER_BOUND_FOR_SUCCESS)
+                    {
+                        index = 0;
+                        fireSucceeded(this, new SwipeGestureEventArgs()
+                        {
+                            Direction = direction
+                        });
+                    }
+                    else
+                    {
+                        // step successful, waiting for next
+                        index++;
+                    }
                 }
             }
-            else
+        }
+        // restart detecting
+        private void Reset()
+        {
+            index = 0;
+            direction = Direction.none;
+            fireFailed(this, new FailedGestureEventArgs()
             {
-                fireFailed(this, new FailedGestureEventArgs()
-                {
-                    Condition = this
-                });
-            }
+                Condition = this
+            });
         }
     }
 }
