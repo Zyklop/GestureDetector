@@ -128,23 +128,24 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     // TODO ev Performance Problem because of reinstantiating Array (see profiling)
                     Skeleton[] skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletonFrame.CopySkeletonDataTo(skeletons);
+                    // Copy actually tracked skeletons to a list which is easier to work with.
+                    List<SmothendSkeleton> skeletonList = new List<SmothendSkeleton>();
+                    foreach (Skeleton ske in skeletons)
+                    {
+                        if (ske.TrackingState == SkeletonTrackingState.Tracked)
+                        {
+                            skeletonList.Add(new SmothendSkeleton(ske, skeletonFrame.Timestamp));
+                        }
+                    }
                     skeletonFrame.Dispose();
-                    handleNewSkeletons(skeletons);
+                    handleNewSkeletons(skeletonList);
                 }
             }
         }
 
-        protected void handleNewSkeletons(Skeleton[] skeletons)
+        protected void handleNewSkeletons(List<SmothendSkeleton> skeletonList)
         {
-            // Copy actually tracked skeletons to a list which is easier to work with.
-            List<SmothendSkeleton> skeletonList = new List<SmothendSkeleton>();
-            foreach (Skeleton ske in skeletons)
-            {
-                if (ske.TrackingState == SkeletonTrackingState.Tracked)
-                {
-                    skeletonList.Add(new SmothendSkeleton(ske));
-                }
-            }
+            
 
             // Remove persons older than 5 seconds from dictionary
             long allowedAge = CurrentMillis.Millis - 5000;
@@ -152,6 +153,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             tempList.AddRange(explorationCandidates.Where(x => x.Key > allowedAge).ToList());
             foreach (KeyValuePair<long, Person> item in tempList)
             {
+                //avoiding memory leak
                 item.Value.OnWave -= personWaved;
                 explorationCandidates.Remove(item.Key);
             }
@@ -261,7 +263,6 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     }
                 }
             }
-            Debug.WriteLine("");
         }
 
 

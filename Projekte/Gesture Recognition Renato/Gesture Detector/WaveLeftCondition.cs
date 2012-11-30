@@ -25,19 +25,36 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
 
         protected override void check(object sender, NewSkeletonEventArgs e)
         {
-            rightHandDirections = checker.GetAbsoluteMovement(JointType.HandRight);
+            //rightHandDirections = checker.GetAbsoluteMovement(JointType.HandRight);
             handToHeadDirections = checker.GetRelativePosition(JointType.Head, JointType.HandRight);
-
-            // Prüfe ob Handbewegung nach links abläuft und ob sich die Hand über dem Kopf befindet
-            if (rightHandDirections.Contains(Direction.left) && handToHeadDirections.Contains(Direction.upward))
+            double handspeed = checker.GetAbsoluteVelocity(JointType.HandRight);
+            //Debug.WriteLine(handspeed);
+            // min required speed
+            if (handspeed < 2)
             {
-                fireTriggered(this, null);
+                index = 0;
+            }
+            // hand must be left
+            if (index == 0 && handToHeadDirections.Contains(Direction.right))
+            {
+                index = 1;
+            }
+                // hand is on top
+            else if (index == 1 && handToHeadDirections.Contains(Direction.upward))
+            {
+                index = 2;
+            }
+                //hand is right
+            else if (index == 2 && handToHeadDirections.Contains(Direction.right))
+            {
+                fireSucceeded(this, null);
                 //Debug.WriteLine("triggered");
-                index++;
-                if (index >= LOWER_BOUND_FOR_SUCCESS)
-                {
-                    fireSucceeded(this, null);
-                }
+                index = 0;
+                //if (index >= LOWER_BOUND_FOR_SUCCESS)
+                //{
+                //    fireSucceeded(this, null);
+                //}
+                
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Kinect;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
+using System.Diagnostics;
 
 namespace MF.Engineering.MF8910.GestureDetector.Tools
 {
@@ -23,7 +24,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             {
                 return 0;
             }
-            return SkeletonMath.DistanceBetweenPoints(person.CurrentSkeleton.GetPosition(type),person.GetLastSkeleton(1).GetPosition(type)) / (person.MillisBetweenFrames(1,0)/1000);
+            return SkeletonMath.DistanceBetweenPoints(person.CurrentSkeleton.GetPosition(type),person.GetLastSkeleton(1).GetPosition(type)) * 1000.0 / (double)(person.MillisBetweenFrames(1,0));
         }
 
         public double GetRelativeVelocity(JointType t1, JointType t2)
@@ -34,7 +35,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             }
             double d1 = SkeletonMath.DistanceBetweenPoints(person.CurrentSkeleton.GetPosition(t1), person.CurrentSkeleton.GetPosition(t2));
             double d2 = SkeletonMath.DistanceBetweenPoints(person.GetLastSkeleton(1).GetPosition(t1), person.GetLastSkeleton(1).GetPosition(t2));
-            return Math.Abs(d1 - d2) / (person.MillisBetweenFrames(1, 0) / 1000);
+            return Math.Abs(d1 - d2) / (double)(person.MillisBetweenFrames(1, 0) / 1000.0);
         }
 
         public double GetDistance(JointType t1, JointType t2)

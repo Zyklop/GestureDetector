@@ -127,8 +127,9 @@ namespace DebugGui
 
         private void Zoomed(object sender, GestureEventArgs e)
         {
+            Debug.WriteLine("zoomed");
             ZoomGestureEventArgs args = (ZoomGestureEventArgs)e;
-            Img.Width *= args.ZoomFactorFromLast;
+            //Img.Width *= args.ZoomFactorFromLast;
             Img.Height *= args.ZoomFactorFromLast;
         }
 

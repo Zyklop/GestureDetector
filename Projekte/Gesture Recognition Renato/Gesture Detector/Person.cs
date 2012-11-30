@@ -15,7 +15,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
     public class Person
     {
         private bool active;
-        private SortedDictionary<long, SmothendSkeleton> skeletons;
+        private Queue <SmothendSkeleton> skeletons;
         private Device dev;
         private WaveGestureChecker wave;
         private ZoomGestureChecker zoom;
@@ -25,7 +25,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public Person(Device d)
         {
             Random r = new Random();
-            skeletons = new SortedDictionary<long, SmothendSkeleton>(new DescendingTimeComparer<long>()); // newest skeletons are first
+            skeletons = new Queue < SmothendSkeleton>(); // newest skeletons are first
             dev = d;
             id = r.Next();
             wave = new WaveGestureChecker(this);
@@ -71,20 +71,14 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         public void AddSkeleton(SmothendSkeleton ss)
         {
-            long t = CurrentMillis.Millis; // time of the skeleton
-            Debug.Write(ss.GetHashCode()+"("+t+"), ");
-            //if (!skeletons.ContainsKey(t))
-            //{
-            skeletons.Add(t, ss);// add to dictionary
-            //}
-            if (skeletons.Count >= 10)
-            {
-                skeletons.Remove(skeletons.ElementAt(9).Key); // remove old unneded
-            }
-
             if (NewSkeleton != null)
             {
+                skeletons.Enqueue(ss);
                 NewSkeleton(this, new NewSkeletonEventArgs(ss)); // Event for conditions
+            }
+            if (skeletons.Count >= 10)
+            {
+                skeletons.Dequeue(); // remove old unneded
             }
         }
 
@@ -96,22 +90,22 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 {
                     return null;
                 }
-                return skeletons.First().Value;
+                return skeletons.Last();
             }
         }
 
         public SmothendSkeleton GetLastSkeleton(int i) //get a previous skeleton
         {
-            if (i > skeletons.Count-1 || i > 9)
+            if (i > skeletons.Count-1 || i >= 9)
             {
                 return null;
             }
-            return skeletons.ElementAt(i).Value;
+            return skeletons.ElementAt(skeletons.Count-i-1);
         }
 
         public long MillisBetweenFrames(int first, int second) //get timedifference in millisconds between skeletons
         {
-            long diff = (skeletons.ElementAt(second).Key - skeletons.ElementAt(first).Key);
+            long diff = (GetLastSkeleton(second).Timestamp - GetLastSkeleton(first).Timestamp);
             //Debug.WriteLineIf(diff < 0, "Time Difference negative in MillisBetweenFrame");
             return diff;
         }
@@ -162,27 +156,5 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public event EventHandler<GestureEventArgs> OnWave;
         public event EventHandler<GestureEventArgs> OnZoom;
         public event EventHandler<GestureEventArgs> OnSwipe;
-
-        private class DescendingTimeComparer<T> : IComparer<T> where T : IComparable<T>
-        {
-            public int Compare(T first, T second)
-            {
-                if (((long)((object)first)) < 1000 &&  ((long)((object)second)) > (long.MaxValue - 1000))
-                {
-                    return 1;
-                }
-                if (((long)((object)first)) < ((long)((object)second)))
-                {
-                    return 1;
-                }
-                if (((long)((object)first)) > ((long)((object)second)))
-                {
-                    return -1;
-                }
-                return 0;
-            }
-        }
-
-        
     }
 }

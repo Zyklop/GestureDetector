@@ -9,10 +9,13 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
     public class SmothendSkeleton
     {
         private Dictionary<JointType, Joint> joints;
+        private long t;
+        public long Timestamp { get { return t; } }
 
-        public SmothendSkeleton(Skeleton s)
+        public SmothendSkeleton(Skeleton s, long timestamp)
         {
             joints = new Dictionary<JointType, Joint>();
+            t = timestamp;
             foreach (Joint j in s.Joints)
             {
                 joints.Add(j.JointType, j);
