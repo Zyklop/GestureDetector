@@ -10,6 +10,26 @@ using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
 
 namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
+    public class PersonCacheEntry
+    {
+        public long Timestamp { get; set; }
+        public Person Person { get; set; }
+
+        private bool isValid = true;
+        public bool IsValid()
+        {
+            return isValid;
+        }
+        public void Invalidate()
+        {
+            isValid = false;
+        }
+        public void Revalidate()
+        {
+            isValid = true;
+        }
+    }
+
     public class Device
     {
         private KinectSensor Dev;
@@ -20,15 +40,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         private Vector4 lastAcceleration;
 
         /**
-         * List of persons which are currently tracked
-         */
-        private List<Person> persons;
-
-        /**
          * Expoloration Candidates - All persons which currently dont have a skeleton
          * We keep them for 5 seconds to prevent glitches in gesture recognition.
          */
-        private Dictionary<long, Person> explorationCandidates;
+        private List<PersonCacheEntry> personCache;
 
         /**
          * Instatiation of the kinect wrapper. It handles frame events, creates new
@@ -44,8 +59,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         private void initialize()
         {
             lastAcceleration = new Vector4();
-            persons = new List<Person>();
-            explorationCandidates = new Dictionary<long, Person>();
+            personCache = new List<PersonCacheEntry>();
             Dev.SkeletonStream.Enable(); // Begin to capture skeletons
             Dev.SkeletonFrameReady += OnNewSkeletons; // Register on any new skeletons
         }
@@ -92,12 +106,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
          */
         public Person GetActivePerson()
         {
-            return persons.Find(x => x.Active == true);
-        }
-
-        public List<Person> GetAll()
-        {
-            return persons;
+            return personCache.Find(x => x.Person.Active == true).Person;
         }
 
         protected void OnNewSkeletons(object source, SkeletonFrameReadyEventArgs e)
@@ -135,14 +144,13 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 }
             }
 
-            // Remove persons older than 5 seconds from dictionary
+            // Remove persons older than 5 seconds from cache
             long allowedAge = DateTime.Now.Ticks - 5000;
-            IEnumerator<long> iter = explorationCandidates.Keys.GetEnumerator();
+            IEnumerator<PersonCacheEntry> iter = personCache.GetEnumerator();
             while(iter.MoveNext()) {
-                if (iter.Current > allowedAge) {
-                    Person p = explorationCandidates[iter.Current];
-                    p.OnWave -= personWaved;
-                    explorationCandidates.Remove(iter.Current);
+                if (iter.Current.Timestamp > allowedAge) {
+                    iter.Current.Person.OnWave -= personWaved;
+                    personCache.Remove(iter.Current);
                 }
             }
 
@@ -152,104 +160,47 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 * - Es gibt weniger Skelette als Personen. übrige Person muss gelöscht werden
                 * - Es gibt mehr Skelette als Personen. Eine neue Person muss erstellt werden
                 */
-            Match bestMatch = new Match();
 
-            if (skeletonList.Count < persons.Count) // eine Person ging aus dem Bild
+            /**
+             * Search best matching person for each skeleton in the list
+             */
+            foreach (SmothendSkeleton s in skeletonList)
             {
-                List<Person> personList = new List<Person>(); // Kopiere Personen für Matchingverfahren
-                personList.AddRange(persons);
-                foreach (SmothendSkeleton s in skeletonList) // für jedes Skelett wird der beste Match gesucht
+                //PersonCacheEntry minMatch = personCache.Min(x => x.Person.Match(s));
+                PersonCacheEntry minMatch = null;
+                double bestDiff = double.MaxValue;
+                foreach (PersonCacheEntry c in personCache)
                 {
-                    bestMatch.Value = double.MaxValue;
-                    double v;
-                    foreach (Person p in personList)
+                    double v = c.Person.Match(s);
+                    if (v < bestDiff)
                     {
-                        v = p.Match(s);
-                        if (v < bestMatch.Value)
+                        minMatch = c;
+                    }
+                }
+
+                // Got new person or detected glitch
+                if (!minMatch.IsValid()) 
+                {
+                    if (bestDiff < 0.5) { // Glitch detected. Person is still active
+                        minMatch.Revalidate();
+                    } else { // New person detected
+                        minMatch = new PersonCacheEntry();
+                        minMatch.Person = new Person(this);
+                        registerWave(minMatch.Person);
+                        if (NewPerson != null)
                         {
-                            bestMatch.Value = v;
-                            bestMatch.Person = p;
-                            bestMatch.Skeleton = s;
+                            NewPerson(this, new NewPersonEventArgs(minMatch.Person));
                         }
                     }
-                    bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
-                    personList.Remove(bestMatch.Person);
-                    explorationCandidates.Add(CurrentMillis.Millis, bestMatch.Person);//add person to cache
                 }
-                // Lösche übriggebliebene Personen, da sie kein Skelett mehr haben
-                foreach (Person p in personList)
-                {
-                    persons.Remove(p);
-                }
+
+                minMatch.Timestamp = DateTime.Now.Ticks;
+                minMatch.Person.AddSkeleton(s);
             }
-            else // eine Person kam ins Bild
-            {
-                List<Person> personList = new List<Person>(); // Kopiere Personen für Matchingverfahren
-                personList.AddRange(persons);
-                foreach (Person p in personList) // für jede Person wird der beste Match gesucht
-                {
-                    bestMatch.Value = double.MaxValue;
-                    double v;
-                    foreach (SmothendSkeleton s in skeletonList)
-                    {
-                        v = p.Match(s);
-                        if (v < bestMatch.Value)
-                        {
-                            bestMatch.Value = v;
-                            bestMatch.Person = p;
-                            bestMatch.Skeleton = s;
-                        }
-                    }
-                    bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // weise neues Skelett zu
-                    skeletonList.Remove(bestMatch.Skeleton);
-                }
-                //Match to Cache
-                List<SmothendSkeleton> skeletonsToRemove = new List<SmothendSkeleton>();
-                foreach (SmothendSkeleton s in skeletonList)
-                {
-                    bestMatch.Value = double.MaxValue;
-                    double v;
-                    foreach (long l in explorationCandidates.Keys)
-                    {
-                        Person p = explorationCandidates[l];
-                        v = p.Match(s);
-                        if (v < bestMatch.Value)
-                        {
-                            bestMatch.Value = v;
-                            bestMatch.Person = p;
-                            bestMatch.Skeleton = s;
-                            bestMatch.Key = l;
-                        }
-                    }
-                    if (bestMatch.Value < 0.5) // match valid
-                    {
-                        //set person active again
-                        persons.Add(bestMatch.Person);
-                        registerWave(bestMatch.Person);
-                        bestMatch.Person.AddSkeleton(bestMatch.Skeleton);//give the new Skeleton
-                        explorationCandidates.Remove(bestMatch.Key);
-                        skeletonsToRemove.Add(bestMatch.Skeleton);
-                    }
-                }
-                foreach (SmothendSkeleton ske in skeletonsToRemove)
-                {
-                    skeletonList.Remove(ske);
-                }
-                //new person for unmatched skeletons
-                skeletonsToRemove.Clear();
-                // erstelle für übrige Skelette jeweils Personen
-                foreach (SmothendSkeleton s in skeletonList)
-                {
-                    Person p = new Person(this);
-                    p.AddSkeleton(s);
-                    persons.Add(p);
-                    registerWave(p);
-                    if (NewPerson != null)
-                    {
-                        NewPerson(this, new NewPersonEventArgs(p));
-                    }
-                }
-            }
+
+            // TODO invalidate who didnt get a skeleton
+
+            // TODO delete entries after 5s
         }
 
 
@@ -279,20 +230,12 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         {
             Person p = ((Person)sender);
             // set active if ther isn't another active person
-            if (!p.Active && persons.Find(x => x.Active==true) == null)
+            if (!p.Active && personCache.Find(x => x.Person.Active == true) == null)
             {
                 p.Active = true;
                 PersonActive(this ,new ActivePersonEventArgs(p));
             }
         }
-
-        private class Match
-        {
-            public double Value {get; set; }
-            public Person Person {get; set; }
-            public SmothendSkeleton Skeleton {get; set; }
-            public long Key { get; set; }
-        };
 
         #region Events
 
