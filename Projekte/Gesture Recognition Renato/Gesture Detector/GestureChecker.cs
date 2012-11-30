@@ -12,15 +12,19 @@ using MF.Engineering.MF8910.GestureDetector.Events;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
-    class GestureChecker: IDisposable
+    class GestureChecker
     {
         private List<Condition> conditions;
         private IEnumerator<Condition> index;
-        private Timer timer;
+        private long timeout;
+        private long startTime = 0;
 
         // timeout in ms
         public GestureChecker(List<Condition> gestureConditions, int timeout)
         {
+            this.timeout = timeout;
+            this.startTime = CurrentMillis.Millis;
+
             conditions = gestureConditions;
             conditions.ForEach(delegate(Condition c) { 
                 c.Succeeded += ConditionComplete;
@@ -30,15 +34,6 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             index = conditions.GetEnumerator();
             index.MoveNext();
             index.Current.enable(); // beginne ersten Gestenteil zu checken
-
-            timer = new Timer(timeout);
-            timer.Start();
-            timer.Elapsed += Timeout;
-        }
-
-        public void Dispose()
-        {
-            timer.Dispose();
         }
 
         #region Events
@@ -48,15 +43,13 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
         private void ConditionFailed(Object src, FailedGestureEventArgs e)
         {
-            //Debug.WriteLine(index.Current.GetType().Name + " failed.");
-            timer.Stop();
+            startTime = CurrentMillis.Millis;
             if (Failed != null) 
             {
                 fireFailed(this, e);
             }
             index.Reset();
             index.MoveNext();
-            timer.Start();
         }
 
         protected virtual void fireFailed(Object sender, FailedGestureEventArgs e)
@@ -72,7 +65,12 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
          */
         private void ConditionComplete(Object src, GestureEventArgs e)
         {
-            //Debug.WriteLine(index.Current.GetType().Name + "(" + conditions.IndexOf(index.Current) + ") complete.");
+            if (startTime <= CurrentMillis.Millis - timeout)
+            {
+                Timeout();
+                return;
+            }
+
             index.Current.disable(); // checke vollendeten Gestenteil nicht mehr
             Boolean hasNext = index.MoveNext();
             if (!hasNext) // keine weiteren Gestenteile vorhanden -> Erfolg
@@ -85,12 +83,10 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             index.Current.enable(); // checke den nächsten Gestenteil
         }
 
-        private void Timeout(Object src, EventArgs e)
+        private void Timeout()
         {
-            //TODO Debug
+            startTime = CurrentMillis.Millis;
 
-            //Debug.WriteLine("timed out.");
-            timer.Stop();
             index.Reset();
             index.MoveNext();
             if (Failed != null)
@@ -100,7 +96,6 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
                     Condition = index.Current
                 });
             }
-            timer.Start();
         }
 
         protected virtual void fireSucessful(Object sender, GestureEventArgs e)
