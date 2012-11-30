@@ -7,6 +7,7 @@ using Microsoft.Kinect;
 using System.Diagnostics;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
+using MF.Engineering.MF8910.GestureDetector.Exceptions;
 
 namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
@@ -64,22 +65,28 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         public KinectStatus Status { get { return Dev.Status; } }
 
-        public bool Start()
+        public void Start()
         {
             if (!Dev.IsRunning)
             {
                 Dev.Start();
             }
-            return Dev.IsRunning;
+            if (!Dev.IsRunning)
+            {
+                throw new DeviceErrorException("Device did not start") { Status = Dev.Status } ;
+            }
         }
 
-        public bool Stop()
+        public void Stop()
         {
             if (Dev.IsRunning)
             {
                 Dev.Stop();
             }
-            return Dev.IsRunning;
+            if (Dev.IsRunning)
+            {
+                throw new DeviceErrorException("Device did not stop") { Status = Dev.Status };
+            }
         }
 
         public void Dispose()
@@ -90,9 +97,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /**
          * Returns the currently active person. If no person is active, null is returned.
          */
-        public Person GetActivePerson()
+        public List<Person> GetActivePerson()
         {
-            return persons.Find(x => x.Active == true);
+            return persons.FindAll(x => x.Active == true);
         }
 
         public List<Person> GetAll()
@@ -136,7 +143,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             }
 
             // Remove persons older than 5 seconds from dictionary
-            long allowedAge = DateTime.Now.Ticks - 5000;
+            long allowedAge = CurrentMillis.Millis - 5000;
             IEnumerator<long> iter = explorationCandidates.Keys.GetEnumerator();
             while(iter.MoveNext()) {
                 if (iter.Current > allowedAge) {
