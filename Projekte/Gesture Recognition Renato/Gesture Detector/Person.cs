@@ -160,7 +160,6 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         public event EventHandler<GestureEventArgs> OnWave;
         public event EventHandler<GestureEventArgs> OnZoom;
-        public event EventHandler<PersonDisposedEventArgs> OnDispose;
         public event EventHandler<GestureEventArgs> OnSwipe;
 
         private class DescendingTimeComparer<T> : IComparer<T> where T : IComparable<T>

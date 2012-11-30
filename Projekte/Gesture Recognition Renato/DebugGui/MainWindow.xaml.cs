@@ -140,7 +140,6 @@ namespace DebugGui
             persons.Add(e.Person);
             UpdatePersonsCount();
             e.Person.OnWave += waved;
-            e.Person.OnDispose += Dispose;
         }
 
         private void UpdatePersonsCount()
