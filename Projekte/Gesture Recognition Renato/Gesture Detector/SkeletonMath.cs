@@ -27,6 +27,24 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return Math.Sqrt(dx * dx + dy * dy + dz * dz);
         }
 
+        public static SkeletonPoint SubstractPoints(SkeletonPoint op1, SkeletonPoint op2)
+        {
+            SkeletonPoint res = new SkeletonPoint();
+            res.X = op1.X - op2.X;
+            res.Y = op1.Y - op2.Y;
+            res.Z = op1.Z - op2.Z;
+            return res;
+        }
+
+        public static SkeletonPoint AddPoints(SkeletonPoint op1, SkeletonPoint op2)
+        {
+            SkeletonPoint res = new SkeletonPoint();
+            res.X = op1.X + op2.X;
+            res.Y = op1.Y + op2.Y;
+            res.Z = op1.Z + op2.Z;
+            return res;
+        }
+
         public static List<Direction> DirectionTo(SkeletonPoint from, SkeletonPoint to)
         {
             List<Direction> res = new List<Direction>();

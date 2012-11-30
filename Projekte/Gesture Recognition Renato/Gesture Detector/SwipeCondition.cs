@@ -32,7 +32,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
             List<Direction> handToHipOrientation = checker.GetRelativePosition(JointType.HipCenter, hand);
             List<Direction> handToShoulderOrientation = checker.GetRelativePosition(JointType.ShoulderCenter, hand);
             List<Direction> handMovement = checker.GetAbsoluteMovement(hand);
-            double handVelocity = checker.GetAbsoluteVelocity(hand);
+            double handVelocity = checker.GetRelativeVelocity(JointType.HipCenter,hand);
             //min speed is maintained
             if (handVelocity < LOWER_BOUND_FOR_VELOCITY)
             {

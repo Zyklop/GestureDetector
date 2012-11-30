@@ -27,15 +27,15 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.DistanceBetweenPoints(person.CurrentSkeleton.GetPosition(type),person.GetLastSkeleton(1).GetPosition(type)) * 1000.0 / (double)(person.MillisBetweenFrames(1,0));
         }
 
-        public double GetRelativeVelocity(JointType t1, JointType t2)
+        public double GetRelativeVelocity(JointType steady, JointType moving)
         {
             if (person.GetLastSkeleton(1) == null)
             {
                 return 0;
             }
-            double d1 = SkeletonMath.DistanceBetweenPoints(person.CurrentSkeleton.GetPosition(t1), person.CurrentSkeleton.GetPosition(t2));
-            double d2 = SkeletonMath.DistanceBetweenPoints(person.GetLastSkeleton(1).GetPosition(t1), person.GetLastSkeleton(1).GetPosition(t2));
-            return Math.Abs(d1 - d2) / (double)(person.MillisBetweenFrames(1, 0) / 1000.0);
+            SkeletonPoint d1 = SkeletonMath.SubstractPoints(person.CurrentSkeleton.GetPosition(moving), person.CurrentSkeleton.GetPosition(steady));
+            SkeletonPoint d2 = SkeletonMath.SubstractPoints(person.GetLastSkeleton(1).GetPosition(moving), person.GetLastSkeleton(1).GetPosition(steady));
+            return SkeletonMath.DistanceBetweenPoints(d1, d2) / (double)(person.MillisBetweenFrames(1, 0) * 1000.0);
         }
 
         public double GetDistance(JointType t1, JointType t2)
@@ -54,7 +54,8 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
 
         public List<Direction> GetRelativeMovement(JointType steady, JointType moving)
         {
-            throw new NotImplementedException();
+            return SkeletonMath.DirectionTo(SkeletonMath.SubstractPoints(person.GetLastSkeleton(1).GetPosition(moving), person.GetLastSkeleton(1).GetPosition(steady)),
+                SkeletonMath.SubstractPoints(person.CurrentSkeleton.GetPosition(moving), person.CurrentSkeleton.GetPosition(steady)));
         }
 
         public List<Direction> GetRelativePosition(JointType from, JointType to)
