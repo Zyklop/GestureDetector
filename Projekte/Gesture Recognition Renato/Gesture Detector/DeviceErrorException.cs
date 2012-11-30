@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Kinect;
-using System;
 
 namespace MF.Engineering.MF8910.GestureDetector.Exceptions
 {

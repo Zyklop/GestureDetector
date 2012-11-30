@@ -8,6 +8,7 @@ using System.Diagnostics;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
 using MF.Engineering.MF8910.GestureDetector.Exceptions;
+using System.Runtime.CompilerServices;
 
 namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
@@ -65,6 +66,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         public KinectStatus Status { get { return Dev.Status; } }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void Start()
         {
             if (!Dev.IsRunning)
@@ -77,6 +79,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             }
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void Stop()
         {
             if (Dev.IsRunning)
@@ -89,6 +92,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             }
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void Dispose()
         {
             Dev.Dispose();

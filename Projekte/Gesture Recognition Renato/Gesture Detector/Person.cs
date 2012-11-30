@@ -147,7 +147,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             return ID;
         }
 
-        public double Match(SmothendSkeleton skeleton) // distance to other person
+        internal double Match(SmothendSkeleton skeleton) // distance to other person
         {
             SkeletonPoint currentRoot = this.CurrentSkeleton.GetPosition(JointType.HipCenter);
             SkeletonPoint otherRoot = skeleton.GetPosition(JointType.HipCenter);
