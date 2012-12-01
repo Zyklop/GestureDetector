@@ -11,15 +11,16 @@ using MF.Engineering.MF8910.GestureDetector.Events;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
 {
-    class ZoomCondition: Condition
+    class ZoomCondition : DynamicCondition
     {
-        private const double UPPER_BOUND_FOR_VELOCITY = 0.003;
-        private const int LOWER_BOUND_TO_BEGIN = 70;
+        private const double UPPER_BOUND_FOR_VELOCITY = 1.5;
+        private const int LOWER_BOUND_TO_BEGIN = 50;
         private int index = 0;
         // TODO set Distance, positive = zoomOut, neg = zoomIn
         //private int zoomDistance = 0;
         private Checker checker;
-        List<Direction> rightHandOrientation, leftHandOrientation, rightHandMovement, leftHandMovement;
+        List<Direction> rightHandToHipOrientation, leftHandToHipOrientation, rightHandToHeadOrientation,
+            leftHandToHeadOrientation, leftHandToRightHandDirection;
         double rightHandVelocity, leftHandVelocity;
 
         public ZoomCondition(Person p)
@@ -30,58 +31,55 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
 
         protected override void check(object sender, NewSkeletonEventArgs e)
         {
-            rightHandOrientation = checker.GetRelativePosition(JointType.ElbowRight, JointType.HandRight);
-            leftHandOrientation = checker.GetRelativePosition(JointType.ElbowLeft, JointType.HandLeft);
-            rightHandMovement = checker.GetAbsoluteMovement(JointType.HandRight);
-            leftHandMovement = checker.GetAbsoluteMovement(JointType.HandLeft);
-            rightHandVelocity = checker.GetAbsoluteVelocity(JointType.HandRight);
-            leftHandVelocity = checker.GetAbsoluteVelocity(JointType.HandLeft);
+            rightHandToHipOrientation = checker.GetRelativePosition(JointType.HipCenter, JointType.HandRight);
+            leftHandToHipOrientation = checker.GetRelativePosition(JointType.HipCenter, JointType.HandLeft);
+            rightHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandRight);
+            leftHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandLeft);
+            leftHandToRightHandDirection = checker.GetRelativePosition(JointType.HandRight, JointType.HandLeft);
+            rightHandVelocity = checker.GetRelativeVelocity(JointType.HipCenter, JointType.HandRight);
+            leftHandVelocity = checker.GetRelativeVelocity(JointType.HipCenter, JointType.HandLeft);
 
-            if (index >= LOWER_BOUND_TO_BEGIN)
+            // Both Hands have to be in front of the body, between head and hip, and on their corresponding side
+            // but not together or crossed
+            if (rightHandToHipOrientation.Contains(Direction.forward)
+                && leftHandToHipOrientation.Contains(Direction.forward)
+                && rightHandToHipOrientation.Contains(Direction.upward)
+                && leftHandToHipOrientation.Contains(Direction.upward)
+                && rightHandToHipOrientation.Contains(Direction.right)
+                && leftHandToHipOrientation.Contains(Direction.left)
+                && rightHandToHeadOrientation.Contains(Direction.downward)
+                && leftHandToHeadOrientation.Contains(Direction.downward)
+                && leftHandToRightHandDirection.Contains(Direction.left)
+                && (rightHandVelocity <= UPPER_BOUND_FOR_VELOCITY)
+                && (leftHandVelocity <= UPPER_BOUND_FOR_VELOCITY))
             {
-                // Im Zoom-Modus müssen die Hände vor dem Körper sein und dürfen eine Geschwindigkeit nicht übertreten
-                if (rightHandOrientation.Contains(Direction.forward)
-                    && leftHandOrientation.Contains(Direction.forward)
-                    && (rightHandVelocity <= UPPER_BOUND_FOR_VELOCITY)
-                    && (leftHandVelocity <= UPPER_BOUND_FOR_VELOCITY))
+
+                if (index >= LOWER_BOUND_TO_BEGIN)
                 {
-                    fireSucceeded(this, new InternalZoomGestureEventArgs() { 
-                        Gauge = checker.GetDistance(JointType.HandRight, JointType.HandLeft) 
+                    fireSucceeded(this, new InternalZoomGestureEventArgs()
+                    {
+                        Gauge = checker.GetDistance(JointType.HandRight, JointType.HandLeft)
                     });
                     //Console.WriteLine("Success! Velocity: right " + rightHandVelocity + ", left " + leftHandVelocity);
                 }
                 else
                 {
-                    index = 0;
-                    fireFailed(this, new FailedGestureEventArgs()
-                        {
-                            Condition = this
-                        });
-                    //Console.WriteLine("Failed during Gesture.");
+                    index++;
+                    fireTriggered(this, new InternalZoomGestureEventArgs()
+                    {
+                        Gauge = checker.GetDistance(JointType.HandRight, JointType.HandLeft)
+                    });
                 }
             }
-            else // Steady-Position muss gehalten werden um den Zoom zu beginnen
+            else
             {
-                // Steady-Position: Beide Hände vor dem Körper und keine Bewegung
-                if (rightHandOrientation.Contains(Direction.forward)
-                    && leftHandOrientation.Contains(Direction.forward)
-                    && rightHandMovement.Contains(Direction.none)
-                    && leftHandMovement.Contains(Direction.none))
-                {
-                    index++;
-                    //Console.WriteLine("Index++");
-                }
-                else
-                {
-                    index = 0;
-                    fireFailed(this, new FailedGestureEventArgs()
+                index = 0;
+                fireFailed(this, new FailedGestureEventArgs()
                     {
                         Condition = this
                     });
-                    //Console.WriteLine("Failed to Begin.");
-                }
+                //Console.WriteLine("Failed during Gesture.");
             }
-
         }
     }
 }
