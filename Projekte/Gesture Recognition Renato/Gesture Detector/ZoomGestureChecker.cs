@@ -49,7 +49,9 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
 
         protected override void fireFailed(Object sender, FailedGestureEventArgs e)
         {
+            //TODO reset Zoom does not work
             start = -1.0;
+            Debug.WriteLine("reset zoom");
             Failed(this, e);
         }
     }
