@@ -15,8 +15,8 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
         public WaveGestureChecker(Person p)
             : base(new List<Condition> {
 
+                new WaveRightCondition(p),
                 new WaveLeftCondition(p),
-                new WaveRightCondition(p)
 
             }, CONDITION_TIMEOUT) { }
     }

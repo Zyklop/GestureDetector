@@ -38,6 +38,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
             }
             else
             {
+                    //Debug.WriteLine("start: " + start + " last: " + last);
                 Successful(this, new ZoomGestureEventArgs(){
                     ZoomFactorFromBegin = ((InternalZoomGestureEventArgs)e).Gauge/start,
                     ZoomFactorFromLast = ((InternalZoomGestureEventArgs)e).Gauge/last

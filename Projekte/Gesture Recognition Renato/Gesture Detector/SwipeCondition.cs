@@ -7,6 +7,7 @@ using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Tools;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using Microsoft.Kinect;
+using System.Diagnostics;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
 {
@@ -17,7 +18,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
 
         private Checker checker;
         private const int LOWER_BOUND_FOR_SUCCESS = 2;
-        private const double LOWER_BOUND_FOR_VELOCITY = 3;
+        private const double LOWER_BOUND_FOR_VELOCITY = 2.5;
         private int index = 0;
 
         public SwipeCondition(Person p, JointType leftOrRightHand)
@@ -58,7 +59,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
                     else
                     {
                         // take other direction
-                        direction = handMovement.FirstOrDefault();
+                        //direction = handMovement.FirstOrDefault();
                     }
                 }
                 else if (!handMovement.Contains(direction))
@@ -75,6 +76,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
                         {
                             Direction = direction
                         });
+                        direction = Direction.none;
                     }
                     else
                     {

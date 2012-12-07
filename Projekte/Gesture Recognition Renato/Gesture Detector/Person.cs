@@ -96,7 +96,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         public SmothendSkeleton GetLastSkeleton(int i) //get a previous skeleton
         {
-            if (i > skeletons.Count-1 || i >= 9)
+            if (i > skeletons.Count-1 || i < 0)
             {
                 return null;
             }

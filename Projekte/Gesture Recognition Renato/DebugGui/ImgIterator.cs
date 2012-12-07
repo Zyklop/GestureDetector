@@ -32,7 +32,7 @@ namespace DebugGui
 
         public void Next()
         {
-            if (index == dir.Count)
+            if (index == dir.Count - 1)
             {
                 index = 0;
             }

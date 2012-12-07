@@ -33,6 +33,7 @@ namespace DebugGui
         private Person active;
         private ImgIterator itr;
         private Device d;
+        private Task sw;
 
         public MainWindow()
         {
@@ -86,6 +87,22 @@ namespace DebugGui
 
         private async void Swiped(object sender, GestureEventArgs e)
         {
+            if (sw != null)
+            {
+                await sw;
+                if (sw.IsCompleted)
+                {
+                    sw = ExecuteSwipe(e);
+                }
+            }
+            else
+            {
+                sw = ExecuteSwipe(e);
+            }
+        }
+
+        private async Task ExecuteSwipe(GestureEventArgs e)
+        {
             SwipeGestureEventArgs args = (SwipeGestureEventArgs)e;
             switch (args.Direction)
             {
@@ -100,7 +117,10 @@ namespace DebugGui
                     sbl.Begin();
                     await Task.Delay(1000);
                     itr.Previous();
-                    Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
+                    //Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
+                    Debug.WriteLine(sv.ActualHeight);
+                    Img.Height = sv.ActualHeight;
+                    Img.Width = sv.ActualWidth;
                     sbl = this.FindResource("ImageRightIn") as Storyboard;
                     sbl.Begin();
                     break;
@@ -109,8 +129,10 @@ namespace DebugGui
                     sbr.Begin();
                     await Task.Delay(1000);
                     itr.Next();
-                    Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
-                    sbr = this.FindResource("ImageLeftOut") as Storyboard;
+                    //Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
+                    Img.Height = sv.ActualHeight;
+                    Img.Width = sv.ActualWidth;
+                    sbr = this.FindResource("ImageLeftIn") as Storyboard;
                     sbr.Begin();
                     break;
                 case MF.Engineering.MF8910.GestureDetector.Tools.Direction.backward:
@@ -120,16 +142,12 @@ namespace DebugGui
                 default:
                     break;
             }
-            //Image i = new Image();
-            //i.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/OK.png",
-            //                           UriKind.RelativeOrAbsolute));
         }
 
         private void Zoomed(object sender, GestureEventArgs e)
         {
-            Debug.WriteLine("zoomed");
             ZoomGestureEventArgs args = (ZoomGestureEventArgs)e;
-            //Img.Width *= args.ZoomFactorFromLast;
+            Img.Width *= args.ZoomFactorFromLast;
             Img.Height *= args.ZoomFactorFromLast;
         }
 

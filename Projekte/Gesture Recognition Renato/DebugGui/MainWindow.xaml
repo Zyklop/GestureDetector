@@ -48,8 +48,8 @@
             <TextBlock Name="NrPersons" FontSize="20"/>
         </StackPanel>
         <TextBlock Text="Wave to Login" Name="LoginText" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="100" Visibility="Hidden" Grid.Row="1"/>
-        <ScrollViewer Name="sv" VerticalAlignment="Center" BorderBrush="White" BorderThickness="5" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled"  RenderTransformOrigin="0.5,0.5" Visibility="Hidden" Grid.Row="1">
-            <Image Name="Img" Source="{Binding Path=Uri, Mode=OneWay}" /><!---->
+        <ScrollViewer Name="sv" BorderBrush="White" BorderThickness="5" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled"  RenderTransformOrigin="0.5,0.5" Visibility="Hidden" Grid.Row="1">
+            <Image Name="Img" Source="{Binding Path=Uri, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center"/><!---->
             <ScrollViewer.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

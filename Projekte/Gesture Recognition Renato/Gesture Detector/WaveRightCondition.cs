@@ -27,7 +27,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
         protected override void check(object sender, NewSkeletonEventArgs e)
         {
             rightHandDirections = checker.GetAbsoluteMovement(JointType.HandRight);
-            handToHeadDirections = checker.GetRelativePosition(JointType.Head, JointType.HandRight);
+            handToHeadDirections = checker.GetRelativePosition(JointType.ShoulderCenter, JointType.HandRight);
             // Prüfe ob Handbewegung nach links abläuft und ob sich die Hand über dem Kopf befindet
             double handspeed = checker.GetAbsoluteVelocity(JointType.HandRight);
             //Debug.WriteLine(handspeed);

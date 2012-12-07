@@ -14,7 +14,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
     class ZoomCondition : DynamicCondition
     {
         private const double UPPER_BOUND_FOR_VELOCITY = 1.5;
-        private const int LOWER_BOUND_TO_BEGIN = 50;
+        private const int LOWER_BOUND_TO_BEGIN = 30;
         private int index = 0;
         // TODO set Distance, positive = zoomOut, neg = zoomIn
         //private int zoomDistance = 0;
@@ -31,8 +31,8 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
 
         protected override void check(object sender, NewSkeletonEventArgs e)
         {
-            rightHandToHipOrientation = checker.GetRelativePosition(JointType.HipCenter, JointType.HandRight);
-            leftHandToHipOrientation = checker.GetRelativePosition(JointType.HipCenter, JointType.HandLeft);
+            rightHandToHipOrientation = checker.GetRelativePosition(JointType.HipLeft, JointType.HandRight);
+            leftHandToHipOrientation = checker.GetRelativePosition(JointType.HipRight, JointType.HandLeft);
             rightHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandRight);
             leftHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandLeft);
             leftHandToRightHandDirection = checker.GetRelativePosition(JointType.HandRight, JointType.HandLeft);
@@ -58,7 +58,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
                 {
                     fireSucceeded(this, new InternalZoomGestureEventArgs()
                     {
-                        Gauge = checker.GetDistance(JointType.HandRight, JointType.HandLeft)
+                        Gauge = checker.GetDistanceMedian(JointType.HandRight, JointType.HandLeft)
                     });
                     //Console.WriteLine("Success! Velocity: right " + rightHandVelocity + ", left " + leftHandVelocity);
                 }
@@ -67,18 +67,21 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
                     index++;
                     fireTriggered(this, new InternalZoomGestureEventArgs()
                     {
-                        Gauge = checker.GetDistance(JointType.HandRight, JointType.HandLeft)
+                        Gauge = checker.GetDistanceMedian(JointType.HandRight, JointType.HandLeft)
                     });
                 }
             }
             else
             {
-                index = 0;
-                fireFailed(this, new FailedGestureEventArgs()
-                    {
-                        Condition = this
-                    });
-                //Console.WriteLine("Failed during Gesture.");
+                index -= 11;
+                if (index < 0)
+                {
+                    index = 0;
+                    fireFailed(this, new FailedGestureEventArgs()
+                        {
+                            Condition = this
+                        });
+                }
             }
         }
     }
