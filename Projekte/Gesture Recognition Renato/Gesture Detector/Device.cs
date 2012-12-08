@@ -192,7 +192,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 {
                     persons.Remove(p);
                     explorationCandidates.Add(CurrentMillis.Millis, p);//add person to cache
-                    PersonLost(this, new PersonDisposedEventArgs(p));
+                    if (PersonLost != null) 
+                    {
+                        PersonLost(this, new PersonDisposedEventArgs(p));
+                    }
                 }
             }
             else // eine Person kam ins Bild
@@ -295,7 +298,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             if (!p.Active && persons.Find(x => x.Active==true) == null)
             {
                 p.Active = true;
-                PersonActive(this ,new ActivePersonEventArgs(p));
+                if (PersonActive != null)
+                {
+                    PersonActive(this ,new ActivePersonEventArgs(p));
+                }
             }
         }
 
