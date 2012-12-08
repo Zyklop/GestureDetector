@@ -39,7 +39,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /**
          * Time keeper
          */
-        private long startTime = 0;
+        private long startTime;
 
         /**
          * Taking a list of conditions, which are gesture parts to be checked in order
@@ -48,17 +48,31 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         public GestureChecker(List<Condition> gestureConditions, int timeout)
         {
             this.timeout = timeout;
-            this.startTime = CurrentMillis.Millis;
 
             conditions = gestureConditions;
             conditions.ForEach(delegate(Condition c) {
+                c.OnCheck += ConditionChecked;
                 c.Succeeded += ConditionComplete;
                 c.Failed += ConditionFailed;
             });
 
-            index = conditions.GetEnumerator();
+            this.index = conditions.GetEnumerator();
+            this.reset();
+        }
+
+        /**
+         * Reset state machine. Includes timeouts and condition list.
+         */
+        public void reset()
+        {
+            startTime = CurrentMillis.Millis;
+            if (index.Current != null) 
+            {
+                index.Current.disable();
+            }
+            index.Reset();
             index.MoveNext();
-            index.Current.enable(); // Activate gesture recognition for the first gesture part
+            index.Current.enable();
         }
 
         #region Events
@@ -67,17 +81,28 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         public virtual event EventHandler<FailedGestureEventArgs> Failed;
 
         /**
+         * Every time when a condition is checked, we check if its in time
+         */
+        private void ConditionChecked(Object src, EventArgs e)
+        {
+            if (startTime <= CurrentMillis.Millis - timeout)
+            {
+                ConditionFailed(this, new FailedGestureEventArgs() {
+                    Condition = (Condition)src
+                });
+            }
+        }
+
+        /**
          * A gesture part failed. Lets start from the beginning.
          */
         private void ConditionFailed(Object src, FailedGestureEventArgs e)
         {
-            startTime = CurrentMillis.Millis;
+            this.reset();
             if (Failed != null) 
             {
                 fireFailed(this, e);
             }
-            index.Reset();
-            index.MoveNext();
         }
 
         /**
@@ -85,48 +110,18 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
          */
         private void ConditionComplete(Object src, GestureEventArgs e)
         {
-            if (startTime <= CurrentMillis.Millis - timeout)
-            {
-                Timeout();
-                return;
-            }
-
-            /**
-             * When moving forward in the gesture part list, we dont need to
-             * check for past gesture parts anymore.
-             */
-            index.Current.disable();
-
+            Condition previous = index.Current;
             Boolean hasNext = index.MoveNext();
-            if (!hasNext) // no further gesture parts -> success!
-            {
-                fireSucessful(this, e);
-                index.Reset();
-                index.MoveNext();
+
+            if (hasNext)
+            { // there are further gesture parts
+                previous.disable();
+                index.Current.enable(); 
             }
-
-            /**
-             * Activate gesture recognition for the next gesture part.
-             * This can be the ordered successor or the initial one.
-             */
-            index.Current.enable();
-        }
-
-        /**
-         * Gesture or gesture part did take to long.
-         */
-        private void Timeout()
-        {
-            startTime = CurrentMillis.Millis;
-
-            index.Reset();
-            index.MoveNext();
-            if (Failed != null)
+            else // no further gesture parts -> success!
             {
-                Failed(this, new FailedGestureEventArgs()
-                {
-                    Condition = index.Current
-                });
+                this.reset();
+                fireSucessful(this, e);
             }
         }
 

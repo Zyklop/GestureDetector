@@ -29,7 +29,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
          */
         public void enable()
         {
-            person.NewSkeleton += check;
+            person.NewSkeleton += extendedCheck;
         }
 
         /**
@@ -38,7 +38,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
          */
         public void disable()
         {
-            person.NewSkeleton -= check;
+            person.NewSkeleton -= extendedCheck;
         }
 
         /**
@@ -46,8 +46,20 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
          */
         protected abstract void check(object src, NewSkeletonEventArgs e);
 
+        /**
+         * Since it's up to the user to override "check" correctly, there's the possibility that
+         * he never triggered an event to make the GestureChecker proceed. Therefore we publish
+         * that we performed a "check" and consumed time in the GestureChecked state machine.
+         */
+        private void extendedCheck(object src, NewSkeletonEventArgs args)
+        {
+            check(src, args);
+            OnCheck(this, new EventArgs());
+        }
+
         #region Events
 
+        public event EventHandler<EventArgs> OnCheck;
         public event EventHandler<GestureEventArgs> Succeeded;
         public event EventHandler<FailedGestureEventArgs> Failed;
 

@@ -10,8 +10,6 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
     public abstract class DynamicCondition: Condition
     {
-        protected double startTime;
-
         public DynamicCondition(Person p): base(p)
         { 
         }

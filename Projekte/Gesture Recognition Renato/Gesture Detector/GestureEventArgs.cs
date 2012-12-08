@@ -14,6 +14,6 @@ namespace MF.Engineering.MF8910.GestureDetector.Events
 
     public class FailedGestureEventArgs: GestureEventArgs
     {
-        public Condition Condition { get; set;  }
+        public Condition Condition { get; set; }
     }
 }
