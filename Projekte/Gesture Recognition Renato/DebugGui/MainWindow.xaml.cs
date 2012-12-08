@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
@@ -20,6 +19,7 @@ using MF.Engineering.MF8910.GestureDetector.Gestures.Swipe;
 using System.Threading;
 using System.Windows.Media.Animation;
 using System.Diagnostics;
+using System.IO;
 
 
 namespace DebugGui
@@ -33,13 +33,12 @@ namespace DebugGui
         private Person active;
         private ImgIterator itr;
         private Device d;
-        private Task sw;
 
         public MainWindow()
         {
             try
             {
-                itr = new ImgIterator(@"C:\Users\bor\Documents\Git\SA\Projekte\Gesture Recognition Renato\DebugGui\Images", UriKind.Relative);
+                itr = new ImgIterator(AppDomain.CurrentDomain.BaseDirectory + @"..\..\Images", UriKind.Relative);
             }
             catch (Exception e)
             {
@@ -85,23 +84,12 @@ namespace DebugGui
             active = null;
         }
 
-        private async void Swiped(object sender, GestureEventArgs e)
+        private void Swiped(object sender, GestureEventArgs e)
         {
-            if (sw != null)
-            {
-                await sw;
-                if (sw.IsCompleted)
-                {
-                    sw = ExecuteSwipe(e);
-                }
-            }
-            else
-            {
-                sw = ExecuteSwipe(e);
-            }
+            ExecuteSwipe(e);
         }
 
-        private async Task ExecuteSwipe(GestureEventArgs e)
+        private void ExecuteSwipe(GestureEventArgs e)
         {
             SwipeGestureEventArgs args = (SwipeGestureEventArgs)e;
             switch (args.Direction)
@@ -115,7 +103,7 @@ namespace DebugGui
                 case MF.Engineering.MF8910.GestureDetector.Tools.Direction.left:
                     Storyboard sbl = this.FindResource("ImageLeftOut") as Storyboard;
                     sbl.Begin();
-                    await Task.Delay(1000);
+                    //await Task.Delay(1000);
                     itr.Previous();
                     //Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
                     Debug.WriteLine(sv.ActualHeight);
@@ -127,7 +115,7 @@ namespace DebugGui
                 case MF.Engineering.MF8910.GestureDetector.Tools.Direction.right:
                     Storyboard sbr = this.FindResource("ImageRightOut") as Storyboard;
                     sbr.Begin();
-                    await Task.Delay(1000);
+                    //await Task.Delay(1000);
                     itr.Next();
                     //Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
                     Img.Height = sv.ActualHeight;
@@ -191,7 +179,7 @@ namespace DebugGui
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            int i;
+            //int i;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
