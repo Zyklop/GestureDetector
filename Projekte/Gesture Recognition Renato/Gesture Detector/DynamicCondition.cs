@@ -8,6 +8,22 @@ using MF.Engineering.MF8910.GestureDetector.Events;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures
 {
+    /// <summary>
+    /// Continuous gestures succeed after a certain time or on a certain condition. 
+    /// Before that, they just trigger that they occured.
+    /// 
+    /// Gesture Sequence:
+    /// 
+    /// -------|----------|----------|-----|------|--------|----->
+    ///        T          T          T     S      T        T
+    /// 
+    /// T = fireTriggered
+    /// S = fireSuccess
+    /// 
+    /// An example is the zoom gesture. We always need feedback for the zooming factor, 
+    /// but we cant succeed. Therefore we trigger an occurence. The zoom gesture succeeds
+    /// when zooming ended.
+    /// </summary>
     public abstract class DynamicCondition: Condition
     {
         public DynamicCondition(Person p): base(p)
@@ -15,21 +31,15 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         }
 
         #region Events
-
-        /**
-         * Bewegte Gesten werden erst nach einer gewissen Zeit mit Success quittiert.
-         * Davor werden sie dem Checker mit Triggered bekanntgemacht
-         * 
-         * Gestenablauf:
-         * 
-         * -------|----------|----------|-----|------|--------|----->
-         *        T          T          T     S      T        T
-         * 
-         * T = fireTriggered
-         * S = fireSuccess
-         */
+        
+        /// <summary>
+        /// Called when a gesture just occured but neighter succeeded nor failed.</summary>
         public event EventHandler<GestureEventArgs> Triggered;
 
+        /// <summary>
+        /// Trigger this to signal the occurence of a gesture part.</summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void fireTriggered(object sender, GestureEventArgs e)
         {
             if (Triggered != null)

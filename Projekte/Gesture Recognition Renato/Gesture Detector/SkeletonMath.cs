@@ -12,15 +12,16 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
         forward, upward, downward, left, right, backward, none
     }
 
+    /// <summary>
+    /// Library for independent vector aritmetics</summary>
     class SkeletonMath
     {
         public const double TOLERANCE = 0.06;
         public const double MEDIANTOLERANCE = 0.01;
         public const double MEDIANCORRECTNEEDED = 0.66666666;
 
-        /**
-         * Distanz in Metern 
-         */
+        /// <summary>
+        /// Get distance of two skeleton points in meters.</summary>
         public static double DistanceBetweenPoints(SkeletonPoint p1, SkeletonPoint p2)
         {
             double dx = Math.Abs(p2.X - p1.X);
@@ -125,6 +126,14 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return res;
         }
 
+        /// <summary>
+        /// Get an abstract direction type between two skeleton points</summary>
+        /// <param name="from">
+        /// Source Point</param>
+        /// <param name="to">
+        /// Target Point</param>
+        /// <returns>
+        /// Returns a list of three directions (for each axis)</returns>
         public static List<Direction> DirectionTo(SkeletonPoint from, SkeletonPoint to)
         {
             List<Direction> res = new List<Direction>();

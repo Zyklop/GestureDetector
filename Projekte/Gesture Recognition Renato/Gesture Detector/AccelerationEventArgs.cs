@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MF.Engineering.MF8910.GestureDetector.Events
 {
-    public class AccelerationEventArgs:EventArgs
+    public class AccelerationEventArgs: EventArgs
     {
         private double amount;
 

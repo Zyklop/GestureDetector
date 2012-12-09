@@ -6,15 +6,15 @@ using MF.Engineering.MF8910.GestureDetector.DataSources;
 
 namespace MF.Engineering.MF8910.GestureDetector.Events
 {
-    public class NewSkeletonEventArgs:EventArgs
+    public class NewSkeletonEventArgs: EventArgs
     {
-        SmothendSkeleton ske;
+        SmothendSkeleton skeleton;
 
-        public NewSkeletonEventArgs(SmothendSkeleton skel)
+        public NewSkeletonEventArgs(SmothendSkeleton skeleton)
         {
-            ske = skel;
+            this.skeleton = skeleton;
         }
 
-        public SmothendSkeleton Skeleton { get { return ske; } }
+        public SmothendSkeleton Skeleton { get { return skeleton; } }
     }
 }

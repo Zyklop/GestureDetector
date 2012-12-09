@@ -9,15 +9,30 @@ using System.Diagnostics;
 
 namespace MF.Engineering.MF8910.GestureDetector.Tools
 {
+    // Summary:
+    //     Library for skeleton based vector math like joint velocity
+    /// <summary>
+    /// Library for skeleton based vector math like joint velocity</summary>
     class Checker
     {
         private Person person;
 
+        /// <summary>
+        /// Instantiates a Checker with a Person to check on.</summary>
+        /// <param name="p">
+        /// The Person with a set of Kinect skeletons to check on.</param>
         public Checker(Person p)
         {
             person = p;
         }
 
+        /// <summary>
+        /// Get a joints absolute velocity. If theres not enough skeleton information,
+        /// precision is decreased automatically.</summary>
+        /// <param name="type">
+        /// The JointType to get velocity from.</param>
+        /// <returns>
+        /// Returns the absolute velocity in meters</returns>
         public double GetAbsoluteVelocity(JointType type)
         {
             if (!hasSkeleton(1))
@@ -31,6 +46,16 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.Median(SimpleAbsoluteVelocity(type, 0, 1), SimpleAbsoluteVelocity(type, 1, 2), SimpleAbsoluteVelocity(type, 2,3 ));
         }
 
+        /// <summary>
+        /// Simply calculates the velocity of a joint. Takes two versions.</summary>
+        /// <param name="type">
+        /// The JointType to get velocity from.</param>
+        /// <param name="firstTime">
+        /// First index of the persons cached skeletons</param>
+        /// <param name="secondTime">
+        /// Second index of the persons cached skeletons</param>
+        /// <returns>
+        /// Returns the absolute velocity in meters</returns>
         private double SimpleAbsoluteVelocity(JointType type, int firstTime, int secondTime)
         {
             if (!hasSkeleton(firstTime) || !hasSkeleton(secondTime))
@@ -40,6 +65,14 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.DistanceBetweenPoints(person.GetLastSkeleton(firstTime).GetPosition(type), person.GetLastSkeleton(secondTime).GetPosition(type)) * 1000.0 / (double)(person.MillisBetweenFrames(1, 0));
         }
 
+        /// <summary>
+        /// Calculates the relative velocity of a joint referencing to a second one.</summary>
+        /// <param name="steady">
+        /// The referenctial JointType.</param>
+        /// <param name="moving">
+        /// The moving JointType of interest</param>
+        /// <returns>
+        /// Returns the relative velocity in meters</returns>
         public double GetRelativeVelocity(JointType steady, JointType moving)
         {
             if (!hasSkeleton(1))
@@ -58,9 +91,15 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
                 SkeletonMath.DistanceBetweenPoints(d0, d1) * 1000.0 / (double)(person.MillisBetweenFrames(1, 0)),
                 SkeletonMath.DistanceBetweenPoints(d1, d2) * 1000.0 / (double)(person.MillisBetweenFrames(2, 1)),
                 SkeletonMath.DistanceBetweenPoints(d2, d3) * 1000.0 / (double)(person.MillisBetweenFrames(3, 2))
-                );
+            );
         }
 
+        /// <summary>
+        /// Checks if a person has a skeleton for a given time.</summary>
+        /// <param name="time">
+        /// Index of the persons skeleton cache.</param>
+        /// <returns>
+        /// Returns true if there is a skeleton for the given index, false otherwise.</returns>
         private bool hasSkeleton(int time)
         {
             return person.GetLastSkeleton(time) != null;

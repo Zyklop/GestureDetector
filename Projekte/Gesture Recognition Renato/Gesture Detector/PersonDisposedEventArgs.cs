@@ -6,15 +6,15 @@ using MF.Engineering.MF8910.GestureDetector.DataSources;
 
 namespace MF.Engineering.MF8910.GestureDetector.Events
 {
-    public class PersonDisposedEventArgs:EventArgs
+    public class PersonDisposedEventArgs: EventArgs
     {
-        private Person p;
+        private Person person;
 
         public PersonDisposedEventArgs(Person person)
         {
-            p = person;
+            this.person = person;
         }
 
-        public Person Person { get { return p; } }
+        public Person Person { get { return person; } }
     }
 }

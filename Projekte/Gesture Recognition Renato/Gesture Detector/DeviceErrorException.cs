@@ -7,12 +7,14 @@ using Microsoft.Kinect;
 
 namespace MF.Engineering.MF8910.GestureDetector.Exceptions
 {
-    class DeviceErrorException:Exception
+    /// <summary>
+    /// Collecting Exception for all device errors.</summary>
+    class DeviceErrorException: Exception
     {
+        public KinectStatus Status { get; set; }
 
         public DeviceErrorException(string p):base(p)
         {
         }
-        public KinectStatus Status { get; set; }
     }
 }

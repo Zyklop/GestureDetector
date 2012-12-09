@@ -8,13 +8,13 @@ namespace MF.Engineering.MF8910.GestureDetector.Events
 {
     public class PersonPassiveEventArgs:EventArgs
     {
-        private Person p;
+        private Person person;
 
         public PersonPassiveEventArgs(Person person)
         {
-            p = person;
+            this.person = person;
         }
 
-        public Person Person { get { return p; } }
+        public Person Person { get { return person; } }
     }
 }

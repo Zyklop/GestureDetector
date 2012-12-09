@@ -12,6 +12,9 @@ using MF.Engineering.MF8910.GestureDetector.Gestures.Swipe;
 
 namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
+    /// <summary>
+    /// Collection of skeletons for which gestures can be recognized.
+    /// A person is unique.</summary>
     public class Person
     {
         private bool active;

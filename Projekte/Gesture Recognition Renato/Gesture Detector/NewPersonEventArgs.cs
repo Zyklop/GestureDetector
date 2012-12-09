@@ -7,11 +7,11 @@ using MF.Engineering.MF8910.GestureDetector.DataSources;
 
 namespace MF.Engineering.MF8910.GestureDetector.Events
 {
-    public class NewPersonEventArgs:EventArgs
+    public class NewPersonEventArgs: EventArgs
     {
         private Person pers;
 
-        public Person Person { get{return pers;}}
+        public Person Person { get{ return pers; }}
 
         public NewPersonEventArgs(Person p)
         {

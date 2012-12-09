@@ -11,6 +11,10 @@ using System.Diagnostics;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
 {
+    /// <summary>
+    /// Swipe Condition
+    /// Checks if  left or right hand moves fast to the left or the right.
+    /// </summary>
     class SwipeCondition: DynamicCondition
     {
         protected JointType hand;
