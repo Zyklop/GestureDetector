@@ -17,21 +17,14 @@ namespace MF.Engineering.MF8910.GestureDetector
             Device d = new Device();
             d.NewPerson += NewPerson;
             d.Start();
-            int pers = 0;
-            while (true)
-            {
-                if (pers != d.GetAll().Count)
-                {
-                    //Console.WriteLine(d.GetAll().Count);
-                    pers = d.GetAll().Count;
-                }
-            }
 
+            Console.ReadLine();
         }
 
         static void NewPerson(object src, NewPersonEventArgs e)
         {
-            //Console.WriteLine(e.Person.ID);
+            e.Person.OnWave += delegate { Console.Write("!"); };
+            Console.WriteLine(e.Person.ID);
         }
     }
 }

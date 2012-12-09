@@ -16,7 +16,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
             : base(new List<Condition> {
 
                 new WaveRightCondition(p),
-                new WaveLeftCondition(p),
+                new WaveLeftCondition(p)
 
             }, CONDITION_TIMEOUT) { }
     }

@@ -57,6 +57,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
             });
 
             this.index = conditions.GetEnumerator();
+            this.index.MoveNext();
             this.reset();
         }
 
@@ -66,9 +67,14 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         public void reset()
         {
             startTime = CurrentMillis.Millis;
-            if (index.Current != null) 
+            /**
+             * Disable all conditions although there should be only one enabled: the last on index.Current
+             * But since it can be NULL and there could occurr Exceptions in user code,
+             * we invest a bit performance to securely save gesture checking performance.
+             */
+            foreach (Condition c in conditions)
             {
-                index.Current.disable();
+                c.disable();
             }
             index.Reset();
             index.MoveNext();
@@ -81,7 +87,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         public virtual event EventHandler<FailedGestureEventArgs> Failed;
 
         /**
-         * Every time when a condition is checked, we check if its in time
+         * Every time when a condition is checked, we check if its in time.
          */
         private void ConditionChecked(Object src, EventArgs e)
         {
@@ -112,13 +118,14 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         {
             Condition previous = index.Current;
             Boolean hasNext = index.MoveNext();
+            Condition next = index.Current;
 
-            if (hasNext)
-            { // there are further gesture parts
+            if (hasNext) // no further gesture parts -> success!
+            {
                 previous.disable();
-                index.Current.enable(); 
+                next.enable();
             }
-            else // no further gesture parts -> success!
+            else
             {
                 this.reset();
                 fireSucessful(this, e);
