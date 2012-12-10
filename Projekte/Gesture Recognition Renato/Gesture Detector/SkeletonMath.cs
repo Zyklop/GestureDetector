@@ -2,23 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MF.Engineering.MF8910.GestureDetector.Tools
 {
     public enum Direction
     {
-        forward, upward, downward, left, right, backward, none
+        Forward, Upward, Downward, Left, Right, Backward, None
     }
 
     /// <summary>
     /// Library for independent vector aritmetics</summary>
     class SkeletonMath
     {
-        public const double TOLERANCE = 0.06;
-        public const double MEDIANTOLERANCE = 0.01;
-        public const double MEDIANCORRECTNEEDED = 0.66666666;
+        public const double Tolerance = 0.06;
+        public const double MedianTolerance = 0.01;
+        public const double MedianCorrectNeeded = 0.66666666;
 
         /// <summary>
         /// Get distance of two skeleton points in meters.</summary>
@@ -85,43 +83,43 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
                 double dx = target[i].X - origin[i].X;
                 double dy = target[i].Y - origin[i].Y;
                 double dz = target[i].Z - origin[i].Z;
-                if (dx > TOLERANCE)
+                if (dx > Tolerance)
                 {
-                    directions[i].Add(Direction.right);
+                    directions[i].Add(Direction.Right);
                 }
-                else if (dx < -TOLERANCE)
+                else if (dx < -Tolerance)
                 {
-                    directions[i].Add(Direction.left);
+                    directions[i].Add(Direction.Left);
                 }
-                if (dy > TOLERANCE)
+                if (dy > Tolerance)
                 {
-                    directions[i].Add(Direction.upward);
+                    directions[i].Add(Direction.Upward);
                 }
-                else if (dy < -TOLERANCE)
+                else if (dy < -Tolerance)
                 {
-                    directions[i].Add(Direction.downward);
+                    directions[i].Add(Direction.Downward);
                 }
-                if (dz > TOLERANCE)
+                if (dz > Tolerance)
                 {
-                    directions[i].Add(Direction.backward);
+                    directions[i].Add(Direction.Backward);
                 }
-                else if (dz < -TOLERANCE)
+                else if (dz < -Tolerance)
                 {
-                    directions[i].Add(Direction.forward);
+                    directions[i].Add(Direction.Forward);
                 }
                 
             }
             List<Direction> res = new List<Direction>();
             foreach (Direction item in Enum.GetValues(typeof(Direction)))
             {
-                if (directions.Where(x => x.Contains(item)).Count() > origin.Count * MEDIANCORRECTNEEDED)
+                if (directions.Count(x => x.Contains(item)) > origin.Count * MedianCorrectNeeded)
                 {
                     res.Add(item);
                 }
             }
             if (res.Count == 0)
             {
-                res.Add(Direction.none);
+                res.Add(Direction.None);
             }
             return res;
         }
@@ -140,33 +138,33 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             double dx = to.X - from.X;
             double dy = to.Y - from.Y;
             double dz = to.Z - from.Z;
-            if (dx > TOLERANCE)
+            if (dx > Tolerance)
             {
-                res.Add(Direction.right);
+                res.Add(Direction.Right);
             }
-            else if (dx < -TOLERANCE)
+            else if (dx < -Tolerance)
             {
-                res.Add(Direction.left);
+                res.Add(Direction.Left);
             }
-            if (dy > TOLERANCE)
+            if (dy > Tolerance)
             {
-                res.Add(Direction.upward);
+                res.Add(Direction.Upward);
             }
-            else if (dy < -TOLERANCE)
+            else if (dy < -Tolerance)
             {
-                res.Add(Direction.downward);
+                res.Add(Direction.Downward);
             }
-            if (dz > TOLERANCE)
+            if (dz > Tolerance)
             {
-                res.Add(Direction.backward);
+                res.Add(Direction.Backward);
             }
-            else if (dz < -TOLERANCE)
+            else if (dz < -Tolerance)
             {
-                res.Add(Direction.forward);
+                res.Add(Direction.Forward);
             }
             if (res.Count == 0)
             {
-                res.Add(Direction.none);
+                res.Add(Direction.None);
             }
             return res;
         }

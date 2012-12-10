@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
 
@@ -40,7 +36,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /// Trigger this to signal the occurence of a gesture part.</summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void fireTriggered(object sender, GestureEventArgs e)
+        protected void FireTriggered(object sender, GestureEventArgs e)
         {
             if (Triggered != null)
             {

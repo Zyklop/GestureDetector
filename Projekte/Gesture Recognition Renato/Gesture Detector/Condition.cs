@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
 
@@ -14,7 +10,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
     {
         /// <summary>
         /// Person who has to fullfill this condition</summary>
-        protected Person person;
+        protected Person Person;
 
         /// <summary>
         /// Create a gesture part, whose fullfillment is checked on Person p.</summary>
@@ -22,23 +18,23 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /// Person who has to fullfill this condition</param>
         public Condition(Person p) 
         { 
-            person = p;
+            Person = p;
         }
 
         /// <summary>
         /// Begin checking new skeletons.
         /// Save performance and enable only gestures you really need to check.</summary>
-        public void enable()
+        public void Enable()
         {
-            person.NewSkeleton += extendedCheck;
+            Person.NewSkeleton += ExtendedCheck;
         }
 
         /// <summary>
         /// Dont react on new skeletons (anymore).
         /// Use this to save performance after a gesture isn't used anymore.</summary>
-        public void disable()
+        public void Disable()
         {
-            person.NewSkeleton -= extendedCheck;
+            Person.NewSkeleton -= ExtendedCheck;
         }
 
         /// <summary>
@@ -51,7 +47,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /// The object which fired the event. (This is probably the Device class.)</param>
         /// <param name="e">
         /// NewSkeletonEventArgs contains the person which got a new skeleton.</param>
-        protected abstract void check(object src, NewSkeletonEventArgs e);
+        protected abstract void Check(object src, NewSkeletonEventArgs e);
 
         /// <summary>
         /// Since it's up to the user to override "check" correctly, there's the
@@ -62,9 +58,9 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /// The object which fired the event. (This is probably the Device class.)</param>
         /// <param name="args">
         /// NewSkeletonEventArgs contains the person which got a new skeleton.</param>
-        private void extendedCheck(object src, NewSkeletonEventArgs args)
+        private void ExtendedCheck(object src, NewSkeletonEventArgs args)
         {
-            check(src, args);
+            Check(src, args);
             OnCheck(this, new EventArgs());
         }
 
@@ -86,7 +82,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /// Probably an implementation of the GestureChecker class</param>
         /// <param name="e">
         /// Detailed arguments for a gesture part</param>
-        protected void fireSucceeded(object sender, GestureEventArgs e)
+        protected void FireSucceeded(object sender, GestureEventArgs e)
         {
             if (Succeeded != null)
             {
@@ -100,7 +96,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /// Probably an implementation of the GestureChecker class</param>
         /// <param name="e">
         /// Detailed arguments for a gesture part</param>
-        protected void fireFailed(object sender, FailedGestureEventArgs e)
+        protected void FireFailed(object sender, FailedGestureEventArgs e)
         {
             if (Failed != null)
             {

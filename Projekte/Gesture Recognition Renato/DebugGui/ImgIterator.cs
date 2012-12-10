@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace DebugGui
 {
     class ImgIterator:INotifyPropertyChanged
     {
         List<string> dir;
-        int index = 0;
+        int _index;
 
-        public ImgIterator(string path, UriKind type)
+        public ImgIterator(string path)
         {
+            _index = 0;
             //Uri uri = new Uri(path, type);
             dir = Directory.EnumerateFiles(path,"*.jpg").ToList();
         }
@@ -26,17 +21,17 @@ namespace DebugGui
         {
             get
             {
-                return dir[index];
+                return dir[_index];
             }
         }
 
         public void Next()
         {
-            if (index == dir.Count - 1)
+            if (_index == dir.Count - 1)
             {
-                index = 0;
+                _index = 0;
             }
-            index++;
+            _index++;
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs("Uri"));
@@ -45,11 +40,11 @@ namespace DebugGui
 
         public void Previous()
         {
-            if (index == 0)
+            if (_index == 0)
             {
-                index = dir.Count - 1;
+                _index = dir.Count - 1;
             }
-            index--;
+            _index--;
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs("Uri"));

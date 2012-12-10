@@ -1,12 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Kinect;
-using System.Timers;
-using System.Collections;
-using System.Diagnostics;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
 
@@ -34,7 +27,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
         /// <summary>
         /// Time keeper: Points to the time when the gesture (re)started</summary>
-        private long startTime;
+        private long _startTime;
 
         /// <summary>
         /// Taking a list of conditions, which are gesture parts to be checked in order
@@ -55,16 +48,16 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
                 c.Failed += ConditionFailed;
             });
 
-            this.index = conditions.GetEnumerator();
-            this.index.MoveNext();
-            this.reset();
+            index = conditions.GetEnumerator();
+            index.MoveNext();
+            Reset();
         }
 
         /// <summary>
         /// Reset state machine. Includes timeouts and condition list.</summary>
-        public void reset()
+        public void Reset()
         {
-            startTime = CurrentMillis.Millis;
+            _startTime = CurrentMillis.Millis;
             /**
              * Disable all conditions although there should be only one enabled: the last on index.Current
              * But since it can be NULL and there could occurr Exceptions in user code,
@@ -72,11 +65,11 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
              */
             foreach (Condition c in conditions)
             {
-                c.disable();
+                c.Disable();
             }
             index.Reset();
             index.MoveNext();
-            index.Current.enable();
+            index.Current.Enable();
         }
 
         #region Events
@@ -98,9 +91,10 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /// Probably empty</param>
         private void ConditionChecked(Object src, EventArgs e)
         {
-            if (startTime <= CurrentMillis.Millis - timeout)
+            if (_startTime <= CurrentMillis.Millis - timeout)
             {
-                ConditionFailed(this, new FailedGestureEventArgs() {
+                ConditionFailed(this, new FailedGestureEventArgs
+                    {
                     Condition = (Condition)src
                 });
             }
@@ -114,10 +108,10 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /// Details about the fail</param>
         private void ConditionFailed(Object src, FailedGestureEventArgs e)
         {
-            this.reset();
+            Reset();
             if (Failed != null) 
             {
-                fireFailed(this, e);
+                FireFailed(this, e);
             }
         }
 
@@ -135,17 +129,17 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
 
             if (hasNext) // no further gesture parts -> success!
             {
-                previous.disable();
-                next.enable();
+                previous.Disable();
+                next.Enable();
             }
             else
             {
-                this.reset();
-                fireSucessful(this, e);
+                Reset();
+                FireSucessful(this, e);
             }
         }
 
-        protected virtual void fireSucessful(Object sender, GestureEventArgs e)
+        protected virtual void FireSucessful(Object sender, GestureEventArgs e)
         {
             if (Successful != null)
             {
@@ -154,7 +148,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         }
 
 
-        protected virtual void fireFailed(Object sender, FailedGestureEventArgs e)
+        protected virtual void FireFailed(Object sender, FailedGestureEventArgs e)
         {
             if (Failed != null)
             {

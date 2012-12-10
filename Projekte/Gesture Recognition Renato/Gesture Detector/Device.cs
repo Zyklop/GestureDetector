@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Kinect;
-using System.Diagnostics;
 using MF.Engineering.MF8910.GestureDetector.Events;
-using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
 using MF.Engineering.MF8910.GestureDetector.Exceptions;
 using System.Runtime.CompilerServices;
 
@@ -22,22 +18,26 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
     {
         /// <summary>
         /// How long we keep invisible persons in cache [milliseconds].</summary>
-        private int CACHE_MERCY_TIME = 5000;
+        private const int CacheMercyTime = 5000;
 
-        private KinectSensor Dev;
+        private KinectSensor KinectDevice;
 
         /// <summary>
         /// We keep track of the sensors movement. If its moving, there wont be any gesture recognition.</summary>
-        private Vector4 lastAcceleration;
+        private Vector4 _lastAcceleration;
 
         /// <summary>
         /// List of persons which are currently tracked</summary>
-        private List<Person> trackedPersons;
+        private List<Person> _trackedPersons;
 
         /// <summary>
         /// Expiration Candidates - All persons which currently dont have a skeleton
         /// We keep them for 5 seconds to prevent glitches in gesture recognition.</summary>
-        private Dictionary<long, Person> expirationCandidates;
+        private Dictionary<long, Person> _expirationCandidates;
+
+        private const double MinMatchDistance = 0.5;
+
+        private const double AccelerationDiff = 0.1;
 
         /// <summary>
         /// Initialization of the kinect wrapper and the physical device. 
@@ -45,19 +45,19 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public Device()
         {
             // Receive KinectSensor instance from physical device
-            Dev = KinectSensor.KinectSensors.FirstOrDefault(x => x.Status == KinectStatus.Connected);
-            initialize();
+            KinectDevice = KinectSensor.KinectSensors.FirstOrDefault(x => x.Status == KinectStatus.Connected);
+            Initialize();
         }
 
         /// <summary>
         /// Register relevant device events and begin streaming</summary>
-        private void initialize()
+        private void Initialize()
         {
-            lastAcceleration = new Vector4();
-            trackedPersons = new List<Person>();
-            expirationCandidates = new Dictionary<long, Person>();
-            Dev.SkeletonStream.Enable(); // Begin to capture skeletons
-            Dev.SkeletonFrameReady += OnNewSkeletons; // Register on any new skeletons
+            _lastAcceleration = new Vector4();
+            _trackedPersons = new List<Person>();
+            _expirationCandidates = new Dictionary<long, Person>();
+            KinectDevice.SkeletonStream.Enable(); // Begin to capture skeletons
+            KinectDevice.SkeletonFrameReady += OnNewSkeletons; // Register on any new skeletons
         }
 
         public Device(string uniqueId) // get a specified Kinect by its ID
@@ -66,26 +66,26 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             {
                 if (ks.UniqueKinectId == uniqueId)
                 {
-                    Dev = ks;
-                    initialize();
+                    KinectDevice = ks;
+                    Initialize();
                 }
             }
         }
 
-        public KinectStatus Status { get { return Dev.Status; } }
+        public KinectStatus Status { get { return KinectDevice.Status; } }
 
         /// <summary>
         /// Start receiving skeletons.</summary>
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void Start()
         {
-            if (!Dev.IsRunning)
+            if (!KinectDevice.IsRunning)
             {
-                Dev.Start();
+                KinectDevice.Start();
             }
-            if (!Dev.IsRunning)
+            if (!KinectDevice.IsRunning)
             {
-                throw new DeviceErrorException("Device did not start") { Status = Dev.Status } ;
+                throw new DeviceErrorException("Device did not start") { Status = KinectDevice.Status } ;
             }
         }
 
@@ -94,13 +94,13 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void Stop()
         {
-            if (Dev.IsRunning)
+            if (KinectDevice.IsRunning)
             {
-                Dev.Stop();
+                KinectDevice.Stop();
             }
-            if (Dev.IsRunning)
+            if (KinectDevice.IsRunning)
             {
-                throw new DeviceErrorException("Device did not stop") { Status = Dev.Status };
+                throw new DeviceErrorException("Device did not stop") { Status = KinectDevice.Status };
             }
         }
 
@@ -109,8 +109,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void Dispose()
         {
-            this.Stop();
-            Dev.Dispose();
+            Stop();
+            KinectDevice.Dispose();
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /// Returns the currently active person. If no person is active, null is returned.</returns>
         public List<Person> GetActivePerson()
         {
-            return trackedPersons.FindAll(x => x.Active == true);
+            return _trackedPersons.FindAll(x => x.Active);
         }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /// List of tracked persons</returns>
         public List<Person> GetAll()
         {
-            return trackedPersons;
+            return _trackedPersons;
         }
 
         /// <summary>
@@ -143,8 +143,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /// Resource to get the current frame from.</param>
         protected void OnNewSkeletons(object source, SkeletonFrameReadyEventArgs e)
         {
-            double diff = getAccelerationDiff();
-            if ((diff > 0.1 || diff < -0.1) && Accelerated != null) 
+            double diff = GetAccelerationDiff();
+            bool b = (diff > AccelerationDiff || diff < -AccelerationDiff) && Accelerated != null;
+            if (b) 
             {
                 // Fire event for indicating unstable device
                 Accelerated(this, new AccelerationEventArgs(diff));
@@ -159,16 +160,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     Skeleton[] skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletonFrame.CopySkeletonDataTo(skeletons);
                     // Copy actually tracked skeletons to a list which is easier to work with.
-                    List<SmothendSkeleton> skeletonList = new List<SmothendSkeleton>();
-                    foreach (Skeleton ske in skeletons)
-                    {
-                        if (ske.TrackingState == SkeletonTrackingState.Tracked)
-                        {
-                            skeletonList.Add(new SmothendSkeleton(ske, skeletonFrame.Timestamp));
-                        }
-                    }
+                    List<SmothendSkeleton> skeletonList = (from ske in skeletons where ske.TrackingState == SkeletonTrackingState.Tracked select new SmothendSkeleton(ske, skeletonFrame.Timestamp)).ToList();
                     skeletonFrame.Dispose();
-                    handleNewSkeletons(skeletonList);
+                    HandleNewSkeletons(skeletonList);
                 }
             }
         }
@@ -181,17 +175,17 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /// After a person got a new skeletons, his timestamp in the cache is renewed.</summary>
         /// <param name="skeletonsToMatch">
         /// List of smoothend skeletons</param>
-        protected void handleNewSkeletons(List<SmothendSkeleton> skeletonsToMatch)
+        protected void HandleNewSkeletons(List<SmothendSkeleton> skeletonsToMatch)
         {
             // Remove persons older than 5 seconds from dictionary
-            long allowedAge = CurrentMillis.Millis - CACHE_MERCY_TIME;
+            long allowedAge = CurrentMillis.Millis - CacheMercyTime;
             List<KeyValuePair<long, Person>> tempList = new List<KeyValuePair<long,Person>>();
-            tempList.AddRange(expirationCandidates.Where(x => x.Key > allowedAge).ToList());
+            tempList.AddRange(_expirationCandidates.Where(x => x.Key > allowedAge).ToList());
             foreach (KeyValuePair<long, Person> item in tempList)
             {
                 // avoiding memory leak
-                item.Value.OnWave -= personWaved;
-                expirationCandidates.Remove(item.Key);
+                item.Value.OnWave -= PersonWaved;
+                _expirationCandidates.Remove(item.Key);
             }
 
             /**
@@ -207,10 +201,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             /**
              * A person went out of sight
              */
-            if (skeletonsToMatch.Count < trackedPersons.Count) 
+            if (skeletonsToMatch.Count < _trackedPersons.Count) 
             {
                 List<Person> personList = new List<Person>(); // copy currently tracked persons for the matching algorithm
-                personList.AddRange(trackedPersons);
+                personList.AddRange(_trackedPersons);
                 foreach (SmothendSkeleton s in skeletonsToMatch) // search best match for every SKELETON
                 {
                     bestMatch.Value = double.MaxValue;
@@ -232,8 +226,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 // Delete remaining persons since they don't have a skeleton anymore (they still exists in cache)
                 foreach (Person p in personList)
                 {
-                    trackedPersons.Remove(p);
-                    expirationCandidates.Add(CurrentMillis.Millis, p); // Add person to cache
+                    _trackedPersons.Remove(p);
+                    _expirationCandidates.Add(CurrentMillis.Millis, p); // Add person to cache
                     if (PersonLost != null) 
                     {
                         PersonLost(this, new PersonDisposedEventArgs(p));
@@ -247,7 +241,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             else
             {
                 List<Person> personList = new List<Person>(); // copy currently tracked persons for the matching algorithm
-                personList.AddRange(trackedPersons);
+                personList.AddRange(_trackedPersons);
                 foreach (Person p in personList) // search best match for every PERSON
                 {
                     bestMatch.Value = double.MaxValue;
@@ -275,9 +269,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 {
                     bestMatch.Value = double.MaxValue;
                     double v;
-                    foreach (long l in expirationCandidates.Keys)
+                    foreach (long l in _expirationCandidates.Keys)
                     {
-                        Person p = expirationCandidates[l];
+                        Person p = _expirationCandidates[l];
                         v = p.Match(s);
                         if (v < bestMatch.Value)
                         {
@@ -287,13 +281,13 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                             bestMatch.Timestamp = l;
                         }
                     }
-                    if (bestMatch.Value < 0.5) // match valid
+                    if (bestMatch.Value < MinMatchDistance) // match valid
                     {
                         // There was a match. Person will be rehabilitated and tracked again.
-                        trackedPersons.Add(bestMatch.Person);
-                        registerWave(bestMatch.Person);
+                        _trackedPersons.Add(bestMatch.Person);
+                        RegisterWave(bestMatch.Person);
                         bestMatch.Person.AddSkeleton(bestMatch.Skeleton); // Assign the new Skeleton
-                        expirationCandidates.Remove(bestMatch.Timestamp);
+                        _expirationCandidates.Remove(bestMatch.Timestamp);
                         skeletonsToRemove.Add(bestMatch.Skeleton);
                     }
                 }
@@ -310,8 +304,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 {
                     Person p = new Person(this);
                     p.AddSkeleton(s);
-                    trackedPersons.Add(p);
-                    registerWave(p);
+                    _trackedPersons.Add(p);
+                    RegisterWave(p);
                     if (NewPerson != null)
                     {
                         NewPerson(this, new NewPersonEventArgs(p));
@@ -324,23 +318,23 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /// <summary>
         /// Begin detecting if a person is waving.</summary>
         /// <param name="p">Person to monitor</param>
-        private void registerWave(Person p)
+        private void RegisterWave(Person p)
         {
-            p.OnWave += personWaved;
+            p.OnWave += PersonWaved;
         }
 
         /// <summary>
         /// Returns the current acceleration of the physical device.</summary>
         /// <returns>
         /// True if the physical device is moving, false otherwise.</returns>
-        private double getAccelerationDiff()
+        private double GetAccelerationDiff()
         {
             double diff = 0; // Difference between last accelerometer readings and actual readings
-            diff += (Dev.AccelerometerGetCurrentReading().W - lastAcceleration.W);
-            diff += (Dev.AccelerometerGetCurrentReading().X - lastAcceleration.X);
-            diff += (Dev.AccelerometerGetCurrentReading().Y - lastAcceleration.Y);
-            diff += (Dev.AccelerometerGetCurrentReading().Z - lastAcceleration.Z);
-            lastAcceleration = Dev.AccelerometerGetCurrentReading();
+            diff += (KinectDevice.AccelerometerGetCurrentReading().W - _lastAcceleration.W);
+            diff += (KinectDevice.AccelerometerGetCurrentReading().X - _lastAcceleration.X);
+            diff += (KinectDevice.AccelerometerGetCurrentReading().Y - _lastAcceleration.Y);
+            diff += (KinectDevice.AccelerometerGetCurrentReading().Z - _lastAcceleration.Z);
+            _lastAcceleration = KinectDevice.AccelerometerGetCurrentReading();
             return diff;
         }
 
@@ -350,11 +344,11 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /// This device class</param>
         /// <param name="e">
         /// Gesture details</param>
-        private void personWaved(object sender, GestureEventArgs e)
+        private void PersonWaved(object sender, GestureEventArgs e)
         {
             Person p = ((Person)sender);
             // Set person active if there isn't another active person
-            if (!p.Active && trackedPersons.Find(x => x.Active==true) == null)
+            if (!p.Active && _trackedPersons.Find(x => x.Active==true) == null)
             {
                 p.Active = true;
                 if (PersonActive != null)

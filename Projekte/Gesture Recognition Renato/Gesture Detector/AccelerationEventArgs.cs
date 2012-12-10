@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MF.Engineering.MF8910.GestureDetector.Events
 {
     public class AccelerationEventArgs: EventArgs
     {
-        private double amount;
-
-        public AccelerationEventArgs(double Amount)
+        public AccelerationEventArgs(double amount)
         {
-            this.amount = Amount;
+            Amount = amount;
         }
 
-        public double Amount { get { return amount; } }
+        public double Amount { get; private set; }
     }
 }

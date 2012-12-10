@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Diagnostics;
 using Microsoft.Kinect;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using MF.Engineering.MF8910.GestureDetector.Tools;
@@ -17,20 +15,20 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
     /// A person is unique.</summary>
     public class Person
     {
-        private bool active;
+        private bool _active;
         private Queue <SmothendSkeleton> skeletons;
-        private Device dev;
+        private Device _dev;
         private WaveGestureChecker wave;
         private ZoomGestureChecker zoom;
         private SwipeGestureChecker swipe;
-        private int id;
+        private const int SkeletonsToStore = 10;
 
         public Person(Device d)
         {
             Random r = new Random();
             skeletons = new Queue < SmothendSkeleton>(); // newest skeletons are first
-            dev = d;
-            id = r.Next();
+            _dev = d;
+            Id = r.Next();
             wave = new WaveGestureChecker(this);
             wave.Successful += Waving;
             /*
@@ -41,7 +39,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             {
                 if (OnZoom != null)
                 {
-                    this.OnZoom(this, ev);
+                    OnZoom(this, ev);
                 }
             };
             //zoom.Failed += delegate(object o, GestureEventArgs e) 
@@ -57,8 +55,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 }
                 //Console.WriteLine("SWIPED: " + ((SwipeGestureEventArgs)e).Direction.ToString());
             };
-            swipe.Failed += delegate(object o, FailedGestureEventArgs e)
-            {
+            swipe.Failed += delegate
+                {
                 //Console.WriteLine("FAIL: " + ((FailedGestureEventArgs)e).Condition.GetType().Name);
             };
         }
@@ -79,7 +77,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 skeletons.Enqueue(ss);
                 NewSkeleton(this, new NewSkeletonEventArgs(ss)); // Event for conditions
             }
-            if (skeletons.Count >= 10)
+            if (skeletons.Count >= SkeletonsToStore)
             {
                 skeletons.Dequeue(); // remove old unneded
             }
@@ -116,12 +114,12 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public bool Active {
             get
             {
-                return active;
+                return _active;
             }
             set
             {
-                active = value;
-                if (PersonActive != null && active == true)
+                _active = value;
+                if (PersonActive != null && _active)
                 {
                     PersonActive(this, new ActivePersonEventArgs(this));
                 }
@@ -131,23 +129,23 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 }
             }}
 
-        public int ID { get { return id; } }
+        public int Id { get; private set; }
 
         public bool SendEventsWhenPassive { get; set; }
 
         public override bool Equals(object p)
         {
-            return GetHashCode().Equals(((Person)p).GetHashCode());
+            return GetHashCode().Equals(p.GetHashCode());
         }
 
         public override int GetHashCode()
         {
-            return ID;
+            return Id;
         }
 
         internal double Match(SmothendSkeleton skeleton) // distance to other person
         {
-            SkeletonPoint currentRoot = this.CurrentSkeleton.GetPosition(JointType.HipCenter);
+            SkeletonPoint currentRoot = CurrentSkeleton.GetPosition(JointType.HipCenter);
             SkeletonPoint otherRoot = skeleton.GetPosition(JointType.HipCenter);
             return SkeletonMath.DistanceBetweenPoints(currentRoot, otherRoot);
         }

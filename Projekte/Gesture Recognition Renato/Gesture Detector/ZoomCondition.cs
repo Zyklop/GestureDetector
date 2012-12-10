@@ -1,11 +1,6 @@
 ﻿using MF.Engineering.MF8910.GestureDetector.DataSources;
 using Microsoft.Kinect;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MF.Engineering.MF8910.GestureDetector.Tools;
 using MF.Engineering.MF8910.GestureDetector.Events;
 
@@ -13,71 +8,72 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
 {
     class ZoomCondition : DynamicCondition
     {
-        private const double UPPER_BOUND_FOR_VELOCITY = 1.5;
-        private const int LOWER_BOUND_TO_BEGIN = 30;
-        private int index = 0;
+        private const double UpperBoundForVelocity = 1.5;
+        private const int LowerBoundToBegin = 30;
+        private int _index;
         // TODO set Distance, positive = zoomOut, neg = zoomIn
         //private int zoomDistance = 0;
         private Checker checker;
-        List<Direction> rightHandToHipOrientation, leftHandToHipOrientation, rightHandToHeadOrientation,
-            leftHandToHeadOrientation, leftHandToRightHandDirection;
-        double rightHandVelocity, leftHandVelocity;
+        List<Direction> _rightHandToHipOrientation, _leftHandToHipOrientation, _rightHandToHeadOrientation,
+            _leftHandToHeadOrientation, _leftHandToRightHandDirection;
+        double _rightHandVelocity, _leftHandVelocity;
 
         public ZoomCondition(Person p)
             : base(p)
         {
+            _index = 0;
             checker = new Checker(p);
         }
 
-        protected override void check(object sender, NewSkeletonEventArgs e)
+        protected override void Check(object sender, NewSkeletonEventArgs e)
         {
-            rightHandToHipOrientation = checker.GetRelativePosition(JointType.HipLeft, JointType.HandRight);
-            leftHandToHipOrientation = checker.GetRelativePosition(JointType.HipRight, JointType.HandLeft);
-            rightHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandRight);
-            leftHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandLeft);
-            leftHandToRightHandDirection = checker.GetRelativePosition(JointType.HandRight, JointType.HandLeft);
-            rightHandVelocity = checker.GetRelativeVelocity(JointType.HipCenter, JointType.HandRight);
-            leftHandVelocity = checker.GetRelativeVelocity(JointType.HipCenter, JointType.HandLeft);
+            _rightHandToHipOrientation = checker.GetRelativePosition(JointType.HipLeft, JointType.HandRight);
+            _leftHandToHipOrientation = checker.GetRelativePosition(JointType.HipRight, JointType.HandLeft);
+            _rightHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandRight);
+            _leftHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandLeft);
+            _leftHandToRightHandDirection = checker.GetRelativePosition(JointType.HandRight, JointType.HandLeft);
+            _rightHandVelocity = checker.GetRelativeVelocity(JointType.HipCenter, JointType.HandRight);
+            _leftHandVelocity = checker.GetRelativeVelocity(JointType.HipCenter, JointType.HandLeft);
 
             // Both Hands have to be in front of the body, between head and hip, and on their corresponding side
             // but not together or crossed
-            if (rightHandToHipOrientation.Contains(Direction.forward)
-                && leftHandToHipOrientation.Contains(Direction.forward)
-                && rightHandToHipOrientation.Contains(Direction.upward)
-                && leftHandToHipOrientation.Contains(Direction.upward)
-                && rightHandToHipOrientation.Contains(Direction.right)
-                && leftHandToHipOrientation.Contains(Direction.left)
-                && rightHandToHeadOrientation.Contains(Direction.downward)
-                && leftHandToHeadOrientation.Contains(Direction.downward)
-                && leftHandToRightHandDirection.Contains(Direction.left)
-                && (rightHandVelocity <= UPPER_BOUND_FOR_VELOCITY)
-                && (leftHandVelocity <= UPPER_BOUND_FOR_VELOCITY))
+            if (_rightHandToHipOrientation.Contains(Direction.Forward)
+                && _leftHandToHipOrientation.Contains(Direction.Forward)
+                && _rightHandToHipOrientation.Contains(Direction.Upward)
+                && _leftHandToHipOrientation.Contains(Direction.Upward)
+                && _rightHandToHipOrientation.Contains(Direction.Right)
+                && _leftHandToHipOrientation.Contains(Direction.Left)
+                && _rightHandToHeadOrientation.Contains(Direction.Downward)
+                && _leftHandToHeadOrientation.Contains(Direction.Downward)
+                && _leftHandToRightHandDirection.Contains(Direction.Left)
+                && (_rightHandVelocity <= UpperBoundForVelocity)
+                && (_leftHandVelocity <= UpperBoundForVelocity))
             {
 
-                if (index >= LOWER_BOUND_TO_BEGIN)
+                if (_index >= LowerBoundToBegin)
                 {
-                    fireSucceeded(this, new InternalZoomGestureEventArgs()
-                    {
+                    FireSucceeded(this, new InternalZoomGestureEventArgs
+                        {
                         Gauge = checker.GetDistanceMedian(JointType.HandRight, JointType.HandLeft)
                     });
                     //Console.WriteLine("Success! Velocity: right " + rightHandVelocity + ", left " + leftHandVelocity);
                 }
                 else
                 {
-                    index++;
-                    fireTriggered(this, new InternalZoomGestureEventArgs()
-                    {
+                    _index++;
+                    FireTriggered(this, new InternalZoomGestureEventArgs
+                        {
                         Gauge = checker.GetDistanceMedian(JointType.HandRight, JointType.HandLeft)
                     });
                 }
             }
             else
             {
-                index -= 11;
-                if (index < 0)
+                _index -= 11;
+                if (_index < 0)
                 {
-                    index = 0;
-                    fireFailed(this, new FailedGestureEventArgs()
+                    _index = 0;
+                    FireFailed(this, new FailedGestureEventArgs
                         {
                             Condition = this
                         });

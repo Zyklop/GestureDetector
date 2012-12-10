@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Tools;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using Microsoft.Kinect;
-using System.Diagnostics;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
 {
@@ -17,49 +12,50 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
     /// </summary>
     class SwipeCondition: DynamicCondition
     {
-        protected JointType hand;
-        protected Direction direction;
+        protected JointType Hand;
+        protected Direction Direction;
 
-        private Checker checker;
-        private const int LOWER_BOUND_FOR_SUCCESS = 2;
-        private const double LOWER_BOUND_FOR_VELOCITY = 2.5;
-        private int index = 0;
+        private Checker Checker;
+        private const int LowerBoundForSuccess = 2;
+        private const double LowerBoundForVelocity = 2.5;
+        private int _index;
 
         public SwipeCondition(Person p, JointType leftOrRightHand)
             : base(p)
         {
-            hand = leftOrRightHand;
-            checker = new Checker(p);
+            _index = 0;
+            Hand = leftOrRightHand;
+            Checker = new Checker(p);
         }
 
-        protected override void check(object sender, NewSkeletonEventArgs e)
+        protected override void Check(object sender, NewSkeletonEventArgs e)
         {
-            List<Direction> handToHipOrientation = checker.GetRelativePosition(JointType.HipCenter, hand);
-            List<Direction> handToShoulderOrientation = checker.GetRelativePosition(JointType.ShoulderCenter, hand);
-            List<Direction> handMovement = checker.GetAbsoluteMovement(hand);
-            double handVelocity = checker.GetRelativeVelocity(JointType.HipCenter,hand);
+            List<Direction> handToHipOrientation = Checker.GetRelativePosition(JointType.HipCenter, Hand);
+            List<Direction> handToShoulderOrientation = Checker.GetRelativePosition(JointType.ShoulderCenter, Hand);
+            List<Direction> handMovement = Checker.GetAbsoluteMovement(Hand);
+            double handVelocity = Checker.GetRelativeVelocity(JointType.HipCenter,Hand);
             //Debug.WriteLine(handVelocity);
             //min speed is maintained
-            if (handVelocity < LOWER_BOUND_FOR_VELOCITY)
+            if (handVelocity < LowerBoundForVelocity)
             {
                 Reset();
             }
                 // hand is in front of the body and between hip and shoulders
-            else if (handToHipOrientation.Contains(Direction.forward)
-                && handToHipOrientation.Contains(Direction.upward)
-                && handToShoulderOrientation.Contains(Direction.downward))
+            else if (handToHipOrientation.Contains(Direction.Forward)
+                && handToHipOrientation.Contains(Direction.Upward)
+                && handToShoulderOrientation.Contains(Direction.Downward))
             {
                 // movement did not start yet, initializing
-                if (direction == Direction.none)
+                if (Direction == Direction.None)
                 {
                     // left or right movement is prefered
-                    if (handMovement.Contains(Direction.left))
+                    if (handMovement.Contains(Direction.Left))
                     {
-                        direction = Direction.left;
+                        Direction = Direction.Left;
                     }
-                    else if (handMovement.Contains(Direction.right))
+                    else if (handMovement.Contains(Direction.Right))
                     {
-                        direction = Direction.right;
+                        Direction = Direction.Right;
                     }
                     else
                     {
@@ -67,26 +63,26 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
                         //direction = handMovement.FirstOrDefault();
                     }
                 }
-                else if (!handMovement.Contains(direction))
+                else if (!handMovement.Contains(Direction))
                 {
                     // direction changed
                     Reset();
                 }
                 else
                 {
-                    if (index >= LOWER_BOUND_FOR_SUCCESS)
+                    if (_index >= LowerBoundForSuccess)
                     {
-                        index = 0;
-                        fireSucceeded(this, new SwipeGestureEventArgs()
-                        {
-                            Direction = direction
+                        _index = 0;
+                        FireSucceeded(this, new SwipeGestureEventArgs
+                            {
+                            Direction = Direction
                         });
-                        direction = Direction.none;
+                        Direction = Direction.None;
                     }
                     else
                     {
                         // step successful, waiting for next
-                        index++;
+                        _index++;
                     }
                 }
             }
@@ -94,10 +90,10 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
         // restart detecting
         private void Reset()
         {
-            index = 0;
-            direction = Direction.none;
-            fireFailed(this, new FailedGestureEventArgs()
-            {
+            _index = 0;
+            Direction = Direction.None;
+            FireFailed(this, new FailedGestureEventArgs
+                {
                 Condition = this
             });
         }

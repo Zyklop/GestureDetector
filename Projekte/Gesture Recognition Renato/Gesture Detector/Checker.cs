@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Kinect;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
-using System.Diagnostics;
 
 namespace MF.Engineering.MF8910.GestureDetector.Tools
 {
@@ -35,11 +31,11 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
         /// Returns the absolute velocity in meters</returns>
         public double GetAbsoluteVelocity(JointType type)
         {
-            if (!hasSkeleton(1))
+            if (!HasSkeleton(1))
             {
                 return 0;
             }
-            if (!hasSkeleton(3))
+            if (!HasSkeleton(3))
             {
                 return SimpleAbsoluteVelocity(type, 0, 1);
             }
@@ -58,11 +54,11 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
         /// Returns the absolute velocity in meters</returns>
         private double SimpleAbsoluteVelocity(JointType type, int firstTime, int secondTime)
         {
-            if (!hasSkeleton(firstTime) || !hasSkeleton(secondTime))
+            if (!HasSkeleton(firstTime) || !HasSkeleton(secondTime))
             {
                 throw new ArgumentException("No Skeleton at this Index");
             }
-            return SkeletonMath.DistanceBetweenPoints(person.GetLastSkeleton(firstTime).GetPosition(type), person.GetLastSkeleton(secondTime).GetPosition(type)) * 1000.0 / (double)(person.MillisBetweenFrames(1, 0));
+            return SkeletonMath.DistanceBetweenPoints(person.GetLastSkeleton(firstTime).GetPosition(type), person.GetLastSkeleton(secondTime).GetPosition(type)) * 1000.0 / person.MillisBetweenFrames(1, 0);
         }
 
         /// <summary>
@@ -75,22 +71,22 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
         /// Returns the relative velocity in meters</returns>
         public double GetRelativeVelocity(JointType steady, JointType moving)
         {
-            if (!hasSkeleton(1))
+            if (!HasSkeleton(1))
             {
                 return 0;
             }
             SkeletonPoint d0 = SubstractedPointsAt(steady, moving, 0);
             SkeletonPoint d1 = SubstractedPointsAt(steady, moving, 1);
-            if (!hasSkeleton(3))
+            if (!HasSkeleton(3))
             {
-                return SkeletonMath.DistanceBetweenPoints(d0, d1) * 1000.0 / (double)(person.MillisBetweenFrames(1, 0));
+                return SkeletonMath.DistanceBetweenPoints(d0, d1) * 1000.0 / person.MillisBetweenFrames(1, 0);
             }
             SkeletonPoint d2 = SubstractedPointsAt(steady, moving, 2);
             SkeletonPoint d3 = SubstractedPointsAt(steady, moving, 3);
             return SkeletonMath.Median(
-                SkeletonMath.DistanceBetweenPoints(d0, d1) * 1000.0 / (double)(person.MillisBetweenFrames(1, 0)),
-                SkeletonMath.DistanceBetweenPoints(d1, d2) * 1000.0 / (double)(person.MillisBetweenFrames(2, 1)),
-                SkeletonMath.DistanceBetweenPoints(d2, d3) * 1000.0 / (double)(person.MillisBetweenFrames(3, 2))
+                SkeletonMath.DistanceBetweenPoints(d0, d1) * 1000.0 / person.MillisBetweenFrames(1, 0),
+                SkeletonMath.DistanceBetweenPoints(d1, d2) * 1000.0 / person.MillisBetweenFrames(2, 1),
+                SkeletonMath.DistanceBetweenPoints(d2, d3) * 1000.0 / person.MillisBetweenFrames(3, 2)
             );
         }
 
@@ -100,14 +96,14 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
         /// Index of the persons skeleton cache.</param>
         /// <returns>
         /// Returns true if there is a skeleton for the given index, false otherwise.</returns>
-        private bool hasSkeleton(int time)
+        private bool HasSkeleton(int time)
         {
             return person.GetLastSkeleton(time) != null;
         }
 
         private SkeletonPoint SubstractedPointsAt(JointType steady, JointType moving, int time)
         {
-            if (!hasSkeleton(time))
+            if (!HasSkeleton(time))
             {
                 throw new ArgumentException("No Skeleton at this Index");
             }
@@ -116,7 +112,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
 
         public double GetDistanceMedian(JointType t1, JointType t2)
         {
-            if (!hasSkeleton(2))
+            if (!HasSkeleton(2))
             {
                 return GetDistance(t1, t2);
             }
@@ -130,7 +126,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
 
         private double GetDistance(JointType t1, JointType t2, int time)
         {
-            if (!hasSkeleton(time))
+            if (!HasSkeleton(time))
             {
                 throw new ArgumentException("No Skeleton at this Index");
             }
@@ -139,18 +135,18 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
 
         public List<Direction> GetAbsoluteMovement(JointType type)
         {
-            if (!hasSkeleton(1))
+            if (!HasSkeleton(1))
             {
-                return new List<Direction>() { Direction.none };
+                return new List<Direction> { Direction.None };
             }
             return SkeletonMath.DirectionTo(person.GetLastSkeleton(1).GetPosition(type), person.CurrentSkeleton.GetPosition(type));
         }
 
         public List<Direction> GetRelativeMovement(JointType steady, JointType moving)
         {
-            if (!hasSkeleton(1))
+            if (!HasSkeleton(1))
             {
-                return new List<Direction>() { Direction.none };
+                return new List<Direction> { Direction.None };
             }
             return SkeletonMath.DirectionTo(SkeletonMath.SubstractPoints(person.GetLastSkeleton(1).GetPosition(moving), person.GetLastSkeleton(1).GetPosition(steady)),
                 SkeletonMath.SubstractPoints(person.CurrentSkeleton.GetPosition(moving), person.CurrentSkeleton.GetPosition(steady)));
@@ -168,7 +164,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             {
                 throw new ArgumentException("Duration must be at least 1");
             }
-            for (int i = 0; i < duration && hasSkeleton(i); i++)
+            for (int i = 0; i < duration && HasSkeleton(i); i++)
 			{
                 to.Add(person.GetLastSkeleton(i).GetPosition(type));
 			    from.Add(person.GetLastSkeleton(i+1).GetPosition(type));
@@ -183,7 +179,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             {
                 throw new ArgumentException("Duration must be at least 1");
             }
-            for (int i = 0; i < duration && hasSkeleton(i); i++)
+            for (int i = 0; i < duration && HasSkeleton(i); i++)
             {
                 to.Add(SkeletonMath.SubstractPoints(person.GetLastSkeleton(i).GetPosition(moving), person.GetLastSkeleton(i).GetPosition(steady)));
                 from.Add(SkeletonMath.SubstractPoints(person.GetLastSkeleton(i+1).GetPosition(moving), person.GetLastSkeleton(i+1).GetPosition(steady)));
@@ -198,7 +194,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             {
                 throw new ArgumentException("Duration must be at least 1");
             }
-            for (int i = 0; i <= duration && hasSkeleton(i); i++)
+            for (int i = 0; i <= duration && HasSkeleton(i); i++)
             {
                 target.Add(person.GetLastSkeleton(i).GetPosition(to));
                 origin.Add(person.GetLastSkeleton(i).GetPosition(from));

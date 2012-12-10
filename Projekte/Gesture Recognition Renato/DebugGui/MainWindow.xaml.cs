@@ -1,25 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
-using MF.Engineering.MF8910.GestureDetector.Gestures.Wave;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Zoom;
 using MF.Engineering.MF8910.GestureDetector.Gestures.Swipe;
-using System.Threading;
 using System.Windows.Media.Animation;
 using System.Diagnostics;
-using System.IO;
 
 
 namespace DebugGui
@@ -30,15 +19,15 @@ namespace DebugGui
     public partial class MainWindow : Window
     {
         #region initializing
-        private Person active;
+        private Person _active;
         private ImgIterator itr;
-        private Device d;
+        private Device _d;
 
         public MainWindow()
         {
             try
             {
-                itr = new ImgIterator(AppDomain.CurrentDomain.BaseDirectory + @"..\..\Images", UriKind.Relative);
+                itr = new ImgIterator(AppDomain.CurrentDomain.BaseDirectory + @"..\..\Images");
             }
             catch (Exception e)
             {
@@ -47,16 +36,16 @@ namespace DebugGui
             DataContext = itr;
             InitializeComponent();
             Initialize();
-            this.Show();
+            Show();
         }
 
         private void Initialize()
         {
-            d = new Device();
-            d.NewPerson += NewPerson;
-            d.PersonActive += ActivePerson;
-            d.PersonLost += Dispose;
-            d.Start();
+            _d = new Device();
+            _d.NewPerson += NewPerson;
+            _d.PersonActive += ActivePerson;
+            _d.PersonLost += Dispose;
+            _d.Start();
             NrPersons.Text = "0";
         }
 
@@ -64,24 +53,24 @@ namespace DebugGui
 
         private void ActivePerson(object sender, ActivePersonEventArgs e)
         {
-            active = e.Person;
-            active.OnZoom += Zoomed;
-            active.OnSwipe += Swiped;
-            active.OnWave += actWaved;
-            LoginText.Visibility = System.Windows.Visibility.Hidden;
-            sv.Visibility = System.Windows.Visibility.Visible;
+            _active = e.Person;
+            _active.OnZoom += Zoomed;
+            _active.OnSwipe += Swiped;
+            _active.OnWave += ActWaved;
+            LoginText.Visibility = Visibility.Hidden;
+            sv.Visibility = Visibility.Visible;
         }
 
-        private void actWaved(object sender, GestureEventArgs e)
+        private void ActWaved(object sender, GestureEventArgs e)
         {
-            sv.Visibility = System.Windows.Visibility.Hidden;
-            LoginText.Visibility = System.Windows.Visibility.Visible;
-            active.OnWave += waved;
-            active.OnWave -= actWaved;
-            active.OnZoom -= Zoomed;
-            active.OnSwipe -= Swiped;
-            active.Active = false;
-            active = null;
+            sv.Visibility = Visibility.Hidden;
+            LoginText.Visibility = Visibility.Visible;
+            _active.OnWave += waved;
+            _active.OnWave -= ActWaved;
+            _active.OnZoom -= Zoomed;
+            _active.OnSwipe -= Swiped;
+            _active.Active = false;
+            _active = null;
         }
 
         private void Swiped(object sender, GestureEventArgs e)
@@ -89,45 +78,43 @@ namespace DebugGui
             ExecuteSwipe(e);
         }
 
-        private void ExecuteSwipe(GestureEventArgs e)
+        private async void ExecuteSwipe(GestureEventArgs e)
         {
             SwipeGestureEventArgs args = (SwipeGestureEventArgs)e;
             switch (args.Direction)
             {
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.forward:
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Forward:
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.upward:
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Upward:
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.downward:
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Downward:
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.left:
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Left:
                     Storyboard sbl = this.FindResource("ImageLeftOut") as Storyboard;
-                    sbl.Begin();
-                    //await Task.Delay(1000);
+                    if (sbl != null) sbl.Begin();
+                    await Task.Delay(1000);
                     itr.Previous();
                     //Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
                     Debug.WriteLine(sv.ActualHeight);
                     Img.Height = sv.ActualHeight;
                     Img.Width = sv.ActualWidth;
-                    sbl = this.FindResource("ImageRightIn") as Storyboard;
-                    sbl.Begin();
+                    sbl = FindResource("ImageRightIn") as Storyboard;
+                    if (sbl != null) sbl.Begin();
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.right:
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Right:
                     Storyboard sbr = this.FindResource("ImageRightOut") as Storyboard;
-                    sbr.Begin();
-                    //await Task.Delay(1000);
+                    if (sbr != null) sbr.Begin();
+                    await Task.Delay(1000);
                     itr.Next();
                     //Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
                     Img.Height = sv.ActualHeight;
                     Img.Width = sv.ActualWidth;
-                    sbr = this.FindResource("ImageLeftIn") as Storyboard;
-                    sbr.Begin();
+                    sbr = FindResource("ImageLeftIn") as Storyboard;
+                    if (sbr != null) sbr.Begin();
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.backward:
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Backward:
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.none:
-                    break;
-                default:
+                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.None:
                     break;
             }
         }
@@ -141,36 +128,36 @@ namespace DebugGui
 
         private void NewPerson(object src, NewPersonEventArgs e)
         {
-            if(active == null)
-                LoginText.Visibility = System.Windows.Visibility.Visible;
+            if(_active == null)
+                LoginText.Visibility = Visibility.Visible;
             UpdatePersonsCount();
             e.Person.OnWave += waved;
         }
 
         private void UpdatePersonsCount()
         {
-            NrPersons.Text = d.GetAll().Count.ToString();
+            NrPersons.Text = _d.GetAll().Count.ToString(CultureInfo.InvariantCulture);
         }
 
         private void Dispose(object sender, PersonDisposedEventArgs e)
         {
-            if (e.Person == active)
+            if (e.Person == _active)
             {
                 RemoveActive();
             }
             UpdatePersonsCount();
-            if (d.GetAll().Count == 0)
+            if (_d.GetAll().Count == 0)
             {
-                LoginText.Visibility = System.Windows.Visibility.Hidden;
+                LoginText.Visibility = Visibility.Hidden;
             }
         }
 
         private void RemoveActive()
         {
-            sv.Visibility = System.Windows.Visibility.Hidden;
-            active.OnSwipe -= Swiped;
-            active.OnZoom -= Zoomed;
-            active = null;
+            sv.Visibility = Visibility.Hidden;
+            _active.OnSwipe -= Swiped;
+            _active.OnZoom -= Zoomed;
+            _active = null;
         }
 
         private void waved(object sender, GestureEventArgs e)

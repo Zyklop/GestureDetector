@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 
 
@@ -10,7 +6,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
 {
     class WaveGestureChecker: GestureChecker
     {
-        protected const int CONDITION_TIMEOUT = 2500;
+        protected const int ConditionTimeout = 2500;
 
         public WaveGestureChecker(Person p)
             : base(new List<Condition> {
@@ -18,6 +14,6 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
                 new WaveRightCondition(p),
                 new WaveLeftCondition(p)
 
-            }, CONDITION_TIMEOUT) { }
+            }, ConditionTimeout) { }
     }
 }
