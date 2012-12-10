@@ -62,13 +62,12 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
 
         public static double Median(IEnumerable<double> values)
         {
-            List<double> d = new List<double>();
-            d.AddRange(values);
+            List<double> d = values.ToList();
             d.Sort();
             return d[d.Count / 2];
         }
 
-        public static List<Direction> SteadyDirectionTo(IEnumerable<SkeletonPoint> from, IEnumerable<SkeletonPoint> to)
+        public static IEnumerable<Direction> SteadyDirectionTo(IEnumerable<SkeletonPoint> from, IEnumerable<SkeletonPoint> to)
         {
             List<List<Direction>> directions = new List<List<Direction>>();
             var origin = from.ToList();
@@ -132,7 +131,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
         /// Target Point</param>
         /// <returns>
         /// Returns a list of three directions (for each axis)</returns>
-        public static List<Direction> DirectionTo(SkeletonPoint from, SkeletonPoint to)
+        public static IEnumerable<Direction> DirectionTo(SkeletonPoint from, SkeletonPoint to)
         {
             List<Direction> res = new List<Direction>();
             double dx = to.X - from.X;

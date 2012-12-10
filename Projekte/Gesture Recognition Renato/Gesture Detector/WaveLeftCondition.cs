@@ -1,5 +1,6 @@
 ﻿using MF.Engineering.MF8910.GestureDetector.DataSources;
 using Microsoft.Kinect;
+using System.Linq;
 using System.Collections.Generic;
 using MF.Engineering.MF8910.GestureDetector.Tools;
 using MF.Engineering.MF8910.GestureDetector.Events;
@@ -21,7 +22,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
         protected override void Check(object sender, NewSkeletonEventArgs e)
         {
             //rightHandDirections = checker.GetAbsoluteMovement(JointType.HandRight);
-            _handToHeadDirections = checker.GetRelativePosition(JointType.ShoulderCenter, JointType.HandRight);
+            _handToHeadDirections = checker.GetRelativePosition(JointType.ShoulderCenter, JointType.HandRight).ToList();
             double handspeed = checker.GetAbsoluteVelocity(JointType.HandRight);
             //Debug.WriteLine(handspeed);
             // min required speed

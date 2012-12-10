@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Tools;
 using MF.Engineering.MF8910.GestureDetector.Events;
@@ -30,9 +31,9 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
 
         protected override void Check(object sender, NewSkeletonEventArgs e)
         {
-            List<Direction> handToHipOrientation = Checker.GetRelativePosition(JointType.HipCenter, Hand);
-            List<Direction> handToShoulderOrientation = Checker.GetRelativePosition(JointType.ShoulderCenter, Hand);
-            List<Direction> handMovement = Checker.GetAbsoluteMovement(Hand);
+            List<Direction> handToHipOrientation = Checker.GetRelativePosition(JointType.HipCenter, Hand).ToList();
+            List<Direction> handToShoulderOrientation = Checker.GetRelativePosition(JointType.ShoulderCenter, Hand).ToList();
+            List<Direction> handMovement = Checker.GetAbsoluteMovement(Hand).ToList();
             double handVelocity = Checker.GetRelativeVelocity(JointType.HipCenter,Hand);
             //Debug.WriteLine(handVelocity);
             //min speed is maintained

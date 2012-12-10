@@ -136,7 +136,7 @@ namespace DebugGui
 
         private void UpdatePersonsCount()
         {
-            NrPersons.Text = _d.GetAll().Count.ToString(CultureInfo.InvariantCulture);
+            NrPersons.Text = _d.GetAllPersons().Count.ToString(CultureInfo.InvariantCulture);
         }
 
         private void Dispose(object sender, PersonDisposedEventArgs e)
@@ -146,7 +146,7 @@ namespace DebugGui
                 RemoveActive();
             }
             UpdatePersonsCount();
-            if (_d.GetAll().Count == 0)
+            if (_d.GetAllPersons().Count == 0)
             {
                 LoginText.Visibility = Visibility.Hidden;
             }

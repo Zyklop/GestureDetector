@@ -1,6 +1,7 @@
 ﻿using MF.Engineering.MF8910.GestureDetector.DataSources;
 using Microsoft.Kinect;
 using System.Collections.Generic;
+using System.Linq;
 using MF.Engineering.MF8910.GestureDetector.Tools;
 using MF.Engineering.MF8910.GestureDetector.Events;
 
@@ -27,11 +28,11 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
 
         protected override void Check(object sender, NewSkeletonEventArgs e)
         {
-            _rightHandToHipOrientation = checker.GetRelativePosition(JointType.HipLeft, JointType.HandRight);
-            _leftHandToHipOrientation = checker.GetRelativePosition(JointType.HipRight, JointType.HandLeft);
-            _rightHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandRight);
-            _leftHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandLeft);
-            _leftHandToRightHandDirection = checker.GetRelativePosition(JointType.HandRight, JointType.HandLeft);
+            _rightHandToHipOrientation = checker.GetRelativePosition(JointType.HipLeft, JointType.HandRight).ToList();
+            _leftHandToHipOrientation = checker.GetRelativePosition(JointType.HipRight, JointType.HandLeft).ToList();
+            _rightHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandRight).ToList();
+            _leftHandToHeadOrientation = checker.GetRelativePosition(JointType.Head, JointType.HandLeft).ToList();
+            _leftHandToRightHandDirection = checker.GetRelativePosition(JointType.HandRight, JointType.HandLeft).ToList();
             _rightHandVelocity = checker.GetRelativeVelocity(JointType.HipCenter, JointType.HandRight);
             _leftHandVelocity = checker.GetRelativeVelocity(JointType.HipCenter, JointType.HandLeft);
 

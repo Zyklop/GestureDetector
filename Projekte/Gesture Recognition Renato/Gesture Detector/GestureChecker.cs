@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
 
@@ -37,11 +38,11 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         /// List of condition which are to fullfill for a successful gesture</param>
         /// <param name="timeout">
         /// Maximum time a gesture is allowed to run for.</param>
-        public GestureChecker(List<Condition> gestureConditions, int timeout)
+        public GestureChecker(IEnumerable<Condition> gestureConditions, int timeout)
         {
             this.timeout = timeout;
 
-            conditions = gestureConditions;
+            conditions = gestureConditions.ToList();
             conditions.ForEach(delegate(Condition c) {
                 c.OnCheck += ConditionChecked;
                 c.Succeeded += ConditionComplete;

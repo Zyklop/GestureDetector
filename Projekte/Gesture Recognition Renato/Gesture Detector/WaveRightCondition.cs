@@ -1,5 +1,6 @@
 ﻿using MF.Engineering.MF8910.GestureDetector.DataSources;
 using Microsoft.Kinect;
+using System.Linq;
 using System.Collections.Generic;
 using MF.Engineering.MF8910.GestureDetector.Tools;
 using MF.Engineering.MF8910.GestureDetector.Events;
@@ -22,7 +23,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
         protected override void Check(object sender, NewSkeletonEventArgs e)
         {
             checker.GetAbsoluteMovement(JointType.HandRight);
-            _handToHeadDirections = checker.GetRelativePosition(JointType.ShoulderCenter, JointType.HandRight);
+            _handToHeadDirections = checker.GetRelativePosition(JointType.ShoulderCenter, JointType.HandRight).ToList();
             // Prüfe ob Handbewegung nach links abläuft und ob sich die Hand über dem Kopf befindet
             double handspeed = checker.GetAbsoluteVelocity(JointType.HandRight);
             //Debug.WriteLine(handspeed);

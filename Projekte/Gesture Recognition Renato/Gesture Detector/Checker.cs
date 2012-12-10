@@ -133,7 +133,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.DistanceBetweenPoints(person.GetLastSkeleton(time).GetPosition(t1), person.GetLastSkeleton(time).GetPosition(t2));
         }
 
-        public List<Direction> GetAbsoluteMovement(JointType type)
+        public IEnumerable<Direction> GetAbsoluteMovement(JointType type)
         {
             if (!HasSkeleton(1))
             {
@@ -142,7 +142,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.DirectionTo(person.GetLastSkeleton(1).GetPosition(type), person.CurrentSkeleton.GetPosition(type));
         }
 
-        public List<Direction> GetRelativeMovement(JointType steady, JointType moving)
+        public IEnumerable<Direction> GetRelativeMovement(JointType steady, JointType moving)
         {
             if (!HasSkeleton(1))
             {
@@ -152,7 +152,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
                 SkeletonMath.SubstractPoints(person.CurrentSkeleton.GetPosition(moving), person.CurrentSkeleton.GetPosition(steady)));
         }
 
-        public List<Direction> GetRelativePosition(JointType from, JointType to)
+        public IEnumerable<Direction> GetRelativePosition(JointType from, JointType to)
         {
             return SkeletonMath.DirectionTo(person.CurrentSkeleton.GetPosition(from), person.CurrentSkeleton.GetPosition(to));
         }

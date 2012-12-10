@@ -118,7 +118,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /// be possible to serve multiple active persons, but its not implemented.</summary>
         /// <returns>
         /// Returns the currently active person. If no person is active, null is returned.</returns>
-        public List<Person> GetActivePerson()
+        public IEnumerable<Person> GetActivePerson()
         {
             return _trackedPersons.FindAll(x => x.Active);
         }
@@ -127,7 +127,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /// Get all persons tracked by the Kinect.</summary>
         /// <returns>
         /// List of tracked persons</returns>
-        public List<Person> GetAll()
+        public List<Person> GetAllPersons()
         {
             return _trackedPersons;
         }
