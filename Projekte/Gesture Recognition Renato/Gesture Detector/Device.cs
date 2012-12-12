@@ -45,7 +45,11 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         public Device()
         {
             // Receive KinectSensor instance from physical device
-            KinectDevice = KinectSensor.KinectSensors.FirstOrDefault(x => x.Status == KinectStatus.Connected);
+            KinectDevice = KinectSensor.KinectSensors.First(x => x.Status == KinectStatus.Connected);
+            if (KinectDevice == null)
+            {
+                throw new DeviceErrorException("No connected device");
+            }
             Initialize();
         }
 
@@ -60,6 +64,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             KinectDevice.SkeletonFrameReady += OnNewSkeletons; // Register on any new skeletons
         }
 
+        /// <summary>
+        /// Geting a specified Sensor
+        /// </summary>
+        /// <param name="uniqueId">The serial number of the Kinect</param>
         public Device(string uniqueId) // get a specified Kinect by its ID
         {
             foreach (KinectSensor ks in KinectSensor.KinectSensors)
@@ -69,6 +77,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     KinectDevice = ks;
                     Initialize();
                 }
+            }
+            if (KinectDevice == null)
+            {
+                throw new DeviceErrorException("No connected device");
             }
         }
 
@@ -208,10 +220,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 foreach (SmothendSkeleton s in skeletonsToMatch) // search best match for every SKELETON
                 {
                     bestMatch.Value = double.MaxValue;
-                    double v;
                     foreach (Person p in personList)
                     {
-                        v = p.Match(s);
+                        double v = p.Match(s);
                         if (v < bestMatch.Value)
                         {
                             bestMatch.Value = v;

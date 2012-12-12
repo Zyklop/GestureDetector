@@ -70,7 +70,11 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             }
         }
 
-        public void AddSkeleton(SmothendSkeleton ss)
+        /// <summary>
+        /// Store a new skeleton
+        /// </summary>
+        /// <param name="ss"></param>
+        internal void AddSkeleton(SmothendSkeleton ss)
         {
             if (NewSkeleton != null)
             {
@@ -83,6 +87,9 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             }
         }
 
+        /// <summary>
+        /// Get the current skeleton
+        /// </summary>
         public SmothendSkeleton CurrentSkeleton
         {
             get
@@ -95,6 +102,11 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             }
         }
 
+        /// <summary>
+        /// Get a previous skeleton
+        /// </summary>
+        /// <param name="i">number of frames back</param>
+        /// <returns></returns>
         public SmothendSkeleton GetLastSkeleton(int i) //get a previous skeleton
         {
             if (i > skeletons.Count-1 || i < 0)
@@ -104,6 +116,12 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             return skeletons.ElementAt(skeletons.Count-i-1);
         }
 
+        /// <summary>
+        /// Time-difference between two skeletons
+        /// </summary>
+        /// <param name="first">Relative number of the first frame</param>
+        /// <param name="second">Relative number of the second frame</param>
+        /// <returns>Milliseconds passed between</returns>
         public long MillisBetweenFrames(int first, int second) //get timedifference in millisconds between skeletons
         {
             long diff = (GetLastSkeleton(second).Timestamp - GetLastSkeleton(first).Timestamp);
@@ -111,6 +129,10 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             return diff;
         }
 
+        /// <summary>
+        /// Is the person active?
+        /// Firing events when changing
+        /// </summary>
         public bool Active {
             get
             {
@@ -129,8 +151,14 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 }
             }}
 
+        /// <summary>
+        /// A random id
+        /// </summary>
         public int Id { get; private set; }
 
+        /// <summary>
+        /// Should events be triggered when the person is passive?
+        /// </summary>
         public bool SendEventsWhenPassive { get; set; }
 
         public override bool Equals(object p)
@@ -150,7 +178,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             return SkeletonMath.DistanceBetweenPoints(currentRoot, otherRoot);
         }
 
-        public event EventHandler<NewSkeletonEventArgs> NewSkeleton;
+        internal event EventHandler<NewSkeletonEventArgs> NewSkeleton;
         public event EventHandler<PersonPassiveEventArgs> PersonPassive;
         public event EventHandler<ActivePersonEventArgs> PersonActive;
 

@@ -63,7 +63,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
                 {
                     _index++;
                     FireTriggered(this, new InternalZoomGestureEventArgs
-                        {
+                    {
                         Gauge = checker.GetDistanceMedian(JointType.HandRight, JointType.HandLeft)
                     });
                 }

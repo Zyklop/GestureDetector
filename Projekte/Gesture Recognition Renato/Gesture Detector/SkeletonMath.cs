@@ -46,6 +46,13 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return res;
         }
 
+        /// <summary>
+        /// the median over three values
+        /// </summary>
+        /// <param name="d1"></param>
+        /// <param name="d2"></param>
+        /// <param name="d3"></param>
+        /// <returns></returns>
         public static double Median(double d1, double d2, double d3)
         {
             // more performance than copying and sorting
@@ -60,6 +67,11 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return d3;
         }
 
+        /// <summary>
+        /// The median over a unspecified number of values
+        /// </summary>
+        /// <param name="values"></param>
+        /// <returns></returns>
         public static double Median(IEnumerable<double> values)
         {
             List<double> d = values.ToList();
@@ -67,6 +79,12 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return d[d.Count / 2];
         }
 
+        /// <summary>
+        /// The median of the direction between points
+        /// </summary>
+        /// <param name="from">Source joints</param>
+        /// <param name="to">Target joints</param>
+        /// <returns></returns>
         public static IEnumerable<Direction> SteadyDirectionTo(IEnumerable<SkeletonPoint> from, IEnumerable<SkeletonPoint> to)
         {
             List<List<Direction>> directions = new List<List<Direction>>();
@@ -82,27 +100,27 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
                 double dx = target[i].X - origin[i].X;
                 double dy = target[i].Y - origin[i].Y;
                 double dz = target[i].Z - origin[i].Z;
-                if (dx > Tolerance)
+                if (dx > MedianTolerance)
                 {
                     directions[i].Add(Direction.Right);
                 }
-                else if (dx < -Tolerance)
+                else if (dx < -MedianTolerance)
                 {
                     directions[i].Add(Direction.Left);
                 }
-                if (dy > Tolerance)
+                if (dy > MedianTolerance)
                 {
                     directions[i].Add(Direction.Upward);
                 }
-                else if (dy < -Tolerance)
+                else if (dy < -MedianTolerance)
                 {
                     directions[i].Add(Direction.Downward);
                 }
-                if (dz > Tolerance)
+                if (dz > MedianTolerance)
                 {
                     directions[i].Add(Direction.Backward);
                 }
-                else if (dz < -Tolerance)
+                else if (dz < -MedianTolerance)
                 {
                     directions[i].Add(Direction.Forward);
                 }
@@ -111,6 +129,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             List<Direction> res = new List<Direction>();
             foreach (Direction item in Enum.GetValues(typeof(Direction)))
             {
+                // found enough times in lists
                 if (directions.Count(x => x.Contains(item)) > origin.Count * MedianCorrectNeeded)
                 {
                     res.Add(item);

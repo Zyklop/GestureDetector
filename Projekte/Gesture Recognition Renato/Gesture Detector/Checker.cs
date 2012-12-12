@@ -5,10 +5,9 @@ using MF.Engineering.MF8910.GestureDetector.DataSources;
 
 namespace MF.Engineering.MF8910.GestureDetector.Tools
 {
-    // Summary:
-    //     Library for skeleton based vector math like joint velocity
     /// <summary>
-    /// Library for skeleton based vector math like joint velocity</summary>
+    /// Library for skeleton based vector math like joint velocity
+    /// </summary>
     class Checker
     {
         private Person person;
@@ -110,6 +109,13 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.SubstractPoints(person.GetLastSkeleton(time).GetPosition(moving), person.GetLastSkeleton(time).GetPosition(steady));
         }
 
+        /// <summary>
+        /// Median of the distance between two points
+        /// Median over 3
+        /// </summary>
+        /// <param name="t1">Joint 1</param>
+        /// <param name="t2">Joint 2</param>
+        /// <returns>Distance in Meters</returns>
         public double GetDistanceMedian(JointType t1, JointType t2)
         {
             if (!HasSkeleton(2))
@@ -119,6 +125,12 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.Median(GetDistance(t1,t2), GetDistance(t1,t2,1), GetDistance(t1,t2,2));
         }
 
+        /// <summary>
+        /// The last distance between the points. 
+        /// </summary>
+        /// <param name="t1">Joint 1</param>
+        /// <param name="t2">Joint 2</param>
+        /// <returns>Distance in Meters</returns>
         public double GetDistance(JointType t1, JointType t2)
         {
             return GetDistance(t1, t2, 0);
@@ -133,6 +145,12 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.DistanceBetweenPoints(person.GetLastSkeleton(time).GetPosition(t1), person.GetLastSkeleton(time).GetPosition(t2));
         }
 
+        /// <summary>
+        /// The actual movement directions
+        /// High Tolerance
+        /// </summary>
+        /// <param name="type">Joint</param>
+        /// <returns>Enumerable of the directions</returns>
         public IEnumerable<Direction> GetAbsoluteMovement(JointType type)
         {
             if (!HasSkeleton(1))
@@ -142,6 +160,12 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.DirectionTo(person.GetLastSkeleton(1).GetPosition(type), person.CurrentSkeleton.GetPosition(type));
         }
 
+        /// <summary>
+        /// The actual direction of movement to a relative point
+        /// </summary>
+        /// <param name="steady">The reference joint</param>
+        /// <param name="moving">The joint for the direction</param>
+        /// <returns>Enumerable of the directions</returns>
         public IEnumerable<Direction> GetRelativeMovement(JointType steady, JointType moving)
         {
             if (!HasSkeleton(1))
@@ -152,11 +176,24 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
                 SkeletonMath.SubstractPoints(person.CurrentSkeleton.GetPosition(moving), person.CurrentSkeleton.GetPosition(steady)));
         }
 
+        /// <summary>
+        /// The static position of a joint in relation to another
+        /// </summary>
+        /// <param name="from">source of the direction</param>
+        /// <param name="to">target of the direction</param>
+        /// <returns>Enumerable of the directions</returns>
         public IEnumerable<Direction> GetRelativePosition(JointType from, JointType to)
         {
             return SkeletonMath.DirectionTo(person.CurrentSkeleton.GetPosition(from), person.CurrentSkeleton.GetPosition(to));
         }
 
+        /// <summary>
+        /// Direction of a joint over a span of frames
+        /// Low tolerance, but movement has to be constant
+        /// </summary>
+        /// <param name="type">the joint</param>
+        /// <param name="duration">number of frames</param>
+        /// <returns>Enumerable of the directions</returns>
         public IEnumerable<Direction> GetSteadyAbsoluteMovement(JointType type, int duration)
         {
             List<SkeletonPoint> from = new List<SkeletonPoint>(), to = new List<SkeletonPoint>();
@@ -172,6 +209,14 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.SteadyDirectionTo(from, to);
         }
 
+        /// <summary>
+        /// Relative movement over a timespawn
+        /// Low tolerance, but movement has to be constant
+        /// </summary>
+        /// <param name="steady">The reference joint</param>
+        /// <param name="moving">The joint to get the direction from</param>
+        /// <param name="duration">Timespawn in frames</param>
+        /// <returns>Enumerable of the directions</returns>
         public IEnumerable<Direction> GetSteadyRelativeMovement(JointType steady, JointType moving, int duration)
         {
             List<SkeletonPoint> from = new List<SkeletonPoint>(), to = new List<SkeletonPoint>();
@@ -187,6 +232,14 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
             return SkeletonMath.SteadyDirectionTo(from, to);
         }
 
+        /// <summary>
+        /// The relative position over a timespawn
+        /// Low tolerance, but the position has to be constant
+        /// </summary>
+        /// <param name="from">Source of the direction</param>
+        /// <param name="to">target of the direction</param>
+        /// <param name="duration">Timespawn in frames</param>
+        /// <returns>Enumerable of the directions</returns>
         public IEnumerable<Direction> GetSteadyPosition(JointType from, JointType to, int duration)
         {
             List<SkeletonPoint> origin = new List<SkeletonPoint>(), target = new List<SkeletonPoint>();

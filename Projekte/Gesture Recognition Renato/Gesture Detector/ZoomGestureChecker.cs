@@ -27,6 +27,11 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
             _start = -1.0;
         }
 
+        /// <summary>
+        /// Calculating different zoom factors
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected override void FireSucessful(object sender, GestureEventArgs e)
         {
             if(Math.Abs(_start - -1.0) < EPSILON)

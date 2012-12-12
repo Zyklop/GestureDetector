@@ -3,9 +3,17 @@ using Microsoft.Kinect;
 
 namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
+    /// <summary>
+    /// The joint data is stored here.
+    /// Filtering is also possible here
+    /// </summary>
     public class SmothendSkeleton
     {
+        // The joint's data
         private Dictionary<JointType, Joint> joints;
+        /// <summary>
+        /// Time of the Skeleton
+        /// </summary>
         public long Timestamp { get; private set; }
 
         public SmothendSkeleton(Skeleton s, long timestamp)
