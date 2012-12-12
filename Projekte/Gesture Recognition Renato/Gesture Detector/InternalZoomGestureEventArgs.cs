@@ -2,8 +2,14 @@
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
 {
-    public class InternalZoomGestureEventArgs: GestureEventArgs
+    /// <summary>
+    /// EventArgs to pass the hand distance to the GestureChecker
+    /// </summary>
+    internal class InternalZoomGestureEventArgs: GestureEventArgs
     {
+        /// <summary>
+        /// Actual distance between hands
+        /// </summary>
         public double Gauge { get; set; }
     }
 }

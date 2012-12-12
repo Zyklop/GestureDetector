@@ -160,6 +160,11 @@ namespace DebugGui
             _active = null;
         }
 
+        /// <summary>
+        /// Handled in Active Person
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void waved(object sender, GestureEventArgs e)
         {
         }
