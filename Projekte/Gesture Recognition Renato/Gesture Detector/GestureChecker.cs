@@ -111,10 +111,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         private void ConditionFailed(Object src, FailedGestureEventArgs e)
         {
             Reset();
-            if (Failed != null) 
-            {
-                FireFailed(this, e);
-            }
+            FireFailed(this, e);
         }
 
         /// <summary>
