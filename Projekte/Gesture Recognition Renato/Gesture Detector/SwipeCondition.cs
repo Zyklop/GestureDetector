@@ -18,7 +18,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
 
         private Checker Checker;
         private const int LowerBoundForSuccess = 2;
-        private const double LowerBoundForVelocity = 2.5;
+        private const double LowerBoundForVelocity = 2.0;
         private int _index;
 
         public SwipeCondition(Person p, JointType leftOrRightHand)
@@ -43,7 +43,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
             }
                 // hand is in front of the body and between hip and shoulders
             else if (handToHipOrientation.Contains(Direction.Forward)
-                && handToHipOrientation.Contains(Direction.Upward)
+               // && handToHipOrientation.Contains(Direction.Upward)
                 && handToShoulderOrientation.Contains(Direction.Downward))
             {
                 // movement did not start yet, initializing
