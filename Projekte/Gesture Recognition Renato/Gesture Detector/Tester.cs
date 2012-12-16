@@ -25,40 +25,45 @@ namespace MF.Engineering.MF8910.GestureDetector
 
         static void NewPerson(object src, NewPersonEventArgs newPersonEventArgs )
         {
-            jgc = new JumpGestureChecker(newPersonEventArgs.Person);
-            jgc.Successful += delegate { Console.WriteLine("Jump"); };
+            jgc = new JumpGestureChecker(newPersonEventArgs.Person); // Anlegen des Eigenen GestureCheckers 
+            jgc.Successful += delegate { Console.WriteLine("Jump"); }; // Registrieren auf dessen Event
 
         }
     }
 
-    class JumpGestureChecker : GestureChecker
+    class JumpGestureChecker : GestureChecker // Klasse implementiert GestureChecker
     {
-        public JumpGestureChecker(Person p) : base(new List<Condition>() { new JumpCondition(p)}, 1000)
+        public JumpGestureChecker(Person p) // übergeben der zu überwachenden Person
+            : base(new List<Condition>
+                {
+                    new JumpCondition(p) // Anlegen einens GestureCheckers mit einer JumpCondition
+                }, 1000) // timerout ist hier nicht von Belang
         {
         }
     }
 
-    class JumpCondition : Condition
+    class JumpCondition : Condition // JumpCondition prüft, ob gesprungen wurde
     {
-        private Checker c;
+        private Checker c; // Checker für die Berechnungen
 
         public JumpCondition(Person p) : base(p)
         {
             c = new Checker(p);
         }
 
-        protected override void Check(object src, NewSkeletonEventArgs e)
+        protected override void Check(object src, NewSkeletonEventArgs e) // überprüfung bei jedem neuen Skelett
         {
-            if (c.GetAbsoluteMovement(JointType.HipCenter).Contains(Direction.Upward))
+            if (c.GetAbsoluteMovement(JointType.HipCenter) // Bewegung der Hüfte
+                .Contains(Direction.Upward)) // nach oben?
             {
-                FireSucceeded(this, new JumpGestureEventArgs());
+                FireSucceeded(this, new JumpGestureEventArgs()); // Condition erfolgreich
             }
             else
             {
-                FireFailed(this, new FailedGestureEventArgs{Condition = this});
+                FireFailed(this, new FailedGestureEventArgs{Condition = this}); // nicht erfolgreich
             }
         }
     }
 
-    class JumpGestureEventArgs : GestureEventArgs{}
+    class JumpGestureEventArgs : GestureEventArgs{} // Args für optionale Parameter
 }

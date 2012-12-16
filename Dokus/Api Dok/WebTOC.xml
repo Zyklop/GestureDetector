@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="2769bbe7-b0a0-4b60-953e-df5bc2350e63" Title="DebugGui Namespace" Url="html/e55538a3-ad36-d93f-e494-744087a52889.htm">
+    <HelpTOCNode Id="a23e5274-9895-4d8a-aa3b-a85d3a652d5f" Title="App Class" Url="html/7dec9588-bf09-5d89-1823-ede404ea2888.htm">
+      <HelpTOCNode Title="App Members" Url="html/4def752a-0136-b43e-5ee1-5d6be1199991.htm" />
+      <HelpTOCNode Title="App Constructor " Url="html/72b7b774-2933-abba-2f48-09b0e3e63b35.htm" />
+      <HelpTOCNode Id="cbab78c7-740c-4f8d-91ae-530d56ca2a09" Title="App Methods" Url="html/466510e3-b3e5-fb92-2bce-3d3841b9e9c0.htm">
+        <HelpTOCNode Title="InitializeComponent Method " Url="html/d581e069-5188-1312-8eb2-a19bb41e9f3b.htm" />
+        <HelpTOCNode Title="Main Method " Url="html/87ab4bc9-b2ff-680a-9dbe-c2e06d24cea1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="App Properties" Url="html/70192419-5543-a16b-1fce-15ea09f6f262.htm" />
+      <HelpTOCNode Title="App Events" Url="html/9ebf16ef-8fea-c464-d3b3-0032ff743932.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="17030f8f-5c41-44f6-8f74-d5d46139090c" Title="MainWindow Class" Url="html/3c163c43-38fa-dcfb-6491-9dbeeb893f47.htm">
+      <HelpTOCNode Title="MainWindow Members" Url="html/ae85fdba-960b-a006-3955-18006a0f4ef7.htm" />
+      <HelpTOCNode Title="MainWindow Constructor " Url="html/e2e5fa6a-cc9a-0b55-0a5c-3e7aeb5ad20d.htm" />
+      <HelpTOCNode Id="6a035640-f1b0-4a6f-a8cb-41419f6a2451" Title="MainWindow Methods" Url="html/ff7cc479-aa0e-c3a5-b5e3-05b61c005e0e.htm">
+        <HelpTOCNode Title="InitializeComponent Method " Url="html/4217c739-6625-8e2f-095b-f392a3ee025e.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MainWindow Properties" Url="html/46c85b5a-bcfe-ace8-d0f2-265c9fccb671.htm" />
+      <HelpTOCNode Title="MainWindow Events" Url="html/15ee20ba-8296-fedf-7648-be8897bb1371.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="8d271f87-b167-4141-bcef-61eb1a962d3d" Title="MF.Engineering.MF8910.GestureDetector.DataSources Namespace" Url="html/d2a42e69-b7f5-f914-75fa-1ca118282fbe.htm">
+    <HelpTOCNode Id="b2b376db-b1d3-4585-8860-07090039f0b7" Title="Device Class" Url="html/3d0d98ae-45cd-5bfe-ba70-0ceabac0bac9.htm">
+      <HelpTOCNode Title="Device Members" Url="html/dccab0a2-f3d1-8ec5-af8c-70afee3d5f2e.htm" />
+      <HelpTOCNode Id="6007e263-c6da-4d19-b286-6826adb588cd" Title="Device Constructor " Url="html/1f01c86a-5234-59c6-8a44-5bdd9e582da6.htm">
+        <HelpTOCNode Title="Device Constructor " Url="html/4d97b21d-944f-dcee-6028-c1f7fc459125.htm" />
+        <HelpTOCNode Title="Device Constructor (String)" Url="html/04957800-f541-6e0b-904b-0dde249fbaef.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="2bacb9e8-7206-422c-bf1d-2778b826c083" Title="Device Methods" Url="html/93ecb5ab-554f-525b-5748-e45cd37fe4bb.htm">
+        <HelpTOCNode Title="Dispose Method " Url="html/cd7e355e-626e-e334-5f2d-1dae331e0ea6.htm" />
+        <HelpTOCNode Title="GetActivePerson Method " Url="html/f242bfda-001a-1e95-11c7-598f67b77d7a.htm" />
+        <HelpTOCNode Title="GetAllPersons Method " Url="html/6b012c9a-10b6-fb10-206c-92e5fb63e458.htm" />
+        <HelpTOCNode Title="HandleNewSkeletons Method " Url="html/0fa54787-c3d1-c90a-2de2-1f437b97178e.htm" />
+        <HelpTOCNode Title="OnNewSkeletons Method " Url="html/5477dfc7-2340-b0e7-e46c-eb447eb04704.htm" />
+        <HelpTOCNode Title="Start Method " Url="html/789a283a-d68a-a3d5-f4c3-ff9efd808789.htm" />
+        <HelpTOCNode Title="Stop Method " Url="html/42fa739d-5380-b4dc-21f9-0e25d3518ff0.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="518eb91e-24f7-4409-b3d8-c2e86294d95c" Title="Device Properties" Url="html/6c10b8bf-4b19-c8c0-1201-57f1ea8b2ba1.htm">
+        <HelpTOCNode Title="Status Property " Url="html/df48c565-6837-83d0-8060-a37c22b5f705.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="9dbe18fc-aff6-4cd9-bdd0-3b647acddecc" Title="Device Events" Url="html/50599719-3697-7df4-c45c-c2781dfa0af3.htm">
+        <HelpTOCNode Title="Accelerated Event" Url="html/67ff9040-f790-a301-6dc7-58a417d7c8e1.htm" />
+        <HelpTOCNode Title="NewPerson Event" Url="html/4d3dd265-e1b6-2c4a-c4d3-643ee18da53d.htm" />
+        <HelpTOCNode Title="PersonActive Event" Url="html/5aacb24a-405f-3060-f1c8-17e256c16323.htm" />
+        <HelpTOCNode Title="PersonLost Event" Url="html/1a9aebcd-925b-98dc-53c2-3ef486152b4e.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5895350d-2d6f-4a83-aac8-16c4014d94de" Title="Person Class" Url="html/6924d9e6-a689-c0fd-0da5-e303f5c71227.htm">
+      <HelpTOCNode Title="Person Members" Url="html/012e9a0a-69d1-c033-b25b-4f631d68b368.htm" />
+      <HelpTOCNode Title="Person Constructor " Url="html/c916f378-af8b-0a08-82fe-dcef40c887ab.htm" />
+      <HelpTOCNode Id="6c78df6d-ffd5-4c61-afcb-dbd44148a1d3" Title="Person Methods" Url="html/546a2a57-2cb3-0858-dd31-d865b66cb41d.htm">
+        <HelpTOCNode Title="Equals Method " Url="html/e7f216b7-c30e-c819-94fa-4e8ebf10ea70.htm" />
+        <HelpTOCNode Title="GetHashCode Method " Url="html/40c4bc8d-508b-c84d-eba5-bb90d68741bf.htm" />
+        <HelpTOCNode Title="GetLastSkeleton Method " Url="html/7441bc1b-4439-9053-ee88-c6b25c422616.htm" />
+        <HelpTOCNode Title="MillisBetweenFrames Method " Url="html/2e29277b-66ba-e746-93b6-2c98df0d4254.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="a303a046-9105-4059-a7ed-2d662e7d1206" Title="Person Properties" Url="html/4f62678f-415a-1b05-7a13-a88c86fb75a1.htm">
+        <HelpTOCNode Title="Active Property " Url="html/c9929dfb-9c4c-222b-0904-64df613d58da.htm" />
+        <HelpTOCNode Title="CurrentSkeleton Property " Url="html/6f3e45e6-a3b2-2b97-407b-fa20f2724fb2.htm" />
+        <HelpTOCNode Title="Id Property " Url="html/80b8d403-248e-3135-1ab2-9ad8b0d0b5d4.htm" />
+        <HelpTOCNode Title="SendEventsWhenPassive Property " Url="html/236f4d03-a62f-5199-ad37-f38a2203a3f2.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="5f2190e3-1dcb-4ac0-a40b-419665e7198b" Title="Person Events" Url="html/602b7ed8-540d-f2ab-267f-fcf1e7632a45.htm">
+        <HelpTOCNode Title="OnSwipe Event" Url="html/53b10181-f1e9-d055-b26e-65ff8c9da9d7.htm" />
+        <HelpTOCNode Title="OnWave Event" Url="html/e1ec233c-5fef-1034-c2c3-ce905fff75f9.htm" />
+        <HelpTOCNode Title="OnZoom Event" Url="html/537e3d24-8fd7-b6f3-2ecf-a11e5d831b0d.htm" />
+        <HelpTOCNode Title="PersonActive Event" Url="html/dc8cf0f2-5c8c-cb98-78cd-71bed0c26720.htm" />
+        <HelpTOCNode Title="PersonPassive Event" Url="html/a93643cb-ee4a-2acc-d803-9211924b0b29.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="59d6c1e8-62fd-42af-8a32-a478e12ea4c6" Title="SmothendSkeleton Class" Url="html/b7390814-f30f-e64b-6c3b-9ee7d6f48242.htm">
+      <HelpTOCNode Title="SmothendSkeleton Members" Url="html/aec6a8d9-e422-bec8-ed37-e2a72b8abb73.htm" />
+      <HelpTOCNode Title="SmothendSkeleton Constructor " Url="html/0dd04518-2b43-c24b-c996-203de2aa31d2.htm" />
+      <HelpTOCNode Id="8c385d06-2d14-4d12-a926-50c6d963e667" Title="SmothendSkeleton Methods" Url="html/2999529a-61e2-e7d9-01ef-50045f8cdbe0.htm">
+        <HelpTOCNode Title="GetPosition Method " Url="html/1d404bf9-5ebc-6a36-df99-6450f1a7e477.htm" />
+        <HelpTOCNode Title="GetState Method " Url="html/dbf425a6-6bde-4cf4-111d-5785a2f023f4.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="0eec7415-7f16-4a0b-ab4b-9c20b6ceed68" Title="SmothendSkeleton Properties" Url="html/a81d5146-0c52-98e6-d5e6-5920a7080170.htm">
+        <HelpTOCNode Title="Timestamp Property " Url="html/1a671249-87f3-90d4-a5db-d88ba7755619.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="85668b23-bfac-4fdd-b855-e9129c533a3e" Title="MF.Engineering.MF8910.GestureDetector.Events Namespace" Url="html/7e925586-7366-aad9-43c7-7323ab9a4e12.htm">
+    <HelpTOCNode Id="11276a7d-45e3-41db-9d54-be17bb04c48f" Title="AccelerationEventArgs Class" Url="html/b9445458-3249-95c5-8bdc-8dc509ce940e.htm">
+      <HelpTOCNode Title="AccelerationEventArgs Members" Url="html/a33a5e49-fc24-3641-7029-86f9b176129f.htm" />
+      <HelpTOCNode Title="AccelerationEventArgs Constructor " Url="html/41c9d40f-6bd8-e286-e7f0-2dcea5f697b8.htm" />
+      <HelpTOCNode Title="AccelerationEventArgs Methods" Url="html/b75f70e8-5352-572d-639d-d93c652031b1.htm" />
+      <HelpTOCNode Id="1a807d55-9531-4de8-b930-3edb2c79b358" Title="AccelerationEventArgs Properties" Url="html/e921b132-e957-bf9a-62f9-1a6d9e23bd11.htm">
+        <HelpTOCNode Title="Amount Property " Url="html/d5bc2335-85fa-f043-5ff1-74dbd09bdfdf.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f3457ea6-596f-47c4-80fa-f6cb14e77425" Title="ActivePersonEventArgs Class" Url="html/6faedec6-e782-c9a5-4f09-55a654f3b4b4.htm">
+      <HelpTOCNode Title="ActivePersonEventArgs Members" Url="html/12db961e-5ed2-89b4-89cc-77aae55d0143.htm" />
+      <HelpTOCNode Title="ActivePersonEventArgs Constructor " Url="html/89ba7d6c-3801-c575-e5af-52127a0dbf15.htm" />
+      <HelpTOCNode Title="ActivePersonEventArgs Methods" Url="html/863d9cb9-fb54-0263-8c3c-fa19aaff9e1e.htm" />
+      <HelpTOCNode Id="201c3493-54f2-4d6c-89c7-31fe9432826a" Title="ActivePersonEventArgs Properties" Url="html/ffb6e693-71cf-95c3-39f3-4f762c66c1a5.htm">
+        <HelpTOCNode Title="Person Property " Url="html/d499d705-2551-d770-7ecf-03e9c659516b.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="fada65ba-aae0-4c7d-9665-ab24f22e8113" Title="FailedGestureEventArgs Class" Url="html/c88dfbe8-41e0-9d3c-7704-e772425e5732.htm">
+      <HelpTOCNode Title="FailedGestureEventArgs Members" Url="html/cd990074-e592-4ba3-31a0-2bc0122b24f6.htm" />
+      <HelpTOCNode Title="FailedGestureEventArgs Constructor " Url="html/8eceddd1-a056-e7ff-1866-905cc0ce4ec8.htm" />
+      <HelpTOCNode Title="FailedGestureEventArgs Methods" Url="html/83f87ef9-451f-a876-a5d6-2683b3739c3f.htm" />
+      <HelpTOCNode Id="52f7827c-8b15-4132-8659-f81f589f7a5c" Title="FailedGestureEventArgs Properties" Url="html/ea8e02f9-2253-e8f1-4d99-2ddd03a6412f.htm">
+        <HelpTOCNode Title="Condition Property " Url="html/d587efdf-d29d-7b8d-0366-a25a9037091e.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="dfb7153e-67f5-4ea4-be9c-1ede727636b2" Title="GestureEventArgs Class" Url="html/37aeddc5-b92d-61f5-1420-a6d67deaea61.htm">
+      <HelpTOCNode Title="GestureEventArgs Members" Url="html/78794fca-4b74-3407-228e-08bd5698ebf2.htm" />
+      <HelpTOCNode Title="GestureEventArgs Constructor " Url="html/756e83e8-e5ef-dea9-6582-58a155e23574.htm" />
+      <HelpTOCNode Title="GestureEventArgs Methods" Url="html/83a78276-6bcf-c995-8c91-90c82a380f2e.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="029803af-3e48-487f-a0ef-2e54f7d0e364" Title="NewPersonEventArgs Class" Url="html/864a82e8-44ee-25af-86e2-3999b1598bd7.htm">
+      <HelpTOCNode Title="NewPersonEventArgs Members" Url="html/218ac850-d84c-a666-64cb-94d2866b09aa.htm" />
+      <HelpTOCNode Title="NewPersonEventArgs Constructor " Url="html/df8cf501-44f5-4387-b966-f3677288c1e1.htm" />
+      <HelpTOCNode Title="NewPersonEventArgs Methods" Url="html/43580868-afcb-d2a0-7b2d-a2e8bbe2589e.htm" />
+      <HelpTOCNode Id="4eb9b1c9-643a-4086-ab5f-7465b6adbfb8" Title="NewPersonEventArgs Properties" Url="html/0b342e67-5584-15ec-e9d8-095c38116e97.htm">
+        <HelpTOCNode Title="Person Property " Url="html/0d232936-ad7c-532b-1e25-2b8a7848cba1.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b2f83798-816a-431d-8fbb-591cc5a962cd" Title="NewSkeletonEventArgs Class" Url="html/6b453506-b68d-0f1c-e9a0-ccc0f6f29ff4.htm">
+      <HelpTOCNode Title="NewSkeletonEventArgs Members" Url="html/8f0cf8b5-392c-5700-b495-ea564f95cc31.htm" />
+      <HelpTOCNode Title="NewSkeletonEventArgs Constructor " Url="html/b64fa7c2-0f92-01db-697c-b656da04f1df.htm" />
+      <HelpTOCNode Title="NewSkeletonEventArgs Methods" Url="html/42c465cd-0f00-ae6a-cbe8-140d18a7e921.htm" />
+      <HelpTOCNode Id="6f8c6c4a-b5fb-404b-9c10-568d6ef0eb5d" Title="NewSkeletonEventArgs Properties" Url="html/ee92a6b0-5377-6425-8e3b-eee9b08c249d.htm">
+        <HelpTOCNode Title="Skeleton Property " Url="html/f40ccd9f-a682-6419-3f7f-b10f8bf26692.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="8c368dcb-153e-4bd6-b2dd-a9fc1797445f" Title="PersonDisposedEventArgs Class" Url="html/44610a98-05eb-33e4-bd77-96afcfc91bcd.htm">
+      <HelpTOCNode Title="PersonDisposedEventArgs Members" Url="html/e2178939-94b2-e9bb-9b91-1b056a8f3654.htm" />
+      <HelpTOCNode Title="PersonDisposedEventArgs Constructor " Url="html/ab0a458e-f121-4c44-4df0-6e75e56ec7b3.htm" />
+      <HelpTOCNode Title="PersonDisposedEventArgs Methods" Url="html/c18bf9e1-a2ac-a193-638e-f515c7be7f2f.htm" />
+      <HelpTOCNode Id="fb4a7db0-2c84-4ea9-8f60-0d84141df3ff" Title="PersonDisposedEventArgs Properties" Url="html/4fdbfc52-9426-2335-357b-23278006c5c0.htm">
+        <HelpTOCNode Title="Person Property " Url="html/6bba4b41-7eac-aa1d-d727-f79acdb6e830.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4cf586ee-7e84-47d6-82cf-e4a5193d7906" Title="PersonPassiveEventArgs Class" Url="html/4a6b1ba6-867d-c5ef-10c1-a3aa35fcd3c3.htm">
+      <HelpTOCNode Title="PersonPassiveEventArgs Members" Url="html/7440acde-6f0c-2acb-d344-9f02d8b37f11.htm" />
+      <HelpTOCNode Title="PersonPassiveEventArgs Constructor " Url="html/027ec2f5-0d86-8029-f44e-1ed30561dd4c.htm" />
+      <HelpTOCNode Title="PersonPassiveEventArgs Methods" Url="html/5963a6ba-b6cf-ccf5-654d-594325d4d01b.htm" />
+      <HelpTOCNode Id="f95a9b2c-0094-4a5c-90f4-f9247857612f" Title="PersonPassiveEventArgs Properties" Url="html/abdc50ee-253f-4dc4-f222-ffb04276e5a5.htm">
+        <HelpTOCNode Title="Person Property " Url="html/d60990e7-89b4-93db-4b5b-1941742e2b94.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="ba2d564d-535e-47c3-9799-e0b3ed6e1ab5" Title="MF.Engineering.MF8910.GestureDetector.Gestures Namespace" Url="html/8429d671-95be-34ce-456e-125714e92cb1.htm">
+    <HelpTOCNode Id="76bb5057-6197-4322-acd6-4e611d4a04cb" Title="Condition Class" Url="html/14c254ac-64c3-dd97-dca9-c04ef27e77d5.htm">
+      <HelpTOCNode Title="Condition Members" Url="html/a62ec937-d2fd-172f-ebb5-f81d2814b144.htm" />
+      <HelpTOCNode Title="Condition Constructor " Url="html/e0286826-990c-4c09-4d56-f51d609684ef.htm" />
+      <HelpTOCNode Id="cf19c1ae-2fa1-4e62-9752-9d3a35c5973c" Title="Condition Fields" Url="html/dee28f3f-9eeb-4585-80ae-bddf35175807.htm">
+        <HelpTOCNode Title="Person Field" Url="html/2add61e1-c27e-5afd-1b18-914acbb838ab.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="07e349bd-2151-4b5a-a354-3eb8211d53ba" Title="Condition Methods" Url="html/b747ba49-5aa1-8764-4b01-945c16de289d.htm">
+        <HelpTOCNode Title="Check Method " Url="html/eb07baad-b5c1-4351-5f77-5ca78d6425b5.htm" />
+        <HelpTOCNode Title="Disable Method " Url="html/5a20ab20-8689-9ee3-8b77-8952572902f6.htm" />
+        <HelpTOCNode Title="Enable Method " Url="html/9b6fcbd2-7679-8c3b-b821-a8f03b161c5b.htm" />
+        <HelpTOCNode Title="FireFailed Method " Url="html/cdf1813a-be72-1952-6a28-7eba6c36c192.htm" />
+        <HelpTOCNode Title="FireSucceeded Method " Url="html/794c4763-fb91-69e6-4dc6-99c12a8d18da.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="39202c9b-41ba-487c-86f8-4f3bc8d09622" Title="Condition Events" Url="html/fbbb004d-1c5d-59a8-ee9a-64a3c9403848.htm">
+        <HelpTOCNode Title="Failed Event" Url="html/6ff94640-88e4-ea4e-a61f-0cf06107a05d.htm" />
+        <HelpTOCNode Title="OnCheck Event" Url="html/4643c8c6-48da-c6a8-e397-95e0bf7e7121.htm" />
+        <HelpTOCNode Title="Succeeded Event" Url="html/e8fc98f0-5694-6adb-d97d-42147b1f664a.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="eda73357-a02d-4a84-b5a2-2b226dfb6164" Title="DynamicCondition Class" Url="html/4e333d43-8a26-2f14-7462-536796392098.htm">
+      <HelpTOCNode Title="DynamicCondition Members" Url="html/35437f6b-559b-ddbf-3227-13425957ff1a.htm" />
+      <HelpTOCNode Title="DynamicCondition Constructor " Url="html/80d908cc-f496-5da6-ce9a-c01c4edbb7e3.htm" />
+      <HelpTOCNode Title="DynamicCondition Fields" Url="html/b2c904ee-5e5c-bc41-7029-e5cfa9d3dada.htm" />
+      <HelpTOCNode Id="cda330c2-86bf-4a74-a45b-560f2bc580a7" Title="DynamicCondition Methods" Url="html/636148b1-d284-2d95-4041-240358df3470.htm">
+        <HelpTOCNode Title="FireTriggered Method " Url="html/f2347e98-184c-15e4-2279-f1dded857549.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="1604cb32-f323-4c21-82ac-2ef06cf9a80d" Title="DynamicCondition Events" Url="html/40d1cc0c-49ea-b6a9-15b3-be5d506ab729.htm">
+        <HelpTOCNode Title="Triggered Event" Url="html/7191cc22-5840-94d5-28c3-3a2e3141224c.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="88c79c2b-601a-4236-81b9-d0a5497be7fd" Title="MF.Engineering.MF8910.GestureDetector.Gestures.Swipe Namespace" Url="html/a790a4f1-58ba-dde3-07a9-43193924ff44.htm">
+    <HelpTOCNode Id="81a5b78b-49ee-4346-aa7a-d68e20a1f415" Title="SwipeGestureEventArgs Class" Url="html/73935395-b2d4-59dc-afa7-666eeda081df.htm">
+      <HelpTOCNode Title="SwipeGestureEventArgs Members" Url="html/5d5e378c-6bf4-5503-84d1-6b8270adf9bf.htm" />
+      <HelpTOCNode Title="SwipeGestureEventArgs Constructor " Url="html/b5a5f918-a546-4096-cef0-d0cc934f5406.htm" />
+      <HelpTOCNode Title="SwipeGestureEventArgs Methods" Url="html/b01cf4d8-6513-430a-a4c3-83572520ab5c.htm" />
+      <HelpTOCNode Id="2f1d1a6d-bc52-425f-a696-854fd54b2138" Title="SwipeGestureEventArgs Properties" Url="html/96e30f85-ab2e-86c4-18b8-b7ec82a2bf21.htm">
+        <HelpTOCNode Title="Direction Property " Url="html/b91f7c64-eec9-0da6-3b9c-c12503b10227.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="a0682b81-90e6-4d32-b80f-aa760d195bb1" Title="MF.Engineering.MF8910.GestureDetector.Gestures.Wave Namespace" Url="html/3eec1399-1d8b-4596-c9ae-fd3820821edc.htm">
+    <HelpTOCNode Id="26045ef3-7602-4888-8ce6-c7aeb3fe79d5" Title="WaveLeftCondition Class" Url="html/3f77d9e6-d4ee-1282-1f07-75312266c890.htm">
+      <HelpTOCNode Title="WaveLeftCondition Members" Url="html/6050ecec-5043-f7c8-6375-12f3ae1a0b44.htm" />
+      <HelpTOCNode Title="WaveLeftCondition Constructor " Url="html/b71481e8-0909-2e95-e026-8e86bbf6ad8e.htm" />
+      <HelpTOCNode Title="WaveLeftCondition Fields" Url="html/c6e23e0a-c935-000c-7ea6-8134dbb2920c.htm" />
+      <HelpTOCNode Id="d5977712-456b-461a-8621-988fe841a93e" Title="WaveLeftCondition Methods" Url="html/a9a90e1f-950c-fb73-c8a7-0dff16a3b61a.htm">
+        <HelpTOCNode Title="Check Method " Url="html/a4331fa8-aa5f-75d6-a99d-3596df9cfadb.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="WaveLeftCondition Events" Url="html/4d4684ba-90d1-cf81-0a82-eeee9b8c42f3.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="1d4c1d9a-ce94-4713-b707-028d484034df" Title="WaveRightCondition Class" Url="html/32623769-9fbd-6979-13c7-4dc65609f2b6.htm">
+      <HelpTOCNode Title="WaveRightCondition Members" Url="html/0609cc97-4c87-5faa-7b6c-23518255973d.htm" />
+      <HelpTOCNode Title="WaveRightCondition Constructor " Url="html/c5271ee7-e98b-1b2f-5b09-c7af6efc0149.htm" />
+      <HelpTOCNode Title="WaveRightCondition Fields" Url="html/f01d398d-0080-e8c9-90e3-fc82804c7fb7.htm" />
+      <HelpTOCNode Id="8beba2eb-20c7-466e-813a-61ff73493c85" Title="WaveRightCondition Methods" Url="html/823fd0c8-1c32-c8bb-4814-6d2d26d8385f.htm">
+        <HelpTOCNode Title="Check Method " Url="html/9270e5f3-bd43-c212-b9ce-197dc998950f.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="WaveRightCondition Events" Url="html/45c32611-4b2e-bafd-6f73-300dcab26c30.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="7ab9a3af-7db8-4c9c-900f-c35a6f86be04" Title="MF.Engineering.MF8910.GestureDetector.Gestures.Zoom Namespace" Url="html/accf0853-4dea-1e6c-9dff-e1dc0846b236.htm">
+    <HelpTOCNode Id="3012ad5e-3245-40da-88ef-b92842974f89" Title="ZoomGestureEventArgs Class" Url="html/c995c1ba-5abd-309e-2ad4-5ece7dfa3759.htm">
+      <HelpTOCNode Title="ZoomGestureEventArgs Members" Url="html/d9e95b53-0fa6-f51a-c0af-af5f9b9c555d.htm" />
+      <HelpTOCNode Title="ZoomGestureEventArgs Constructor " Url="html/5eb56adb-6464-44db-0dc9-4280c43a30a4.htm" />
+      <HelpTOCNode Title="ZoomGestureEventArgs Methods" Url="html/18eef649-4143-e2b4-694f-578534b0c253.htm" />
+      <HelpTOCNode Id="bc7abb95-199c-470d-91da-58189ec5c174" Title="ZoomGestureEventArgs Properties" Url="html/e1ca6195-06d1-406b-7057-60ad7a6cf45f.htm">
+        <HelpTOCNode Title="ZoomFactorFromBegin Property " Url="html/d1ead319-0df5-bb54-8de8-cd757c871eb9.htm" />
+        <HelpTOCNode Title="ZoomFactorFromLast Property " Url="html/0e1f9ef6-6862-0774-e2ab-a66200cd54bf.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="17e671e8-daa7-4246-8915-41ad88832c06" Title="MF.Engineering.MF8910.GestureDetector.Tools Namespace" Url="html/2d065912-5f2f-b6c0-1d7e-2cebc399d01f.htm">
+    <HelpTOCNode Title="Direction Enumeration" Url="html/b4404bfc-0f26-8124-8ba1-84c593dafada.htm" />
+  </HelpTOCNode>
+</HelpTOC>

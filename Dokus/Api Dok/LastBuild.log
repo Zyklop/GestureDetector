@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder" version="1.9.5.0" projectFile="C:\Users\Renato\Documents\SA_Doku.shfbproj" started="12/16/2012 11:37:42 AM">
+<buildStep step="Initializing">
+</buildStep>
+<buildStep step="FindingTools">
+Finding tools...
+Found Sandcastle tools in &#39;C:\Program Files (x86)\Sandcastle\&#39;
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: C:\Renato\programming\git\SA\Projekte\Gesture Recognition Renato\Gesture Detector.sln
+    Found project &#39;C:\Renato\programming\git\SA\Projekte\Gesture Recognition Renato\Gesture Detector\Gesture Detector.csproj&#39;
+    Found project &#39;C:\Renato\programming\git\SA\Projekte\Gesture Recognition Renato\DebugGui\DebugGui.csproj&#39;
+Source: C:\Renato\programming\git\SA\Projekte\Gesture Recognition Renato\Gesture Detector\doc\Gesture Detector.XML
+
+Parsing project files
+    Found assembly &#39;C:\Renato\programming\git\SA\Projekte\Gesture Recognition Renato\Gesture Detector\bin\Debug\Gesture Detector.exe&#39;
+    Found assembly &#39;C:\Renato\programming\git\SA\Projekte\Gesture Recognition Renato\DebugGui\bin\Debug\DebugGui.exe&#39;
+SHFB: Warning BE0007: A project with a different or higher framework version was found.  Changing project FrameworkVersion property from &#39;.NET Framework 4.0&#39; to &#39;.NET Framework 4.5&#39; for the build.
+
+References to include (excluding framework assemblies):
+    Microsoft.Kinect, Version=1.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL
+
+Copying XML comments files
+    C:\Renato\programming\git\SA\Projekte\Gesture Recognition Renato\Gesture Detector\doc\Gesture Detector.XML -&gt; C:\Users\Renato\Documents\Help\Working\Gesture Detector.XML
+SHFB: Warning BE0063: &#39;C:\Renato\programming\git\SA\Projekte\Gesture Recognition Renato\Gesture Detector\bin\Debug\Gesture Detector.XML&#39; matches a previously copied comments filename.  The duplicate will be copied to a unique name to preserve the comments it contains.
+    C:\Renato\programming\git\SA\Projekte\Gesture Recognition Renato\Gesture Detector\bin\Debug\Gesture Detector.XML -&gt; C:\Users\Renato\Documents\Help\Working\{47ea883e-30e0-4921-ad02-7c8f80eec856}
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (en-US, English (United States))...
+    Last step completed in 00:00:00.1248
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00.0312
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+  MRefBuilder (v2.7.1.0)
+  Copyright c 2006-2012, Microsoft Corporation, All Rights Reserved
+  Info: Loaded 2 assemblies for reflection and 2 dependency assemblies.
+  Info: Wrote information on 8 namespaces, 20 types, and 82 members
+  XslTransform (v2.7.1.0)
+  Copyright c 2006-2012, Microsoft Corporation, All Rights Reserved
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\ProductionTransforms\MergeDuplicates.xsl&#39;.
+    Last step completed in 00:00:02.5896
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00.0312
+</buildStep>
+<buildStep step="ApplyVisibilityProperties">
+Applying visibility properties to reflection information file
+    2 attribute nodes removed
+    1 explicit interface implementations removed
+    5 local and base class EII elements removed
+    Last step completed in 00:00:00.1249
+</buildStep>
+<buildStep step="TransformReflectionInfo">
+Transforming reflection output...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+  XslTransform (v2.7.1.0)
+  Copyright c 2006-2012, Microsoft Corporation, All Rights Reserved
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\ProductionTransforms\AddGuidFilenames.xsl&#39;.
+  XslTransform (v2.7.1.0)
+  Copyright c 2006-2012, Microsoft Corporation, All Rights Reserved
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+    Last step completed in 00:00:02.1996
+</buildStep>
+<buildStep step="ModifyHelpTopicFilenames">
+Modifying help topic filenames in reflection information file
+    No changes required
+    Last step completed in 00:00:00.0780
+</buildStep>
+<buildStep step="CopyStandardContent">
+Copying standard help content...
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\1_404_bullet.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\1_404_bullet.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\2_404_bullet.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\2_404_bullet.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\alert_caution.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\alert_caution.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\alert_note.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\alert_note.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\alert_security.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\alert_security.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\CFW.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\CFW.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\close.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\close.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\favicon.ico -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\favicon.ico
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\footer_slice.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\footer_slice.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\info_icon.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\info_icon.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\note.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\note.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\online_icon.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\online_icon.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\open.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\open.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pencil.GIF -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pencil.GIF
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privclass.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privclass.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privdelegate.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privdelegate.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privenumeration.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privenumeration.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privevent.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privevent.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privextension.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privextension.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privfield.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privfield.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privinterface.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privinterface.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privmethod.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privmethod.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privproperty.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privproperty.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\privstructure.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privstructure.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protclass.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protclass.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protdelegate.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protdelegate.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protenumeration.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protenumeration.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protevent.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protevent.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protextension.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protextension.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protfield.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protfield.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protinterface.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protinterface.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protmethod.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protmethod.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protoperator.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protoperator.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protproperty.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protproperty.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\protstructure.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protstructure.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubclass.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubclass.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubdelegate.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubdelegate.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubenumeration.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubenumeration.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubevent.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubevent.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubextension.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubextension.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubfield.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubfield.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubinterface.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubinterface.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubmethod.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubmethod.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\puboperator.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\puboperator.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubproperty.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubproperty.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\pubstructure.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubstructure.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\search.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\search.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\search_bk.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\search_bk.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\security.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\security.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\slMobile.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\slMobile.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\static.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\static.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\tabLeftBG.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\tabLeftBG.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\tabRightBG.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\tabRightBG.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\ui_om_collapse.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\ui_om_collapse.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\ui_om_expand.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\ui_om_expand.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\icons\xna.gif -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\icons\xna.gif
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\scripts\branding.js -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\scripts\branding.js
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-cs-CZ.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-cs-CZ.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-de-DE.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-de-DE.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-en-US.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-en-US.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-es-ES.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-es-ES.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-fr-FR.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-fr-FR.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-it-IT.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-it-IT.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-ja-JP.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-ja-JP.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-ko-KR.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-ko-KR.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-pl-PL.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-pl-PL.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-pt-BR.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-pt-BR.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-ru-RU.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-ru-RU.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-tr-TR.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-tr-TR.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-zh-CN.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-zh-CN.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding-zh-TW.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-zh-TW.css
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\styles\branding.css -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding.css
+Copying help branding...
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\branding\
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc -&gt; C:\Users\Renato\Documents\Help\Working\branding
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/body.xslt -> C:\Users\Renato\Documents\Help\Working\branding\body.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/head.xslt -> C:\Users\Renato\Documents\Help\Working\branding\head.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/CodeSnippet.xslt -> C:\Users\Renato\Documents\Help\Working\branding\CodeSnippet.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-cs-CZ.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-cs-CZ.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-de-DE.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-de-DE.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-en-US.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-en-US.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-es-ES.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-es-ES.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-fr-FR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-fr-FR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-it-IT.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-it-IT.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-ja-JP.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-ja-JP.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-ko-KR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-ko-KR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-pl-PL.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-pl-PL.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-pt-BR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-pt-BR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-ru-RU.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-ru-RU.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-tr-TR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-tr-TR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-zh-CN.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-zh-CN.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/codesnippet-zh-TW.xslt -> C:\Users\Renato\Documents\Help\Working\branding\codesnippet-zh-TW.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/Identity.xslt -> C:\Users\Renato\Documents\Help\Working\branding\Identity.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/InstrumentedLink.xslt -> C:\Users\Renato\Documents\Help\Working\branding\InstrumentedLink.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-cs-CZ.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-cs-CZ.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-de-DE.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-de-DE.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-en-US.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-en-US.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-es-ES.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-es-ES.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-fr-FR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-fr-FR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-it-IT.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-it-IT.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-ja-JP.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-ja-JP.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-ko-KR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-ko-KR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-pl-PL.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-pl-PL.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-pt-BR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-pt-BR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-ru-RU.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-ru-RU.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-tr-TR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-tr-TR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-zh-CN.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-zh-CN.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/instrumentedlink-zh-TW.xslt -> C:\Users\Renato\Documents\Help\Working\branding\instrumentedlink-zh-TW.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/LanguageSpecificText.xslt -> C:\Users\Renato\Documents\Help\Working\branding\LanguageSpecificText.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-cs-CZ.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-cs-CZ.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-de-DE.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-de-DE.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-en-US.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-en-US.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-es-ES.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-es-ES.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-fr-FR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-fr-FR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-it-IT.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-it-IT.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-ja-JP.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-ja-JP.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-ko-KR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-ko-KR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-pl-PL.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-pl-PL.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-pt-BR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-pt-BR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-ru-RU.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-ru-RU.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-tr-TR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-tr-TR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-zh-CN.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-zh-CN.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/MultiViewTable-zh-TW.xslt -> C:\Users\Renato\Documents\Help\Working\branding\MultiViewTable-zh-TW.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-cs-CZ.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-cs-CZ.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-de-DE.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-de-DE.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-en-US.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-en-US.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-es-ES.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-es-ES.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-fr-FR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-fr-FR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-it-IT.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-it-IT.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-ja-JP.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-ja-JP.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-ko-KR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-ko-KR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-pl-PL.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-pl-PL.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-pt-BR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-pt-BR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-ru-RU.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-ru-RU.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-tr-TR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-tr-TR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-zh-CN.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-zh-CN.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/index-zh-TW.xslt -> C:\Users\Renato\Documents\Help\Working\branding\index-zh-TW.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-cs-CZ.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-cs-CZ.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-de-DE.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-de-DE.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-en-US.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-en-US.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-es-ES.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-es-ES.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-fr-FR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-fr-FR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-it-IT.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-it-IT.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-ja-JP.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-ja-JP.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-ko-KR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-ko-KR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-pl-PL.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-pl-PL.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-pt-BR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-pt-BR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-ru-RU.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-ru-RU.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-tr-TR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-tr-TR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-zh-CN.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-zh-CN.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/search-zh-TW.xslt -> C:\Users\Renato\Documents\Help\Working\branding\search-zh-TW.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-cs-CZ.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-cs-CZ.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-de-DE.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-de-DE.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-en-US.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-en-US.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-es-ES.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-es-ES.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-fr-FR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-fr-FR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-it-IT.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-it-IT.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-ja-JP.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-ja-JP.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-ko-KR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-ko-KR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-pl-PL.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-pl-PL.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-pt-BR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-pt-BR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-ru-RU.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-ru-RU.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-tr-TR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-tr-TR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-zh-CN.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-zh-CN.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\dev10.mshc/toc-zh-TW.xslt -> C:\Users\Renato\Documents\Help\Working\branding\toc-zh-TW.xslt
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding -&gt; C:\Users\Renato\Documents\Help\Working\Output\Website\branding\
+C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding -&gt; C:\Users\Renato\Documents\Help\Working\branding
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding.xml -> C:\Users\Renato\Documents\Help\Working\branding\branding.xml
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-cs-CZ.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-cs-CZ.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-de-DE.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-de-DE.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-en-US.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-en-US.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-es-ES.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-es-ES.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-fr-FR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-fr-FR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-it-IT.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-it-IT.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-ja-JP.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-ja-JP.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-ko-KR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-ko-KR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-pl-PL.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-pl-PL.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-pt-BR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-pt-BR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-ru-RU.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-ru-RU.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-tr-TR.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-tr-TR.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-zh-CN.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-zh-CN.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\branding-zh-TW.xslt -> C:\Users\Renato\Documents\Help\Working\branding\branding-zh-TW.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\ps-body.xslt -> C:\Users\Renato\Documents\Help\Working\branding\ps-body.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\ps-head.xslt -> C:\Users\Renato\Documents\Help\Working\branding\ps-head.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\ps-foot.xslt -> C:\Users\Renato\Documents\Help\Working\branding\ps-foot.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\ps-collapsibleArea.xslt -> C:\Users\Renato\Documents\Help\Working\branding\ps-collapsibleArea.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\ps-instrumentedLink.xslt -> C:\Users\Renato\Documents\Help\Working\branding\ps-instrumentedLink.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\ps-languageSpecificText.xslt -> C:\Users\Renato\Documents\Help\Working\branding\ps-languageSpecificText.xslt
+    C:\Program Files (x86)\Sandcastle\Presentation\vs2010\branding\ps-codesnippet.xslt -> C:\Users\Renato\Documents\Help\Working\branding\ps-codesnippet.xslt
+    Last step completed in 00:00:02.0592
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+No additional content to copy
+    Last step completed in 00:00:00.0468
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00.0156
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+  XslTransform (v2.7.1.0)
+  Copyright c 2006-2012, Microsoft Corporation, All Rights Reserved
+  Info: Applying XSL transformation &#39;C:\Program Files (x86)\Sandcastle\ProductionTransforms\CreateVSToc.xsl&#39;.
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:00.6552
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    sandcastle.config
+    Last step completed in 00:00:00.0936
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+C:\Users\Renato\Documents\Help\Working\sandcastle.config
+    Last step completed in 00:00:00.1092
+</buildStep>
+<buildStep step="BuildReferenceTopics">
+Building reference help topics...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+  BuildAssembler (v2.7.1.0)
+  Copyright c 2006-2012, Microsoft Corporation, All Rights Reserved
+  Info: CopyFromFileComponent: Instantiating component.
+  Info: CopyFromFileComponent: Loading data file &#39;C:\Program Files (x86)\Sandcastle\Presentation\vs2010\Transforms\skeleton.xml&#39;.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Searching for files that match &#39;*.xml&#39; in &#39;C:\Program Files (x86)\Sandcastle\Data\Reflection&#39;.
+  Info: CopyFromIndexComponent: Searching for files that match &#39;reflection.xml&#39;.
+  Info: CopyFromIndexComponent: Indexed 193996 elements in 410 files.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Instantiating component.
+  Info: ForEachComponent: Loading subcomponents.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Loaded 1 subcomponents.
+  Info: ForEachComponent: Instantiating component.
+  Info: ForEachComponent: Loading subcomponents.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Loaded 1 subcomponents.
+  Info: ForEachComponent: Instantiating component.
+  Info: ForEachComponent: Loading subcomponents.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Loaded 1 subcomponents.
+  Info: ForEachComponent: Instantiating component.
+  Info: ForEachComponent: Loading subcomponents.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Loaded 1 subcomponents.
+  Info: ForEachComponent: Instantiating component.
+  Info: ForEachComponent: Loading subcomponents.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Loaded 1 subcomponents.
+  Info: ForEachComponent: Instantiating component.
+  Info: ForEachComponent: Loading subcomponents.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Loaded 1 subcomponents.
+  Info: ForEachComponent: Instantiating component.
+  Info: ForEachComponent: Loading subcomponents.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Loaded 1 subcomponents.
+  Info: IfThenComponent: Instantiating component.
+  Info: SyntaxComponent: Instantiating component.
+  Info: SyntaxComponent: Loaded 3 syntax generators.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Searching for files that match &#39;*.xml&#39; in &#39;C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5&#39;.
+  Info: CopyFromIndexComponent: Searching for files that match &#39;*.xml&#39; in &#39;C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\3.0\Runtime\v4.0&#39;.
+  Info: CopyFromIndexComponent: Searching for files that match &#39;C:\Users\Renato\Documents\Help\Working\Gesture Detector.XML&#39;.
+  Info: CopyFromIndexComponent: Searching for files that match &#39;C:\Users\Renato\Documents\Help\Working\{47ea883e-30e0-4921-ad02-7c8f80eec856}&#39;.
+  Info: CopyFromIndexComponent: Indexed 157912 elements in 124 files.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Instantiating component.
+  Info: ForEachComponent: Loading subcomponents.
+  Info: IfThenComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ForEachComponent: Loaded 2 subcomponents.
+  Info: CopyFromIndexComponent: Instantiating component.
+  Info: CopyFromIndexComponent: Loaded 0 copy components.
+  Info: ShowMissingComponent: Instantiating component.
+  Info: ShowMissingComponent: 
+      [Sandcastle Help File Builder, version 1.9.5.0]
+      Show Missing Documentation Component. Copyright c 2006-2012, Eric Woodruff, All Rights Reserved
+      http://SHFB.CodePlex.com
+  Info: VersionInfoComponent: Instantiating component.
+  Info: VersionInfoComponent: 
+      [Sandcastle Help File Builder, version 1.9.5.0]
+      Version Information Component. Copyright c 2006-2012, Eric Woodruff, All Rights Reserved
+      http://SHFB.CodePlex.com
+  Info: CodeBlockComponent: Instantiating component.
+  Info: CodeBlockComponent: 
+      [Sandcastle Help File Builder, version 1.9.5.0]
+      Code Block Component.  Copyright c 2006-2012, Eric Woodruff, All Rights Reserved.
+      Portions copyright (c) 2003, Jonathan de Halleux, All rights reserved.
+      http://SHFB.CodePlex.com
+  Info: TransformComponent: Instantiating component.
+  Info: PostTransformComponent: Instantiating component.
+  Info: PostTransformComponent: 
+      [Sandcastle Help File Builder, version 1.9.5.0]
+      Post-Transform Component. Copyright c 2006-2012, Eric Woodruff, All Rights Reserved
+      http://SHFB.CodePlex.com
+  Info: MultiFormatOutputComponent: Instantiating component.
+  Info: MultiFormatOutputComponent: 
+      [Sandcastle Help File Builder, version 1.9.5.0]
+      Multi-Format Output Component. Copyright c 2006-2012, Eric Woodruff, All Rights Reserved
+      http://SHFB.CodePlex.com
+  Info: MultiFormatOutputComponent: Loading components for Website format
+  Info: SharedContentComponent: Instantiating component.
+  Info: SharedContentComponent: Searching for files that match &#39;C:\Program Files (x86)\Sandcastle\Presentation\vs2010\content\shared_content.xml&#39;.
+  Info: SharedContentComponent: Loading shared content file &#39;C:\Program Files (x86)\Sandcastle\Presentation\vs2010\content\shared_content.xml&#39;.
+  Info: SharedContentComponent: Found 1 files in C:\Program Files (x86)\Sandcastle\Presentation\vs2010\content\shared_content.xml.
+  Info: SharedContentComponent: Searching for files that match &#39;C:\Program Files (x86)\Sandcastle\Presentation\vs2010\content\reference_content.xml&#39;.
+  Info: SharedContentComponent: Loading shared content file &#39;C:\Program Files (x86)\Sandcastle\Presentation\vs2010\content\reference_content.xml&#39;.
+  Info: SharedContentComponent: Found 1 files in C:\Program Files (x86)\Sandcastle\Presentation\vs2010\content\reference_content.xml.
+  Info: SharedContentComponent: Searching for files that match &#39;C:\Program Files (x86)\Sandcastle\Presentation\shared\content\syntax_content.xml&#39;.
+  Info: SharedContentComponent: Loading shared content file &#39;C:\Program Files (x86)\Sandcastle\Presentation\shared\content\syntax_content.xml&#39;.
+  Info: SharedContentComponent: Found 1 files in C:\Program Files (x86)\Sandcastle\Presentation\shared\content\syntax_content.xml.
+  Info: SharedContentComponent: Searching for files that match &#39;C:\Program Files (x86)\Sandcastle\Presentation\vs2010\content\feedback_content.xml&#39;.
+  Info: SharedContentComponent: Loading shared content file &#39;C:\Program Files (x86)\Sandcastle\Presentation\vs2010\content\feedBack_content.xml&#39;.
+  Info: SharedContentComponent: Found 1 files in C:\Program Files (x86)\Sandcastle\Presentation\vs2010\content\feedback_content.xml.
+  Info: SharedContentComponent: Searching for files that match &#39;SharedBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Loading shared content file &#39;C:\Users\Renato\Documents\Help\Working\SharedBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;roottopictitle&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\SharedBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;producttitle&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\SharedBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;runningheadertext&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\SharedBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;locationinformation&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\SharedBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;assemblynameandmodule&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\SharedBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;copycode&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\SharedBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;preliminary&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\SharedBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Found 1 files in SharedBuilderContent.xml.
+  Info: SharedContentComponent: Searching for files that match &#39;PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Loading shared content file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;copyright_info&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;copyright_link&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;copyright_text&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;header&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;footer_text&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;fb_alias&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;fb_product&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;fb_topic&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;fb_text&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;fb_footer_to&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;fb_footer_text&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;fb_footer_text_to&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Overriding shared content item &#39;fb_body&#39; with value in file &#39;C:\Users\Renato\Documents\Help\Working\PresentationStyleBuilderContent.xml&#39;.
+  Info: SharedContentComponent: Found 1 files in PresentationStyleBuilderContent.xml.
+  Info: SharedContentComponent: Loaded 566 shared content items.
+  Info: ResolveConceptualLinksComponent: Instantiating component.
+  Info: ResolveConceptualLinksComponent: Collected 1 targets directories.
+  Info: ResolveReferenceLinksComponent2: Instantiating component.
+  Info: ResolveReferenceLinksComponent2: Creating MSDN URL resolver.
+  Info: ResolveReferenceLinksComponent2: Searching directory &#39;C:\Program Files (x86)\Sandcastle\Data\Reflection&#39; for targets files of the form &#39;*.xml&#39;.
+  Info: ResolveReferenceLinksComponent2: Searching directory &#39;C:\Users\Renato\Documents\Help\Working&#39; for targets files of the form &#39;reflection.xml&#39;.
+  Info: ResolveReferenceLinksComponent2: Loaded 193996 reference targets.
+  Info: BrandingComponent: Instantiating component.
+  Info: BrandingComponent: Branding Transform &quot;C:\Users\Renato\Documents\Help\Working\branding\branding-en-us.xslt&quot; catalogProductFamily=VS catalogProductVersion=100 catalogLocale=en-us
+  Info: SaveComponent: Instantiating component.
+  Info: BuildAssembler: Building topic N:DebugGui
+  Info: BuildAssembler: Building topic T:DebugGui.App
+  Info: BuildAssembler: Building topic AllMembers.T:DebugGui.App
+  Info: ShowMissingComponent: Auto-documenting constructor M:DebugGui.App.#ctor
+  Info: BuildAssembler: Building topic Methods.T:DebugGui.App
+  Info: BuildAssembler: Building topic Properties.T:DebugGui.App
+  Info: BuildAssembler: Building topic Events.T:DebugGui.App
+  Info: BuildAssembler: Building topic M:DebugGui.App.#ctor
+  Info: ShowMissingComponent: Auto-documenting constructor M:DebugGui.App.#ctor
+  Info: BuildAssembler: Building topic M:DebugGui.App.InitializeComponent
+  Info: BuildAssembler: Building topic M:DebugGui.App.Main
+  Info: BuildAssembler: Building topic T:DebugGui.MainWindow
+  Info: BuildAssembler: Building topic AllMembers.T:DebugGui.MainWindow
+  Info: ShowMissingComponent: Auto-documenting constructor M:DebugGui.MainWindow.#ctor
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;M:System.Windows.FrameworkElement.UpdateDefaultStyle&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;P:System.Windows.UIElement.HasEffectiveKeyboardFocus&#39;.
+  Info: BuildAssembler: Building topic Methods.T:DebugGui.MainWindow
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;M:System.Windows.FrameworkElement.UpdateDefaultStyle&#39;.
+  Info: BuildAssembler: Building topic Properties.T:DebugGui.MainWindow
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;P:System.Windows.UIElement.HasEffectiveKeyboardFocus&#39;.
+  Info: BuildAssembler: Building topic Events.T:DebugGui.MainWindow
+  Info: BuildAssembler: Building topic M:DebugGui.MainWindow.#ctor
+  Info: ShowMissingComponent: Auto-documenting constructor M:DebugGui.MainWindow.#ctor
+  Info: BuildAssembler: Building topic M:DebugGui.MainWindow.InitializeComponent
+  Info: BuildAssembler: Building topic N:MF.Engineering.MF8910.GestureDetector.DataSources
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.DataSources.Device
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.DataSources.Device
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.DataSources.Device
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.DataSources.Device
+  Info: BuildAssembler: Building topic Events.T:MF.Engineering.MF8910.GestureDetector.DataSources.Device
+  Info: BuildAssembler: Building topic Overload:MF.Engineering.MF8910.GestureDetector.DataSources.Device.#ctor
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.#ctor
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.#ctor(System.String)
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Accelerated
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Dispose
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.GetActivePerson
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.GetAllPersons
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.HandleNewSkeletons(System.Collections.Generic.List{MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton})
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.DataSources.Device.NewPerson
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.OnNewSkeletons(System.Object,Microsoft.Kinect.SkeletonFrameReadyEventArgs)
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.SkeletonFrameReadyEventArgs&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.SkeletonFrameReadyEventArgs&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.SkeletonFrameReadyEventArgs&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.SkeletonFrameReadyEventArgs&#39;.
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.DataSources.Device.PersonActive
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.DataSources.Device.PersonLost
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Start
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Status
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.KinectStatus&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.KinectStatus&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.KinectStatus&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.KinectStatus&#39;.
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Stop
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.DataSources.Person
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.DataSources.Person
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.DataSources.Person
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.DataSources.Person
+  Info: BuildAssembler: Building topic Events.T:MF.Engineering.MF8910.GestureDetector.DataSources.Person
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Device)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Device)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;d&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Device)
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.DataSources.Person.Active
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.DataSources.Person.CurrentSkeleton
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.Equals(System.Object)
+  Warn: ShowMissingComponent: Missing &lt;returns&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.Equals(System.Object)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;p&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.Equals(System.Object)
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.GetHashCode
+  Warn: ShowMissingComponent: Missing &lt;returns&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.GetHashCode
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.GetLastSkeleton(System.Int32)
+  Warn: ShowMissingComponent: Missing &lt;returns&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.GetLastSkeleton(System.Int32)
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.DataSources.Person.Id
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.MillisBetweenFrames(System.Int32,System.Int32)
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.DataSources.Person.OnSwipe
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.DataSources.Person.OnWave
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.DataSources.Person.OnZoom
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.DataSources.Person.PersonActive
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.DataSources.Person.PersonPassive
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.DataSources.Person.SendEventsWhenPassive
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.#ctor(Microsoft.Kinect.Skeleton,System.Int64)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.#ctor(Microsoft.Kinect.Skeleton,System.Int64)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;s&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.#ctor(Microsoft.Kinect.Skeleton,System.Int64)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;timestamp&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.#ctor(Microsoft.Kinect.Skeleton,System.Int64)
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.Skeleton&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.Skeleton&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.Skeleton&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.Skeleton&#39;.
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.GetPosition(Microsoft.Kinect.JointType)
+  Warn: ShowMissingComponent: Missing &lt;returns&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.GetPosition(Microsoft.Kinect.JointType)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;jt&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.GetPosition(Microsoft.Kinect.JointType)
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.SkeletonPoint&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointType&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointType&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.SkeletonPoint&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.SkeletonPoint&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointType&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointType&#39;.
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.GetState(Microsoft.Kinect.JointType)
+  Warn: ShowMissingComponent: Missing &lt;returns&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.GetState(Microsoft.Kinect.JointType)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;jt&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.GetState(Microsoft.Kinect.JointType)
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointTrackingState&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointType&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointType&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointTrackingState&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointTrackingState&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointType&#39;.
+  Warn: ResolveReferenceLinksComponent2: Unknown reference link target &#39;T:Microsoft.Kinect.JointType&#39;.
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.Timestamp
+  Info: BuildAssembler: Building topic N:MF.Engineering.MF8910.GestureDetector.Events
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs.#ctor(System.Double)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs.#ctor(System.Double)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;amount&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs.#ctor(System.Double)
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs.Amount
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;p&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs.Person
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs.#ctor
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs.#ctor
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs.Condition
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs.#ctor
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs.#ctor
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;p&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs.Person
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;skeleton&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton)
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs.Skeleton
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;person&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs.Person
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;person&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs.Person
+  Info: BuildAssembler: Building topic N:MF.Engineering.MF8910.GestureDetector.Gestures
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Gestures.Condition
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Gestures.Condition
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Gestures.Condition
+  Info: BuildAssembler: Building topic Events.T:MF.Engineering.MF8910.GestureDetector.Gestures.Condition
+  Info: BuildAssembler: Building topic Fields.T:MF.Engineering.MF8910.GestureDetector.Gestures.Condition
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Check(System.Object,MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs)
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Disable
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Enable
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Failed
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.FireFailed(System.Object,MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs)
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.FireSucceeded(System.Object,MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs)
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.OnCheck
+  Info: BuildAssembler: Building topic F:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Person
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Succeeded
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition
+  Info: BuildAssembler: Building topic Events.T:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition
+  Info: BuildAssembler: Building topic Fields.T:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;p&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.FireTriggered(System.Object,MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;sender&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.FireTriggered(System.Object,MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;e&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.FireTriggered(System.Object,MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs)
+  Info: BuildAssembler: Building topic E:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.Triggered
+  Info: BuildAssembler: Building topic N:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs.#ctor
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs.#ctor
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs.Direction
+  Info: BuildAssembler: Building topic N:MF.Engineering.MF8910.GestureDetector.Gestures.Wave
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition
+  Info: BuildAssembler: Building topic Events.T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition
+  Info: BuildAssembler: Building topic Fields.T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;p&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition.Check(System.Object,MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;sender&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition.Check(System.Object,MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;e&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition.Check(System.Object,MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs)
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition
+  Info: BuildAssembler: Building topic Events.T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition
+  Info: BuildAssembler: Building topic Fields.T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;p&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition.Check(System.Object,MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;sender&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition.Check(System.Object,MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs)
+  Warn: ShowMissingComponent: Missing &lt;param name=&quot;e&quot;/&gt; documentation for M:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition.Check(System.Object,MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs)
+  Info: BuildAssembler: Building topic N:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs
+  Info: BuildAssembler: Building topic AllMembers.T:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs.#ctor
+  Info: BuildAssembler: Building topic Methods.T:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs
+  Info: BuildAssembler: Building topic Properties.T:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs
+  Info: BuildAssembler: Building topic M:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs.#ctor
+  Info: ShowMissingComponent: Auto-documenting constructor M:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs.#ctor
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs.ZoomFactorFromBegin
+  Info: BuildAssembler: Building topic P:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs.ZoomFactorFromLast
+  Info: BuildAssembler: Building topic N:MF.Engineering.MF8910.GestureDetector.Tools
+  Info: BuildAssembler: Building topic T:MF.Engineering.MF8910.GestureDetector.Tools.Direction
+  Info: Processed 167 topics
+    Last step completed in 00:08:06.8847
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+
+Clearing any prior web output
+    Ignoring read-only/hidden file C:\Users\Renato\Documents\Help\Thumbs.db
+    Did not delete folder &#39;C:\Users\Renato\Documents\Help\icons&#39; as it contains read-only or hidden folders/files
+    Last step completed in 00:00:00.6100
+</buildStep>
+<buildStep step="ExtractingHtmlInfo">
+Extracting HTML info for HTML Help 1 and/or website...
+[C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
+Sandcastle Help File Builder, version 1.9.5.0
+Copyright c 2006-2012, Eric Woodruff, All Rights Reserved
+E-Mail: Eric@EWoodruff.us
+
+Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
+
+Processing website files in C:\Users\Renato\Documents\Help\Working\Output\Website
+Processed 167 HTML files
+Sorting keywords and generating See Also indices
+Saving website keyword index to C:\Users\Renato\Documents\Help\Working\WebKI.xml
+Saving website table of contents to C:\Users\Renato\Documents\Help\Working\WebTOC.xml
+    Last step completed in 00:00:05.0373
+</buildStep>
+<buildStep step="GenerateHelpFormatTableOfContents">
+Generating website table of contents file...
+    Last step completed in 00:00:00.0468
+</buildStep>
+<buildStep step="GenerateFullTextIndex">
+Generating full-text index for the website...
+
+    Last step completed in 00:00:04.1746
+</buildStep>
+<buildStep step="CopyingWebsiteFiles">
+Copying website files to output folder...
+
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_100.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_100.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_101.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_101.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_102.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_102.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_103.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_103.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_104.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_104.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_105.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_105.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_106.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_106.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_107.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_107.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_108.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_108.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_109.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_109.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_110.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_110.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_111.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_111.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_112.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_112.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_113.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_113.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_114.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_114.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_115.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_115.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_116.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_116.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_117.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_117.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_118.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_118.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_119.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_119.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_120.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_120.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_122.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_122.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_97.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_97.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_98.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_98.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_99.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_99.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\fti\FTI_Files.json -&gt; C:\Users\Renato\Documents\Help\fti\FTI_Files.json
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\012e9a0a-69d1-c033-b25b-4f631d68b368.htm -&gt; C:\Users\Renato\Documents\Help\html\012e9a0a-69d1-c033-b25b-4f631d68b368.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\027ec2f5-0d86-8029-f44e-1ed30561dd4c.htm -&gt; C:\Users\Renato\Documents\Help\html\027ec2f5-0d86-8029-f44e-1ed30561dd4c.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\04957800-f541-6e0b-904b-0dde249fbaef.htm -&gt; C:\Users\Renato\Documents\Help\html\04957800-f541-6e0b-904b-0dde249fbaef.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\0609cc97-4c87-5faa-7b6c-23518255973d.htm -&gt; C:\Users\Renato\Documents\Help\html\0609cc97-4c87-5faa-7b6c-23518255973d.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\0b342e67-5584-15ec-e9d8-095c38116e97.htm -&gt; C:\Users\Renato\Documents\Help\html\0b342e67-5584-15ec-e9d8-095c38116e97.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\0d232936-ad7c-532b-1e25-2b8a7848cba1.htm -&gt; C:\Users\Renato\Documents\Help\html\0d232936-ad7c-532b-1e25-2b8a7848cba1.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\0dd04518-2b43-c24b-c996-203de2aa31d2.htm -&gt; C:\Users\Renato\Documents\Help\html\0dd04518-2b43-c24b-c996-203de2aa31d2.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\0e1f9ef6-6862-0774-e2ab-a66200cd54bf.htm -&gt; C:\Users\Renato\Documents\Help\html\0e1f9ef6-6862-0774-e2ab-a66200cd54bf.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\0fa54787-c3d1-c90a-2de2-1f437b97178e.htm -&gt; C:\Users\Renato\Documents\Help\html\0fa54787-c3d1-c90a-2de2-1f437b97178e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\12db961e-5ed2-89b4-89cc-77aae55d0143.htm -&gt; C:\Users\Renato\Documents\Help\html\12db961e-5ed2-89b4-89cc-77aae55d0143.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\14c254ac-64c3-dd97-dca9-c04ef27e77d5.htm -&gt; C:\Users\Renato\Documents\Help\html\14c254ac-64c3-dd97-dca9-c04ef27e77d5.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\15ee20ba-8296-fedf-7648-be8897bb1371.htm -&gt; C:\Users\Renato\Documents\Help\html\15ee20ba-8296-fedf-7648-be8897bb1371.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\18eef649-4143-e2b4-694f-578534b0c253.htm -&gt; C:\Users\Renato\Documents\Help\html\18eef649-4143-e2b4-694f-578534b0c253.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\1a671249-87f3-90d4-a5db-d88ba7755619.htm -&gt; C:\Users\Renato\Documents\Help\html\1a671249-87f3-90d4-a5db-d88ba7755619.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\1a9aebcd-925b-98dc-53c2-3ef486152b4e.htm -&gt; C:\Users\Renato\Documents\Help\html\1a9aebcd-925b-98dc-53c2-3ef486152b4e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\1d404bf9-5ebc-6a36-df99-6450f1a7e477.htm -&gt; C:\Users\Renato\Documents\Help\html\1d404bf9-5ebc-6a36-df99-6450f1a7e477.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\1f01c86a-5234-59c6-8a44-5bdd9e582da6.htm -&gt; C:\Users\Renato\Documents\Help\html\1f01c86a-5234-59c6-8a44-5bdd9e582da6.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\218ac850-d84c-a666-64cb-94d2866b09aa.htm -&gt; C:\Users\Renato\Documents\Help\html\218ac850-d84c-a666-64cb-94d2866b09aa.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\236f4d03-a62f-5199-ad37-f38a2203a3f2.htm -&gt; C:\Users\Renato\Documents\Help\html\236f4d03-a62f-5199-ad37-f38a2203a3f2.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\2999529a-61e2-e7d9-01ef-50045f8cdbe0.htm -&gt; C:\Users\Renato\Documents\Help\html\2999529a-61e2-e7d9-01ef-50045f8cdbe0.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\2add61e1-c27e-5afd-1b18-914acbb838ab.htm -&gt; C:\Users\Renato\Documents\Help\html\2add61e1-c27e-5afd-1b18-914acbb838ab.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\2d065912-5f2f-b6c0-1d7e-2cebc399d01f.htm -&gt; C:\Users\Renato\Documents\Help\html\2d065912-5f2f-b6c0-1d7e-2cebc399d01f.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\2e29277b-66ba-e746-93b6-2c98df0d4254.htm -&gt; C:\Users\Renato\Documents\Help\html\2e29277b-66ba-e746-93b6-2c98df0d4254.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\32623769-9fbd-6979-13c7-4dc65609f2b6.htm -&gt; C:\Users\Renato\Documents\Help\html\32623769-9fbd-6979-13c7-4dc65609f2b6.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\35437f6b-559b-ddbf-3227-13425957ff1a.htm -&gt; C:\Users\Renato\Documents\Help\html\35437f6b-559b-ddbf-3227-13425957ff1a.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\37aeddc5-b92d-61f5-1420-a6d67deaea61.htm -&gt; C:\Users\Renato\Documents\Help\html\37aeddc5-b92d-61f5-1420-a6d67deaea61.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\3c163c43-38fa-dcfb-6491-9dbeeb893f47.htm -&gt; C:\Users\Renato\Documents\Help\html\3c163c43-38fa-dcfb-6491-9dbeeb893f47.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\3d0d98ae-45cd-5bfe-ba70-0ceabac0bac9.htm -&gt; C:\Users\Renato\Documents\Help\html\3d0d98ae-45cd-5bfe-ba70-0ceabac0bac9.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\3eec1399-1d8b-4596-c9ae-fd3820821edc.htm -&gt; C:\Users\Renato\Documents\Help\html\3eec1399-1d8b-4596-c9ae-fd3820821edc.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\3f77d9e6-d4ee-1282-1f07-75312266c890.htm -&gt; C:\Users\Renato\Documents\Help\html\3f77d9e6-d4ee-1282-1f07-75312266c890.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\40c4bc8d-508b-c84d-eba5-bb90d68741bf.htm -&gt; C:\Users\Renato\Documents\Help\html\40c4bc8d-508b-c84d-eba5-bb90d68741bf.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\40d1cc0c-49ea-b6a9-15b3-be5d506ab729.htm -&gt; C:\Users\Renato\Documents\Help\html\40d1cc0c-49ea-b6a9-15b3-be5d506ab729.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\41c9d40f-6bd8-e286-e7f0-2dcea5f697b8.htm -&gt; C:\Users\Renato\Documents\Help\html\41c9d40f-6bd8-e286-e7f0-2dcea5f697b8.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4217c739-6625-8e2f-095b-f392a3ee025e.htm -&gt; C:\Users\Renato\Documents\Help\html\4217c739-6625-8e2f-095b-f392a3ee025e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\42c465cd-0f00-ae6a-cbe8-140d18a7e921.htm -&gt; C:\Users\Renato\Documents\Help\html\42c465cd-0f00-ae6a-cbe8-140d18a7e921.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\42fa739d-5380-b4dc-21f9-0e25d3518ff0.htm -&gt; C:\Users\Renato\Documents\Help\html\42fa739d-5380-b4dc-21f9-0e25d3518ff0.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\43580868-afcb-d2a0-7b2d-a2e8bbe2589e.htm -&gt; C:\Users\Renato\Documents\Help\html\43580868-afcb-d2a0-7b2d-a2e8bbe2589e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\44610a98-05eb-33e4-bd77-96afcfc91bcd.htm -&gt; C:\Users\Renato\Documents\Help\html\44610a98-05eb-33e4-bd77-96afcfc91bcd.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\45c32611-4b2e-bafd-6f73-300dcab26c30.htm -&gt; C:\Users\Renato\Documents\Help\html\45c32611-4b2e-bafd-6f73-300dcab26c30.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4643c8c6-48da-c6a8-e397-95e0bf7e7121.htm -&gt; C:\Users\Renato\Documents\Help\html\4643c8c6-48da-c6a8-e397-95e0bf7e7121.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\466510e3-b3e5-fb92-2bce-3d3841b9e9c0.htm -&gt; C:\Users\Renato\Documents\Help\html\466510e3-b3e5-fb92-2bce-3d3841b9e9c0.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\46c85b5a-bcfe-ace8-d0f2-265c9fccb671.htm -&gt; C:\Users\Renato\Documents\Help\html\46c85b5a-bcfe-ace8-d0f2-265c9fccb671.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4a6b1ba6-867d-c5ef-10c1-a3aa35fcd3c3.htm -&gt; C:\Users\Renato\Documents\Help\html\4a6b1ba6-867d-c5ef-10c1-a3aa35fcd3c3.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4d3dd265-e1b6-2c4a-c4d3-643ee18da53d.htm -&gt; C:\Users\Renato\Documents\Help\html\4d3dd265-e1b6-2c4a-c4d3-643ee18da53d.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4d4684ba-90d1-cf81-0a82-eeee9b8c42f3.htm -&gt; C:\Users\Renato\Documents\Help\html\4d4684ba-90d1-cf81-0a82-eeee9b8c42f3.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4d97b21d-944f-dcee-6028-c1f7fc459125.htm -&gt; C:\Users\Renato\Documents\Help\html\4d97b21d-944f-dcee-6028-c1f7fc459125.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4def752a-0136-b43e-5ee1-5d6be1199991.htm -&gt; C:\Users\Renato\Documents\Help\html\4def752a-0136-b43e-5ee1-5d6be1199991.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4e333d43-8a26-2f14-7462-536796392098.htm -&gt; C:\Users\Renato\Documents\Help\html\4e333d43-8a26-2f14-7462-536796392098.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4f62678f-415a-1b05-7a13-a88c86fb75a1.htm -&gt; C:\Users\Renato\Documents\Help\html\4f62678f-415a-1b05-7a13-a88c86fb75a1.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\4fdbfc52-9426-2335-357b-23278006c5c0.htm -&gt; C:\Users\Renato\Documents\Help\html\4fdbfc52-9426-2335-357b-23278006c5c0.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\50599719-3697-7df4-c45c-c2781dfa0af3.htm -&gt; C:\Users\Renato\Documents\Help\html\50599719-3697-7df4-c45c-c2781dfa0af3.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\537e3d24-8fd7-b6f3-2ecf-a11e5d831b0d.htm -&gt; C:\Users\Renato\Documents\Help\html\537e3d24-8fd7-b6f3-2ecf-a11e5d831b0d.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\53b10181-f1e9-d055-b26e-65ff8c9da9d7.htm -&gt; C:\Users\Renato\Documents\Help\html\53b10181-f1e9-d055-b26e-65ff8c9da9d7.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\546a2a57-2cb3-0858-dd31-d865b66cb41d.htm -&gt; C:\Users\Renato\Documents\Help\html\546a2a57-2cb3-0858-dd31-d865b66cb41d.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\5477dfc7-2340-b0e7-e46c-eb447eb04704.htm -&gt; C:\Users\Renato\Documents\Help\html\5477dfc7-2340-b0e7-e46c-eb447eb04704.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\5963a6ba-b6cf-ccf5-654d-594325d4d01b.htm -&gt; C:\Users\Renato\Documents\Help\html\5963a6ba-b6cf-ccf5-654d-594325d4d01b.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\5a20ab20-8689-9ee3-8b77-8952572902f6.htm -&gt; C:\Users\Renato\Documents\Help\html\5a20ab20-8689-9ee3-8b77-8952572902f6.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\5aacb24a-405f-3060-f1c8-17e256c16323.htm -&gt; C:\Users\Renato\Documents\Help\html\5aacb24a-405f-3060-f1c8-17e256c16323.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\5d5e378c-6bf4-5503-84d1-6b8270adf9bf.htm -&gt; C:\Users\Renato\Documents\Help\html\5d5e378c-6bf4-5503-84d1-6b8270adf9bf.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\5eb56adb-6464-44db-0dc9-4280c43a30a4.htm -&gt; C:\Users\Renato\Documents\Help\html\5eb56adb-6464-44db-0dc9-4280c43a30a4.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\602b7ed8-540d-f2ab-267f-fcf1e7632a45.htm -&gt; C:\Users\Renato\Documents\Help\html\602b7ed8-540d-f2ab-267f-fcf1e7632a45.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\6050ecec-5043-f7c8-6375-12f3ae1a0b44.htm -&gt; C:\Users\Renato\Documents\Help\html\6050ecec-5043-f7c8-6375-12f3ae1a0b44.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\636148b1-d284-2d95-4041-240358df3470.htm -&gt; C:\Users\Renato\Documents\Help\html\636148b1-d284-2d95-4041-240358df3470.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\67ff9040-f790-a301-6dc7-58a417d7c8e1.htm -&gt; C:\Users\Renato\Documents\Help\html\67ff9040-f790-a301-6dc7-58a417d7c8e1.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\6924d9e6-a689-c0fd-0da5-e303f5c71227.htm -&gt; C:\Users\Renato\Documents\Help\html\6924d9e6-a689-c0fd-0da5-e303f5c71227.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\6b012c9a-10b6-fb10-206c-92e5fb63e458.htm -&gt; C:\Users\Renato\Documents\Help\html\6b012c9a-10b6-fb10-206c-92e5fb63e458.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\6b453506-b68d-0f1c-e9a0-ccc0f6f29ff4.htm -&gt; C:\Users\Renato\Documents\Help\html\6b453506-b68d-0f1c-e9a0-ccc0f6f29ff4.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\6bba4b41-7eac-aa1d-d727-f79acdb6e830.htm -&gt; C:\Users\Renato\Documents\Help\html\6bba4b41-7eac-aa1d-d727-f79acdb6e830.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\6c10b8bf-4b19-c8c0-1201-57f1ea8b2ba1.htm -&gt; C:\Users\Renato\Documents\Help\html\6c10b8bf-4b19-c8c0-1201-57f1ea8b2ba1.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\6f3e45e6-a3b2-2b97-407b-fa20f2724fb2.htm -&gt; C:\Users\Renato\Documents\Help\html\6f3e45e6-a3b2-2b97-407b-fa20f2724fb2.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\6faedec6-e782-c9a5-4f09-55a654f3b4b4.htm -&gt; C:\Users\Renato\Documents\Help\html\6faedec6-e782-c9a5-4f09-55a654f3b4b4.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\6ff94640-88e4-ea4e-a61f-0cf06107a05d.htm -&gt; C:\Users\Renato\Documents\Help\html\6ff94640-88e4-ea4e-a61f-0cf06107a05d.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\70192419-5543-a16b-1fce-15ea09f6f262.htm -&gt; C:\Users\Renato\Documents\Help\html\70192419-5543-a16b-1fce-15ea09f6f262.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\7191cc22-5840-94d5-28c3-3a2e3141224c.htm -&gt; C:\Users\Renato\Documents\Help\html\7191cc22-5840-94d5-28c3-3a2e3141224c.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\72b7b774-2933-abba-2f48-09b0e3e63b35.htm -&gt; C:\Users\Renato\Documents\Help\html\72b7b774-2933-abba-2f48-09b0e3e63b35.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\73935395-b2d4-59dc-afa7-666eeda081df.htm -&gt; C:\Users\Renato\Documents\Help\html\73935395-b2d4-59dc-afa7-666eeda081df.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\7440acde-6f0c-2acb-d344-9f02d8b37f11.htm -&gt; C:\Users\Renato\Documents\Help\html\7440acde-6f0c-2acb-d344-9f02d8b37f11.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\7441bc1b-4439-9053-ee88-c6b25c422616.htm -&gt; C:\Users\Renato\Documents\Help\html\7441bc1b-4439-9053-ee88-c6b25c422616.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\756e83e8-e5ef-dea9-6582-58a155e23574.htm -&gt; C:\Users\Renato\Documents\Help\html\756e83e8-e5ef-dea9-6582-58a155e23574.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\78794fca-4b74-3407-228e-08bd5698ebf2.htm -&gt; C:\Users\Renato\Documents\Help\html\78794fca-4b74-3407-228e-08bd5698ebf2.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\789a283a-d68a-a3d5-f4c3-ff9efd808789.htm -&gt; C:\Users\Renato\Documents\Help\html\789a283a-d68a-a3d5-f4c3-ff9efd808789.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\794c4763-fb91-69e6-4dc6-99c12a8d18da.htm -&gt; C:\Users\Renato\Documents\Help\html\794c4763-fb91-69e6-4dc6-99c12a8d18da.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\7dec9588-bf09-5d89-1823-ede404ea2888.htm -&gt; C:\Users\Renato\Documents\Help\html\7dec9588-bf09-5d89-1823-ede404ea2888.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\7e925586-7366-aad9-43c7-7323ab9a4e12.htm -&gt; C:\Users\Renato\Documents\Help\html\7e925586-7366-aad9-43c7-7323ab9a4e12.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\80b8d403-248e-3135-1ab2-9ad8b0d0b5d4.htm -&gt; C:\Users\Renato\Documents\Help\html\80b8d403-248e-3135-1ab2-9ad8b0d0b5d4.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\80d908cc-f496-5da6-ce9a-c01c4edbb7e3.htm -&gt; C:\Users\Renato\Documents\Help\html\80d908cc-f496-5da6-ce9a-c01c4edbb7e3.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\823fd0c8-1c32-c8bb-4814-6d2d26d8385f.htm -&gt; C:\Users\Renato\Documents\Help\html\823fd0c8-1c32-c8bb-4814-6d2d26d8385f.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\83a78276-6bcf-c995-8c91-90c82a380f2e.htm -&gt; C:\Users\Renato\Documents\Help\html\83a78276-6bcf-c995-8c91-90c82a380f2e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\83f87ef9-451f-a876-a5d6-2683b3739c3f.htm -&gt; C:\Users\Renato\Documents\Help\html\83f87ef9-451f-a876-a5d6-2683b3739c3f.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\8429d671-95be-34ce-456e-125714e92cb1.htm -&gt; C:\Users\Renato\Documents\Help\html\8429d671-95be-34ce-456e-125714e92cb1.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\863d9cb9-fb54-0263-8c3c-fa19aaff9e1e.htm -&gt; C:\Users\Renato\Documents\Help\html\863d9cb9-fb54-0263-8c3c-fa19aaff9e1e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\864a82e8-44ee-25af-86e2-3999b1598bd7.htm -&gt; C:\Users\Renato\Documents\Help\html\864a82e8-44ee-25af-86e2-3999b1598bd7.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\87ab4bc9-b2ff-680a-9dbe-c2e06d24cea1.htm -&gt; C:\Users\Renato\Documents\Help\html\87ab4bc9-b2ff-680a-9dbe-c2e06d24cea1.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\89ba7d6c-3801-c575-e5af-52127a0dbf15.htm -&gt; C:\Users\Renato\Documents\Help\html\89ba7d6c-3801-c575-e5af-52127a0dbf15.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\8eceddd1-a056-e7ff-1866-905cc0ce4ec8.htm -&gt; C:\Users\Renato\Documents\Help\html\8eceddd1-a056-e7ff-1866-905cc0ce4ec8.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\8f0cf8b5-392c-5700-b495-ea564f95cc31.htm -&gt; C:\Users\Renato\Documents\Help\html\8f0cf8b5-392c-5700-b495-ea564f95cc31.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\9270e5f3-bd43-c212-b9ce-197dc998950f.htm -&gt; C:\Users\Renato\Documents\Help\html\9270e5f3-bd43-c212-b9ce-197dc998950f.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\93ecb5ab-554f-525b-5748-e45cd37fe4bb.htm -&gt; C:\Users\Renato\Documents\Help\html\93ecb5ab-554f-525b-5748-e45cd37fe4bb.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\96e30f85-ab2e-86c4-18b8-b7ec82a2bf21.htm -&gt; C:\Users\Renato\Documents\Help\html\96e30f85-ab2e-86c4-18b8-b7ec82a2bf21.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\9b6fcbd2-7679-8c3b-b821-a8f03b161c5b.htm -&gt; C:\Users\Renato\Documents\Help\html\9b6fcbd2-7679-8c3b-b821-a8f03b161c5b.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\9ebf16ef-8fea-c464-d3b3-0032ff743932.htm -&gt; C:\Users\Renato\Documents\Help\html\9ebf16ef-8fea-c464-d3b3-0032ff743932.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\a33a5e49-fc24-3641-7029-86f9b176129f.htm -&gt; C:\Users\Renato\Documents\Help\html\a33a5e49-fc24-3641-7029-86f9b176129f.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\a4331fa8-aa5f-75d6-a99d-3596df9cfadb.htm -&gt; C:\Users\Renato\Documents\Help\html\a4331fa8-aa5f-75d6-a99d-3596df9cfadb.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\a62ec937-d2fd-172f-ebb5-f81d2814b144.htm -&gt; C:\Users\Renato\Documents\Help\html\a62ec937-d2fd-172f-ebb5-f81d2814b144.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\a790a4f1-58ba-dde3-07a9-43193924ff44.htm -&gt; C:\Users\Renato\Documents\Help\html\a790a4f1-58ba-dde3-07a9-43193924ff44.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\a81d5146-0c52-98e6-d5e6-5920a7080170.htm -&gt; C:\Users\Renato\Documents\Help\html\a81d5146-0c52-98e6-d5e6-5920a7080170.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\a93643cb-ee4a-2acc-d803-9211924b0b29.htm -&gt; C:\Users\Renato\Documents\Help\html\a93643cb-ee4a-2acc-d803-9211924b0b29.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\a9a90e1f-950c-fb73-c8a7-0dff16a3b61a.htm -&gt; C:\Users\Renato\Documents\Help\html\a9a90e1f-950c-fb73-c8a7-0dff16a3b61a.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\ab0a458e-f121-4c44-4df0-6e75e56ec7b3.htm -&gt; C:\Users\Renato\Documents\Help\html\ab0a458e-f121-4c44-4df0-6e75e56ec7b3.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\abdc50ee-253f-4dc4-f222-ffb04276e5a5.htm -&gt; C:\Users\Renato\Documents\Help\html\abdc50ee-253f-4dc4-f222-ffb04276e5a5.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\accf0853-4dea-1e6c-9dff-e1dc0846b236.htm -&gt; C:\Users\Renato\Documents\Help\html\accf0853-4dea-1e6c-9dff-e1dc0846b236.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\ae85fdba-960b-a006-3955-18006a0f4ef7.htm -&gt; C:\Users\Renato\Documents\Help\html\ae85fdba-960b-a006-3955-18006a0f4ef7.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\aec6a8d9-e422-bec8-ed37-e2a72b8abb73.htm -&gt; C:\Users\Renato\Documents\Help\html\aec6a8d9-e422-bec8-ed37-e2a72b8abb73.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b01cf4d8-6513-430a-a4c3-83572520ab5c.htm -&gt; C:\Users\Renato\Documents\Help\html\b01cf4d8-6513-430a-a4c3-83572520ab5c.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b2c904ee-5e5c-bc41-7029-e5cfa9d3dada.htm -&gt; C:\Users\Renato\Documents\Help\html\b2c904ee-5e5c-bc41-7029-e5cfa9d3dada.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b4404bfc-0f26-8124-8ba1-84c593dafada.htm -&gt; C:\Users\Renato\Documents\Help\html\b4404bfc-0f26-8124-8ba1-84c593dafada.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b5a5f918-a546-4096-cef0-d0cc934f5406.htm -&gt; C:\Users\Renato\Documents\Help\html\b5a5f918-a546-4096-cef0-d0cc934f5406.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b64fa7c2-0f92-01db-697c-b656da04f1df.htm -&gt; C:\Users\Renato\Documents\Help\html\b64fa7c2-0f92-01db-697c-b656da04f1df.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b71481e8-0909-2e95-e026-8e86bbf6ad8e.htm -&gt; C:\Users\Renato\Documents\Help\html\b71481e8-0909-2e95-e026-8e86bbf6ad8e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b7390814-f30f-e64b-6c3b-9ee7d6f48242.htm -&gt; C:\Users\Renato\Documents\Help\html\b7390814-f30f-e64b-6c3b-9ee7d6f48242.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b747ba49-5aa1-8764-4b01-945c16de289d.htm -&gt; C:\Users\Renato\Documents\Help\html\b747ba49-5aa1-8764-4b01-945c16de289d.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b75f70e8-5352-572d-639d-d93c652031b1.htm -&gt; C:\Users\Renato\Documents\Help\html\b75f70e8-5352-572d-639d-d93c652031b1.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b91f7c64-eec9-0da6-3b9c-c12503b10227.htm -&gt; C:\Users\Renato\Documents\Help\html\b91f7c64-eec9-0da6-3b9c-c12503b10227.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\b9445458-3249-95c5-8bdc-8dc509ce940e.htm -&gt; C:\Users\Renato\Documents\Help\html\b9445458-3249-95c5-8bdc-8dc509ce940e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\c18bf9e1-a2ac-a193-638e-f515c7be7f2f.htm -&gt; C:\Users\Renato\Documents\Help\html\c18bf9e1-a2ac-a193-638e-f515c7be7f2f.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\c5271ee7-e98b-1b2f-5b09-c7af6efc0149.htm -&gt; C:\Users\Renato\Documents\Help\html\c5271ee7-e98b-1b2f-5b09-c7af6efc0149.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\c6e23e0a-c935-000c-7ea6-8134dbb2920c.htm -&gt; C:\Users\Renato\Documents\Help\html\c6e23e0a-c935-000c-7ea6-8134dbb2920c.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\c88dfbe8-41e0-9d3c-7704-e772425e5732.htm -&gt; C:\Users\Renato\Documents\Help\html\c88dfbe8-41e0-9d3c-7704-e772425e5732.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\c916f378-af8b-0a08-82fe-dcef40c887ab.htm -&gt; C:\Users\Renato\Documents\Help\html\c916f378-af8b-0a08-82fe-dcef40c887ab.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\c9929dfb-9c4c-222b-0904-64df613d58da.htm -&gt; C:\Users\Renato\Documents\Help\html\c9929dfb-9c4c-222b-0904-64df613d58da.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\c995c1ba-5abd-309e-2ad4-5ece7dfa3759.htm -&gt; C:\Users\Renato\Documents\Help\html\c995c1ba-5abd-309e-2ad4-5ece7dfa3759.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\cd7e355e-626e-e334-5f2d-1dae331e0ea6.htm -&gt; C:\Users\Renato\Documents\Help\html\cd7e355e-626e-e334-5f2d-1dae331e0ea6.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\cd990074-e592-4ba3-31a0-2bc0122b24f6.htm -&gt; C:\Users\Renato\Documents\Help\html\cd990074-e592-4ba3-31a0-2bc0122b24f6.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\cdf1813a-be72-1952-6a28-7eba6c36c192.htm -&gt; C:\Users\Renato\Documents\Help\html\cdf1813a-be72-1952-6a28-7eba6c36c192.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\d1ead319-0df5-bb54-8de8-cd757c871eb9.htm -&gt; C:\Users\Renato\Documents\Help\html\d1ead319-0df5-bb54-8de8-cd757c871eb9.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\d2a42e69-b7f5-f914-75fa-1ca118282fbe.htm -&gt; C:\Users\Renato\Documents\Help\html\d2a42e69-b7f5-f914-75fa-1ca118282fbe.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\d499d705-2551-d770-7ecf-03e9c659516b.htm -&gt; C:\Users\Renato\Documents\Help\html\d499d705-2551-d770-7ecf-03e9c659516b.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\d581e069-5188-1312-8eb2-a19bb41e9f3b.htm -&gt; C:\Users\Renato\Documents\Help\html\d581e069-5188-1312-8eb2-a19bb41e9f3b.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\d587efdf-d29d-7b8d-0366-a25a9037091e.htm -&gt; C:\Users\Renato\Documents\Help\html\d587efdf-d29d-7b8d-0366-a25a9037091e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\d5bc2335-85fa-f043-5ff1-74dbd09bdfdf.htm -&gt; C:\Users\Renato\Documents\Help\html\d5bc2335-85fa-f043-5ff1-74dbd09bdfdf.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\d60990e7-89b4-93db-4b5b-1941742e2b94.htm -&gt; C:\Users\Renato\Documents\Help\html\d60990e7-89b4-93db-4b5b-1941742e2b94.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\d9e95b53-0fa6-f51a-c0af-af5f9b9c555d.htm -&gt; C:\Users\Renato\Documents\Help\html\d9e95b53-0fa6-f51a-c0af-af5f9b9c555d.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\dbf425a6-6bde-4cf4-111d-5785a2f023f4.htm -&gt; C:\Users\Renato\Documents\Help\html\dbf425a6-6bde-4cf4-111d-5785a2f023f4.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\dc8cf0f2-5c8c-cb98-78cd-71bed0c26720.htm -&gt; C:\Users\Renato\Documents\Help\html\dc8cf0f2-5c8c-cb98-78cd-71bed0c26720.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\dccab0a2-f3d1-8ec5-af8c-70afee3d5f2e.htm -&gt; C:\Users\Renato\Documents\Help\html\dccab0a2-f3d1-8ec5-af8c-70afee3d5f2e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\dee28f3f-9eeb-4585-80ae-bddf35175807.htm -&gt; C:\Users\Renato\Documents\Help\html\dee28f3f-9eeb-4585-80ae-bddf35175807.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\df48c565-6837-83d0-8060-a37c22b5f705.htm -&gt; C:\Users\Renato\Documents\Help\html\df48c565-6837-83d0-8060-a37c22b5f705.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\df8cf501-44f5-4387-b966-f3677288c1e1.htm -&gt; C:\Users\Renato\Documents\Help\html\df8cf501-44f5-4387-b966-f3677288c1e1.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\e0286826-990c-4c09-4d56-f51d609684ef.htm -&gt; C:\Users\Renato\Documents\Help\html\e0286826-990c-4c09-4d56-f51d609684ef.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\e1ca6195-06d1-406b-7057-60ad7a6cf45f.htm -&gt; C:\Users\Renato\Documents\Help\html\e1ca6195-06d1-406b-7057-60ad7a6cf45f.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\e1ec233c-5fef-1034-c2c3-ce905fff75f9.htm -&gt; C:\Users\Renato\Documents\Help\html\e1ec233c-5fef-1034-c2c3-ce905fff75f9.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\e2178939-94b2-e9bb-9b91-1b056a8f3654.htm -&gt; C:\Users\Renato\Documents\Help\html\e2178939-94b2-e9bb-9b91-1b056a8f3654.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\e2e5fa6a-cc9a-0b55-0a5c-3e7aeb5ad20d.htm -&gt; C:\Users\Renato\Documents\Help\html\e2e5fa6a-cc9a-0b55-0a5c-3e7aeb5ad20d.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\e55538a3-ad36-d93f-e494-744087a52889.htm -&gt; C:\Users\Renato\Documents\Help\html\e55538a3-ad36-d93f-e494-744087a52889.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\e7f216b7-c30e-c819-94fa-4e8ebf10ea70.htm -&gt; C:\Users\Renato\Documents\Help\html\e7f216b7-c30e-c819-94fa-4e8ebf10ea70.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\e8fc98f0-5694-6adb-d97d-42147b1f664a.htm -&gt; C:\Users\Renato\Documents\Help\html\e8fc98f0-5694-6adb-d97d-42147b1f664a.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\e921b132-e957-bf9a-62f9-1a6d9e23bd11.htm -&gt; C:\Users\Renato\Documents\Help\html\e921b132-e957-bf9a-62f9-1a6d9e23bd11.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\ea8e02f9-2253-e8f1-4d99-2ddd03a6412f.htm -&gt; C:\Users\Renato\Documents\Help\html\ea8e02f9-2253-e8f1-4d99-2ddd03a6412f.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\eb07baad-b5c1-4351-5f77-5ca78d6425b5.htm -&gt; C:\Users\Renato\Documents\Help\html\eb07baad-b5c1-4351-5f77-5ca78d6425b5.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\ee92a6b0-5377-6425-8e3b-eee9b08c249d.htm -&gt; C:\Users\Renato\Documents\Help\html\ee92a6b0-5377-6425-8e3b-eee9b08c249d.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\f01d398d-0080-e8c9-90e3-fc82804c7fb7.htm -&gt; C:\Users\Renato\Documents\Help\html\f01d398d-0080-e8c9-90e3-fc82804c7fb7.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\f2347e98-184c-15e4-2279-f1dded857549.htm -&gt; C:\Users\Renato\Documents\Help\html\f2347e98-184c-15e4-2279-f1dded857549.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\f242bfda-001a-1e95-11c7-598f67b77d7a.htm -&gt; C:\Users\Renato\Documents\Help\html\f242bfda-001a-1e95-11c7-598f67b77d7a.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\f40ccd9f-a682-6419-3f7f-b10f8bf26692.htm -&gt; C:\Users\Renato\Documents\Help\html\f40ccd9f-a682-6419-3f7f-b10f8bf26692.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\fbbb004d-1c5d-59a8-ee9a-64a3c9403848.htm -&gt; C:\Users\Renato\Documents\Help\html\fbbb004d-1c5d-59a8-ee9a-64a3c9403848.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\ff7cc479-aa0e-c3a5-b5e3-05b61c005e0e.htm -&gt; C:\Users\Renato\Documents\Help\html\ff7cc479-aa0e-c3a5-b5e3-05b61c005e0e.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\html\ffb6e693-71cf-95c3-39f3-4f762c66c1a5.htm -&gt; C:\Users\Renato\Documents\Help\html\ffb6e693-71cf-95c3-39f3-4f762c66c1a5.htm
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\1_404_bullet.gif -&gt; C:\Users\Renato\Documents\Help\icons\1_404_bullet.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\2_404_bullet.gif -&gt; C:\Users\Renato\Documents\Help\icons\2_404_bullet.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\alert_caution.gif -&gt; C:\Users\Renato\Documents\Help\icons\alert_caution.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\alert_note.gif -&gt; C:\Users\Renato\Documents\Help\icons\alert_note.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\alert_security.gif -&gt; C:\Users\Renato\Documents\Help\icons\alert_security.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\CFW.gif -&gt; C:\Users\Renato\Documents\Help\icons\CFW.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\close.gif -&gt; C:\Users\Renato\Documents\Help\icons\close.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\favicon.ico -&gt; C:\Users\Renato\Documents\Help\icons\favicon.ico
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\footer_slice.gif -&gt; C:\Users\Renato\Documents\Help\icons\footer_slice.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\info_icon.gif -&gt; C:\Users\Renato\Documents\Help\icons\info_icon.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\note.gif -&gt; C:\Users\Renato\Documents\Help\icons\note.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\online_icon.gif -&gt; C:\Users\Renato\Documents\Help\icons\online_icon.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\open.gif -&gt; C:\Users\Renato\Documents\Help\icons\open.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pencil.GIF -&gt; C:\Users\Renato\Documents\Help\icons\pencil.GIF
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privclass.gif -&gt; C:\Users\Renato\Documents\Help\icons\privclass.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privdelegate.gif -&gt; C:\Users\Renato\Documents\Help\icons\privdelegate.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privenumeration.gif -&gt; C:\Users\Renato\Documents\Help\icons\privenumeration.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privevent.gif -&gt; C:\Users\Renato\Documents\Help\icons\privevent.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privextension.gif -&gt; C:\Users\Renato\Documents\Help\icons\privextension.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privfield.gif -&gt; C:\Users\Renato\Documents\Help\icons\privfield.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privinterface.gif -&gt; C:\Users\Renato\Documents\Help\icons\privinterface.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privmethod.gif -&gt; C:\Users\Renato\Documents\Help\icons\privmethod.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privproperty.gif -&gt; C:\Users\Renato\Documents\Help\icons\privproperty.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\privstructure.gif -&gt; C:\Users\Renato\Documents\Help\icons\privstructure.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protclass.gif -&gt; C:\Users\Renato\Documents\Help\icons\protclass.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protdelegate.gif -&gt; C:\Users\Renato\Documents\Help\icons\protdelegate.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protenumeration.gif -&gt; C:\Users\Renato\Documents\Help\icons\protenumeration.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protevent.gif -&gt; C:\Users\Renato\Documents\Help\icons\protevent.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protextension.gif -&gt; C:\Users\Renato\Documents\Help\icons\protextension.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protfield.gif -&gt; C:\Users\Renato\Documents\Help\icons\protfield.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protinterface.gif -&gt; C:\Users\Renato\Documents\Help\icons\protinterface.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protmethod.gif -&gt; C:\Users\Renato\Documents\Help\icons\protmethod.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protoperator.gif -&gt; C:\Users\Renato\Documents\Help\icons\protoperator.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protproperty.gif -&gt; C:\Users\Renato\Documents\Help\icons\protproperty.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\protstructure.gif -&gt; C:\Users\Renato\Documents\Help\icons\protstructure.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubclass.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubclass.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubdelegate.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubdelegate.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubenumeration.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubenumeration.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubevent.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubevent.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubextension.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubextension.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubfield.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubfield.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubinterface.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubinterface.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubmethod.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubmethod.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\puboperator.gif -&gt; C:\Users\Renato\Documents\Help\icons\puboperator.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubproperty.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubproperty.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\pubstructure.gif -&gt; C:\Users\Renato\Documents\Help\icons\pubstructure.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\search.gif -&gt; C:\Users\Renato\Documents\Help\icons\search.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\search_bk.gif -&gt; C:\Users\Renato\Documents\Help\icons\search_bk.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\security.gif -&gt; C:\Users\Renato\Documents\Help\icons\security.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\slMobile.gif -&gt; C:\Users\Renato\Documents\Help\icons\slMobile.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\static.gif -&gt; C:\Users\Renato\Documents\Help\icons\static.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\tabLeftBG.gif -&gt; C:\Users\Renato\Documents\Help\icons\tabLeftBG.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\tabRightBG.gif -&gt; C:\Users\Renato\Documents\Help\icons\tabRightBG.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\ui_om_collapse.gif -&gt; C:\Users\Renato\Documents\Help\icons\ui_om_collapse.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\ui_om_expand.gif -&gt; C:\Users\Renato\Documents\Help\icons\ui_om_expand.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\icons\xna.gif -&gt; C:\Users\Renato\Documents\Help\icons\xna.gif
+C:\Users\Renato\Documents\Help\Working\Output\Website\scripts\branding.js -&gt; C:\Users\Renato\Documents\Help\scripts\branding.js
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-cs-CZ.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-cs-CZ.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-de-DE.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-de-DE.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-en-US.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-en-US.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-es-ES.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-es-ES.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-fr-FR.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-fr-FR.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-it-IT.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-it-IT.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-ja-JP.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-ja-JP.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-ko-KR.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-ko-KR.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-pl-PL.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-pl-PL.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-pt-BR.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-pt-BR.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-ru-RU.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-ru-RU.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-tr-TR.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-tr-TR.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-zh-CN.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-zh-CN.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding-zh-TW.css -&gt; C:\Users\Renato\Documents\Help\styles\branding-zh-TW.css
+C:\Users\Renato\Documents\Help\Working\Output\Website\styles\branding.css -&gt; C:\Users\Renato\Documents\Help\styles\branding.css
+    Last step completed in 00:00:12.8798
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:00.2808
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 12/16/2012 11:46 AM.  Total time: 00:08:39.8060
+
+</buildStep>
+</shfbBuild>
