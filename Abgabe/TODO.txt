@@ -1,0 +1,16 @@
+- Anforderungen (4.2.3 + 4.2.4):
+  Stichworte zu Tabelle oder Fliesstext ausarbeiten
+- Benutzte Gesten anderer Produkte und Projekte (5.1):
+  Quellen angeben! Ich konnte z.B. nicht herausfinden, was Interactive Wall 
+  für ein Produkt ist. Ev. sollten wir die Produktbeschriebe sammeln und in einen Ordner
+  schmeissen. VOn mir aus auch Youtube-Videos.
+- Zoom (8.1.2): 
+  Push and Pull besser beschreiben (Bilder?)
+- Cursor bewegen (8.1.4):
+  Beim Joystick sollte man noch mehr schreiben. Er ist wichtig. 
+  Zudem haben wir uns gegen den Cursor entschieden.
+- Cursor bewegen (5.3.4). Besser beschreiben wie es funktioniert
+- Auswahlgesten: Timeout wäre wohl besser als Nicken, siehe Feedback Reto
+- Review 8.1.4 - 8.1.7
+- Review 5.4
+- 8.2 weiter diskutieren
