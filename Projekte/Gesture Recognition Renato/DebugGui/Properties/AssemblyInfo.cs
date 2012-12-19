@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DebugGui")]
+[assembly: AssemblyTitle("KinectSA Framework Demo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("M&F Engineering")]
 [assembly: AssemblyProduct("DebugGui")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright ©  2012 - Renato Bosshart, Josua Schmid")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DebugGui
+namespace MF.Engineering.MF8910.KinectSADemo
 {
     /// <summary>
     /// Interaction logic for App.xaml

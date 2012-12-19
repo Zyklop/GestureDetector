@@ -5,6 +5,8 @@ using System.Linq;
 
 namespace MF.Engineering.MF8910.GestureDetector.Tools
 {
+    /// <summary>
+    /// Abstract directions for joint movement</summary>
     public enum Direction
     {
         Forward, Upward, Downward, Left, Right, Backward, None

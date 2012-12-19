@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Diagnostics;
 
 
-namespace DebugGui
+namespace MF.Engineering.MF8910.KinectSADemo
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

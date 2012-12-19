@@ -6,6 +6,8 @@ using MF.Engineering.MF8910.GestureDetector.Tools;
 using MF.Engineering.MF8910.GestureDetector.Events;
 namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
 {
+    /// <summary>
+    /// Conditions for a left wave</summary>
     public class WaveLeftCondition: DynamicCondition
     {
         private int _index;

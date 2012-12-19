@@ -60,7 +60,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
         public void Reset()
         {
             _startTime = CurrentMillis.Millis;
-            /**
+            /*
              * Disable all conditions although there should be only one enabled: the last on index.Current
              * But since it can be NULL and there could occurr Exceptions in user code,
              * we invest a bit performance to securely save gesture checking performance.

@@ -200,7 +200,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 _expirationCandidates.Remove(item.Key);
             }
 
-            /**
+            /*
              * There are 3 possibilities to describe the current status
              * - Every person had a skeleton. We just need to assign new ones.
              * - There are less skeletons than persons. At least one person doesnt exist 
@@ -210,7 +210,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
              */
             Match bestMatch = new Match();
 
-            /**
+            /*
              * A person went out of sight
              */
             if (skeletonsToMatch.Count < _trackedPersons.Count) 
@@ -246,7 +246,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                 }
             }
 
-            /**
+            /*
              * A person came in sight or there were no changes
              */
             else
@@ -271,7 +271,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     skeletonsToMatch.Remove(bestMatch.Skeleton);
                 }
 
-                /**
+                /*
                  * After we matched the tracked persons, we try to match the 
                  * remaining skeletons to the cached persons.
                  */
@@ -307,7 +307,7 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
                     skeletonsToMatch.Remove(ske);
                 }
 
-                /**
+                /*
                  * We didn't find neighter a match for tracked persons nor for cached persons.
                  * -> We will create new persons for all unmatched skeletons.
                  */

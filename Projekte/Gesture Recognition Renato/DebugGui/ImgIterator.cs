@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 
-namespace DebugGui
+namespace MF.Engineering.MF8910.KinectSADemo
 {
     class ImgIterator:INotifyPropertyChanged
     {
