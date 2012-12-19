@@ -497,6 +497,10 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Tools.Direction">
+            <summary>
+            Abstract directions for joint movement</summary>
+        </member>
         <member name="T:MF.Engineering.MF8910.GestureDetector.Tools.SkeletonMath">
             <summary>
             Library for independent vector aritmetics</summary>
@@ -538,6 +542,10 @@
             Target Point</param>
             <returns>
             Returns a list of three directions (for each axis)</returns>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition">
+            <summary>
+            Conditions for a left wave</summary>
         </member>
         <member name="T:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton">
             <summary>
