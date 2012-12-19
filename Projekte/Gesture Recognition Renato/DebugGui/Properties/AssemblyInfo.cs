@@ -11,7 +11,7 @@ using System.Windows;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("M&F Engineering")]
-[assembly: AssemblyProduct("DebugGui")]
+[assembly: AssemblyProduct("KinectSA")]
 [assembly: AssemblyCopyright("Copyright ©  2012 - Renato Bosshart, Josua Schmid")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -27,7 +27,7 @@ namespace MF.Engineering.MF8910.KinectSADemo
         {
             try
             {
-                itr = new ImgIterator(AppDomain.CurrentDomain.BaseDirectory + @"..\..\Images");
+                itr = new ImgIterator(AppDomain.CurrentDomain.BaseDirectory + @"\Images");
             }
             catch (Exception e)
             {
@@ -83,38 +83,35 @@ namespace MF.Engineering.MF8910.KinectSADemo
             SwipeGestureEventArgs args = (SwipeGestureEventArgs)e;
             switch (args.Direction)
             {
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Forward:
+                case GestureDetector.Tools.Direction.Forward:
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Upward:
+                case GestureDetector.Tools.Direction.Upward:
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Downward:
+                case GestureDetector.Tools.Direction.Downward:
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Left:
+                case GestureDetector.Tools.Direction.Left:
                     Storyboard sbl = this.FindResource("ImageLeftOut") as Storyboard;
                     if (sbl != null) sbl.Begin();
                     await Task.Delay(1000);
                     itr.Previous();
-                    //Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
-                    Debug.WriteLine(sv.ActualHeight);
                     Img.Height = sv.ActualHeight;
                     Img.Width = sv.ActualWidth;
                     sbl = FindResource("ImageRightIn") as Storyboard;
                     if (sbl != null) sbl.Begin();
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Right:
+                case GestureDetector.Tools.Direction.Right:
                     Storyboard sbr = this.FindResource("ImageRightOut") as Storyboard;
                     if (sbr != null) sbr.Begin();
                     await Task.Delay(1000);
                     itr.Next();
-                    //Img.Height = MainGrid.RowDefinitions.ElementAt(1).ActualHeight;
                     Img.Height = sv.ActualHeight;
                     Img.Width = sv.ActualWidth;
                     sbr = FindResource("ImageLeftIn") as Storyboard;
                     if (sbr != null) sbr.Begin();
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.Backward:
+                case GestureDetector.Tools.Direction.Backward:
                     break;
-                case MF.Engineering.MF8910.GestureDetector.Tools.Direction.None:
+                case GestureDetector.Tools.Direction.None:
                     break;
             }
         }
@@ -167,11 +164,6 @@ namespace MF.Engineering.MF8910.KinectSADemo
         /// <param name="e"></param>
         private void waved(object sender, GestureEventArgs e)
         {
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            //int i;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

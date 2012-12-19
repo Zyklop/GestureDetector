@@ -59,7 +59,6 @@
                 </TransformGroup>
             </ScrollViewer.RenderTransform>
         </ScrollViewer>
-        <Button Click="Button_Click_1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Debug" Grid.Row="2"/>
         <Button Content="Close" Click="Button_Click_2" VerticalAlignment="Top" HorizontalAlignment="Right"/>
     </Grid>
 </Window>

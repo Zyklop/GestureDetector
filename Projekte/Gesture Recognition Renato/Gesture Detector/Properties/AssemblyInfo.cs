@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GestureDetector")]
+[assembly: AssemblyTitle("KinectSA Framework")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("M&F Engineering")]
-[assembly: AssemblyProduct("GestureDetector.Properties")]
+[assembly: AssemblyProduct("KinectSA")]
 [assembly: AssemblyCopyright("Copyright ©  2012 - Renato Bosshart, Josua Schmid")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Gesture Detector</name>
+        <name>KinectSAFramework</name>
     </assembly>
     <members>
         <member name="T:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs">
