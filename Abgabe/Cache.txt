@@ -31,6 +31,13 @@ Alle möglichen Aktionen auf der Seite sollten klar markiert sein.
 Die möglichen Gesten sollten nicht textuell beschrieben werden, da das sonst zu Missverständnissen kommen kann. Es ist für den Benutzer viel verständlicher, wenn man ihm eine kleine Animation in Form eines Strichmännchen zeigt.
 Falls die Bedienzone (Fläche, von wo aus Bedient wird), nicht klar definiert ist, wäre es hilfreich, den Nutzer zu warnen, wenn er nahe am Rand der Bedienzone steht, wo er danach nicht mehr erfasst wird. Das zieht jedoch Änderungen am Framework nach sich.
 
+Filter-methoden
+Wir haben werschieden Methoden zur Filterung evaluiert. Wir wenden die Filter jeweils erst auf das Endresultat (Geschwindigkeit/Distanz) an. So können wir Ausreisser von einzelnen Achswerten besser ausgleichen.
+Bildet man den Mittelwert aus verschiedenen Werten gebildet. Dadurch werden jedoch Ausreisser überbewertet.
+Mit dem Median ignorieren wir einzelne Ausreisser, jedoch erhalten wir manche Werte doppelt.
+Durch eine Voraussage des nächsten Punkts kann man Ausreisser ignorieren, jedoch hat mman bei Richtungsänderungen der Bewegungen eine Verzögerung, bis diese detektiert wird. Aufwändiger in der Implementierung.
+Wir haben uns für den Median entschieden, da er Ausreisser gut filtert und es für uns kein Problem darstellt, wenn wir die gleichen Werte mehrfach erhalten.
+
 Framework
 Die aktuellen Gesten wurden noch keinem Usertest unterzogen, was die Qualität der Gesten stark verbessern könnte. Auch andere Konstanten sollte noch durch Usertests verbessert werden.
 Bei den Gesten sollten zusätzlich noch die Zusatzbedingungen verfeinert werden, was die Erkennung verbessern würde. Das sind keine aufwändigen Arbeiten, aber es braucht einige Tests mit Benutzern um die Probleme zu erkennen.
