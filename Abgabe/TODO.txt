@@ -15,3 +15,6 @@
 - Konstante Konfiguration✔
 - Personencache bei Architektur beschreiben✔
 - Strichmännchenbilder einfügen
+- Zuweisung Personen zu Architekturentscheide
+- Anleitung wo?
+- Weiteres Vorgehen 
