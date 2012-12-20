@@ -19,3 +19,25 @@ MedianCorrectNeeded: Wie häufig muss die Bewegungsrichtung gestimmt haben, dass 
 In Conditions oder Gesture Checkers:
 ConditionTimeout: Zeit, während der die Geste abwartet, ob sie vielleicht noch komplettiert wird. In Millisekunden.
 Andere sind individuell und selbsterklärend.
+
+Ausblick
+Eigenschaften, die beachtet werden sollten bei einer Weiterführung unserer Arbeit:
+Gui
+Unser Gui ist nur ein Prototyp. Falls es weiterentwickelt werden soll, muss ein Error-Handeling eingeführt werden und die Asynchronität verbessert werden. Wir würden aber nicht empfehlen, unser Gui weiterzuverwenden.
+Wenn ein neues Gui entwickelt wird, gibt es zusätzlich zu den üblichen Anforderungen an ein Gui noch zusätzliche Anforderungen: 
+Die grafischen Elemente müssen gross sein, dass man diese auch aus der Entfernung erkennt.
+Es darf nur wenig interaktive Elemente auf einer Seite haben, dass für den Benutzer immer klar ersichtlich ist, was welche Aktion beschreibt
+Alle möglichen Aktionen auf der Seite sollten klar markiert sein.
+Die möglichen Gesten sollten nicht textuell beschrieben werden, da das sonst zu Missverständnissen kommen kann. Es ist für den Benutzer viel verständlicher, wenn man ihm eine kleine Animation in Form eines Strichmännchen zeigt.
+Falls die Bedienzone (Fläche, von wo aus Bedient wird), nicht klar definiert ist, wäre es hilfreich, den Nutzer zu warnen, wenn er nahe am Rand der Bedienzone steht, wo er danach nicht mehr erfasst wird. Das zieht jedoch Änderungen am Framework nach sich.
+
+Framework
+Die aktuellen Gesten wurden noch keinem Usertest unterzogen, was die Qualität der Gesten stark verbessern könnte. Auch andere Konstanten sollte noch durch Usertests verbessert werden.
+Bei den Gesten sollten zusätzlich noch die Zusatzbedingungen verfeinert werden, was die Erkennung verbessern würde. Das sind keine aufwändigen Arbeiten, aber es braucht einige Tests mit Benutzern um die Probleme zu erkennen.
+Um allfälige Änderungen am Code zu testen kann man unser Mock-Device verwenden.
+Falls man viele Tests ausführt, würde es sich anbieten, einen weiteren Abstraktionslayer zum KinectSensor einzuführen damit man Mocking-Tests dürchführen kann, ohne den Code zu ändern.
+Eine Erweiterung des Mock-Devices, sodass man bestimmte Skelettdaten erzeugen kann, würde ermöglichen, Gesten automatisiert zu testen. Das wäre aber ein grosser Aufwand.
+
+Untersuchungen
+Wenn man die Usability verbessern will, sollte man unsere Konkurenzanalyse noch vertiefen. Es gibt relativ viel kleine Projekte und Analysen zu diesem Thema, die wir aus Zeitgründen nicht auswerten konnten.
+Eine andere Möglichkeit, die Usability zu verbessern sind Usertests. Mit unserem Framewok lassen sich einfach neue Gesten erstellen, die dann anhand vom Feedback der Nutzer verfeinert oder verworfen werden können.
