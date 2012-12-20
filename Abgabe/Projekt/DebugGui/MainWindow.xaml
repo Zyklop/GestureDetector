@@ -1,0 +1,64 @@
+﻿<Window x:Class="MF.Engineering.MF8910.KinectSADemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="KinectDemo" WindowState="Maximized" WindowStyle="None">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Background" Value="Black"/>
+        </Style>
+        <Storyboard x:Key="ImageLeftOut" x:Name="ImageLeftOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="sv">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-2000"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ImageRightOut" x:Name="ImageRightOut">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="sv">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="2000"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ImageLeftIn" x:Name="ImageLeftIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="sv">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-2000"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ImageRightIn" x:Name="ImageRightIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="sv">
+                <EasingDoubleKeyFrame KeyTime="0" Value="2000"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Grid Background="Black" KeyDown="Grid_KeyDown_1" Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="Persons Visible:" FontSize="20"/>
+            <TextBlock Name="NrPersons" FontSize="20"/>
+        </StackPanel>
+        <TextBlock Text="Wave to Login" Name="LoginText" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="100" Visibility="Hidden" Grid.Row="1"/>
+        <ScrollViewer Name="sv" BorderBrush="White" BorderThickness="5" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled"  RenderTransformOrigin="0.5,0.5" Visibility="Hidden" Grid.Row="1">
+            <Image Name="Img" Source="{Binding Path=Uri, Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center"/><!---->
+            <ScrollViewer.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ScrollViewer.RenderTransform>
+        </ScrollViewer>
+        <Button Content="Close" Click="Button_Click_2" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+    </Grid>
+</Window>
