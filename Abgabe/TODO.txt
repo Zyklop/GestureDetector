@@ -1,7 +1,5 @@
 ﻿- Anforderungen (4.2.3 + 4.2.4):
   Stichworte zu Tabelle oder Fliesstext ausarbeiten
-- Cursor bewegen (9.1.4):
-  Bild + letzten Satz streichen
 - 5.3.5 Textabschnitt soll aus einem Guss sein. überarbeiten
 - Review 9.1.4 - 9.1.7
 - Review 5.4
@@ -11,10 +9,8 @@
 - Persönliche Erkenntnisse
 - Kommentare im Code ev. noch vervollständigen
 - MockingDevice mitliefern und dokumentieren
-- Release für Demo-Applikation✔
-- Konstante Konfiguration✔
 - Personencache bei Architektur beschreiben✔
 - Strichmännchenbilder einfügen
 - Zuweisung Personen zu Architekturentscheide
 - Anleitung wo?
-- Weiteres Vorgehen 
+- Weiteres Vorgehen
