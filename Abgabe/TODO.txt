@@ -1,16 +1,2 @@
-﻿- Anforderungen (4.2.3 + 4.2.4):
-  Stichworte zu Tabelle oder Fliesstext ausarbeiten
-- 5.3.5 Textabschnitt soll aus einem Guss sein. überarbeiten
-- Review 9.1.4 - 9.1.7
-- Review 5.4
-- Review 8
-- 9.2 weiter diskutieren
-- Erkenntnisse~✔
-- Persönliche Erkenntnisse
-- Kommentare im Code ev. noch vervollständigen
-- MockingDevice mitliefern und dokumentieren
-- Personencache bei Architektur beschreiben✔
-- Strichmännchenbilder einfügen
-- Zuweisung Personen zu Architekturentscheide
-- Anleitung wo?
-- Weiteres Vorgehen
+﻿- Persönliche Erkenntnisse Josua
+- Ausblick
