@@ -25,11 +25,29 @@
   </HelpKINode>
   <HelpKINode Title="ActivePersonEventArgs.ActivePersonEventArgs constructor" Url="html/89ba7d6c-3801-c575-e5af-52127a0dbf15.htm" />
   <HelpKINode Title="ActivePersonEventArgs.Person property" Url="html/d499d705-2551-d770-7ecf-03e9c659516b.htm" />
+  <HelpKINode Title="AddPoints method" Url="html/805b14b3-5f63-0f3e-1b99-deab6aeda9f4.htm" />
   <HelpKINode Title="Amount property" Url="html/d5bc2335-85fa-f043-5ff1-74dbd09bdfdf.htm" />
   <HelpKINode Title="Backward enumeration member" Url="html/b4404bfc-0f26-8124-8ba1-84c593dafada.htm" />
-  <HelpKINode Title="Check method" Url="html/9270e5f3-bd43-c212-b9ce-197dc998950f.htm" />
-  <HelpKINode Title="Check method" Url="html/a4331fa8-aa5f-75d6-a99d-3596df9cfadb.htm" />
   <HelpKINode Title="Check method" Url="html/eb07baad-b5c1-4351-5f77-5ca78d6425b5.htm" />
+  <HelpKINode Title="Checker class" Url="html/84e8ec34-217f-1f22-5355-9b5be102f661.htm" />
+  <HelpKINode Title="Checker class" Url="html/98975c35-c79a-551e-2071-8e356c3a0b71.htm" />
+  <HelpKINode Title="Checker class">
+    <HelpKINode Title="about Checker class" Url="html/84e8ec34-217f-1f22-5355-9b5be102f661.htm" />
+    <HelpKINode Title="all members" Url="html/98975c35-c79a-551e-2071-8e356c3a0b71.htm" />
+    <HelpKINode Title="constructor" Url="html/e1bfc5f2-814e-ade9-4cc4-fff732b1b9f0.htm" />
+    <HelpKINode Title="methods" Url="html/2525e9b7-86b6-573b-ca85-8cb6f19924fc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Checker.Checker constructor" Url="html/e1bfc5f2-814e-ade9-4cc4-fff732b1b9f0.htm" />
+  <HelpKINode Title="Checker.GetAbsoluteMovement method" Url="html/ca27b70a-5d70-da07-4a19-ec47216ff9bd.htm" />
+  <HelpKINode Title="Checker.GetAbsoluteVelocity method" Url="html/7b30d28b-e35a-d8a7-5088-16dc9c54904d.htm" />
+  <HelpKINode Title="Checker.GetDistance method" Url="html/c6d47cc0-8cc2-fbed-bc7e-0aa76e3de02a.htm" />
+  <HelpKINode Title="Checker.GetDistanceMedian method" Url="html/beb610fc-b586-f439-33b6-eec1394cef00.htm" />
+  <HelpKINode Title="Checker.GetRelativeMovement method" Url="html/700622fc-1d82-bbcd-6ec8-c0491681a071.htm" />
+  <HelpKINode Title="Checker.GetRelativePosition method" Url="html/60b74de6-ed96-8cd7-e24f-9d7723f00e43.htm" />
+  <HelpKINode Title="Checker.GetRelativeVelocity method" Url="html/505036ca-6552-a070-4fc0-68fb45ce7185.htm" />
+  <HelpKINode Title="Checker.GetSteadyAbsoluteMovement method" Url="html/d21e7a4d-fd98-d64e-e6b6-69d3964919ed.htm" />
+  <HelpKINode Title="Checker.GetSteadyPosition method" Url="html/6027d597-1455-c2b3-4f3c-0cafffa30e3e.htm" />
+  <HelpKINode Title="Checker.GetSteadyRelativeMovement method" Url="html/73fbaddf-0f85-fd09-7d8f-767179b8ac3c.htm" />
   <HelpKINode Title="Condition class" Url="html/14c254ac-64c3-dd97-dca9-c04ef27e77d5.htm" />
   <HelpKINode Title="Condition class" Url="html/a62ec937-d2fd-172f-ebb5-f81d2814b144.htm" />
   <HelpKINode Title="Condition class">
@@ -51,6 +69,14 @@
   <HelpKINode Title="Condition.OnCheck event" Url="html/4643c8c6-48da-c6a8-e397-95e0bf7e7121.htm" />
   <HelpKINode Title="Condition.Person field" Url="html/2add61e1-c27e-5afd-1b18-914acbb838ab.htm" />
   <HelpKINode Title="Condition.Succeeded event" Url="html/e8fc98f0-5694-6adb-d97d-42147b1f664a.htm" />
+  <HelpKINode Title="CurrentMillis class" Url="html/31f2da51-e2f4-c7f5-4d1e-13e71ee99ed7.htm" />
+  <HelpKINode Title="CurrentMillis class" Url="html/f86f6b4d-811b-8e07-227a-ffe9782c6568.htm" />
+  <HelpKINode Title="CurrentMillis class">
+    <HelpKINode Title="about CurrentMillis class" Url="html/31f2da51-e2f4-c7f5-4d1e-13e71ee99ed7.htm" />
+    <HelpKINode Title="all members" Url="html/f86f6b4d-811b-8e07-227a-ffe9782c6568.htm" />
+    <HelpKINode Title="properties" Url="html/ccb2e7c1-61c1-7125-787d-6e5c213d92b5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CurrentMillis.Millis property" Url="html/ed768ad3-0246-fa58-3805-5a1de709d98f.htm" />
   <HelpKINode Title="CurrentSkeleton property" Url="html/6f3e45e6-a3b2-2b97-407b-fa20f2724fb2.htm" />
   <HelpKINode Title="Device class" Url="html/3d0d98ae-45cd-5bfe-ba70-0ceabac0bac9.htm" />
   <HelpKINode Title="Device class" Url="html/dccab0a2-f3d1-8ec5-af8c-70afee3d5f2e.htm" />
@@ -75,10 +101,24 @@
   <HelpKINode Title="Device.Start method" Url="html/789a283a-d68a-a3d5-f4c3-ff9efd808789.htm" />
   <HelpKINode Title="Device.Status property" Url="html/df48c565-6837-83d0-8060-a37c22b5f705.htm" />
   <HelpKINode Title="Device.Stop method" Url="html/42fa739d-5380-b4dc-21f9-0e25d3518ff0.htm" />
+  <HelpKINode Title="DeviceErrorException class" Url="html/3e1d1f82-62bf-10ce-8812-f7f183ad77d1.htm" />
+  <HelpKINode Title="DeviceErrorException class" Url="html/c2e12c1d-17d2-124a-6f67-24e2782ca50c.htm" />
+  <HelpKINode Title="DeviceErrorException class">
+    <HelpKINode Title="about DeviceErrorException class" Url="html/3e1d1f82-62bf-10ce-8812-f7f183ad77d1.htm" />
+    <HelpKINode Title="all members" Url="html/c2e12c1d-17d2-124a-6f67-24e2782ca50c.htm" />
+    <HelpKINode Title="constructor" Url="html/6f0572d5-8d07-d70a-f063-91dbeb4e0072.htm" />
+    <HelpKINode Title="events" Url="html/a6d7230c-e4c2-32b6-5ebd-17a0a245ff9f.htm" />
+    <HelpKINode Title="methods" Url="html/a5678338-7d18-9a3b-e793-0df815139041.htm" />
+    <HelpKINode Title="properties" Url="html/3435e573-535b-ff56-7fd0-d7d38525098b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DeviceErrorException.DeviceErrorException constructor" Url="html/6f0572d5-8d07-d70a-f063-91dbeb4e0072.htm" />
+  <HelpKINode Title="DeviceErrorException.Status property" Url="html/9fa7302c-6405-6323-7ccb-5136c80ced8b.htm" />
   <HelpKINode Title="Direction enumeration" Url="html/b4404bfc-0f26-8124-8ba1-84c593dafada.htm" />
   <HelpKINode Title="Direction property" Url="html/b91f7c64-eec9-0da6-3b9c-c12503b10227.htm" />
+  <HelpKINode Title="DirectionTo method" Url="html/4f803d78-724c-73f6-431d-509e5800fd03.htm" />
   <HelpKINode Title="Disable method" Url="html/5a20ab20-8689-9ee3-8b77-8952572902f6.htm" />
   <HelpKINode Title="Dispose method" Url="html/cd7e355e-626e-e334-5f2d-1dae331e0ea6.htm" />
+  <HelpKINode Title="DistanceBetweenPoints method" Url="html/613a3dc4-d62d-d44b-a7dd-446fd5371ad4.htm" />
   <HelpKINode Title="Downward enumeration member" Url="html/b4404bfc-0f26-8124-8ba1-84c593dafada.htm" />
   <HelpKINode Title="DynamicCondition class" Url="html/35437f6b-559b-ddbf-3227-13425957ff1a.htm" />
   <HelpKINode Title="DynamicCondition class" Url="html/4e333d43-8a26-2f14-7462-536796392098.htm" />
@@ -96,6 +136,7 @@
   <HelpKINode Title="Enable method" Url="html/9b6fcbd2-7679-8c3b-b821-a8f03b161c5b.htm" />
   <HelpKINode Title="Equals method" Url="html/e7f216b7-c30e-c819-94fa-4e8ebf10ea70.htm" />
   <HelpKINode Title="Failed event" Url="html/6ff94640-88e4-ea4e-a61f-0cf06107a05d.htm" />
+  <HelpKINode Title="Failed event" Url="html/741c96e3-21e5-8448-594b-0674c517563d.htm" />
   <HelpKINode Title="FailedGestureEventArgs class" Url="html/c88dfbe8-41e0-9d3c-7704-e772425e5732.htm" />
   <HelpKINode Title="FailedGestureEventArgs class" Url="html/cd990074-e592-4ba3-31a0-2bc0122b24f6.htm" />
   <HelpKINode Title="FailedGestureEventArgs class">
@@ -107,10 +148,27 @@
   </HelpKINode>
   <HelpKINode Title="FailedGestureEventArgs.Condition property" Url="html/d587efdf-d29d-7b8d-0366-a25a9037091e.htm" />
   <HelpKINode Title="FailedGestureEventArgs.FailedGestureEventArgs constructor" Url="html/8eceddd1-a056-e7ff-1866-905cc0ce4ec8.htm" />
+  <HelpKINode Title="FireFailed method" Url="html/afcd8e06-46dc-d9ce-db96-c0fd7fb73fb2.htm" />
   <HelpKINode Title="FireFailed method" Url="html/cdf1813a-be72-1952-6a28-7eba6c36c192.htm" />
   <HelpKINode Title="FireSucceeded method" Url="html/794c4763-fb91-69e6-4dc6-99c12a8d18da.htm" />
+  <HelpKINode Title="FireSucessful method" Url="html/1a3db3ef-ac26-a9f3-119f-ad8bfe7d51eb.htm" />
   <HelpKINode Title="FireTriggered method" Url="html/f2347e98-184c-15e4-2279-f1dded857549.htm" />
   <HelpKINode Title="Forward enumeration member" Url="html/b4404bfc-0f26-8124-8ba1-84c593dafada.htm" />
+  <HelpKINode Title="GestureChecker class" Url="html/0cd70ef5-b7d2-f3ff-ac79-52a803dfdb82.htm" />
+  <HelpKINode Title="GestureChecker class" Url="html/f1199208-6372-c1e8-f4aa-ae5e36814db2.htm" />
+  <HelpKINode Title="GestureChecker class">
+    <HelpKINode Title="about GestureChecker class" Url="html/0cd70ef5-b7d2-f3ff-ac79-52a803dfdb82.htm" />
+    <HelpKINode Title="all members" Url="html/f1199208-6372-c1e8-f4aa-ae5e36814db2.htm" />
+    <HelpKINode Title="constructor" Url="html/27eacf65-aeb8-733b-5b22-dade7dfbb7ac.htm" />
+    <HelpKINode Title="events" Url="html/787a7118-403e-1cd4-bb1c-c560cbf40c51.htm" />
+    <HelpKINode Title="methods" Url="html/bfeb1ff1-3e51-1b0f-f7d3-673033211737.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GestureChecker.Failed event" Url="html/741c96e3-21e5-8448-594b-0674c517563d.htm" />
+  <HelpKINode Title="GestureChecker.FireFailed method" Url="html/afcd8e06-46dc-d9ce-db96-c0fd7fb73fb2.htm" />
+  <HelpKINode Title="GestureChecker.FireSucessful method" Url="html/1a3db3ef-ac26-a9f3-119f-ad8bfe7d51eb.htm" />
+  <HelpKINode Title="GestureChecker.GestureChecker constructor" Url="html/27eacf65-aeb8-733b-5b22-dade7dfbb7ac.htm" />
+  <HelpKINode Title="GestureChecker.Reset method" Url="html/b69c787b-73e9-2aa0-3b87-bd5b0596d8e3.htm" />
+  <HelpKINode Title="GestureChecker.Successful event" Url="html/1dd5a9bc-bb1b-6e17-4802-c66b5424457a.htm" />
   <HelpKINode Title="GestureEventArgs class" Url="html/37aeddc5-b92d-61f5-1420-a6d67deaea61.htm" />
   <HelpKINode Title="GestureEventArgs class" Url="html/78794fca-4b74-3407-228e-08bd5698ebf2.htm" />
   <HelpKINode Title="GestureEventArgs class">
@@ -120,22 +178,41 @@
     <HelpKINode Title="methods" Url="html/83a78276-6bcf-c995-8c91-90c82a380f2e.htm" />
   </HelpKINode>
   <HelpKINode Title="GestureEventArgs.GestureEventArgs constructor" Url="html/756e83e8-e5ef-dea9-6582-58a155e23574.htm" />
+  <HelpKINode Title="GetAbsoluteMovement method" Url="html/ca27b70a-5d70-da07-4a19-ec47216ff9bd.htm" />
+  <HelpKINode Title="GetAbsoluteVelocity method" Url="html/7b30d28b-e35a-d8a7-5088-16dc9c54904d.htm" />
   <HelpKINode Title="GetActivePerson method" Url="html/f242bfda-001a-1e95-11c7-598f67b77d7a.htm" />
   <HelpKINode Title="GetAllPersons method" Url="html/6b012c9a-10b6-fb10-206c-92e5fb63e458.htm" />
+  <HelpKINode Title="GetDistance method" Url="html/c6d47cc0-8cc2-fbed-bc7e-0aa76e3de02a.htm" />
+  <HelpKINode Title="GetDistanceMedian method" Url="html/beb610fc-b586-f439-33b6-eec1394cef00.htm" />
   <HelpKINode Title="GetHashCode method" Url="html/40c4bc8d-508b-c84d-eba5-bb90d68741bf.htm" />
   <HelpKINode Title="GetLastSkeleton method" Url="html/7441bc1b-4439-9053-ee88-c6b25c422616.htm" />
   <HelpKINode Title="GetPosition method" Url="html/1d404bf9-5ebc-6a36-df99-6450f1a7e477.htm" />
+  <HelpKINode Title="GetRelativeMovement method" Url="html/700622fc-1d82-bbcd-6ec8-c0491681a071.htm" />
+  <HelpKINode Title="GetRelativePosition method" Url="html/60b74de6-ed96-8cd7-e24f-9d7723f00e43.htm" />
+  <HelpKINode Title="GetRelativeVelocity method" Url="html/505036ca-6552-a070-4fc0-68fb45ce7185.htm" />
   <HelpKINode Title="GetState method" Url="html/dbf425a6-6bde-4cf4-111d-5785a2f023f4.htm" />
+  <HelpKINode Title="GetSteadyAbsoluteMovement method" Url="html/d21e7a4d-fd98-d64e-e6b6-69d3964919ed.htm" />
+  <HelpKINode Title="GetSteadyPosition method" Url="html/6027d597-1455-c2b3-4f3c-0cafffa30e3e.htm" />
+  <HelpKINode Title="GetSteadyRelativeMovement method" Url="html/73fbaddf-0f85-fd09-7d8f-767179b8ac3c.htm" />
   <HelpKINode Title="HandleNewSkeletons method" Url="html/0fa54787-c3d1-c90a-2de2-1f437b97178e.htm" />
   <HelpKINode Title="Id property" Url="html/80b8d403-248e-3135-1ab2-9ad8b0d0b5d4.htm" />
   <HelpKINode Title="Left enumeration member" Url="html/b4404bfc-0f26-8124-8ba1-84c593dafada.htm" />
+  <HelpKINode Title="Median method" Url="html/fe8dba4d-374d-e4ce-dffa-6b6d55032e44.htm" />
+  <HelpKINode Title="MedianCorrectNeeded field" Url="html/10249c6a-726e-c8a7-f1e8-d3bfc38aac1a.htm" />
+  <HelpKINode Title="MedianTolerance field" Url="html/203fe891-9788-dc78-954e-f01adec7290a.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources namespace" Url="html/d2a42e69-b7f5-f914-75fa-1ca118282fbe.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.CurrentMillis class" Url="html/31f2da51-e2f4-c7f5-4d1e-13e71ee99ed7.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.CurrentMillis class" Url="html/f86f6b4d-811b-8e07-227a-ffe9782c6568.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.Device class" Url="html/3d0d98ae-45cd-5bfe-ba70-0ceabac0bac9.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.Device class" Url="html/dccab0a2-f3d1-8ec5-af8c-70afee3d5f2e.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.MovingSmothendSkeleton class" Url="html/16e8862d-db3d-906d-880f-05b092be1eeb.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.MovingSmothendSkeleton class" Url="html/9d5f4fa3-e837-78ef-6f1d-dc5bb1353b59.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.Person class" Url="html/012e9a0a-69d1-c033-b25b-4f631d68b368.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.Person class" Url="html/6924d9e6-a689-c0fd-0da5-e303f5c71227.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton class" Url="html/aec6a8d9-e422-bec8-ed37-e2a72b8abb73.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton class" Url="html/b7390814-f30f-e64b-6c3b-9ee7d6f48242.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.StaticSmothendSkeleton class" Url="html/1e38a00b-01db-0499-0569-eab8c38bd28d.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.DataSources.StaticSmothendSkeleton class" Url="html/d0d5f26c-c7d4-401e-f7e2-bcbf38278b3b.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Events namespace" Url="html/7e925586-7366-aad9-43c7-7323ab9a4e12.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs class" Url="html/a33a5e49-fc24-3641-7029-86f9b176129f.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs class" Url="html/b9445458-3249-95c5-8bdc-8dc509ce940e.htm" />
@@ -153,25 +230,43 @@
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs class" Url="html/e2178939-94b2-e9bb-9b91-1b056a8f3654.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs class" Url="html/4a6b1ba6-867d-c5ef-10c1-a3aa35fcd3c3.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs class" Url="html/7440acde-6f0c-2acb-d344-9f02d8b37f11.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Exceptions namespace" Url="html/76199154-4e7d-30cf-86c5-d1908405da7a.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Exceptions.DeviceErrorException class" Url="html/3e1d1f82-62bf-10ce-8812-f7f183ad77d1.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Exceptions.DeviceErrorException class" Url="html/c2e12c1d-17d2-124a-6f67-24e2782ca50c.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures namespace" Url="html/8429d671-95be-34ce-456e-125714e92cb1.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Condition class" Url="html/14c254ac-64c3-dd97-dca9-c04ef27e77d5.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Condition class" Url="html/a62ec937-d2fd-172f-ebb5-f81d2814b144.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition class" Url="html/35437f6b-559b-ddbf-3227-13425957ff1a.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition class" Url="html/4e333d43-8a26-2f14-7462-536796392098.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker class" Url="html/0cd70ef5-b7d2-f3ff-ac79-52a803dfdb82.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker class" Url="html/f1199208-6372-c1e8-f4aa-ae5e36814db2.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Swipe namespace" Url="html/a790a4f1-58ba-dde3-07a9-43193924ff44.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs class" Url="html/5d5e378c-6bf4-5503-84d1-6b8270adf9bf.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs class" Url="html/73935395-b2d4-59dc-afa7-666eeda081df.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Wave namespace" Url="html/3eec1399-1d8b-4596-c9ae-fd3820821edc.htm" />
-  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition class" Url="html/3f77d9e6-d4ee-1282-1f07-75312266c890.htm" />
-  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition class" Url="html/6050ecec-5043-f7c8-6375-12f3ae1a0b44.htm" />
-  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition class" Url="html/0609cc97-4c87-5faa-7b6c-23518255973d.htm" />
-  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveRightCondition class" Url="html/32623769-9fbd-6979-13c7-4dc65609f2b6.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveGestureEventArgs class" Url="html/6a046c2e-5560-3b38-62ab-af459a9a3fee.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveGestureEventArgs class" Url="html/bc36d74c-16b9-9ba2-5815-f55a33b3c8d4.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Zoom namespace" Url="html/accf0853-4dea-1e6c-9dff-e1dc0846b236.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs class" Url="html/c995c1ba-5abd-309e-2ad4-5ece7dfa3759.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs class" Url="html/d9e95b53-0fa6-f51a-c0af-af5f9b9c555d.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Tools namespace" Url="html/2d065912-5f2f-b6c0-1d7e-2cebc399d01f.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Tools.Checker class" Url="html/84e8ec34-217f-1f22-5355-9b5be102f661.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Tools.Checker class" Url="html/98975c35-c79a-551e-2071-8e356c3a0b71.htm" />
   <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Tools.Direction enumeration" Url="html/b4404bfc-0f26-8124-8ba1-84c593dafada.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Tools.SkeletonMath class" Url="html/759c30ea-8a65-0872-bfea-9b2225d7a282.htm" />
+  <HelpKINode Title="MF.Engineering.MF8910.GestureDetector.Tools.SkeletonMath class" Url="html/b3e96c7a-db92-9b7d-b0ee-a80449e8a2df.htm" />
+  <HelpKINode Title="Millis property" Url="html/ed768ad3-0246-fa58-3805-5a1de709d98f.htm" />
   <HelpKINode Title="MillisBetweenFrames method" Url="html/2e29277b-66ba-e746-93b6-2c98df0d4254.htm" />
+  <HelpKINode Title="MovingSmothendSkeleton class" Url="html/16e8862d-db3d-906d-880f-05b092be1eeb.htm" />
+  <HelpKINode Title="MovingSmothendSkeleton class" Url="html/9d5f4fa3-e837-78ef-6f1d-dc5bb1353b59.htm" />
+  <HelpKINode Title="MovingSmothendSkeleton class">
+    <HelpKINode Title="about MovingSmothendSkeleton class" Url="html/9d5f4fa3-e837-78ef-6f1d-dc5bb1353b59.htm" />
+    <HelpKINode Title="all members" Url="html/16e8862d-db3d-906d-880f-05b092be1eeb.htm" />
+    <HelpKINode Title="constructor" Url="html/23452bee-715f-6be2-6e84-396b80d6ce07.htm" />
+    <HelpKINode Title="methods" Url="html/02d5e1c1-3f56-4abd-5499-bf5d4d03f2b3.htm" />
+    <HelpKINode Title="properties" Url="html/8738ac67-e97a-3ac0-3cc5-a96e39ed7229.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MovingSmothendSkeleton.MovingSmothendSkeleton constructor" Url="html/23452bee-715f-6be2-6e84-396b80d6ce07.htm" />
   <HelpKINode Title="NewPerson event" Url="html/4d3dd265-e1b6-2c4a-c4d3-643ee18da53d.htm" />
   <HelpKINode Title="NewPersonEventArgs class" Url="html/218ac850-d84c-a666-64cb-94d2866b09aa.htm" />
   <HelpKINode Title="NewPersonEventArgs class" Url="html/864a82e8-44ee-25af-86e2-3999b1598bd7.htm" />
@@ -256,9 +351,29 @@
   </HelpKINode>
   <HelpKINode Title="PersonPassiveEventArgs.Person property" Url="html/d60990e7-89b4-93db-4b5b-1941742e2b94.htm" />
   <HelpKINode Title="PersonPassiveEventArgs.PersonPassiveEventArgs constructor" Url="html/027ec2f5-0d86-8029-f44e-1ed30561dd4c.htm" />
+  <HelpKINode Title="Reset method" Url="html/b69c787b-73e9-2aa0-3b87-bd5b0596d8e3.htm" />
   <HelpKINode Title="Right enumeration member" Url="html/b4404bfc-0f26-8124-8ba1-84c593dafada.htm" />
   <HelpKINode Title="SendEventsWhenPassive property" Url="html/236f4d03-a62f-5199-ad37-f38a2203a3f2.htm" />
   <HelpKINode Title="Skeleton property" Url="html/f40ccd9f-a682-6419-3f7f-b10f8bf26692.htm" />
+  <HelpKINode Title="SkeletonMath class" Url="html/759c30ea-8a65-0872-bfea-9b2225d7a282.htm" />
+  <HelpKINode Title="SkeletonMath class" Url="html/b3e96c7a-db92-9b7d-b0ee-a80449e8a2df.htm" />
+  <HelpKINode Title="SkeletonMath class">
+    <HelpKINode Title="about SkeletonMath class" Url="html/759c30ea-8a65-0872-bfea-9b2225d7a282.htm" />
+    <HelpKINode Title="all members" Url="html/b3e96c7a-db92-9b7d-b0ee-a80449e8a2df.htm" />
+    <HelpKINode Title="constructor" Url="html/eba83ab1-ce06-46aa-f76e-86d564e669d5.htm" />
+    <HelpKINode Title="fields" Url="html/9b5b9a6b-66d0-215b-2580-6e54be1ff6f2.htm" />
+    <HelpKINode Title="methods" Url="html/57c3233c-b342-8f1a-4425-95fb86926870.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SkeletonMath.AddPoints method" Url="html/805b14b3-5f63-0f3e-1b99-deab6aeda9f4.htm" />
+  <HelpKINode Title="SkeletonMath.DirectionTo method" Url="html/4f803d78-724c-73f6-431d-509e5800fd03.htm" />
+  <HelpKINode Title="SkeletonMath.DistanceBetweenPoints method" Url="html/613a3dc4-d62d-d44b-a7dd-446fd5371ad4.htm" />
+  <HelpKINode Title="SkeletonMath.Median method" Url="html/fe8dba4d-374d-e4ce-dffa-6b6d55032e44.htm" />
+  <HelpKINode Title="SkeletonMath.MedianCorrectNeeded field" Url="html/10249c6a-726e-c8a7-f1e8-d3bfc38aac1a.htm" />
+  <HelpKINode Title="SkeletonMath.MedianTolerance field" Url="html/203fe891-9788-dc78-954e-f01adec7290a.htm" />
+  <HelpKINode Title="SkeletonMath.SkeletonMath constructor" Url="html/eba83ab1-ce06-46aa-f76e-86d564e669d5.htm" />
+  <HelpKINode Title="SkeletonMath.SteadyDirectionTo method" Url="html/b4630c7b-ae04-3ab5-6752-7ed82da28d8a.htm" />
+  <HelpKINode Title="SkeletonMath.SubstractPoints method" Url="html/06cb6ee1-f5a1-1b21-d6ab-1cabe558ffcb.htm" />
+  <HelpKINode Title="SkeletonMath.Tolerance field" Url="html/78e5c332-0fdd-216c-d703-a49f52eb67ef.htm" />
   <HelpKINode Title="SmothendSkeleton class" Url="html/aec6a8d9-e422-bec8-ed37-e2a72b8abb73.htm" />
   <HelpKINode Title="SmothendSkeleton class" Url="html/b7390814-f30f-e64b-6c3b-9ee7d6f48242.htm" />
   <HelpKINode Title="SmothendSkeleton class">
@@ -273,9 +388,23 @@
   <HelpKINode Title="SmothendSkeleton.SmothendSkeleton constructor" Url="html/0dd04518-2b43-c24b-c996-203de2aa31d2.htm" />
   <HelpKINode Title="SmothendSkeleton.Timestamp property" Url="html/1a671249-87f3-90d4-a5db-d88ba7755619.htm" />
   <HelpKINode Title="Start method" Url="html/789a283a-d68a-a3d5-f4c3-ff9efd808789.htm" />
+  <HelpKINode Title="StaticSmothendSkeleton class" Url="html/1e38a00b-01db-0499-0569-eab8c38bd28d.htm" />
+  <HelpKINode Title="StaticSmothendSkeleton class" Url="html/d0d5f26c-c7d4-401e-f7e2-bcbf38278b3b.htm" />
+  <HelpKINode Title="StaticSmothendSkeleton class">
+    <HelpKINode Title="about StaticSmothendSkeleton class" Url="html/1e38a00b-01db-0499-0569-eab8c38bd28d.htm" />
+    <HelpKINode Title="all members" Url="html/d0d5f26c-c7d4-401e-f7e2-bcbf38278b3b.htm" />
+    <HelpKINode Title="constructor" Url="html/5c720f80-eeee-a8ec-d6c5-d0ebde5d160d.htm" />
+    <HelpKINode Title="methods" Url="html/f47cdb71-6121-dcd4-f8a2-d71425371261.htm" />
+    <HelpKINode Title="properties" Url="html/ff257ff3-70d1-bbd5-4ff9-f56cda2ac10b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StaticSmothendSkeleton.StaticSmothendSkeleton constructor" Url="html/5c720f80-eeee-a8ec-d6c5-d0ebde5d160d.htm" />
+  <HelpKINode Title="Status property" Url="html/9fa7302c-6405-6323-7ccb-5136c80ced8b.htm" />
   <HelpKINode Title="Status property" Url="html/df48c565-6837-83d0-8060-a37c22b5f705.htm" />
+  <HelpKINode Title="SteadyDirectionTo method" Url="html/b4630c7b-ae04-3ab5-6752-7ed82da28d8a.htm" />
   <HelpKINode Title="Stop method" Url="html/42fa739d-5380-b4dc-21f9-0e25d3518ff0.htm" />
+  <HelpKINode Title="SubstractPoints method" Url="html/06cb6ee1-f5a1-1b21-d6ab-1cabe558ffcb.htm" />
   <HelpKINode Title="Succeeded event" Url="html/e8fc98f0-5694-6adb-d97d-42147b1f664a.htm" />
+  <HelpKINode Title="Successful event" Url="html/1dd5a9bc-bb1b-6e17-4802-c66b5424457a.htm" />
   <HelpKINode Title="SwipeGestureEventArgs class" Url="html/5d5e378c-6bf4-5503-84d1-6b8270adf9bf.htm" />
   <HelpKINode Title="SwipeGestureEventArgs class" Url="html/73935395-b2d4-59dc-afa7-666eeda081df.htm" />
   <HelpKINode Title="SwipeGestureEventArgs class">
@@ -288,32 +417,18 @@
   <HelpKINode Title="SwipeGestureEventArgs.Direction property" Url="html/b91f7c64-eec9-0da6-3b9c-c12503b10227.htm" />
   <HelpKINode Title="SwipeGestureEventArgs.SwipeGestureEventArgs constructor" Url="html/b5a5f918-a546-4096-cef0-d0cc934f5406.htm" />
   <HelpKINode Title="Timestamp property" Url="html/1a671249-87f3-90d4-a5db-d88ba7755619.htm" />
+  <HelpKINode Title="Tolerance field" Url="html/78e5c332-0fdd-216c-d703-a49f52eb67ef.htm" />
   <HelpKINode Title="Triggered event" Url="html/7191cc22-5840-94d5-28c3-3a2e3141224c.htm" />
   <HelpKINode Title="Upward enumeration member" Url="html/b4404bfc-0f26-8124-8ba1-84c593dafada.htm" />
-  <HelpKINode Title="WaveLeftCondition class" Url="html/3f77d9e6-d4ee-1282-1f07-75312266c890.htm" />
-  <HelpKINode Title="WaveLeftCondition class" Url="html/6050ecec-5043-f7c8-6375-12f3ae1a0b44.htm" />
-  <HelpKINode Title="WaveLeftCondition class">
-    <HelpKINode Title="about WaveLeftCondition class" Url="html/3f77d9e6-d4ee-1282-1f07-75312266c890.htm" />
-    <HelpKINode Title="all members" Url="html/6050ecec-5043-f7c8-6375-12f3ae1a0b44.htm" />
-    <HelpKINode Title="constructor" Url="html/b71481e8-0909-2e95-e026-8e86bbf6ad8e.htm" />
-    <HelpKINode Title="events" Url="html/4d4684ba-90d1-cf81-0a82-eeee9b8c42f3.htm" />
-    <HelpKINode Title="fields" Url="html/c6e23e0a-c935-000c-7ea6-8134dbb2920c.htm" />
-    <HelpKINode Title="methods" Url="html/a9a90e1f-950c-fb73-c8a7-0dff16a3b61a.htm" />
+  <HelpKINode Title="WaveGestureEventArgs class" Url="html/6a046c2e-5560-3b38-62ab-af459a9a3fee.htm" />
+  <HelpKINode Title="WaveGestureEventArgs class" Url="html/bc36d74c-16b9-9ba2-5815-f55a33b3c8d4.htm" />
+  <HelpKINode Title="WaveGestureEventArgs class">
+    <HelpKINode Title="about WaveGestureEventArgs class" Url="html/bc36d74c-16b9-9ba2-5815-f55a33b3c8d4.htm" />
+    <HelpKINode Title="all members" Url="html/6a046c2e-5560-3b38-62ab-af459a9a3fee.htm" />
+    <HelpKINode Title="constructor" Url="html/6449a80c-e485-c955-2dcc-7f84e6b5ed53.htm" />
+    <HelpKINode Title="methods" Url="html/f9d33b4f-fee8-21f7-7c32-56d53005f12c.htm" />
   </HelpKINode>
-  <HelpKINode Title="WaveLeftCondition.Check method" Url="html/a4331fa8-aa5f-75d6-a99d-3596df9cfadb.htm" />
-  <HelpKINode Title="WaveLeftCondition.WaveLeftCondition constructor" Url="html/b71481e8-0909-2e95-e026-8e86bbf6ad8e.htm" />
-  <HelpKINode Title="WaveRightCondition class" Url="html/0609cc97-4c87-5faa-7b6c-23518255973d.htm" />
-  <HelpKINode Title="WaveRightCondition class" Url="html/32623769-9fbd-6979-13c7-4dc65609f2b6.htm" />
-  <HelpKINode Title="WaveRightCondition class">
-    <HelpKINode Title="about WaveRightCondition class" Url="html/32623769-9fbd-6979-13c7-4dc65609f2b6.htm" />
-    <HelpKINode Title="all members" Url="html/0609cc97-4c87-5faa-7b6c-23518255973d.htm" />
-    <HelpKINode Title="constructor" Url="html/c5271ee7-e98b-1b2f-5b09-c7af6efc0149.htm" />
-    <HelpKINode Title="events" Url="html/45c32611-4b2e-bafd-6f73-300dcab26c30.htm" />
-    <HelpKINode Title="fields" Url="html/f01d398d-0080-e8c9-90e3-fc82804c7fb7.htm" />
-    <HelpKINode Title="methods" Url="html/823fd0c8-1c32-c8bb-4814-6d2d26d8385f.htm" />
-  </HelpKINode>
-  <HelpKINode Title="WaveRightCondition.Check method" Url="html/9270e5f3-bd43-c212-b9ce-197dc998950f.htm" />
-  <HelpKINode Title="WaveRightCondition.WaveRightCondition constructor" Url="html/c5271ee7-e98b-1b2f-5b09-c7af6efc0149.htm" />
+  <HelpKINode Title="WaveGestureEventArgs.WaveGestureEventArgs constructor" Url="html/6449a80c-e485-c955-2dcc-7f84e6b5ed53.htm" />
   <HelpKINode Title="ZoomFactorFromBegin property" Url="html/d1ead319-0df5-bb54-8de8-cd757c871eb9.htm" />
   <HelpKINode Title="ZoomFactorFromLast property" Url="html/0e1f9ef6-6862-0774-e2ab-a66200cd54bf.htm" />
   <HelpKINode Title="ZoomGestureEventArgs class" Url="html/c995c1ba-5abd-309e-2ad4-5ece7dfa3759.htm" />
