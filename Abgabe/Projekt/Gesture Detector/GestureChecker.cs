@@ -13,7 +13,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures
     /// - If a gesture part (Condition) was successful, it moves to the next part. 
     /// - If a gesture part failed, the recognition is reset.
     /// - If all gesture parts were successful, this class calls all registered success handlers.</summary>
-    class GestureChecker
+    public class GestureChecker
     {
         /// <summary>
         /// List of gesture parts</summary>

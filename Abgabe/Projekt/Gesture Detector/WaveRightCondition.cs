@@ -7,7 +7,7 @@ using MF.Engineering.MF8910.GestureDetector.Events;
 
 namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
 {
-    public class WaveRightCondition: DynamicCondition
+    class WaveRightCondition: DynamicCondition
     {
         private int _index;
         private Checker checker;
@@ -45,7 +45,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
             //hand is left
             else if (_index == 2 && _handToHeadDirections.Contains(Direction.Left))
             {
-                FireSucceeded(this, null);
+                FireSucceeded(this, new WaveGestureEventArgs());
                 //Debug.WriteLine("triggered" + e.Skeleton.Timestamp);
                 _index = 0;
                 //if (index >= LOWER_BOUND_FOR_SUCCESS)

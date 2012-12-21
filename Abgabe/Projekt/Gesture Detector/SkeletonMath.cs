@@ -14,7 +14,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
 
     /// <summary>
     /// Library for independent vector aritmetics</summary>
-    class SkeletonMath
+    public class SkeletonMath
     {
         public const double Tolerance = 0.06;
         public const double MedianTolerance = 0.01;

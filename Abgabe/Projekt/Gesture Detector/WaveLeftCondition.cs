@@ -8,7 +8,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
 {
     /// <summary>
     /// Conditions for a left wave</summary>
-    public class WaveLeftCondition: DynamicCondition
+    class WaveLeftCondition: DynamicCondition
     {
         private int _index;
         private Checker checker;
@@ -45,7 +45,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Gestures.Wave
                 //hand is right
             else if (_index == 2 && _handToHeadDirections.Contains(Direction.Right))
             {
-                FireSucceeded(this, null);
+                FireSucceeded(this, new WaveGestureEventArgs());
                 //Debug.WriteLine("triggered");
                 _index = 0;
                 //if (index >= LOWER_BOUND_FOR_SUCCESS)

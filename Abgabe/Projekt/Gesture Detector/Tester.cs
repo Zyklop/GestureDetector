@@ -10,6 +10,9 @@ using System.Linq;
 
 namespace MF.Engineering.MF8910.GestureDetector
 {
+    /// <summary>
+    /// Demo Code 
+    /// </summary>
     class Tester
     {
         private static JumpGestureChecker jgc;

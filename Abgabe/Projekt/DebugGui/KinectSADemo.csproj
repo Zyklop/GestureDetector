@@ -105,17 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\OK.png" />
-    <Resource Include="Images\purple_lotus_flower.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Chrysanthemum.jpg" />
-    <Resource Include="Images\Desert.jpg" />
-    <Resource Include="Images\Hydrangeas.jpg" />
-    <Resource Include="Images\Jellyfish.jpg" />
-    <Resource Include="Images\Koala.jpg" />
-    <Resource Include="Images\Lighthouse.jpg" />
-    <Resource Include="Images\Penguins.jpg" />
-    <Resource Include="Images\Tulips.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

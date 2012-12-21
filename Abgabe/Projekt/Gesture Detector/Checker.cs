@@ -8,7 +8,7 @@ namespace MF.Engineering.MF8910.GestureDetector.Tools
     /// <summary>
     /// Library for skeleton based vector math like joint velocity
     /// </summary>
-    class Checker
+    public class Checker
     {
         private Person person;
 
