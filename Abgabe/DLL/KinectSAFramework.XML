@@ -497,6 +497,11 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Tester">
+            <summary>
+            Demo Code 
+            </summary>
+        </member>
         <member name="T:MF.Engineering.MF8910.GestureDetector.Tools.Direction">
             <summary>
             Abstract directions for joint movement</summary>
