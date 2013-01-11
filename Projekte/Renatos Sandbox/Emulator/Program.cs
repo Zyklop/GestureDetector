@@ -56,23 +56,31 @@ namespace Emulator
                 Console.Write("Forward");
                 if (downdown)
                 {
-                    KeyBoard3.KeyUp(Keys.Down);
+                    KeyBoard2.KeyUp(WindowsAPI.VK_DOWN);
                     downdown = false;
                 }
                 if (!updown)
                 {
-                    KeyBoard3.KeyDown(Keys.Up);
+                    KeyBoard2.KeyDown(WindowsAPI.VK_UP);
                     updown = true;
                 }
                 //Keyboard.SendKeyAsInput(Keys.Up,30);
                 if (dist > 0.0)
                 {
-                    KeyBoard3.KeyDown(Keys.Alt);
+                    //Keyboard.SendKeyAsInput(Keys.Alt,30);
+                    if (!altdown)
+                    {
+                        KeyBoard2.KeyDown(WindowsAPI.VK_LALT);
+                    }
+                    KeyBoard2.KeyDown(WindowsAPI.VK_UP);
                     Console.Write(" with nitro! ");
                 }
                 else
                 {
-                    KeyBoard3.KeyUp(Keys.Alt);
+                    if (altdown)
+                    {
+                        KeyBoard2.KeyUp(WindowsAPI.VK_LALT);
+                    }
                 }
             }
             else if (dist > -0.24)
@@ -80,12 +88,12 @@ namespace Emulator
                 Console.Write("Neutral ");
                 if (downdown)
                 {
-                    KeyBoard3.KeyUp(Keys.Down);
+                    KeyBoard2.KeyUp(WindowsAPI.VK_DOWN);
                     downdown = false;
                 }
                 if (updown)
                 {
-                    KeyBoard3.KeyUp(Keys.Up);
+                    KeyBoard2.KeyUp(WindowsAPI.VK_UP);
                     updown = false;
                 }
             }
@@ -94,15 +102,15 @@ namespace Emulator
                 Console.Write("Break ");
                 if (updown)
                 {
-                    KeyBoard3.KeyUp(Keys.Up);
+                    KeyBoard2.KeyUp(WindowsAPI.VK_UP);
                     updown = false;
                 }
                 if (!downdown)
                 {
-                    KeyBoard3.KeyDown(Keys.Down);
+                    KeyBoard2.KeyDown(WindowsAPI.VK_DOWN);
                     downdown = true;
                 }
-                //Keyboard.SendKeyAsInput(Keys.Down, 30);
+                Keyboard.SendKeyAsInput(Keys.Down, 30);
             }
         }
 
@@ -114,12 +122,12 @@ namespace Emulator
             {
                 if (rightdown)
                 {
-                    KeyBoard3.KeyUp(Keys.Right);
+                    KeyBoard2.KeyUp(WindowsAPI.VK_RIGHT);
                     rightdown = false;
                 }
                 if (!leftdown)
                 {
-                    KeyBoard3.KeyDown(Keys.Left);
+                    KeyBoard2.KeyDown(WindowsAPI.VK_LEFT);
                     leftdown = true;
                 }
                 //Keyboard.SendKeyAsInput(Keys.Left,30);
@@ -128,12 +136,12 @@ namespace Emulator
             {
                 if (leftdown)
                 {
-                    KeyBoard3.KeyUp(Keys.Left);
+                    KeyBoard2.KeyUp(WindowsAPI.VK_LEFT);
                     leftdown = false;
                 }
                 if (!rightdown)
                 {
-                    KeyBoard3.KeyDown(Keys.Right);
+                    KeyBoard2.KeyDown(WindowsAPI.VK_RIGHT);
                     rightdown = true;
                 }
                 //Keyboard.SendKeyAsInput(Keys.Right);
@@ -142,12 +150,12 @@ namespace Emulator
             {
                 if (leftdown)
                 {
-                    KeyBoard3.KeyUp(Keys.Left);
+                    KeyBoard2.KeyUp(WindowsAPI.VK_LEFT);
                     leftdown = false;
                 }
                 if (rightdown)
                 {
-                    KeyBoard3.KeyUp(Keys.Right);
+                    KeyBoard2.KeyUp(WindowsAPI.VK_RIGHT);
                     rightdown = false;
                 }
             }
@@ -174,5 +182,7 @@ namespace Emulator
         {
             _active = null;
         }
+
+        public static bool altdown { get; set; }
     }
 }

@@ -20,11 +20,10 @@ namespace Emulator
         {
             INPUT[] inputs = new INPUT[1];
             inputs[0].type = WindowsAPI.INPUT_KEYBOARD;
-            inputs[0].ki.dwFlags = 0;
-            inputs[0].ki.wScan = (ushort)(scanCode & 0xff);
+            inputs[0].ki.dwFlags = WindowsAPI.KEYEVENTF_SCANCODE;
+            inputs[0].ki.wScan = (ushort)(scanCode);
 
-            uint intReturn = WindowsAPI.SendInput(1, inputs, System.Runtime.InteropServices.Marshal.SizeOf(inputs[0]));
-            WindowsAPI.keybd_event(0x41, 0, 0, 0);
+            uint intReturn = WindowsAPI.SendInput(1, inputs, Marshal.SizeOf(inputs[0]));
             if (intReturn != 1)
             {
                 throw new Exception("Could not send key: " + scanCode);
@@ -37,8 +36,7 @@ namespace Emulator
             inputs[0].type = WindowsAPI.INPUT_KEYBOARD;
             inputs[0].ki.wScan = scanCode;
             inputs[0].ki.dwFlags = WindowsAPI.KEYEVENTF_KEYUP;
-            uint intReturn = WindowsAPI.SendInput(1, inputs, System.Runtime.InteropServices.Marshal.SizeOf(inputs[0]));
-            WindowsAPI.keybd_event(0x41, 0, 0, 0);
+            uint intReturn = WindowsAPI.SendInput(1, inputs, Marshal.SizeOf(inputs[0]));
             if (intReturn != 1)
             {
                 throw new Exception("Could not send key: " + scanCode);
@@ -89,27 +87,27 @@ namespace Emulator
         /// <summary>
         /// 
         /// </summary>
-        public const int VK_LALT = 0x09;
+        public const int VK_LALT = 0x38;
 
         /// <summary>
         /// 
         /// </summary>
-        public const int VK_LEFT = 0x6B;
+        public const int VK_LEFT = 0xCB;
 
         /// <summary>
         /// 
         /// </summary>
-        public const int VK_UP = 0x75;
+        public const int VK_UP = 0xC8;
 
         /// <summary>
         /// 
         /// </summary>
-        public const int VK_RIGHT = 0x74;
+        public const int VK_RIGHT = 0xCD;
 
         /// <summary>
         /// 
         /// </summary>
-        public const int VK_DOWN = 0x72;
+        public const int VK_DOWN = 0xD0;
 
         /// <summary>
         /// 
