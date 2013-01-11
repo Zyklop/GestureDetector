@@ -1,0 +1,654 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KinectSAFramework</name>
+    </assembly>
+    <members>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Events.AccelerationEventArgs">
+            <summary>
+            Gets fired when the devices sensor has other readings. Ignores skeletons.
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs">
+            <summary>
+            A new person got active
+            </summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.Events.ActivePersonEventArgs.Person">
+            <summary>
+            The new Person
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Tools.Checker">
+            <summary>
+            Library for skeleton based vector math like joint velocity
+            </summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)">
+            <summary>
+            Instantiates a Checker with a Person to check on.</summary>
+            <param name="p">
+            The Person with a set of Kinect skeletons to check on.</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetAbsoluteVelocity(Microsoft.Kinect.JointType)">
+            <summary>
+            Get a joints absolute velocity. If theres not enough skeleton information,
+            precision is decreased automatically.</summary>
+            <param name="type">
+            The JointType to get velocity from.</param>
+            <returns>
+            Returns the absolute velocity in meters</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.SimpleAbsoluteVelocity(Microsoft.Kinect.JointType,System.Int32,System.Int32)">
+            <summary>
+            Simply calculates the velocity of a joint. Takes two versions.</summary>
+            <param name="type">
+            The JointType to get velocity from.</param>
+            <param name="firstTime">
+            First index of the persons cached skeletons</param>
+            <param name="secondTime">
+            Second index of the persons cached skeletons</param>
+            <returns>
+            Returns the absolute velocity in meters</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetRelativeVelocity(Microsoft.Kinect.JointType,Microsoft.Kinect.JointType)">
+            <summary>
+            Calculates the relative velocity of a joint referencing to a second one.</summary>
+            <param name="steady">
+            The referenctial JointType.</param>
+            <param name="moving">
+            The moving JointType of interest</param>
+            <returns>
+            Returns the relative velocity in meters</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.HasSkeleton(System.Int32)">
+            <summary>
+            Checks if a person has a skeleton for a given time.</summary>
+            <param name="time">
+            Index of the persons skeleton cache.</param>
+            <returns>
+            Returns true if there is a skeleton for the given index, false otherwise.</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetDistanceMedian(Microsoft.Kinect.JointType,Microsoft.Kinect.JointType)">
+            <summary>
+            Median of the distance between two points
+            Median over 3
+            </summary>
+            <param name="t1">Joint 1</param>
+            <param name="t2">Joint 2</param>
+            <returns>Distance in Meters</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetDistance(Microsoft.Kinect.JointType,Microsoft.Kinect.JointType)">
+            <summary>
+            The last distance between the points. 
+            </summary>
+            <param name="t1">Joint 1</param>
+            <param name="t2">Joint 2</param>
+            <returns>Distance in Meters</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetAbsoluteMovement(Microsoft.Kinect.JointType)">
+            <summary>
+            The actual movement directions
+            High Tolerance
+            </summary>
+            <param name="type">Joint</param>
+            <returns>Enumerable of the directions</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetRelativeMovement(Microsoft.Kinect.JointType,Microsoft.Kinect.JointType)">
+            <summary>
+            The actual direction of movement to a relative point
+            </summary>
+            <param name="steady">The reference joint</param>
+            <param name="moving">The joint for the direction</param>
+            <returns>Enumerable of the directions</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetRelativePosition(Microsoft.Kinect.JointType,Microsoft.Kinect.JointType)">
+            <summary>
+            The static position of a joint in relation to another
+            </summary>
+            <param name="from">source of the direction</param>
+            <param name="to">target of the direction</param>
+            <returns>Enumerable of the directions</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetSteadyAbsoluteMovement(Microsoft.Kinect.JointType,System.Int32)">
+            <summary>
+            Direction of a joint over a span of frames
+            Low tolerance, but movement has to be constant
+            </summary>
+            <param name="type">the joint</param>
+            <param name="duration">number of frames</param>
+            <returns>Enumerable of the directions</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetSteadyRelativeMovement(Microsoft.Kinect.JointType,Microsoft.Kinect.JointType,System.Int32)">
+            <summary>
+            Relative movement over a timespawn
+            Low tolerance, but movement has to be constant
+            </summary>
+            <param name="steady">The reference joint</param>
+            <param name="moving">The joint to get the direction from</param>
+            <param name="duration">Timespawn in frames</param>
+            <returns>Enumerable of the directions</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.Checker.GetSteadyPosition(Microsoft.Kinect.JointType,Microsoft.Kinect.JointType,System.Int32)">
+            <summary>
+            The relative position over a timespawn
+            Low tolerance, but the position has to be constant
+            </summary>
+            <param name="from">Source of the direction</param>
+            <param name="to">target of the direction</param>
+            <param name="duration">Timespawn in frames</param>
+            <returns>Enumerable of the directions</returns>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.DataSources.CurrentMillis">
+            <summary>
+            Class to get current timestamp with enough precision</summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.CurrentMillis.Millis">
+            <summary>
+            Get extra long current timestamp</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Exceptions.DeviceErrorException">
+            <summary>
+            Collecting Exception for all device errors.</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition">
+            <summary>
+            Continuous gestures succeed after a certain time or on a certain condition. 
+            Before that, they just trigger that they occured.
+            
+            Gesture Sequence:
+            
+            -------|----------|----------|-----|------|--------|----->
+                   T          T          T     S      T        T
+            
+            T = fireTriggered
+            S = fireSuccess
+            
+            An example is the zoom gesture. We always need feedback for the zooming factor, 
+            but we cant succeed. Therefore we trigger an occurence. The zoom gesture succeeds
+            when zooming ended.
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Gestures.Condition">
+            <summary>
+            Base class for static gesture parts. They just succeed or fail.</summary>
+        </member>
+        <member name="F:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Person">
+            <summary>
+            Person who has to fullfill this condition</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.#ctor(MF.Engineering.MF8910.GestureDetector.DataSources.Person)">
+            <summary>
+            Create a gesture part, whose fullfillment is checked on Person p.</summary>
+            <param name="p">
+            Person who has to fullfill this condition</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Enable">
+            <summary>
+            Begin checking new skeletons.
+            Save performance and enable only gestures you really need to check.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Disable">
+            <summary>
+            Dont react on new skeletons (anymore).
+            Use this to save performance after a gesture isn't used anymore.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Check(System.Object,MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs)">
+            <summary>
+            Implement this to check for the fullfillment of a gesture part.
+            This method is called every time when a person gets a new skeleton.
+            It is good practice to fire success or fail in the implementation
+            of this method. For the checking itself you can use information
+            about the persons skeletons.</summary>
+            <param name="src">
+            The object which fired the event. (This is probably the Device class.)</param>
+            <param name="e">
+            NewSkeletonEventArgs contains the person which got a new skeleton.</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.ExtendedCheck(System.Object,MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs)">
+            <summary>
+            Since it's up to the user to override "check" correctly, there's the
+            possibility that he never triggered an event to make the GestureChecker proceed. 
+            Therefore we publish that we performed a "check" and consumed time in the 
+            GestureChecker state machine.</summary>
+            <param name="src">
+            The object which fired the event. (This is probably the Device class.)</param>
+            <param name="args">
+            NewSkeletonEventArgs contains the person which got a new skeleton.</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.FireSucceeded(System.Object,MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs)">
+            <summary>
+            Indicate a call to registered Success Eventhandlers</summary>
+            <param name="sender">
+            Probably an implementation of the GestureChecker class</param>
+            <param name="e">
+            Detailed arguments for a gesture part</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.FireFailed(System.Object,MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs)">
+            <summary>
+            Indicate a call to registered Failed Eventhandlers</summary>
+            <param name="sender">
+            Probably an implementation of the GestureChecker class</param>
+            <param name="e">
+            Detailed arguments for a gesture part</param>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.OnCheck">
+            <summary>
+            Called every time a condition is checked.</summary>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Succeeded">
+            <summary>
+            Called every time a condition successfully completed</summary>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.Gestures.Condition.Failed">
+            <summary>
+            Called every time a condition failed</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.FireTriggered(System.Object,MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs)">
+            <summary>
+            Trigger this to signal the occurence of a gesture part.</summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.Gestures.DynamicCondition.Triggered">
+            <summary>
+            Called when a gesture just occured but neighter succeeded nor failed.</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.DataSources.Device">
+            <summary>
+            Mapper for the KinectSensor. 
+            Implements person recognition, login and activity.
+            
+            Restrictions:
+            - If the physical device is moving, persons currenty aren't tracked</summary>
+        </member>
+        <member name="F:MF.Engineering.MF8910.GestureDetector.DataSources.Device.CacheMercyTime">
+            <summary>
+            How long we keep invisible persons in cache [milliseconds].</summary>
+        </member>
+        <member name="F:MF.Engineering.MF8910.GestureDetector.DataSources.Device._lastAcceleration">
+            <summary>
+            We keep track of the sensors movement. If its moving, there wont be any gesture recognition.</summary>
+        </member>
+        <member name="F:MF.Engineering.MF8910.GestureDetector.DataSources.Device._trackedPersons">
+            <summary>
+            List of persons which are currently tracked</summary>
+        </member>
+        <member name="F:MF.Engineering.MF8910.GestureDetector.DataSources.Device._expirationCandidates">
+            <summary>
+            Expiration Candidates - All persons which currently dont have a skeleton
+            We keep them for 5 seconds to prevent glitches in gesture recognition.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.#ctor">
+            <summary>
+            Initialization of the kinect wrapper and the physical device. 
+            It handles frame events, creates new persons and decides who's currently active.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Initialize">
+            <summary>
+            Register relevant device events and begin streaming</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.#ctor(System.String)">
+            <summary>
+            Geting a specified Sensor
+            </summary>
+            <param name="uniqueId">The serial number of the Kinect</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Start">
+            <summary>
+            Start receiving skeletons.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Stop">
+            <summary>
+            Stop receiving skeletons.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Dispose">
+            <summary>
+            Disopse device resources.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.GetActivePerson">
+            <summary>
+            Should always return the only currently active person. It would theoretically
+            be possible to serve multiple active persons, but its not implemented.</summary>
+            <returns>
+            Returns the currently active person. If no person is active, null is returned.</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.GetAllPersons">
+            <summary>
+            Get all persons tracked by the Kinect.</summary>
+            <returns>
+            List of tracked persons</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.OnNewSkeletons(System.Object,Microsoft.Kinect.SkeletonFrameReadyEventArgs)">
+            <summary>
+            Event for receiving new skeletons. Its called on every frame delivered
+            by the KinectSensor (every 30ms) and decides if a frame is valid or will
+            be ignored. If a frame is valid, we read all tracked skeletons from it
+            and smooth it. After that, the skeletons are analyzed (handleSkeletons).</summary>
+            <param name="source">
+            The source is probably the KinectSensor</param>
+            <param name="e">
+            Resource to get the current frame from.</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.HandleNewSkeletons(System.Collections.Generic.List{MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton})">
+            <summary>
+            Analyze skeletons and assign them to existing persons. This is done
+            with a naive matching technique:
+              Compare every new skeletons hip center with every cached persons 
+              last skeletons hip center.
+            After a person got a new skeletons, his timestamp in the cache is renewed.</summary>
+            <param name="skeletonsToMatch">
+            List of smoothend skeletons</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.RegisterWave(MF.Engineering.MF8910.GestureDetector.DataSources.Person)">
+            <summary>
+            Begin detecting if a person is waving.</summary>
+            <param name="p">Person to monitor</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.GetAccelerationDiff">
+            <summary>
+            Returns the current acceleration of the physical device.</summary>
+            <returns>
+            True if the physical device is moving, false otherwise.</returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Device.PersonWaved(System.Object,MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs)">
+            <summary>
+            If a person waved, we need to activate her for further gesture recognition.</summary>
+            <param name="sender">
+            This device class</param>
+            <param name="e">
+            Gesture details</param>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.DataSources.Device.PersonActive">
+            <summary>
+            Called when a person got active</summary>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.DataSources.Device.NewPerson">
+            <summary>
+            Called when the device recognized a new person</summary>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Accelerated">
+            <summary>
+            Called when the Kinect was moving.</summary>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.DataSources.Device.PersonLost">
+            <summary>
+            Called when a person was lost.</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Match">
+            <summary>
+            Struct for saving details of the matching algoritm.</summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Match.Value">
+            <summary>
+            Distance of the two skeletons hip centers</summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Match.Person">
+            <summary>
+            Person of whom the skeleton was matched</summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Match.Skeleton">
+            <summary>
+            Compared skeleton</summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.Device.Match.Timestamp">
+            <summary>
+            The matches timestamp</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker">
+            <summary>
+            Base class for gesture recognition. It's a state machine which knows 
+            in which state a gesture currently is. 
+            - If a gesture part (Condition) was successful, it moves to the next part. 
+            - If a gesture part failed, the recognition is reset.
+            - If all gesture parts were successful, this class calls all registered success handlers.</summary>
+        </member>
+        <member name="F:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.conditions">
+            <summary>
+            List of gesture parts</summary>
+        </member>
+        <member name="F:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.index">
+            <summary>
+            Gesture state: Points to current gesture part (Condition)</summary>
+        </member>
+        <member name="F:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.timeout">
+            <summary>
+            How long a full gesture can take in maximum</summary>
+        </member>
+        <member name="F:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker._startTime">
+            <summary>
+            Time keeper: Points to the time when the gesture (re)started</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.#ctor(System.Collections.Generic.IEnumerable{MF.Engineering.MF8910.GestureDetector.Gestures.Condition},System.Int32)">
+            <summary>
+            Taking a list of conditions, which are gesture parts to be checked in order
+            and a timeout indicating how long a full gesture can take in maximum.
+            </summary>
+            <param name="gestureConditions">
+            List of condition which are to fullfill for a successful gesture</param>
+            <param name="timeout">
+            Maximum time a gesture is allowed to run for.</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.Reset">
+            <summary>
+            Reset state machine. Includes timeouts and condition list.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.ConditionChecked(System.Object,System.EventArgs)">
+            <summary>
+            Every time when a condition is checked, we check if its in time.</summary>
+            <param name="src">
+            The checked Condition</param>
+            <param name="e">
+            Probably empty</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.ConditionFailed(System.Object,MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs)">
+            <summary>
+            A gesture part failed. Lets start from the beginning.</summary>
+            <param name="src">
+            The checked Condition</param>
+            <param name="e">
+            Details about the fail</param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.ConditionComplete(System.Object,MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs)">
+            <summary>
+            Current gesture part was sucessful. Continue with next.</summary>
+            <param name="src">
+            The checked condition</param>
+            <param name="e">
+            Details about the success</param>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.Successful">
+            <summary>
+            Called when a gesture was recognized. That means that all gesture 
+            parts were sucessfully recognized.</summary>
+        </member>
+        <member name="E:MF.Engineering.MF8910.GestureDetector.Gestures.GestureChecker.Failed">
+            <summary>
+            Called when at least one gesture part failed.</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs">
+            <summary>
+            Details about a gesture event.</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Events.FailedGestureEventArgs">
+            <summary>
+            Details about a failing gesture part</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeCondition">
+            <summary>
+            Swipe Condition
+            Checks if  left or right hand moves fast to the left or the right.
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs">
+            <summary>
+            Person swiped
+            </summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.Gestures.Swipe.SwipeGestureEventArgs.Direction">
+            <summary>
+            Direction of the swipe
+            </summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureChecker.FireSucessful(System.Object,MF.Engineering.MF8910.GestureDetector.Events.GestureEventArgs)">
+            <summary>
+            Calculating different zoom factors
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Tools.Direction">
+            <summary>
+            Abstract directions for joint movement</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Tools.SkeletonMath">
+            <summary>
+            Library for independent vector aritmetics</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.SkeletonMath.DistanceBetweenPoints(Microsoft.Kinect.SkeletonPoint,Microsoft.Kinect.SkeletonPoint)">
+            <summary>
+            Get distance of two skeleton points in meters.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.SkeletonMath.Median(System.Double,System.Double,System.Double)">
+            <summary>
+            the median over three values
+            </summary>
+            <param name="d1"></param>
+            <param name="d2"></param>
+            <param name="d3"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.SkeletonMath.Median(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            The median over a unspecified number of values
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.SkeletonMath.SteadyDirectionTo(System.Collections.Generic.IEnumerable{Microsoft.Kinect.SkeletonPoint},System.Collections.Generic.IEnumerable{Microsoft.Kinect.SkeletonPoint})">
+            <summary>
+            The median of the direction between points
+            </summary>
+            <param name="from">Source joints</param>
+            <param name="to">Target joints</param>
+            <returns></returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.Tools.SkeletonMath.DirectionTo(Microsoft.Kinect.SkeletonPoint,Microsoft.Kinect.SkeletonPoint)">
+            <summary>
+            Get an abstract direction type between two skeleton points</summary>
+            <param name="from">
+            Source Point</param>
+            <param name="to">
+            Target Point</param>
+            <returns>
+            Returns a list of three directions (for each axis)</returns>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Gestures.Wave.WaveLeftCondition">
+            <summary>
+            Conditions for a left wave</summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton">
+            <summary>
+            The joint data is stored here.
+            Filtering is also possible here
+            </summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton.Timestamp">
+            <summary>
+            Time of the Skeleton
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Events.NewPersonEventArgs">
+            <summary>
+            A new person was detected, passive
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Events.NewSkeletonEventArgs">
+            <summary>
+            New skeletons for Kinect arrived
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.DataSources.Person">
+            <summary>
+            Collection of skeletons for which gestures can be recognized.
+            A person is unique.</summary>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.AddSkeleton(MF.Engineering.MF8910.GestureDetector.DataSources.SmothendSkeleton)">
+            <summary>
+            Store a new skeleton
+            </summary>
+            <param name="ss"></param>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.GetLastSkeleton(System.Int32)">
+            <summary>
+            Get a previous skeleton
+            </summary>
+            <param name="i">number of frames back</param>
+            <returns></returns>
+        </member>
+        <member name="M:MF.Engineering.MF8910.GestureDetector.DataSources.Person.MillisBetweenFrames(System.Int32,System.Int32)">
+            <summary>
+            Time-difference between two skeletons
+            </summary>
+            <param name="first">Relative number of the first frame</param>
+            <param name="second">Relative number of the second frame</param>
+            <returns>Milliseconds passed between</returns>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.Person.CurrentSkeleton">
+            <summary>
+            Get the current skeleton
+            </summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.Person.Active">
+            <summary>
+            Is the person active?
+            Firing events when changing
+            </summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.Person.Id">
+            <summary>
+            A random id
+            </summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.DataSources.Person.SendEventsWhenPassive">
+            <summary>
+            Should events be triggered when the person is passive?
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Events.PersonDisposedEventArgs">
+            <summary>
+            A person was disposed
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Events.PersonPassiveEventArgs">
+            <summary>
+            A person became passive
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.InternalZoomGestureEventArgs">
+            <summary>
+            EventArgs to pass the hand distance to the GestureChecker
+            </summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.InternalZoomGestureEventArgs.Gauge">
+            <summary>
+            Actual distance between hands
+            </summary>
+        </member>
+        <member name="T:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs">
+            <summary>
+            Contains the calculated Zoom-factors
+            </summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs.ZoomFactorFromBegin">
+            <summary>
+            The factor calculated from the beginning of the gesture
+            </summary>
+        </member>
+        <member name="P:MF.Engineering.MF8910.GestureDetector.Gestures.Zoom.ZoomGestureEventArgs.ZoomFactorFromLast">
+            <summary>
+            The factor since the last frame
+            </summary>
+        </member>
+    </members>
+</doc>

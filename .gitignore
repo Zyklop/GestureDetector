@@ -4,3 +4,8 @@ obj/
 *.Ink
 thumbs.db
 *.suo
+~*.*
+*.tmp
+*.log
+*.sln
+
