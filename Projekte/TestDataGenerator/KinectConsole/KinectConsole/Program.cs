@@ -16,7 +16,7 @@ namespace KinectConsole
 
         static void Main(string[] args)
         {
-            JointType[] points = { JointType.HandRight, JointType.ElbowRight, JointType.Head};
+            JointType[] points = { JointType.ShoulderCenter, JointType.Head};
             String filename ="C:\\Temp\\Winken.csv";
             int pretimer = 100;
             int timer = 300;

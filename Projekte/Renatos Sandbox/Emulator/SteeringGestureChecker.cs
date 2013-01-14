@@ -12,7 +12,7 @@ using Microsoft.Kinect;
 
 namespace Emulator
 {
-    class SteeringGestureChecker:GestureChecker
+    public class SteeringGestureChecker:GestureChecker
     {
         protected const int ConditionTimeout = 2500;
 
@@ -39,18 +39,20 @@ namespace Emulator
         {
             List<Direction> leftToRightHand =
                 checker.GetRelativePosition(JointType.HandLeft, JointType.HandRight).ToList();
+            int dir = 0;
             if (leftToRightHand.Contains(Direction.Upward))
             {
-                FireSucceeded(this, new SteeringGestureEventArgs{Direction = Direction.Left});
+                dir = -1;
             }
             else if (leftToRightHand.Contains(Direction.Downward))
             {
-                FireSucceeded(this, new SteeringGestureEventArgs { Direction = Direction.Right });
+                dir = 1;
             }
-            else
+            if (!(leftToRightHand.Contains(Direction.Right)))
             {
-                FireSucceeded(this, new SteeringGestureEventArgs { Direction = Direction.None });
+                dir *= 2;
             }
+            FireSucceeded(this, new SteeringGestureEventArgs { Direction = dir });
         }
     }
 }

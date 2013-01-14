@@ -7,8 +7,8 @@ using MF.Engineering.MF8910.GestureDetector.Tools;
 
 namespace Emulator
 {
-    class ThrustGestureEventArgs : GestureEventArgs
+    public class ThrustGestureEventArgs : GestureEventArgs
     {
-        public double DistanceToKnee { get; set; }
+        public double DistanceToShoulder { get; set; }
     }
 }

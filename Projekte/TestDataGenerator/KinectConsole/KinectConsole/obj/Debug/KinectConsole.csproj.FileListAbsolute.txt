@@ -16,3 +16,12 @@ C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\KinectConsole\KinectCon
 C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\obj\Debug\KinectConsole.csproj.ResolveComReference.cache
 C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\obj\Debug\KinectConsole.exe
 C:\Users\bor\Documents\Git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\obj\Debug\KinectConsole.pdb
+C:\Renato\programming\git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\bin\Debug\KinectConsole.exe.config
+C:\Renato\programming\git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\obj\Debug\KinectConsole.csproj.ResolveComReference.cache
+C:\Renato\programming\git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\obj\Debug\KinectConsole.exe
+C:\Renato\programming\git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\obj\Debug\KinectConsole.pdb
+C:\Renato\programming\git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\bin\Debug\KinectConsole.exe
+C:\Renato\programming\git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\bin\Debug\KinectConsole.pdb
+C:\Renato\programming\git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\bin\Debug\Microsoft.Kinect.dll
+C:\Renato\programming\git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\bin\Debug\Microsoft.Kinect.xml
+C:\Renato\programming\git\SA\Projekte\TestDataGenerator\KinectConsole\KinectConsole\obj\Debug\KinectConsole.csprojResolveAssemblyReference.cache

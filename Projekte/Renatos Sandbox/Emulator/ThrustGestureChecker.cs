@@ -10,7 +10,7 @@ using Microsoft.Kinect;
 
 namespace Emulator
 {
-    class ThrustGestureChecker:GestureChecker
+    public class ThrustGestureChecker:GestureChecker
     {
         protected const int ConditionTimeout = 2500;
 
@@ -35,8 +35,8 @@ namespace Emulator
 
         protected override void Check(object src, NewSkeletonEventArgs e)
         {
-            double dist = person.CurrentSkeleton.GetPosition(JointType.KneeRight).Z - person.CurrentSkeleton.GetPosition(JointType.HandRight).Z;
-                FireSucceeded(this, new ThrustGestureEventArgs{DistanceToKnee = dist});
+            double dist = person.CurrentSkeleton.GetPosition(JointType.ShoulderCenter).Z - person.CurrentSkeleton.GetPosition(JointType.HandRight).Z;
+                FireSucceeded(this, new ThrustGestureEventArgs{DistanceToShoulder = dist});
         }
     }
 }

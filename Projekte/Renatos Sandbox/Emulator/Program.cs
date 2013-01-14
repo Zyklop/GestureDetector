@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using MF.Engineering.MF8910.GestureDetector.DataSources;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using MF.Engineering.MF8910.GestureDetector.Tools;
+using InputEmulation;
 
 namespace Emulator
 {
@@ -20,6 +20,7 @@ namespace Emulator
         private static bool rightdown;
         private static bool downdown;
         private static bool updown;
+        private static bool altdown;
 
         static void Main(string[] args)
         {
@@ -50,50 +51,52 @@ namespace Emulator
 
         private static void Thrusted(object sender, GestureEventArgs e)
         {
-            double dist = ((ThrustGestureEventArgs) e).DistanceToKnee;
-            if (dist > -0.12)
+            double dist = ((ThrustGestureEventArgs) e).DistanceToShoulder;
+            //Console.Write(dist + " ");
+            if (dist > 0.45)
             {
                 Console.Write("Forward");
                 if (downdown)
                 {
-                    KeyBoard2.KeyUp(WindowsAPI.VK_DOWN);
+                    DirectInput.KeyUp(DirectInput.VK_DOWN);
                     downdown = false;
                 }
                 if (!updown)
                 {
-                    KeyBoard2.KeyDown(WindowsAPI.VK_UP);
+                    DirectInput.KeyDown(DirectInput.VK_UP);
                     updown = true;
                 }
-                //Keyboard.SendKeyAsInput(Keys.Up,30);
-                if (dist > 0.0)
+                //VirtualKeys.SendKeyAsInput(Keys.Up,30);
+                if (dist > 0.6)
                 {
-                    //Keyboard.SendKeyAsInput(Keys.Alt,30);
+                    //VirtualKeys.SendKeyAsInput(Keys.Alt,30);
                     if (!altdown)
                     {
-                        KeyBoard2.KeyDown(WindowsAPI.VK_LALT);
+                        DirectInput.KeyDown(DirectInput.VK_LALT);
+                        altdown = true;
                     }
-                    KeyBoard2.KeyDown(WindowsAPI.VK_UP);
                     Console.Write(" with nitro! ");
                 }
                 else
                 {
                     if (altdown)
                     {
-                        KeyBoard2.KeyUp(WindowsAPI.VK_LALT);
+                        DirectInput.KeyUp(DirectInput.VK_LALT);
+                        altdown = false;
                     }
                 }
             }
-            else if (dist > -0.24)
+            else if (dist > 0.3)
             {
                 Console.Write("Neutral ");
                 if (downdown)
                 {
-                    KeyBoard2.KeyUp(WindowsAPI.VK_DOWN);
+                    DirectInput.KeyUp(DirectInput.VK_DOWN);
                     downdown = false;
                 }
                 if (updown)
                 {
-                    KeyBoard2.KeyUp(WindowsAPI.VK_UP);
+                    DirectInput.KeyUp(DirectInput.VK_UP);
                     updown = false;
                 }
             }
@@ -102,60 +105,92 @@ namespace Emulator
                 Console.Write("Break ");
                 if (updown)
                 {
-                    KeyBoard2.KeyUp(WindowsAPI.VK_UP);
+                    DirectInput.KeyUp(DirectInput.VK_UP);
                     updown = false;
                 }
                 if (!downdown)
                 {
-                    KeyBoard2.KeyDown(WindowsAPI.VK_DOWN);
+                    DirectInput.KeyDown(DirectInput.VK_DOWN);
                     downdown = true;
                 }
-                Keyboard.SendKeyAsInput(Keys.Down, 30);
+                //VirtualKeys.SendKeyAsInput(Keys.Down, 30);
             }
         }
 
         private static void Steered(object sender, GestureEventArgs e)
         {
-            Direction direction = ((SteeringGestureEventArgs) e).Direction;
+            var direction = ((SteeringGestureEventArgs) e).Direction;
             Console.WriteLine(" steering " + direction);
-            if (direction == Direction.Left)
+            if (direction < 0)
             {
                 if (rightdown)
                 {
-                    KeyBoard2.KeyUp(WindowsAPI.VK_RIGHT);
+                    DirectInput.KeyUp(DirectInput.VK_RIGHT);
                     rightdown = false;
                 }
-                if (!leftdown)
+                if (direction == -2)
                 {
-                    KeyBoard2.KeyDown(WindowsAPI.VK_LEFT);
-                    leftdown = true;
+                    if (!leftdown)
+                    {
+                        DirectInput.KeyDown(DirectInput.VK_LEFT);
+                        leftdown = true;
+                    }
                 }
-                //Keyboard.SendKeyAsInput(Keys.Left,30);
+                else
+                {
+                    if (!leftdown)
+                    {
+                        DirectInput.KeyDown(DirectInput.VK_LEFT);
+                        leftdown = true;
+                    }
+                    else
+                    {
+                        DirectInput.KeyUp(DirectInput.VK_LEFT);
+                        leftdown = false;
+                    }
+                }
+                //VirtualKeys.SendKeyAsInput(Keys.Left,30);
             }
-            else if (direction == Direction.Right)
+            else if (direction > 0)
             {
                 if (leftdown)
                 {
-                    KeyBoard2.KeyUp(WindowsAPI.VK_LEFT);
+                    DirectInput.KeyUp(DirectInput.VK_LEFT);
                     leftdown = false;
                 }
-                if (!rightdown)
+                if (direction == 2)
                 {
-                    KeyBoard2.KeyDown(WindowsAPI.VK_RIGHT);
-                    rightdown = true;
+                    if (!rightdown)
+                    {
+                        DirectInput.KeyDown(DirectInput.VK_RIGHT);
+                        rightdown = true;
+                    }
                 }
-                //Keyboard.SendKeyAsInput(Keys.Right);
+                else
+                {
+                    if (!rightdown)
+                    {
+                        DirectInput.KeyDown(DirectInput.VK_RIGHT);
+                        rightdown = true;
+                    }
+                    else
+                    {
+                        DirectInput.KeyUp(DirectInput.VK_RIGHT);
+                        rightdown = false;
+                    }
+                }
+                //VirtualKeys.SendKeyAsInput(Keys.Right);
             }
-            else if (direction == Direction.None)
+            else
             {
                 if (leftdown)
                 {
-                    KeyBoard2.KeyUp(WindowsAPI.VK_LEFT);
+                    DirectInput.KeyUp(DirectInput.VK_LEFT);
                     leftdown = false;
                 }
                 if (rightdown)
                 {
-                    KeyBoard2.KeyUp(WindowsAPI.VK_RIGHT);
+                    DirectInput.KeyUp(DirectInput.VK_RIGHT);
                     rightdown = false;
                 }
             }
@@ -181,8 +216,8 @@ namespace Emulator
         private static void RemoveActive()
         {
             _active = null;
+            sgc.Successful -= Steered;
+            tgc.Successful -= Thrusted;
         }
-
-        public static bool altdown { get; set; }
     }
 }

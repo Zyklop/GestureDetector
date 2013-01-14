@@ -5,13 +5,12 @@ using System.Text;
 using MF.Engineering.MF8910.GestureDetector.Events;
 using MF.Engineering.MF8910.GestureDetector.Tools;
 
-namespace Emulator
+namespace _2_Player_Emu
 {
-    public class SteeringGestureEventArgs: GestureEventArgs
+    class FootEventArgs : GestureEventArgs
     {
-        /// <summary>
-        /// left is -1, -2, right is 1, 2
-        /// </summary>
-        public int Direction { get; set; }
+        public Direction Foot { get; set; }
+
+        public double Distance { get; set; }
     }
 }

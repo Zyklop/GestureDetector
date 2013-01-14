@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0DE06A31-4B9D-4916-9F8C-102FFC49FF38}</ProjectGuid>
+    <ProjectGuid>{6FF8D817-876A-4608-8DC8-A666B4FC4FA2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KinectConsole</RootNamespace>
-    <AssemblyName>KinectConsole</AssemblyName>
+    <RootNamespace>_2_Player_Emu</RootNamespace>
+    <AssemblyName>2-Player-Emu</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,11 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Kinect, Version=1.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Libs\Kinect\v1.6\Assemblies\Microsoft.Kinect.dll</HintPath>
+    <Reference Include="Microsoft.Kinect">
+      <HintPath>..\..\..\Libs\Kinect\v1.6\Assemblies\Microsoft.Kinect.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,22 +45,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="FootEventArgs.cs" />
+    <Compile Include="FootGestureChecker.cs" />
+    <Compile Include="Program2P.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="KinectManagement">
-      <Guid>{B167C0CB-E5E7-40FC-BA4E-6711286A2FDE}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
+    <ProjectReference Include="..\Emulator\Emulator.csproj">
+      <Project>{cde4fbf4-87c0-497a-8afe-c7a0e0b8d7e2}</Project>
+      <Name>Emulator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gesture Detector\GestureDetector.csproj">
+      <Project>{beda35ee-4d9b-41ee-b8ee-3e3e56555bcd}</Project>
+      <Name>GestureDetector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InputEmulation\InputEmulation.csproj">
+      <Project>{ebe618e1-865a-477b-be85-4f9ecbc31551}</Project>
+      <Name>InputEmulation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
