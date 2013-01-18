@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EBE618E1-865A-477B-BE85-4F9ECBC31551}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{5B95AB9B-FFFC-4248-84DE-4F1E7CD6B801}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InputEmulation</RootNamespace>
-    <AssemblyName>InputEmulation</AssemblyName>
+    <RootNamespace>MouseEmulator</RootNamespace>
+    <AssemblyName>MouseEmulator</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,10 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Kinect">
+      <HintPath>..\Gesture Detector\bin\Release\Microsoft.Kinect.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DirectInput.cs" />
-    <Compile Include="KeyBoardEvent.cs" />
-    <Compile Include="Mouse.cs" />
+    <Compile Include="JoystickCondition.cs" />
+    <Compile Include="JoystickGestureChecker.cs" />
+    <Compile Include="JoystickGestureEventArgs.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VirtualKeys.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gesture Detector\GestureDetector.csproj">
+      <Project>{beda35ee-4d9b-41ee-b8ee-3e3e56555bcd}</Project>
+      <Name>GestureDetector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InputEmulation\InputEmulation.csproj">
+      <Project>{ebe618e1-865a-477b-be85-4f9ecbc31551}</Project>
+      <Name>InputEmulation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
