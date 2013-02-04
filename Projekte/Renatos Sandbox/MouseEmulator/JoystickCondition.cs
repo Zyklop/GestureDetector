@@ -38,7 +38,7 @@ namespace MouseEmulator
             {
                 double xDiff = e.Skeleton.GetPosition(JointType.HandRight).X - _last.X;
                 double yDiff = _last.Y - e.Skeleton.GetPosition(JointType.HandRight).Y;
-                double zDiff = e.Skeleton.GetPosition(JointType.ShoulderRight).Z - e.Skeleton.GetPosition(JointType.HandRight).Z;
+                double zDiff = _last.Z - e.Skeleton.GetPosition(JointType.HandRight).Z;//e.Skeleton.GetPosition(JointType.ShoulderRight).Z - e.Skeleton.GetPosition(JointType.HandRight).Z;
                 if (_dyn)
                 {
                     if ((_last.X < e.Skeleton.GetPosition(JointType.ShoulderRight).X - 0.2 && xDiff > 0.0) ||

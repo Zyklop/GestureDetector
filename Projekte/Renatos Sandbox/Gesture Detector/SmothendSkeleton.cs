@@ -18,22 +18,42 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         public SmothendSkeleton(Skeleton s, long timestamp)
         {
-            joints = new Dictionary<JointType, Joint>();
             Timestamp = timestamp;
-            foreach (Joint j in s.Joints)
+            Positon = s.Position;
+            TrackingID = s.TrackingId;
+            TrackingState = s.TrackingState;
+            if (TrackingState == SkeletonTrackingState.Tracked)
             {
-                joints.Add(j.JointType, j);
+                joints = new Dictionary<JointType, Joint>();
+                foreach (Joint j in s.Joints)
+                {
+                    joints.Add(j.JointType, j);
+                }
             }
         }
 
         public SkeletonPoint GetPosition(JointType jt)
         {
-            return joints[jt].Position;
+            if (TrackingState == SkeletonTrackingState.Tracked)
+            {
+                return joints[jt].Position;
+            }
+            return new SkeletonPoint();
         }
 
         public JointTrackingState GetState(JointType jt)
         {
-            return joints[jt].TrackingState;
+            if (TrackingState == SkeletonTrackingState.Tracked)
+            {
+                return joints[jt].TrackingState;
+            }
+            return JointTrackingState.NotTracked;
         }
+
+        internal SkeletonPoint Positon { get; private set; }
+
+        internal long TrackingID { get; private set; }
+
+        internal SkeletonTrackingState TrackingState { get; private set; }
     }
 }

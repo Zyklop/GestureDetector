@@ -13,14 +13,16 @@ namespace MouseEmulator
     {
         private static Device _d;
         private static Person _active;
-        private static JoystickGestureChecker jgc;
+        private static JoystickGestureChecker _jgc;
         private static double _lastZ;
-        private static bool leftdown;
-        private static bool rightdown;
+        private static bool _leftdown;
+        private static bool _rightdown;
 
         static void Main(string[] args)
         {
             _d = new Device();
+            _d.NearMode = true;
+            _d.Seated = true;
             _d.NewPerson += delegate
             {
                 Console.WriteLine("new User visible");
@@ -38,8 +40,8 @@ namespace MouseEmulator
         {
             _active = e.Person;
             Console.WriteLine("User Active");
-            jgc = new JoystickGestureChecker(_active, false);
-            jgc.Successful += Movement;
+            _jgc = new JoystickGestureChecker(_active, false);
+            _jgc.Successful += Movement;
         }
 
         private static void Movement(object sender, GestureEventArgs e)
@@ -50,38 +52,39 @@ namespace MouseEmulator
             {
                 Mouse.MoveMouseRelative((int) Math.Round(args.X*100), (int) Math.Round(args.Y*100));
             }
-            if (args.DistToShoulderZ < 0.35)
+            if (args.DistToShoulderZ < -0.08)
             {
-                if (leftdown)
+                if (_leftdown)
                 {
                     Mouse.ClickEvent(true, true);
-                    leftdown = false;
+                    _leftdown = false;
                 }
                 Console.WriteLine("Rightclick");
-                Mouse.ClickEvent(false,false);
-                rightdown = true;
-            } else if (args.DistToShoulderZ > 0.5)
+                Mouse.ClickEvent(false, false);
+                _rightdown = true;
+            }
+            else if (args.DistToShoulderZ > 0.08)
             {
                 Console.WriteLine("leftclick");
-                if (rightdown)
+                if (_rightdown)
                 {
                     Mouse.ClickEvent(false, true);
-                    rightdown = false;
+                    _rightdown = false;
                 }
                 Mouse.ClickEvent(true, false);
-                leftdown = true;
+                _leftdown = true;
             }
             else
             {
-                if (rightdown)
+                if (_rightdown)
                 {
                     Mouse.ClickEvent(false, true);
-                    rightdown = false;
+                    _rightdown = false;
                 }
-                if (leftdown)
+                if (_leftdown)
                 {
                     Mouse.ClickEvent(true, true);
-                    leftdown = false;
+                    _leftdown = false;
                 }
             }
             _lastZ = args.DistToShoulderZ;
@@ -107,8 +110,8 @@ namespace MouseEmulator
         private static void RemoveActive()
         {
             _active = null;
-            jgc.Successful -= Movement;
-            jgc = null;
+            _jgc.Successful -= Movement;
+            _jgc = null;
         }
     }
 }

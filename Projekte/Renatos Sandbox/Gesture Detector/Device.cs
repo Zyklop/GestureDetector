@@ -9,6 +9,41 @@ using System.Runtime.CompilerServices;
 namespace MF.Engineering.MF8910.GestureDetector.DataSources
 {
     /// <summary>
+    /// Modes for filtering
+    /// </summary>
+    public enum FilteringModes
+    {
+        /// <summary>
+        /// Raw Data, not recommanded
+        /// </summary>
+        None,
+        /// <summary>
+        /// Some smoothing with little latency.
+        /// Only filters out small jitters.
+        /// Good for gesture recognition in games.
+        /// </summary>
+        Low,
+        /// <summary>
+        /// The default setting.
+        /// Smoothed with some latency.
+        /// Filters out medium jitters.
+        /// Good for a menu system that needs to be smooth but
+        /// doesn't need the reduced latency as much as gesture recognition does.
+        /// </summary>
+        Medium,
+        /// <summary>
+        ///  Very smooth, but with a lot of latency.
+        /// Filters out large jitters.
+        /// Good for situations where smooth data is absolutely required
+        /// and latency is not an issue.
+        /// </summary>
+        Smooth,
+        /// <summary>
+        /// A user-defined filtering
+        /// </summary>
+        Custom
+    }
+    /// <summary>
     /// Mapper for the KinectSensor. 
     /// Implements person recognition, login and activity.
     /// 
@@ -35,6 +70,19 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         /// We keep them for 5 seconds to prevent glitches in gesture recognition.</summary>
         private Dictionary<long, Person> _expirationCandidates;
 
+        private bool _nearMode;
+        private bool _seated;
+        private FilteringModes _filtering;
+
+        private TransformSmoothParameters _smoothingParam  = new TransformSmoothParameters
+                {
+                    Smoothing = 0.5f,
+                    Correction = 0.5f,
+                    Prediction = 0.5f,
+                    JitterRadius = 0.05f,
+                    MaxDeviationRadius = 0.04f
+                };
+
         private const double MinMatchDistance = 0.5;
 
         private const double AccelerationDiff = 0.1;
@@ -60,7 +108,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             _lastAcceleration = new Vector4();
             _trackedPersons = new List<Person>();
             _expirationCandidates = new Dictionary<long, Person>();
-            KinectDevice.SkeletonStream.Enable(); // Begin to capture skeletons
+            KinectDevice.ColorStream.Disable();
+            KinectDevice.SkeletonStream.Enable(_smoothingParam); // Begin to capture skeletons
             KinectDevice.SkeletonFrameReady += OnNewSkeletons; // Register on any new skeletons
         }
 
@@ -117,6 +166,138 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         }
 
         /// <summary>
+        /// Enables the Near-Mode
+        /// </summary>
+        public bool NearMode
+        {
+            get { return _nearMode; }
+            set
+            {
+                _nearMode = value;
+                KinectDevice.DepthStream.Range = value ? DepthRange.Near : DepthRange.Default;
+                KinectDevice.SkeletonStream.EnableTrackingInNearRange = value;
+            }
+        }
+
+        /// <summary>
+        /// The elevation angle of the Kinect
+        /// </summary>
+        public int ElevationAngle { get { return KinectDevice.ElevationAngle; } set
+        {
+            if (value < KinectDevice.MinElevationAngle || value > KinectDevice.MaxElevationAngle)
+            {
+                throw new DeviceErrorException("Invalid Angle");
+            }
+            try
+            {
+                KinectDevice.ElevationAngle = value;
+            }
+            catch (Exception)
+            {
+                throw new DeviceErrorException("Tilt Motor Problem");
+            }
+        } }
+
+        /// <summary>
+        /// Enables Seated Skeleton-Mode
+        /// </summary>
+        public bool Seated
+        {
+            get { return _seated; }
+            set
+            {
+                _seated = value;
+                KinectDevice.SkeletonStream.TrackingMode = value ? SkeletonTrackingMode.Seated : SkeletonTrackingMode.Default;
+            }
+        }
+
+        /// <summary>
+        /// Set a custom filter
+        /// </summary>
+        /// <remarks>
+        /// Use before start
+        /// </remarks>
+        public void SetCustomFilter(float correction, float jitter, float prediction, float smoothing, float deviationRadius)
+        {
+            _filtering = FilteringModes.Custom;
+            _smoothingParam = new TransformSmoothParameters()
+                {
+                    Smoothing = smoothing,
+                    Correction = correction,
+                    Prediction = prediction,
+                    JitterRadius = jitter,
+                    MaxDeviationRadius = deviationRadius
+                };
+            if (KinectDevice.SkeletonStream.IsEnabled)
+            {
+                KinectDevice.SkeletonStream.Disable();
+                KinectDevice.SkeletonStream.Enable(_smoothingParam);
+            }
+        }
+
+        /// <summary>
+        /// Set a predefined filter
+        /// </summary>
+        /// <remarks>
+        /// Use before start
+        /// </remarks>
+        public void SetDefinedFilter(FilteringModes mode)
+        {
+            if (mode != FilteringModes.Custom)
+            {
+                _filtering = mode;
+                switch (mode)
+                {
+                    case FilteringModes.None:
+                        _smoothingParam = new TransformSmoothParameters
+                            {
+                                Smoothing = 0.0f,
+                                Correction = 0.0f,
+                                Prediction = 0.0f,
+                                JitterRadius = 0.0f,
+                                MaxDeviationRadius = 0.0f
+                            };
+                        break;
+                    case FilteringModes.Low:
+                        _smoothingParam = new TransformSmoothParameters
+                        {
+                            Smoothing = 0.5f,
+                            Correction = 0.5f,
+                            Prediction = 0.5f,
+                            JitterRadius = 0.05f,
+                            MaxDeviationRadius = 0.04f
+                        };
+                        break;
+                    case FilteringModes.Medium:
+                        _smoothingParam = new TransformSmoothParameters
+                        {
+                            Smoothing = 0.5f,
+                            Correction = 0.1f,
+                            Prediction = 0.5f,
+                            JitterRadius = 0.1f,
+                            MaxDeviationRadius = 0.1f
+                        };
+                        break;
+                    case FilteringModes.Smooth:
+                        _smoothingParam = new TransformSmoothParameters
+                        {
+                            Smoothing = 0.7f,
+                            Correction = 0.3f,
+                            Prediction = 1.0f,
+                            JitterRadius = 1.0f,
+                            MaxDeviationRadius = 1.0f
+                        };
+                        break;
+                }
+                if (KinectDevice.SkeletonStream.IsEnabled)
+                {
+                    KinectDevice.SkeletonStream.Disable();
+                    KinectDevice.SkeletonStream.Enable(_smoothingParam);
+                }
+            }
+        }
+
+        /// <summary>
         /// Disopse device resources.</summary>
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void Dispose()
@@ -165,10 +346,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
             else
             {
                 SkeletonFrame skeletonFrame = e.OpenSkeletonFrame();
-                //TODO Remove this to increase Performance
                 if (skeletonFrame != null)
                 {
-                    // TODO ev Performance Problem because of reinstantiating Array (see profiling)
                     Skeleton[] skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletonFrame.CopySkeletonDataTo(skeletons);
                     // Copy actually tracked skeletons to a list which is easier to work with.

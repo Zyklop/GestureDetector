@@ -103,6 +103,13 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
         }
 
         /// <summary>
+        /// Position of the Person
+        /// </summary>
+        public SkeletonPoint Position { get { return skeletons.Last().Positon; } }
+
+        internal long TrackingId { get { return skeletons.Last().TrackingID; } }
+
+        /// <summary>
         /// Get a previous skeleton
         /// </summary>
         /// <param name="i">number of frames back</param>
@@ -173,8 +180,8 @@ namespace MF.Engineering.MF8910.GestureDetector.DataSources
 
         internal double Match(SmothendSkeleton skeleton) // distance to other person
         {
-            SkeletonPoint currentRoot = CurrentSkeleton.GetPosition(JointType.HipCenter);
-            SkeletonPoint otherRoot = skeleton.GetPosition(JointType.HipCenter);
+            SkeletonPoint currentRoot = CurrentSkeleton.Positon;
+            SkeletonPoint otherRoot = skeleton.Positon;
             return SkeletonMath.DistanceBetweenPoints(currentRoot, otherRoot);
         }
 
